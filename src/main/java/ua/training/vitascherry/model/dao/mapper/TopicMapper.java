@@ -9,7 +9,7 @@ public class TopicMapper {
     public static Topic extractTopic(ResultSet rs) throws SQLException {
         return Topic.builder()
                 .setId(rs.getInt("id_topic"))
-                .setName(rs.getString("name"))
+                .setName(rs.getString("topic.name"))
                 .build();
     }
 }

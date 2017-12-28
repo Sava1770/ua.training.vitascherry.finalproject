@@ -44,6 +44,7 @@ public class Question {
         return "Question{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
+                ", answers=" + answers +
                 '}';
     }
 

@@ -9,7 +9,7 @@ public class QuizMapper {
     public static Quiz extractQuiz(ResultSet rs) throws SQLException {
         return Quiz.builder()
                 .setId(rs.getInt("id_quiz"))
-                .setName(rs.getString("name"))
+                .setName(rs.getString("quiz.name"))
                 .build();
     }
 }

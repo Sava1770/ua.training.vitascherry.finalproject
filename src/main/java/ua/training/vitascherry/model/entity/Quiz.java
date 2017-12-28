@@ -1,5 +1,6 @@
 package ua.training.vitascherry.model.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Quiz {
@@ -7,7 +8,7 @@ public class Quiz {
     private int id;
     private String name;
 
-    private List<Question> questions;
+    private List<Question> questions = new ArrayList<>();
 
     private Quiz() {}
 
@@ -43,6 +44,7 @@ public class Quiz {
         return "Quiz{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", questions=" + questions +
                 '}';
     }
 
