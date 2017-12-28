@@ -1,10 +1,13 @@
 package ua.training.vitascherry.model.entity;
 
 public class Student {
+
     private int id;
     private String email;
     private String firstName;
     private String lastName;
+
+    private Student() {}
 
     public int getId() {
         return id;
@@ -20,6 +23,31 @@ public class Student {
 
     public String getLastName() {
         return lastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        return id == student.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 
     public static Builder builder() {

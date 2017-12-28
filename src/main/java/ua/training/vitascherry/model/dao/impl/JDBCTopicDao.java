@@ -1,7 +1,7 @@
 package ua.training.vitascherry.model.dao.impl;
 
-import ua.training.vitascherry.model.dao.StudentDao;
-import ua.training.vitascherry.model.entity.Student;
+import ua.training.vitascherry.model.dao.TopicDao;
+import ua.training.vitascherry.model.entity.Topic;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,43 +10,43 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL;
-import static ua.training.vitascherry.model.dao.mapper.StudentMapper.extractStudent;
+import static ua.training.vitascherry.model.dao.query.TopicQuery.LAZY_FIND_ALL;
+import static ua.training.vitascherry.model.dao.mapper.TopicMapper.extractTopic;
 
-public class JDBCStudentDao implements StudentDao {
+public class JDBCTopicDao implements TopicDao {
 
     private final Connection connection;
 
-    public JDBCStudentDao(Connection connection) {
+    public JDBCTopicDao(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public void create(Student entity) {
+    public void create(Topic entity) {
 
     }
 
     @Override
-    public Student findById(int id) {
+    public Topic findById(int id) {
         return null;
     }
 
     @Override
-    public List<Student> findAll() {
-        List<Student> subscribers = new ArrayList<>();
+    public List<Topic> findAll() {
+        List<Topic> topics = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                subscribers.add(extractStudent(rs));
+                topics.add(extractTopic(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return subscribers;
+        return topics;
     }
 
     @Override
-    public void update(Student entity) {
+    public void update(Topic entity) {
 
     }
 

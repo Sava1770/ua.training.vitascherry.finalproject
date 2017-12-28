@@ -1,7 +1,6 @@
 package ua.training.vitascherry.model.dao.impl;
 
-import ua.training.vitascherry.model.dao.DaoFactory;
-import ua.training.vitascherry.model.dao.StudentDao;
+import ua.training.vitascherry.model.dao.*;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -9,11 +8,31 @@ import java.sql.SQLException;
 
 public class JDBCDaoFactory extends DaoFactory {
 
-    private DataSource dataSource = ConnectionPoolHolder.getDataSource();
+    private final DataSource dataSource = ConnectionPoolHolder.getDataSource();
 
     @Override
     public StudentDao createStudentDao() {
         return new JDBCStudentDao(getConnection());
+    }
+
+    @Override
+    public QuizDao createQuizDao() {
+        return new JDBCQuizDao(getConnection());
+    }
+
+    @Override
+    public TopicDao createTopicDao() {
+        return new JDBCTopicDao(getConnection());
+    }
+
+    @Override
+    public QuestionDao createQuestionDao() {
+        return new JDBCQuestionDao(getConnection());
+    }
+
+    @Override
+    public AnswerDao createAnswerDao() {
+        return new JDBCAnswerDao(getConnection());
     }
 
     private Connection getConnection(){

@@ -60,7 +60,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table mydb.answer
+-- Table mydb.Answer
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS answer (
   id_answer INT NOT NULL AUTO_INCREMENT,

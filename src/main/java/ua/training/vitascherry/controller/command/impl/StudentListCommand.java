@@ -9,7 +9,7 @@ import java.util.List;
 
 public class StudentListCommand implements Command {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
     public StudentListCommand(StudentService studentService) {
         this.studentService = studentService;

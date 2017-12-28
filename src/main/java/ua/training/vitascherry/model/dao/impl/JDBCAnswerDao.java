@@ -1,7 +1,7 @@
 package ua.training.vitascherry.model.dao.impl;
 
-import ua.training.vitascherry.model.dao.StudentDao;
-import ua.training.vitascherry.model.entity.Student;
+import ua.training.vitascherry.model.dao.AnswerDao;
+import ua.training.vitascherry.model.entity.Answer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,43 +10,43 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL;
-import static ua.training.vitascherry.model.dao.mapper.StudentMapper.extractStudent;
+import static ua.training.vitascherry.model.dao.query.AnswerQuery.LAZY_FIND_ALL;
+import static ua.training.vitascherry.model.dao.mapper.AnswerMapper.extractAnswer;
 
-public class JDBCStudentDao implements StudentDao {
+public class JDBCAnswerDao implements AnswerDao {
 
     private final Connection connection;
 
-    public JDBCStudentDao(Connection connection) {
+    public JDBCAnswerDao(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public void create(Student entity) {
+    public void create(Answer entity) {
 
     }
 
     @Override
-    public Student findById(int id) {
+    public Answer findById(int id) {
         return null;
     }
 
     @Override
-    public List<Student> findAll() {
-        List<Student> subscribers = new ArrayList<>();
+    public List<Answer> findAll() {
+        List<Answer> answers = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                subscribers.add(extractStudent(rs));
+                answers.add(extractAnswer(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return subscribers;
+        return answers;
     }
 
     @Override
-    public void update(Student entity) {
+    public void update(Answer entity) {
 
     }
 

@@ -5,15 +5,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student list</title>
+        <title>Topic list</title>
     </head>
     <body>
-        <h1>Student list</h1>
+        <h1>Topic list</h1>
         <hr>
         <table border="1">
-            <tr><th>#</th><th>Email</th><th>First name</th><th>Last name</th></tr>
-            <c:forEach var="student" items="${requestScope.students}">
-            <tr><td><c:out value="${student.id}"/></td><td><c:out value="${student.email}"/></td><td><c:out value="${student.firstName}"/></td><td><c:out value="${student.lastName}"/></td></tr>
+            <tr><th>#</th><th>Name</th></tr>
+            <c:forEach var="topic" items="${requestScope.topics}">
+                <tr><td><c:out value="${topic.id}"/></td><td><c:out value="${topic.name}"/></td></tr>
             </c:forEach>
         </table>
         <hr>
