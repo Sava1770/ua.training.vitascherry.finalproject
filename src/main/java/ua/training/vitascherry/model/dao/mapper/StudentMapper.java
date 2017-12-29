@@ -12,6 +12,7 @@ public class StudentMapper {
                 .setEmail(rs.getString("email"))
                 .setFirstName(rs.getString("first_name"))
                 .setLastName(rs.getString("last_name"))
+                .setPatronymic(rs.getString("patronymic"))
                 .build();
     }
 }

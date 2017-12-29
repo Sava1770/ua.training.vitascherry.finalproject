@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import static ua.training.vitascherry.model.dao.mapper.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.mapper.QuestionMapper.extractQuestion;
 import static ua.training.vitascherry.model.dao.query.QuestionQuery.FIND_ALL;
-import static ua.training.vitascherry.model.utils.GenericUtils.getUniqueValue;
+import static ua.training.vitascherry.model.utils.EntryFilter.getUniqueValue;
 
 public class JDBCQuestionDao implements QuestionDao {
 

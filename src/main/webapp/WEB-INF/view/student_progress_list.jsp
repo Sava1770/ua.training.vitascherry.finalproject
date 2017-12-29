@@ -5,10 +5,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student list</title>
+        <title>Student's progress list</title>
         <style>
-            .students {
-                width: 640px;
+            .progresses {
+                width: 720px;
                 height: 100%;
             }
             table {
@@ -39,16 +39,16 @@
         </style>
     </head>
     <body>
-        <h1>Student list</h1>
+        <h1>Student's progress list</h1>
         <hr>
-        <div class="students">
+        <div class="progresses">
             <table cellpadding="1" border="1">
                 <tr class="table-header">
-                    <th>#</th><th>Full name</th><th>Email</th>
+                    <th>#</th><th>Student</th><th>Quiz</th><th>Questions</th><th>Correct</th>
                 </tr>
-                <c:forEach var="student" items="${requestScope.students}">
-                    <tr class="student-info">
-                        <td><c:out value="${student.id}"/></td><td><a href="${pageContext.request.contextPath}/student/${student.id}"><c:out value="${student.firstName} ${student.lastName} ${student.patronymic}"/></a></td><td><c:out value="${student.email}"/></td>
+                <c:forEach var="studentProgress" items="${requestScope.progresses}" varStatus="loop">
+                    <tr class="progress-info">
+                        <td><c:out value="${loop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/student/${studentProgress.student.id}"><c:out value="${studentProgress.student.firstName} ${studentProgress.student.lastName} ${studentProgress.student.patronymic}"/></a></td><td><a href="${pageContext.request.contextPath}/quiz/${studentProgress.quiz.id}"><c:out value="${studentProgress.quiz.name}"/></a></td><td><c:out value="${studentProgress.questionCount}"/></td><td><c:out value="${studentProgress.correctCount}"/></td>
                     </tr>
                 </c:forEach>
             </table>

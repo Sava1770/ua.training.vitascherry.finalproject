@@ -30,4 +30,10 @@ public class StudentService {
             return dao.findAll();
         }
     }
+
+    public Student getStudentById(int id) {
+        try (StudentDao dao = daoFactory.createStudentDao()) {
+            return dao.findById(id);
+        }
+    }
 }

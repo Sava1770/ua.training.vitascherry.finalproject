@@ -6,6 +6,7 @@ public class Student {
     private String email;
     private String firstName;
     private String lastName;
+    private String patronymic;
 
     private Student() {}
 
@@ -23,6 +24,10 @@ public class Student {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
     }
 
     @Override
@@ -47,6 +52,7 @@ public class Student {
                 ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", patronymic='" + patronymic + '\'' +
                 '}';
     }
 
@@ -72,7 +78,12 @@ public class Student {
         }
 
         public Builder setLastName(String lastName) {
-            Student.this.lastName = firstName;
+            Student.this.lastName = lastName;
+            return this;
+        }
+
+        public Builder setPatronymic(String patronymic) {
+            Student.this.patronymic = patronymic;
             return this;
         }
 

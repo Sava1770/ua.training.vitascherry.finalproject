@@ -5,22 +5,23 @@ import ua.training.vitascherry.model.entity.Quiz;
 import ua.training.vitascherry.model.service.QuizService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 import static ua.training.vitascherry.model.utils.Tokenizer.extractId;
 
-public class QuizCommand implements Command {
+public class QuizListByTopicCommand implements Command {
 
     private final QuizService quizService;
 
-    public QuizCommand(QuizService quizService) {
+    public QuizListByTopicCommand(QuizService quizService) {
         this.quizService = quizService;
     }
 
     @Override
     public String execute(HttpServletRequest request) {
         int id = extractId(request.getRequestURI());
-        Quiz quiz = quizService.getQuizById(id);
-        request.setAttribute("quiz" , quiz);
-        return "/WEB-INF/view/quiz.jsp";
+        List<Quiz> quizzes = quizService.getQuizzesByTopicId(id);
+        request.setAttribute("quizzes" , quizzes);
+        return "/WEB-INF/view/quiz_list.jsp";
     }
 }

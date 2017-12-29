@@ -11,7 +11,7 @@
                 width: 640px;
                 height: 100%;
             }
-            .topics table {
+            table {
                 width: 100%;
                 border-color: rgba(15, 13, 14, 0.50);
                 margin: 1em 0 1em 0;
@@ -19,7 +19,7 @@
             table td, table th {
                 text-align: left;
             }
-            .main-page-href {
+            .main-page-link {
                 margin-top: 1em;
             }
             a {
@@ -48,13 +48,13 @@
                 </tr>
                 <c:forEach var="topic" items="${requestScope.topics}">
                     <tr class="topic-info">
-                        <td><c:out value="${topic.id}"/></td><td><c:out value="${topic.name}"/></td>
+                        <td><c:out value="${topic.id}"/></td><td><a href="${pageContext.request.contextPath}/topic/${topic.id}"><c:out value="${topic.name}"/></a></td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
         <hr>
-        <div class="main-page-href">
+        <div class="main-page-link">
             <a href="${pageContext.request.contextPath}/">Main page</a>
         </div>
     </body>

@@ -9,7 +9,7 @@
             .menu {
                 width: 640px;
             }
-            .menu nav {
+            nav {
                 width: 100%;
                 margin: 1em 0 1em 0;
             }
@@ -35,9 +35,9 @@
         <div class="menu">
             <nav>
                 <a href="${pageContext.request.contextPath}/students">Students</a>
+                <a href="${pageContext.request.contextPath}/progress">Student's progress</a>
                 <a href="${pageContext.request.contextPath}/topics">Topics</a>
                 <a href="${pageContext.request.contextPath}/quizzes">Quizzes</a>
-                <a href="${pageContext.request.contextPath}/quiz/1">Quiz 1</a>
             </nav>
         </div>
     </body>

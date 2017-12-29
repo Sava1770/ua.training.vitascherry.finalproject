@@ -5,16 +5,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student list</title>
+        <title>Student ${requestScope.student.id}</title>
         <style>
-            .students {
+            .student {
                 width: 640px;
                 height: 100%;
             }
             table {
                 width: 100%;
-                border-color: rgba(15, 13, 14, 0.50);
                 margin: 1em 0 1em 0;
+            }
+            table td.l {
+                font-weight: bold;
             }
             table td, table th {
                 text-align: left;
@@ -39,18 +41,16 @@
         </style>
     </head>
     <body>
-        <h1>Student list</h1>
+        <h1>Student ${requestScope.student.id}</h1>
         <hr>
-        <div class="students">
-            <table cellpadding="1" border="1">
-                <tr class="table-header">
-                    <th>#</th><th>Full name</th><th>Email</th>
+        <div class="student">
+            <table>
+                <tr>
+                    <td class="l">Full name:</td><td><c:out value="${requestScope.student.firstName} ${requestScope.student.lastName} ${requestScope.student.patronymic}"/></td>
                 </tr>
-                <c:forEach var="student" items="${requestScope.students}">
-                    <tr class="student-info">
-                        <td><c:out value="${student.id}"/></td><td><a href="${pageContext.request.contextPath}/student/${student.id}"><c:out value="${student.firstName} ${student.lastName} ${student.patronymic}"/></a></td><td><c:out value="${student.email}"/></td>
-                    </tr>
-                </c:forEach>
+                <tr>
+                    <td class="l">Email:</td><td><c:out value="${requestScope.student.email}"/></td>
+                </tr>
             </table>
         </div>
         <hr>

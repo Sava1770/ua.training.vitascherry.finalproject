@@ -11,7 +11,7 @@
                 width: 640px;
                 height: 100%;
             }
-            table.question {
+            table {
                 width: 100%;
                 margin: 1em 0 1em 0;
                 border: 4px double rgba(15, 13, 14, 0.50);
@@ -29,7 +29,7 @@
             td.answer-text {
                 width: 96%;
             }
-            .main-page-href {
+            .main-page-link {
                 margin-top: 1em;
             }
             a {
@@ -53,22 +53,20 @@
         <hr>
         <div class="questions">
             <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="outer">
-                <table class="question">
-                    <tbody>
-                        <tr class="question-body">
-                            <th class="question-text"><c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/></th>
+                <table>
+                    <tr class="question-body">
+                        <th class="question-text"><c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/></th>
+                    </tr>
+                    <c:forEach var="answer" items="${question.answers}" varStatus="inner">
+                        <tr class="answer-body">
+                            <td class="answer-text"><c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/></td><td class="answer-picker"><input type="checkbox"></td>
                         </tr>
-                        <c:forEach var="answer" items="${question.answers}" varStatus="inner">
-                            <tr class="answer-body">
-                                <td class="answer-text"><c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/></td><td class="answer-picker"><input type="checkbox"></td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
+                    </c:forEach>
                 </table>
             </c:forEach>
         </div>
         <hr>
-        <div class="main-page-href">
+        <div class="main-page-link">
             <a href="${pageContext.request.contextPath}/">Main page</a>
         </div>
     </body>

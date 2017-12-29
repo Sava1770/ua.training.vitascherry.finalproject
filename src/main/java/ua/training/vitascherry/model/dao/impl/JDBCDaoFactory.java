@@ -35,6 +35,11 @@ public class JDBCDaoFactory extends DaoFactory {
         return new JDBCAnswerDao(getConnection());
     }
 
+    @Override
+    public StudentProgressDao createStudentProgressDao() {
+        return new JDBCStudentProgressDao(getConnection());
+    }
+
     private Connection getConnection(){
         try {
             return dataSource.getConnection();

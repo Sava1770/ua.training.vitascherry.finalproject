@@ -11,7 +11,7 @@
                 width: 640px;
                 height: 100%;
             }
-            .students table {
+            table {
                 width: 100%;
                 border-color: rgba(15, 13, 14, 0.50);
                 margin: 1em 0 1em 0;
@@ -19,7 +19,7 @@
             table td, table th {
                 text-align: left;
             }
-            .main-page-href {
+            .main-page-link {
                 margin-top: 1em;
             }
             a {
@@ -44,17 +44,17 @@
         <div class="students">
             <table cellpadding="1" border="1">
                 <tr class="table-header">
-                    <th>#</th><th>Email</th><th>First name</th><th>Last name</th>
+                    <th>#</th><th>Full name</th><th>Email</th>
                 </tr>
                 <c:forEach var="student" items="${requestScope.students}">
                     <tr class="student-info">
-                        <td><c:out value="${student.id}"/></td><td><c:out value="${student.email}"/></td><td><c:out value="${student.firstName}"/></td><td><c:out value="${student.lastName}"/></td>
+                        <td><c:out value="${student.id}"/></td><td><a href="${pageContext.request.contextPath}/student/${student.id}"><c:out value="${student.firstName} ${student.lastName} ${student.patronymic}"/></a></td><td><c:out value="${student.email}"/></td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
         <hr>
-        <div class="main-page-href">
+        <div class="main-page-link">
             <a href="${pageContext.request.contextPath}/">Main page</a>
         </div>
     </body>

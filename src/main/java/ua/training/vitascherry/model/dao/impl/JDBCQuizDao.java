@@ -15,9 +15,10 @@ import java.util.List;
 import static ua.training.vitascherry.model.dao.mapper.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.mapper.QuestionMapper.extractQuestion;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.FIND_BY_ID;
+import static ua.training.vitascherry.model.dao.query.QuizQuery.FIND_BY_TOPIC_ID;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.LAZY_FIND_ALL;
 import static ua.training.vitascherry.model.dao.mapper.QuizMapper.extractQuiz;
-import static ua.training.vitascherry.model.utils.GenericUtils.getUniqueValue;
+import static ua.training.vitascherry.model.utils.EntryFilter.getUniqueValue;
 
 public class JDBCQuizDao implements QuizDao {
 
@@ -52,6 +53,21 @@ public class JDBCQuizDao implements QuizDao {
             e.printStackTrace();
         }
         return quiz;
+    }
+
+    @Override
+    public List<Quiz> findByTopicId(int id) {
+        List<Quiz> quizzes = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_TOPIC_ID)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                quizzes.add(extractQuiz(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return quizzes;
     }
 
     @Override

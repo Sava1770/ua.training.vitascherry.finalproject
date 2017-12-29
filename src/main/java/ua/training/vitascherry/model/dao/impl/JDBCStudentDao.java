@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ua.training.vitascherry.model.dao.query.StudentQuery.FIND_BY_ID;
 import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL;
 import static ua.training.vitascherry.model.dao.mapper.StudentMapper.extractStudent;
 
@@ -28,21 +29,31 @@ public class JDBCStudentDao implements StudentDao {
 
     @Override
     public Student findById(int id) {
-        return null;
-    }
-
-    @Override
-    public List<Student> findAll() {
-        List<Student> subscribers = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
+        Student student = null;
+        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_ID)) {
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                subscribers.add(extractStudent(rs));
+            if (rs.next()) {
+                student = extractStudent(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return subscribers;
+        return student;
+    }
+
+    @Override
+    public List<Student> findAll() {
+        List<Student> students = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                students.add(extractStudent(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return students;
     }
 
     @Override

@@ -1,9 +1,14 @@
 package ua.training.vitascherry.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Topic {
 
     private int id;
     private String name;
+
+    private List<Quiz> quizzes = new ArrayList<>();
 
     private Topic() {}
 
@@ -13,6 +18,10 @@ public class Topic {
 
     public String getName() {
         return name;
+    }
+
+    public List<Quiz> getQuizzes() {
+        return quizzes;
     }
 
     @Override

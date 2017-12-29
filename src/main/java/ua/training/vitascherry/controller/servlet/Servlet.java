@@ -1,23 +1,21 @@
 package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.controller.command.impl.QuizCommand;
-import ua.training.vitascherry.controller.command.impl.QuizListCommand;
-import ua.training.vitascherry.controller.command.impl.StudentListCommand;
-import ua.training.vitascherry.controller.command.impl.TopicsListCommand;
+import ua.training.vitascherry.controller.command.impl.*;
 import ua.training.vitascherry.model.service.QuizService;
+import ua.training.vitascherry.model.service.StudentProgressService;
 import ua.training.vitascherry.model.service.StudentService;
 import ua.training.vitascherry.model.service.TopicService;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import static ua.training.vitascherry.model.utils.Tokenizer.extractCommand;
 
 public class Servlet extends HttpServlet {
 
@@ -28,7 +26,10 @@ public class Servlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         commands.put("students", new StudentListCommand(StudentService.getInstance()));
-        commands.put("topics", new TopicsListCommand(TopicService.getInstance()));
+        commands.put("student", new StudentCommand(StudentService.getInstance()));
+        commands.put("progress", new StudentProgressCommand(StudentProgressService.getInstance()));
+        commands.put("topics", new TopicListCommand(TopicService.getInstance()));
+        commands.put("topic", new QuizListByTopicCommand(QuizService.getInstance()));
         commands.put("quizzes", new QuizListCommand(QuizService.getInstance()));
         commands.put("quiz", new QuizCommand(QuizService.getInstance()));
         System.out.println("Servlet was initialized!");
@@ -44,19 +45,14 @@ public class Servlet extends HttpServlet {
 
         String path = req.getRequestURI();
         String pathFull = req.getRequestURL().toString();
+        String params = req.getQueryString();
         System.out.println("\nIncoming GET request!");
         System.out.println("----- Request URI: " + path);
         System.out.println("----- Request URL: " + pathFull);
+        System.out.println("----- Request Params: " + params);
         System.out.println("Processing request...");
 
-        String[] tokens = path.split("/");
-        String token;
-        if(tokens.length != 0) {
-            token = tokens[1];
-            System.out.println("----- Tokens: " + Arrays.toString(tokens));
-        } else {
-            token = path;
-        }
+        String token = extractCommand(path);
 
         Command command = commands.getOrDefault(token, (r) -> index);
         String page = command.execute(req);
