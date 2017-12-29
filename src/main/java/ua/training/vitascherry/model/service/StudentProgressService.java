@@ -10,21 +10,6 @@ public class StudentProgressService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
 
-    private static volatile StudentProgressService studentProgressService;
-
-    private StudentProgressService() {}
-
-    public static StudentProgressService getInstance(){
-        if( studentProgressService == null ){
-            synchronized (StudentProgressService.class){
-                if( studentProgressService == null ){
-                    studentProgressService = new StudentProgressService();
-                }
-            }
-        }
-        return studentProgressService;
-    }
-
     public List<StudentProgress> getAllStudentProgress() {
         try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
             return dao.findAll();

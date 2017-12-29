@@ -9,11 +9,7 @@ import java.util.List;
 
 public class StudentListCommand implements Command {
 
-    private final StudentService studentService;
-
-    public StudentListCommand(StudentService studentService) {
-        this.studentService = studentService;
-    }
+    private final StudentService studentService = new StudentService();
 
     @Override
     public String execute(HttpServletRequest request) {

@@ -25,13 +25,13 @@ public class Servlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        commands.put("students", new StudentListCommand(StudentService.getInstance()));
-        commands.put("student", new StudentCommand(StudentService.getInstance()));
-        commands.put("progress", new StudentProgressCommand(StudentProgressService.getInstance()));
-        commands.put("topics", new TopicListCommand(TopicService.getInstance()));
-        commands.put("topic", new QuizListByTopicCommand(QuizService.getInstance()));
-        commands.put("quizzes", new QuizListCommand(QuizService.getInstance()));
-        commands.put("quiz", new QuizCommand(QuizService.getInstance()));
+        commands.put("students", new StudentListCommand());
+        commands.put("student", new StudentCommand());
+        commands.put("progress", new StudentProgressCommand());
+        commands.put("topics", new TopicListCommand());
+        commands.put("topic", new QuizListByTopicCommand());
+        commands.put("quizzes", new QuizListCommand());
+        commands.put("quiz", new QuizCommand());
         System.out.println("Servlet was initialized!");
     }
 

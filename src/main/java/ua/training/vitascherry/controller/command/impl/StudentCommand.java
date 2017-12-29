@@ -10,11 +10,7 @@ import static ua.training.vitascherry.model.utils.Tokenizer.extractId;
 
 public class StudentCommand implements Command {
 
-    private final StudentService studentService;
-
-    public StudentCommand(StudentService studentService) {
-        this.studentService = studentService;
-    }
+    private final StudentService studentService = new StudentService();
 
     @Override
     public String execute(HttpServletRequest request) {

@@ -9,11 +9,7 @@ import java.util.List;
 
 public class QuizListCommand implements Command {
 
-    private final QuizService quizService;
-
-    public QuizListCommand(QuizService quizService) {
-        this.quizService = quizService;
-    }
+    private final QuizService quizService = new QuizService();
 
     @Override
     public String execute(HttpServletRequest request) {

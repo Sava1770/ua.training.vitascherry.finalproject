@@ -10,21 +10,6 @@ public class QuizService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
 
-    private static volatile QuizService quizService;
-
-    private QuizService() {}
-
-    public static QuizService getInstance() {
-        if( quizService == null ){
-            synchronized (QuizService.class){
-                if( quizService == null ){
-                    quizService = new QuizService();
-                }
-            }
-        }
-        return quizService;
-    }
-
     public List<Quiz> getAllQuizzes() {
         try (QuizDao dao = daoFactory.createQuizDao()) {
             return dao.findAll();

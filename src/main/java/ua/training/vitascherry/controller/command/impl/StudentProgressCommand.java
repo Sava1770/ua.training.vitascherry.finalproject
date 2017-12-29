@@ -9,11 +9,7 @@ import java.util.List;
 
 public class StudentProgressCommand implements Command {
 
-    private final StudentProgressService studentProgressService;
-
-    public StudentProgressCommand(StudentProgressService studentProgressService) {
-        this.studentProgressService = studentProgressService;
-    }
+    private final StudentProgressService studentProgressService = new StudentProgressService();
 
     @Override
     public String execute(HttpServletRequest request) {

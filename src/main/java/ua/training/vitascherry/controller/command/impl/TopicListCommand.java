@@ -9,11 +9,7 @@ import java.util.List;
 
 public class TopicListCommand implements Command {
 
-    private final TopicService topicService;
-
-    public TopicListCommand(TopicService topicService) {
-        this.topicService = topicService;
-    }
+    private final TopicService topicService = new TopicService();
 
     @Override
     public String execute(HttpServletRequest request) {
