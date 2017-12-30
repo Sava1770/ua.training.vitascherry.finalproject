@@ -1,11 +1,8 @@
 package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.controller.command.Command;
+import ua.training.vitascherry.controller.command.impl.LoginCommand;
 import ua.training.vitascherry.controller.command.impl.*;
-import ua.training.vitascherry.model.service.QuizService;
-import ua.training.vitascherry.model.service.StudentProgressService;
-import ua.training.vitascherry.model.service.StudentService;
-import ua.training.vitascherry.model.service.TopicService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,11 +12,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static ua.training.vitascherry.model.utils.Tokenizer.extractCommand;
+import static ua.training.vitascherry.controller.util.CommandMapper.extractCommand;
 
 public class Servlet extends HttpServlet {
-
-    private static final String index = "/WEB-INF/view/index.jsp";
 
     private Map<String, Command> commands = new HashMap<>();
 
@@ -32,17 +27,14 @@ public class Servlet extends HttpServlet {
         commands.put("topic", new QuizListByTopicCommand());
         commands.put("quizzes", new QuizListCommand());
         commands.put("quiz", new QuizCommand());
+        commands.put("login", new LoginCommand());
+        commands.put("welcome", new WelcomeCommand());
         System.out.println("Servlet was initialized!");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding("UTF-8");
-
         String path = req.getRequestURI();
         String pathFull = req.getRequestURL().toString();
         String params = req.getQueryString();
@@ -52,32 +44,29 @@ public class Servlet extends HttpServlet {
         System.out.println("----- Request Params: " + params);
         System.out.println("Processing request...");
 
-        String token = extractCommand(path);
+        Command command = extractCommand(path, commands);
+        String responsePage = command.execute(req);
+        System.out.println("Response page: " + responsePage);
 
-        Command command = commands.getOrDefault(token, (r) -> index);
-        String page = command.execute(req);
-        System.out.println("Response page: " + page);
-
-        req.getRequestDispatcher(page).forward(req, resp);
+        req.getRequestDispatcher(responsePage).forward(req, resp);
         System.out.println("GET was executed!\n");
     }
 
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
-        req.setCharacterEncoding("UTF-8");
-
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding("UTF-8");
-
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String path = req.getRequestURI();
         String pathFull = req.getRequestURL().toString();
-        System.out.println("\nIncoming POST request!");
+        String params = req.getQueryString();
+        System.out.println("\nIncoming GET request!");
         System.out.println("----- Request URI: " + path);
         System.out.println("----- Request URL: " + pathFull);
+        System.out.println("----- Request Params: " + params);
         System.out.println("Processing request...");
 
-        // TODO
+        Command command = extractCommand(path, commands);
+        String responsePage = command.execute(req);
+        System.out.println("Response page: " + responsePage);
 
+        req.getRequestDispatcher(responsePage).forward(req, resp);
         System.out.println("POST was executed!\n");
     }
 

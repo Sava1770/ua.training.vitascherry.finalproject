@@ -1,4 +1,4 @@
-package ua.training.vitascherry.model.dao.mapper;
+package ua.training.vitascherry.model.dao.util;
 
 import ua.training.vitascherry.model.entity.Topic;
 

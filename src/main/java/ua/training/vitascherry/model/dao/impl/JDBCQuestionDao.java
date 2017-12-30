@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static ua.training.vitascherry.model.dao.mapper.AnswerMapper.extractAnswer;
-import static ua.training.vitascherry.model.dao.mapper.QuestionMapper.extractQuestion;
+import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
+import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
 import static ua.training.vitascherry.model.dao.query.QuestionQuery.FIND_ALL;
-import static ua.training.vitascherry.model.utils.EntryFilter.getUniqueValue;
+import static ua.training.vitascherry.model.dao.util.EntityMapper.extractUniqueValue;
 
 public class JDBCQuestionDao implements QuestionDao {
 
@@ -43,7 +43,7 @@ public class JDBCQuestionDao implements QuestionDao {
             HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
             while (rs.next()) {
                 Question question = extractQuestion(rs);
-                question = getUniqueValue(uniqueQuestions, question.getId(), question);
+                question = extractUniqueValue(uniqueQuestions, question.getId(), question);
                 question.getAnswers().add(extractAnswer(rs));
                 questions.add(question);
             }

@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.mapper.AnswerMapper.extractAnswer;
-import static ua.training.vitascherry.model.dao.mapper.QuestionMapper.extractQuestion;
+import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
+import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.FIND_BY_ID;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.FIND_BY_TOPIC_ID;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.LAZY_FIND_ALL;
-import static ua.training.vitascherry.model.dao.mapper.QuizMapper.extractQuiz;
-import static ua.training.vitascherry.model.utils.EntryFilter.getUniqueValue;
+import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
+import static ua.training.vitascherry.model.dao.util.EntityMapper.extractUniqueValue;
 
 public class JDBCQuizDao implements QuizDao {
 
@@ -44,7 +44,7 @@ public class JDBCQuizDao implements QuizDao {
                 quiz = extractQuiz(rs);
                 while (rs.next()) {
                     Question question = extractQuestion(rs);
-                    question = getUniqueValue(uniqueQuestions, question.getId(), question);
+                    question = extractUniqueValue(uniqueQuestions, question.getId(), question);
                     question.getAnswers().add(extractAnswer(rs));
                 }
                 quiz.getQuestions().addAll(uniqueQuestions.values());

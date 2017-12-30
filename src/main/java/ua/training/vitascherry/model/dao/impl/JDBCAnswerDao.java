@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.AnswerQuery.LAZY_FIND_ALL;
-import static ua.training.vitascherry.model.dao.mapper.AnswerMapper.extractAnswer;
+import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 
 public class JDBCAnswerDao implements AnswerDao {
 

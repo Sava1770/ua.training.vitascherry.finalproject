@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student Inspector</title>
         <style>
-            .menu {
+            .navigation-menu {
                 width: 640px;
             }
             nav {
@@ -32,12 +32,13 @@
     <body>
         <h1>Welcome to Student Inspector!</h1>
         <hr>
-        <div class="menu">
+        <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/students">Students</a>
-                <a href="${pageContext.request.contextPath}/progress">Student's progress</a>
-                <a href="${pageContext.request.contextPath}/topics">Topics</a>
-                <a href="${pageContext.request.contextPath}/quizzes">Quizzes</a>
+                <a href="${pageContext.request.contextPath}/topics">Topic list</a>
+                <a href="${pageContext.request.contextPath}/quizzes">Quiz list</a>
+                <a href="${pageContext.request.contextPath}/progress">Progress</a>
+                <a href="${pageContext.request.contextPath}/students">Student list</a>
+                <a href="${pageContext.request.contextPath}/login">Login</a>
             </nav>
         </div>
     </body>

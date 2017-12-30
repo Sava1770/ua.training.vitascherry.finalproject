@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.mapper.StudentProgressMapper.extractStudentProgress;
+import static ua.training.vitascherry.model.dao.util.StudentProgressMapper.extractStudentProgress;
 import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_ALL;
 
 public class JDBCStudentProgressDao implements StudentProgressDao {

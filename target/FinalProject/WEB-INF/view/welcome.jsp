@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student Inspector</title>
+        <title>Welcome</title>
         <style>
             .navigation-menu {
                 width: 640px;
@@ -30,15 +30,11 @@
         </style>
     </head>
     <body>
-        <h1>Welcome to Student Inspector!</h1>
+        <h1>Welcome ${requestScope.user.name}</h1>
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/topics">Topic list</a>
-                <a href="${pageContext.request.contextPath}/quizzes">Quiz list</a>
-                <a href="${pageContext.request.contextPath}/progress">Progress</a>
-                <a href="${pageContext.request.contextPath}/students">Student list</a>
-                <a href="${pageContext.request.contextPath}/login">Login</a>
+                <a href="${pageContext.request.contextPath}/topics">Quiz catalogue</a>
             </nav>
         </div>
     </body>

@@ -12,7 +12,7 @@ import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.StudentQuery.FIND_BY_ID;
 import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL;
-import static ua.training.vitascherry.model.dao.mapper.StudentMapper.extractStudent;
+import static ua.training.vitascherry.model.dao.util.StudentMapper.extractStudent;
 
 public class JDBCStudentDao implements StudentDao {
 

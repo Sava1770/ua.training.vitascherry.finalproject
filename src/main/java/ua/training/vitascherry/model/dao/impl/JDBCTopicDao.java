@@ -12,7 +12,7 @@ import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_BY_QUIZ_ID;
 import static ua.training.vitascherry.model.dao.query.TopicQuery.LAZY_FIND_ALL;
-import static ua.training.vitascherry.model.dao.mapper.TopicMapper.extractTopic;
+import static ua.training.vitascherry.model.dao.util.TopicMapper.extractTopic;
 
 public class JDBCTopicDao implements TopicDao {
 
