@@ -18,7 +18,7 @@
             table td.l {
                 font-weight: bold;
             }
-            table td, table th {
+            table td {
                 text-align: left;
             }
             .main-page-link {

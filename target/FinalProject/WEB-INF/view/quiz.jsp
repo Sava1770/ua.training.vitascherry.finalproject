@@ -11,23 +11,29 @@
                 width: 640px;
                 height: 100%;
             }
-            table {
+            ul {
+                list-style-type: none;
                 width: 100%;
                 margin: 1em 0 1em 0;
-                border: 4px double rgba(15, 13, 14, 0.50);
             }
-            table td, table th {
-                text-align: left;
-            }
-            th.question-text {
+            .answers {
                 width: 100%;
-                margin-bottom: 5px;
+                margin-bottom: 1em;
             }
-            tr.answer-body {
-                margin-left: 1em;
+            .question-text {
+                width: 100%;
+                font-weight: bold;
             }
-            td.answer-text {
-                width: 96%;
+            .answer-text {
+                padding-left: 1em;
+            }
+            .answer-text:after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+            .picker {
+                float: right;
             }
             .main-page-link {
                 margin-top: 1em;
@@ -52,18 +58,20 @@
         <h1><c:out value="${requestScope.quiz.name}"/></h1>
         <hr>
         <div class="questions">
-            <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="outer">
-                <table>
-                    <tr class="question-body">
-                        <th class="question-text"><c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/></th>
-                    </tr>
-                    <c:forEach var="answer" items="${question.answers}" varStatus="inner">
-                        <tr class="answer-body">
-                            <td class="answer-text"><c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/></td><td class="answer-picker"><input type="checkbox"></td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </c:forEach>
+            <ul>
+                <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="outer">
+                    <li class="question-text">
+                        <c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/>
+                    </li>
+                    <div class="answers">
+                        <c:forEach var="answer" items="${question.answers}" varStatus="inner">
+                            <li class="answer-text">
+                                <c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox">
+                            </li>
+                        </c:forEach>
+                    </div>
+                </c:forEach>
+            </ul>
         </div>
         <hr>
         <div class="main-page-link">

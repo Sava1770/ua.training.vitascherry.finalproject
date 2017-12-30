@@ -12,11 +12,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static ua.training.vitascherry.model.dao.query.QuizQuery.*;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
-import static ua.training.vitascherry.model.dao.query.QuizQuery.FIND_BY_ID;
-import static ua.training.vitascherry.model.dao.query.QuizQuery.FIND_BY_TOPIC_ID;
-import static ua.training.vitascherry.model.dao.query.QuizQuery.LAZY_FIND_ALL;
+import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestionAnswers;
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
 import static ua.training.vitascherry.model.dao.util.EntityMapper.extractUniqueValue;
 
@@ -68,6 +67,28 @@ public class JDBCQuizDao implements QuizDao {
             e.printStackTrace();
         }
         return quizzes;
+    }
+
+    @Override
+    public Quiz findByStudentIdQuizId(int studentId, int quizId) {
+        Quiz result = null;
+        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_STUDENT_ID_QUIZ_ID)) {
+            ps.setInt(1, studentId);
+            ps.setInt(2, quizId);
+            ResultSet rs = ps.executeQuery();
+            HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
+            if (rs.next()) {
+                result = extractQuiz(rs);
+                extractQuestionAnswers(rs, uniqueQuestions);
+                while (rs.next()) {
+                    extractQuestionAnswers(rs, uniqueQuestions);
+                }
+                result.getQuestions().addAll(uniqueQuestions.values());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override

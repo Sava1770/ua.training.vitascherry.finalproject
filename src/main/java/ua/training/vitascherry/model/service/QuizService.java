@@ -27,4 +27,10 @@ public class QuizService {
             return dao.findByTopicId(id);
         }
     }
+
+    public Quiz getResultByStudentIdQuizId(int idStudent, int idQuiz) {
+        try (QuizDao dao = daoFactory.createQuizDao()) {
+            return dao.findByStudentIdQuizId(idStudent, idQuiz);
+        }
+    }
 }

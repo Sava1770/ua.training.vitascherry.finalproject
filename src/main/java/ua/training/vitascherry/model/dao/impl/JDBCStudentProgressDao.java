@@ -27,11 +27,6 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public List<StudentProgress> findByStudentId(int id) {
-        return null;
-    }
-
-    @Override
     public List<StudentProgress> findAll() {
         List<StudentProgress> progresses = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(FIND_ALL)) {

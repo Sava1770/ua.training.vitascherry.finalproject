@@ -13,7 +13,7 @@ public class StudentProgressCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-        List<StudentProgress> progresses = studentProgressService.getAllStudentProgress();
+        List<StudentProgress> progresses = studentProgressService.getAllProgress();
         request.setAttribute("progresses" , progresses);
         return "/WEB-INF/view/student_progress_list.jsp";
     }

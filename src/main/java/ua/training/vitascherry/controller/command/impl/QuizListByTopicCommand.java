@@ -8,7 +8,7 @@ import ua.training.vitascherry.model.service.QuizService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-import static ua.training.vitascherry.controller.util.Tokenizer.getToken;
+import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
 public class QuizListByTopicCommand implements Command {
 
@@ -16,7 +16,7 @@ public class QuizListByTopicCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-        String token = getToken(request.getRequestURI(), TokenPosition.ID);
+        String token = extractToken(request.getRequestURI(), TokenPosition.ID);
         int id = Integer.parseInt(token);
         List<Quiz> quizzes = quizService.getQuizzesByTopicId(id);
         request.setAttribute("quizzes" , quizzes);

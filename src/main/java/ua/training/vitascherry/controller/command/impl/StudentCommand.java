@@ -7,7 +7,7 @@ import ua.training.vitascherry.model.service.StudentService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.Tokenizer.getToken;
+import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
 public class StudentCommand implements Command {
 
@@ -15,7 +15,7 @@ public class StudentCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-        String token = getToken(request.getRequestURI(), TokenPosition.ID);
+        String token = extractToken(request.getRequestURI(), TokenPosition.ID);
         int id = Integer.parseInt(token);
         Student student = studentService.getStudentById(id);
         request.setAttribute("student" , student);

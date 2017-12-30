@@ -16,6 +16,11 @@ public class JDBCDaoFactory extends DaoFactory {
     }
 
     @Override
+    public StudentProgressDao createStudentProgressDao() {
+        return new JDBCStudentProgressDao(getConnection());
+    }
+
+    @Override
     public QuizDao createQuizDao() {
         return new JDBCQuizDao(getConnection());
     }
@@ -33,11 +38,6 @@ public class JDBCDaoFactory extends DaoFactory {
     @Override
     public AnswerDao createAnswerDao() {
         return new JDBCAnswerDao(getConnection());
-    }
-
-    @Override
-    public StudentProgressDao createStudentProgressDao() {
-        return new JDBCStudentProgressDao(getConnection());
     }
 
     private Connection getConnection(){

@@ -6,12 +6,12 @@
         version="2.1">
 
     <tlib-version>1.0</tlib-version>
-    <short-name>contains</short-name>
+    <short-name>get</short-name>
 
     <function>
-        <name>contains</name>
+        <name>getAnswers</name>
         <function-class>ua.training.vitascherry.model.util.TagLib</function-class>
-        <function-signature>boolean contains(java.util.Collection, T)</function-signature>
+        <function-signature>java.util.List getAnswers(java.util.List, int)</function-signature>
     </function>
 
 </taglib>

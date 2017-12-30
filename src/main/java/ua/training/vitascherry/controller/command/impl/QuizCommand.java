@@ -7,7 +7,7 @@ import ua.training.vitascherry.controller.util.TokenPosition;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.Tokenizer.getToken;
+import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
 public class QuizCommand implements Command {
 
@@ -15,8 +15,7 @@ public class QuizCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest req) {
-        String token = getToken(req.getRequestURI(), TokenPosition.ID);
-        int id = Integer.parseInt(token);
+        int id = Integer.parseInt(extractToken(req.getRequestURI(), TokenPosition.ID));
         Quiz quiz = quizService.getQuizById(id);
         req.setAttribute("quiz" , quiz);
         return "/WEB-INF/view/quiz.jsp";

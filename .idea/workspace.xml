@@ -7,29 +7,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b256c773-3e56-4d65-ad25-e6ca53d7adc4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Tokenizer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/EntityMapper.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/utils/EntryFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/utils/Tokenizer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuizResultDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizResultDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizResultQuery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/QuizResult.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizResultService.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysqldb/scripts/answer/insert_answer.sql" afterPath="$PROJECT_DIR$/mysqldb/scripts/answer/insert_answer.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysqldb/scripts/student/select_quiz_student_incorrect_answers.sql" afterPath="$PROJECT_DIR$/mysqldb/scripts/student/select_quiz_student_incorrect_answers.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListByTopicCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListByTopicCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCAnswerDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCAnswerDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/TokenPosition.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/TokenPosition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Tokenizer.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Tokenizer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuizDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuizDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCDaoFactory.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCDaoFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuestionDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuestionDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentProgressDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentProgressDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCTopicDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCTopicDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/AnswerMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/AnswerMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/QuestionMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuestionMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/QuizMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuizMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/StudentMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/StudentMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/StudentProgressMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/StudentProgressMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/TopicMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/TopicMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuestionQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuestionQuery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizQuery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuestionMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuestionMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Answer.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Answer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizService.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/util/TagLib.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/util/TagLib.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_result.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_result.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student_progress_list.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student_progress_list.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tag/contains.tld" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tag/containsAnswer.tld" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,10 +59,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Tag Library Descriptor" />
       </list>
     </option>
   </component>
@@ -70,57 +81,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/StudentsProgress.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/StudentMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/StudentProgress.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentsProgress.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/DaoFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCDaoFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/StudentProgress.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/mapper/StudentProgressMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/StudentProgressQuery.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/topic_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/StudentQuery.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/StudentCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Student.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/StudentProgressDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentProgressDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/StudentProgressService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/StudentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/TopicService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentListCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/TopicListCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/EncodingFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/welcome_user.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/LoginCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/util/TokenPosition.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/util/Tokenizer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/Mapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/util/EntityMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Router.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/WelcomeCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/LoginCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/WelcomeCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/TokenPosition.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListByTopicCommand.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/AnswerDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/AnswerQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuestionMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCAnswerDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/StudentProgress.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/QuizResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuizResultMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuizResultDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/StudentProgressDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentProgressDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/StudentProgressService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/DaoFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizResultDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizResultQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Tokenizer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/TokenPosition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuestionDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuizDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuestionQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCDaoFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizResultService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizResultCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/util/TagLib.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tag/get.tld" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tag/contains.tld" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tag/containsAnswer.tld" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuestionDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Answer.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_result.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp" />
       </list>
     </option>
   </component>
@@ -186,9 +197,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,19 +246,12 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FinalProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FinalProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,13 +261,10 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project01" />
+    <property name="last_opened_file_path" value="E:/WebProjects/Test/pseudo-class/styles.css" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\JavaProjects\FinalProject\src\main\webapp\WEB-INF\view" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ua.training.vitascherry.controller.command.impl" />
       <recent name="ua.training.vitascherry.model.dao.util" />
@@ -274,10 +273,13 @@
       <recent name="ua.training.vitascherry.model.dao.impl" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ua.training.vitascherry.controller.command.impl" />
       <recent name="ua.training.vitascherry.controller.command" />
       <recent name="ua.training.vitascherry.model.dao.impl" />
       <recent name="ua.training.vitascherry.model.dao" />
-      <recent name="ua.training.vitascherry.controller.command.impl" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\JavaProjects\FinalProject\src\main\webapp\WEB-INF\view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -441,11 +443,12 @@
       <workItem from="1514562552920" duration="12612000" />
       <workItem from="1514580702838" duration="316000" />
       <workItem from="1514590303368" duration="7626000" />
+      <workItem from="1514604384924" duration="19498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68009000" />
+    <option name="totallyTimeSpent" value="87507000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,12 +471,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5674342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30635402" sideWeight="0.49342105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2677761" sideWeight="0.49342105" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25416037" sideWeight="0.5065789" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43092105" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -484,7 +488,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43092105" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -502,102 +505,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCTopicDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Quiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/StudentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/DaoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="66" lean-forward="false" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCDaoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuestionQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/StudentProgressQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/StudentProgress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/StudentProgressMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Users/Public/angular-app/my-app/src/app/film-details.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/topic_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
+        <state relative-caret-position="680">
           <caret line="62" column="25" lean-forward="false" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
           <folding>
             <element signature="method#toString#0;class#Student#0" expanded="false" />
@@ -606,47 +516,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/StudentMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Question.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/AnswerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/AnswerQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="50" lean-forward="false" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuizMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/StudentQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -655,90 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/StudentProgressDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentProgressDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/StudentProgressService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/TopicService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentListCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/TopicListCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/EncodingFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#init#0;class#EncodingFilter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -751,92 +564,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/AnswerMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuizResultMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/StudentProgressDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/StudentProgressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/StudentProgress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizResultDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuizResultDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizResultQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/LoginCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/StudentProgressQuery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/WelcomeCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Router.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/QuizResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="187">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -849,66 +678,263 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuestionDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="59" lean-forward="false" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/QuizDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuestionQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizQuery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <caret line="16" column="37" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/QuestionMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/welcome.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/util/StudentProgressMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListByTopicCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/DaoFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="33" selection-end-column="13" />
+        <state relative-caret-position="442">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="85">
+          <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3079#3080#0" expanded="true" />
-            <element signature="e#3139#3140#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizResultService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="136">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizResultCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tag/getAnswer.tld">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tag/containsAnswer.tld">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/util/TagLib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#getAnswers#0;class#TagLib#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCAnswerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-173">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCTopicDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-680">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentProgressDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCStudentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuizDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCQuestionDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/JDBCDaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/entity/Answer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Users/Public/angular-app/my-app/src/app/film-details.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/WebProjects/Test/pseudo-class/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/WebProjects/Test/pseudo-class/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="58" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42">
+          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding />
         </state>
       </provider>

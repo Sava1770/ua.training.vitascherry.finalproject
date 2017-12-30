@@ -48,7 +48,7 @@
                 </tr>
                 <c:forEach var="studentProgress" items="${requestScope.progresses}" varStatus="loop">
                     <tr class="progress-info">
-                        <td><c:out value="${loop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/student/${studentProgress.student.id}"><c:out value="${studentProgress.student.firstName} ${studentProgress.student.lastName} ${studentProgress.student.patronymic}"/></a></td><td><a href="${pageContext.request.contextPath}/result/${studentProgress.quiz.id}"><c:out value="${studentProgress.quiz.name}"/></a></td><td><c:out value="${studentProgress.questionCount}"/></td><td><c:out value="${studentProgress.correctCount}"/></td>
+                        <td><a href="${pageContext.request.contextPath}/result/${studentProgress.student.id}/${studentProgress.quiz.id}"><c:out value="${loop.index + 1}"/></a></td><td><a href="${pageContext.request.contextPath}/student/${studentProgress.student.id}"><c:out value="${studentProgress.student.firstName} ${studentProgress.student.lastName} ${studentProgress.student.patronymic}"/></a></td><td><a href="${pageContext.request.contextPath}/quiz/${studentProgress.quiz.id}"><c:out value="${studentProgress.quiz.name}"/></a></td><td><c:out value="${studentProgress.questionCount}"/></td><td><c:out value="${studentProgress.correctCount}"/></td>
                     </tr>
                 </c:forEach>
             </table>

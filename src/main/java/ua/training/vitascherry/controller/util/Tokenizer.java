@@ -6,7 +6,7 @@ public class Tokenizer {
         return path.split("/");
     }
 
-    public static String getToken(String path, TokenPosition pos) {
+    public static String extractToken(String path, TokenPosition pos) {
         String[] tokens = tokenize(path);
         return tokens.length > 0 ? tokens[pos.getIndex()] : path;
     }

@@ -1,4 +1,4 @@
-SELECT student.email AS student_email, quiz.name AS quiz, question.text AS question, answer.text AS answer
+SELECT id_student, student.email, student.first_name, student.last_name, student.patronymic, id_quiz, quiz.name, id_question, question.text, id_answer, answer.text
 FROM student
 JOIN student_answer USING(id_student)
 JOIN answer USING(id_answer)

@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface StudentProgressDao extends AutoCloseable {
     void create(StudentProgress entity);
-    List<StudentProgress> findByStudentId(int id);
     List<StudentProgress> findAll();
     void update(StudentProgress entity);
     void delete(int id);

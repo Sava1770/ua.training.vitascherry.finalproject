@@ -10,12 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
-import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
 import static ua.training.vitascherry.model.dao.query.QuestionQuery.FIND_ALL;
-import static ua.training.vitascherry.model.dao.util.EntityMapper.extractUniqueValue;
+import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestionAnswers;
 
 public class JDBCQuestionDao implements QuestionDao {
 
@@ -42,17 +39,13 @@ public class JDBCQuestionDao implements QuestionDao {
             ResultSet rs = ps.executeQuery();
             HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
             while (rs.next()) {
-                Question question = extractQuestion(rs);
-                question = extractUniqueValue(uniqueQuestions, question.getId(), question);
-                question.getAnswers().add(extractAnswer(rs));
-                questions.add(question);
+                extractQuestionAnswers(rs, uniqueQuestions);
             }
+            questions.addAll(uniqueQuestions.values());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return questions.stream()
-                .distinct()
-                .collect(Collectors.toList());
+        return questions;
     }
 
     @Override

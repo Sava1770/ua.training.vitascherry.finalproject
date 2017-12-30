@@ -1,7 +1,6 @@
 package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.controller.command.impl.LoginCommand;
 import ua.training.vitascherry.controller.command.impl.*;
 
 import javax.servlet.ServletException;
@@ -27,6 +26,7 @@ public class Servlet extends HttpServlet {
         commands.put("topic", new QuizListByTopicCommand());
         commands.put("quizzes", new QuizListCommand());
         commands.put("quiz", new QuizCommand());
+        commands.put("result", new QuizResultCommand());
         commands.put("login", new LoginCommand());
         commands.put("welcome", new WelcomeCommand());
         System.out.println("Servlet was initialized!");
