@@ -8,7 +8,7 @@
         <title>Student ${requestScope.student.id}</title>
         <style>
             .student {
-                width: 640px;
+                width: 600px;
                 height: 100%;
             }
             table {

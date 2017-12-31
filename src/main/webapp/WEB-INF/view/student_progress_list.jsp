@@ -8,7 +8,7 @@
         <title>Student's progress list</title>
         <style>
             .progresses {
-                width: 720px;
+                width: 700px;
                 height: 100%;
             }
             table {

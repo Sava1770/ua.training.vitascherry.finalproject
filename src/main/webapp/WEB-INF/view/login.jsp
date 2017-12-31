@@ -7,7 +7,7 @@
         <title>Login</title>
         <style>
             .login {
-                width: 640px;
+                width: 600px;
             }
             form {
                 width: 100%;

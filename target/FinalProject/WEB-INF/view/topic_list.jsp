@@ -8,7 +8,7 @@
         <title>Topic list</title>
         <style>
             .topics {
-                width: 640px;
+                width: 600px;
                 height: 100%;
             }
             table {

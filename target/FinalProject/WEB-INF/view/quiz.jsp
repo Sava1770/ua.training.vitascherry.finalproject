@@ -8,7 +8,7 @@
         <title>Test <c:out value="${requestScope.quiz.id}"/></title>
         <style>
             .questions {
-                width: 640px;
+                width: 600px;
                 height: 100%;
             }
             ul {
@@ -16,16 +16,15 @@
                 width: 100%;
                 margin: 1em 0 1em 0;
             }
-            .answers {
-                width: 100%;
+            li {
                 margin-bottom: 1em;
+            }
+            .answers {
+                padding-left: 1em;
             }
             .question-text {
                 width: 100%;
                 font-weight: bold;
-            }
-            .answer-text {
-                padding-left: 1em;
             }
             .answer-text:after {
                 display: block;
@@ -60,16 +59,18 @@
         <div class="questions">
             <ul>
                 <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="outer">
-                    <li class="question-text">
-                        <c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/>
+                    <li>
+                        <div class="question-text">
+                            <c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/>
+                        </div>
+                        <div class="answers">
+                            <c:forEach var="answer" items="${question.answers}" varStatus="inner">
+                                <div class="answer-text">
+                                    <c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox">
+                                </div>
+                            </c:forEach>
+                        </div>
                     </li>
-                    <div class="answers">
-                        <c:forEach var="answer" items="${question.answers}" varStatus="inner">
-                            <li class="answer-text">
-                                <c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox">
-                            </li>
-                        </c:forEach>
-                    </div>
                 </c:forEach>
             </ul>
         </div>

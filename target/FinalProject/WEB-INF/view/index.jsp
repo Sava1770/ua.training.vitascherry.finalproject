@@ -7,7 +7,7 @@
         <title>Student Inspector</title>
         <style>
             .navigation-menu {
-                width: 640px;
+                width: 600px;
             }
             nav {
                 width: 100%;

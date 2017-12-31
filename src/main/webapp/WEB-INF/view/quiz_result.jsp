@@ -10,7 +10,7 @@
         <title>Test <c:out value="${requestScope.quiz.id}"/></title>
         <style>
             .questions {
-                width: 640px;
+                width: 600px;
                 height: 100%;
             }
             ul {
@@ -28,6 +28,9 @@
             }
             .answers {
                 padding-left: 1em;
+            }
+            span {
+                font-weight: bold;
             }
             .right {
                 color: #00ff00;
@@ -64,22 +67,22 @@
                         <div class="question-text">
                             <c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/>
                         </div>
-                        <c:forEach var="answer" items="${question.answers}" varStatus="inner">
-                            <div class="answers">
-                                <div class="answer-text"><c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/>
-                                    <c:if test="${presence:containsAnswer(answers:getAnswers(requestScope.result.questions, outer.index), answer)}">
-                                        <c:choose>
-                                            <c:when test="${answer.isCorrect == true}">
-                                                <span class='right'>&#10004;</span>
-                                            </c:when>
-                                            <c:when test="${answer.isCorrect == false}">
-                                                <span class='wrong'>&#10006;</span>
-                                            </c:when>
-                                        </c:choose>
-                                    </c:if>
-                                </div>
-                            </div>
-                        </c:forEach>
+                        <div class="answers">
+                            <c:forEach var="answer" items="${question.answers}" varStatus="inner">
+                                    <div class="answer-text"><c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/>
+                                        <c:if test="${presence:containsAnswer(answers:getAnswers(requestScope.result.questions, outer.index), answer)}">
+                                            <c:choose>
+                                                <c:when test="${answer.isCorrect}">
+                                                    <span class="right">&#10004;</span>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <span class="wrong">&#10006;</span>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:if>
+                                    </div>
+                            </c:forEach>
+                        </div>
                     </li>
                 </c:forEach>
             </ul>
