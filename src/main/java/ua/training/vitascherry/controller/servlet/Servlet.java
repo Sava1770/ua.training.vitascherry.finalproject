@@ -29,7 +29,7 @@ public class Servlet extends HttpServlet {
         commands.put("quiz", new PassQuiz());
         commands.put("result", new QuizResult());
         commands.put("login", new Login());
-        commands.put("authorized", new Authorized());
+        commands.put("authenticated", new Authenticated());
         commands.put("register", new Register());
         commands.put("registered", new Registered());
         System.out.println("Servlet was initialized!");

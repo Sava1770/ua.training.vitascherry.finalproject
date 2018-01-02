@@ -6,20 +6,18 @@ import java.io.IOException;
 public class AuthorizationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("Authentication filter was initialized!");
+        System.out.println("Authorization filter was initialized!");
     }
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Processing doFilter()...");
-        System.out.println("--------------- User data ---------------");
-        System.out.println("email: " + req.getParameter("email"));
-        System.out.println("password: " + req.getParameter("password"));
+        System.out.println("Processing Authorization doFilter()...");
+        // TODO
         chain.doFilter(req, resp);
     }
 
     @Override
     public void destroy() {
-        System.out.println("Authentication filter was destroyed!");
+        System.out.println("Authorization filter was destroyed!");
     }
 }

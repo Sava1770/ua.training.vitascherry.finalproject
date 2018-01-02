@@ -7,46 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b256c773-3e56-4d65-ad25-e6ca53d7adc4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/welcome.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/favicon.ico" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/Command.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/Command.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/RegistrationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/RegistrationFilter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Router.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Router.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_result.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz_result.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/student_progress_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/style/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/style/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/topic_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/topic_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/index.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/login.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/quiz.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/quiz.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/quiz_list.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/quiz_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/quiz_result.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/quiz_result.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student_list.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student_progress_list.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/student_progress_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/style/main.css" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/style/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/topic_list.jsp" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/view/topic_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/FinalProject/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/FinalProject/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/LoginCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Login.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/PassQuiz.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListByTopicCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListByTopic.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizListCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizResultCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentListCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/TopicListCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/TopicList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/WelcomeCommand.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Authorized.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthFilter.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthorizationFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/welcome.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authorized.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Authorized.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Authenticated.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthorizationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthenticationFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authorized.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authenticated.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -115,10 +85,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/style/main.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/successfully_registered.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/RegisterFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthorizationFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/RegistrationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Authorized.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Registered.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authorized.jsp" />
@@ -135,11 +102,14 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/Home.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Router.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Favicon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Error.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/error.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/RegistrationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthenticationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthorizationFilter.java" />
       </list>
     </option>
   </component>
@@ -205,7 +175,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,6 +198,21 @@
               <item name="FinalProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FinalProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FinalProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vitascherry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FinalProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FinalProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -239,12 +223,22 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="FinalProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FinalProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,11 +437,12 @@
       <workItem from="1514691292431" duration="2411000" />
       <workItem from="1514849349965" duration="10548000" />
       <workItem from="1514862152756" duration="12343000" />
+      <workItem from="1514877341720" duration="1114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113082000" />
+    <option name="totallyTimeSpent" value="114196000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,24 +459,24 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61513156" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3618421" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5246711" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28441754" sideWeight="0.49342105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28895614" sideWeight="0.49342105" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25416037" sideWeight="0.5065789" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25416037" sideWeight="0.5065789" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -504,14 +499,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/StudentProgressList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/service/QuizResultService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/QuizResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -607,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -630,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,9 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -648,9 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,36 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/RegistrationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthorizationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Authorized.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#331#332#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -695,10 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#331#332#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -706,7 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,7 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -730,7 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -738,7 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="40" column="64" lean-forward="false" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,7 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,7 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="60" column="64" lean-forward="false" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="66" column="64" lean-forward="false" selection-start-line="66" selection-start-column="64" selection-end-line="66" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,25 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="41" />
-          <folding>
-            <element signature="e#273#274#0" expanded="false" />
-            <element signature="e#321#322#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Home.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -813,23 +734,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Favicon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Favicon.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="82" lean-forward="true" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,44 +753,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Error.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authorized.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Authenticated.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        <state relative-caret-position="136">
+          <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/EncodingFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/quiz.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/command/impl/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="64" />
+        <state relative-caret-position="85">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Error.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/servlet/Servlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="204">
+          <caret line="12" column="84" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -887,17 +817,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="-188">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/error.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authenticated.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="430">
+          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/CommandMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/RegistrationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="68" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/AuthorizationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="69" lean-forward="false" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

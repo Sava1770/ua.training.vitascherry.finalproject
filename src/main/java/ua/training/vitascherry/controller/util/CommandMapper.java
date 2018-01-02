@@ -13,8 +13,7 @@ public class CommandMapper {
         String token = extractToken(path, TokenPosition.COMMAND);
         System.out.println("Command token: " + token);
         String page = token.isEmpty()
-                        || token.equals("/")
-                            || token.equals("favicon.ico") ? INDEX_PAGE : ERROR_PAGE;
+                        || token.equals("/") ? INDEX_PAGE : ERROR_PAGE;
         return commands.getOrDefault(token, value -> page);
     }
 }

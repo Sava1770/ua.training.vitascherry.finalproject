@@ -4,9 +4,9 @@ import ua.training.vitascherry.controller.command.Command;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Authorized implements Command {
+public class Authenticated implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        return "/WEB-INF/view/authorized.jsp";
+        return "/WEB-INF/view/authenticated.jsp";
     }
 }
