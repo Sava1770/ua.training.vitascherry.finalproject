@@ -20,7 +20,7 @@
         <h1>Student's progress list</h1>
         <hr>
         <div class="progresses">
-            <table cellpadding="1" border="1">
+            <table>
                 <tr class="table-header">
                     <th>#</th><th>Student</th><th>Quiz</th><th>Questions</th><th>Correct</th>
                 </tr>
@@ -32,8 +32,10 @@
             </table>
         </div>
         <hr>
-        <div class="main-page-link">
-            <a href="${pageContext.request.contextPath}/">Main page</a>
+        <div class="navigation-menu">
+            <nav>
+                <a href="${pageContext.request.contextPath}/home">Home</a>
+            </nav>
         </div>
     </body>
 </html>

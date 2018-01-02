@@ -20,7 +20,7 @@
         <h1>Topic list</h1>
         <hr>
         <div class="topics">
-            <table cellpadding="1" border="1">
+            <table>
                 <tr class="table-header">
                     <th>#</th><th>Name</th>
                 </tr>
@@ -32,8 +32,10 @@
             </table>
         </div>
         <hr>
-        <div class="main-page-link">
-            <a href="${pageContext.request.contextPath}/">Main page</a>
+        <div class="navigation-menu">
+            <nav>
+                <a href="${pageContext.request.contextPath}/home">Home</a>
+            </nav>
         </div>
     </body>
 </html>

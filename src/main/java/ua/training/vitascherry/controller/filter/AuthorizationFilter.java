@@ -3,7 +3,7 @@ package ua.training.vitascherry.controller.filter;
 import javax.servlet.*;
 import java.io.IOException;
 
-public class AuthFilter implements Filter {
+public class AuthorizationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("Authentication filter was initialized!");
@@ -11,7 +11,11 @@ public class AuthFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        // TODO
+        System.out.println("Processing doFilter()...");
+        System.out.println("--------------- User data ---------------");
+        System.out.println("email: " + req.getParameter("email"));
+        System.out.println("password: " + req.getParameter("password"));
+        chain.doFilter(req, resp);
     }
 
     @Override

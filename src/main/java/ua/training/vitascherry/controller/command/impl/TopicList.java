@@ -7,7 +7,7 @@ import ua.training.vitascherry.model.service.TopicService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class TopicListCommand implements Command {
+public class TopicList implements Command {
 
     private final TopicService topicService = new TopicService();
 

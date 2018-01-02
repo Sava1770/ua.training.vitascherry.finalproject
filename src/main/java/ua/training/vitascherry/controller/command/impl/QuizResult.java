@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
-public class QuizResultCommand implements Command {
+public class QuizResult implements Command {
 
     private final QuizService quizService = new QuizService();
 

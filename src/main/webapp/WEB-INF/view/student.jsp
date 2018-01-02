@@ -17,6 +17,9 @@
             .label-col {
                 font-weight: bold;
             }
+            table, td, th {
+                border: none;
+            }
         </style>
     </head>
     <body>
@@ -33,8 +36,10 @@
             </table>
         </div>
         <hr>
-        <div class="main-page-link">
-            <a href="${pageContext.request.contextPath}/">Main page</a>
+        <div class="navigation-menu">
+            <nav>
+                <a href="${pageContext.request.contextPath}/home">Home</a>
+            </nav>
         </div>
     </body>
 </html>

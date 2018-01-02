@@ -7,7 +7,7 @@ import ua.training.vitascherry.model.service.StudentService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class StudentListCommand implements Command {
+public class StudentList implements Command {
 
     private final StudentService studentService = new StudentService();
 

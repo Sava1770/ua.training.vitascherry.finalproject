@@ -4,22 +4,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome</title>
+        <title>Successfully registered</title>
         <style>
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
             .navigation-menu {
-                width: 600px;
+                width: 400px;
             }
         </style>
     </head>
     <body>
-        <h1>Welcome ${requestScope.user.name}</h1>
+        <h1>Successfully registered!</h1>
+        <h3>Now you can login using your credentials</h3>
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/topics">Quiz catalogue</a>
+                <a href="${pageContext.request.contextPath}/login">Login</a>
+                <a href="${pageContext.request.contextPath}/home">Home</a>
             </nav>
         </div>
     </body>

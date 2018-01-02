@@ -27,6 +27,7 @@
                 <a href="${pageContext.request.contextPath}/progress">Progress</a>
                 <a href="${pageContext.request.contextPath}/students">Student list</a>
                 <a href="${pageContext.request.contextPath}/login">Login</a>
+                <a href="${pageContext.request.contextPath}/register">Register</a>
             </nav>
         </div>
     </body>

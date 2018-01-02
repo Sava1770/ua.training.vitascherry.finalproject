@@ -4,10 +4,9 @@ import ua.training.vitascherry.controller.command.Command;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class WelcomeCommand implements Command {
+public class Authorized implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        System.out.println("Welcome user: " + request.getAttribute("user"));
-        return "/WEB-INF/view/welcome.jsp";
+        return "/WEB-INF/view/authorized.jsp";
     }
 }

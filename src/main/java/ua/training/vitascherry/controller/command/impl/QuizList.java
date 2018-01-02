@@ -7,7 +7,7 @@ import ua.training.vitascherry.model.service.QuizService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class QuizListCommand implements Command {
+public class QuizList implements Command {
 
     private final QuizService quizService = new QuizService();
 

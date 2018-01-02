@@ -7,7 +7,7 @@ import ua.training.vitascherry.model.service.StudentProgressService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class StudentProgressCommand implements Command {
+public class StudentProgressList implements Command {
 
     private final StudentProgressService studentProgressService = new StudentProgressService();
 
