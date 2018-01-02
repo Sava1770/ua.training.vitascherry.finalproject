@@ -7,34 +7,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student's progress list</title>
         <style>
+            <%@ include file="/WEB-INF/view/style/main.css"%>
+
+            /* Current file styles */
             .progresses {
                 width: 700px;
                 height: 100%;
-            }
-            table {
-                width: 100%;
-                border-color: rgba(15, 13, 14, 0.50);
-                margin: 1em 0 1em 0;
-            }
-            table td, table th {
-                text-align: left;
-            }
-            .main-page-link {
-                margin-top: 1em;
-            }
-            a {
-                color: rgb(119,34,51);
-            }
-            a:link {
-                color: rgb(119,34,51);
-                margin-right: 1em;
-                text-decoration: none;
-            }
-            a:hover {
-                color: rgb(6,69,173);
-            }
-            a:visited {
-                color: rgb(119,34,51);
             }
         </style>
     </head>
@@ -46,9 +24,9 @@
                 <tr class="table-header">
                     <th>#</th><th>Student</th><th>Quiz</th><th>Questions</th><th>Correct</th>
                 </tr>
-                <c:forEach var="studentProgress" items="${requestScope.progresses}" varStatus="loop">
+                <c:forEach var="studentProgress" items="${requestScope.progresses}" varStatus="progressLoop">
                     <tr class="progress-info">
-                        <td><a href="${pageContext.request.contextPath}/result/${studentProgress.student.id}/${studentProgress.quiz.id}"><c:out value="${loop.index + 1}"/></a></td><td><a href="${pageContext.request.contextPath}/student/${studentProgress.student.id}"><c:out value="${studentProgress.student.firstName} ${studentProgress.student.lastName} ${studentProgress.student.patronymic}"/></a></td><td><a href="${pageContext.request.contextPath}/quiz/${studentProgress.quiz.id}"><c:out value="${studentProgress.quiz.name}"/></a></td><td><c:out value="${studentProgress.questionCount}"/></td><td><c:out value="${studentProgress.correctCount}"/></td>
+                        <td><c:out value="${progressLoop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/student/${studentProgress.student.id}"><c:out value="${studentProgress.student.firstName} ${studentProgress.student.lastName} ${studentProgress.student.patronymic}"/></a></td><td><a href="${pageContext.request.contextPath}/result/${studentProgress.student.id}/${studentProgress.quiz.id}"><c:out value="${studentProgress.quiz.name}"/></a></td><td><c:out value="${studentProgress.questionCount}"/></td><td><c:out value="${studentProgress.correctCount}"/></td>
                     </tr>
                 </c:forEach>
             </table>

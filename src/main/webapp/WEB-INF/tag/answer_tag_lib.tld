@@ -6,11 +6,16 @@
         version="2.1">
 
     <tlib-version>1.0</tlib-version>
-    <short-name>get</short-name>
+    <short-name>answer-tag-lib</short-name>
 
     <function>
+        <name>containsAnswer</name>
+        <function-class>ua.training.vitascherry.model.util.AnswerTagLib</function-class>
+        <function-signature>boolean containsAnswer(java.util.List, ua.training.vitascherry.model.entity.Answer)</function-signature>
+    </function>
+    <function>
         <name>getAnswers</name>
-        <function-class>ua.training.vitascherry.model.util.TagLib</function-class>
+        <function-class>ua.training.vitascherry.model.util.AnswerTagLib</function-class>
         <function-signature>java.util.List getAnswers(java.util.List, int)</function-signature>
     </function>
 

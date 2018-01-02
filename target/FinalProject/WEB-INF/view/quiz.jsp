@@ -7,17 +7,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Test <c:out value="${requestScope.quiz.id}"/></title>
         <style>
+            <%@ include file="/WEB-INF/view/style/main.css"%>
+
+            /* Current file styles */
             .questions {
                 width: 600px;
                 height: 100%;
-            }
-            ul {
-                list-style-type: none;
-                width: 100%;
-                margin: 1em 0 1em 0;
-            }
-            li {
-                margin-bottom: 1em;
             }
             .answers {
                 padding-left: 1em;
@@ -34,23 +29,6 @@
             .picker {
                 float: right;
             }
-            .main-page-link {
-                margin-top: 1em;
-            }
-            a {
-                color: rgb(119,34,51);
-            }
-            a:link {
-                color: rgb(119,34,51);
-                margin-right: 1em;
-                text-decoration: none;
-            }
-            a:hover {
-                color: rgb(6,69,173);
-            }
-            a:visited {
-                color: rgb(119,34,51);
-            }
         </style>
     </head>
     <body>
@@ -58,15 +36,15 @@
         <hr>
         <div class="questions">
             <ul>
-                <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="outer">
+                <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="questionLoop">
                     <li>
                         <div class="question-text">
-                            <c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/>
+                            <c:out value="${questionLoop.index + 1}. "/><c:out value="${question.text}"/>
                         </div>
                         <div class="answers">
-                            <c:forEach var="answer" items="${question.answers}" varStatus="inner">
+                            <c:forEach var="answer" items="${question.answers}" varStatus="answerLoop">
                                 <div class="answer-text">
-                                    <c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox">
+                                    <c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox">
                                 </div>
                             </c:forEach>
                         </div>

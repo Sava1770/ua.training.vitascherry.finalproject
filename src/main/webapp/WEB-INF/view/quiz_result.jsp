@@ -2,24 +2,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="/WEB-INF/tag/containsAnswer.tld" prefix="presence" %>
-<%@ taglib uri="/WEB-INF/tag/getAnswer.tld" prefix="answers" %>
+<%@ taglib uri="/WEB-INF/tag/answer_tag_lib.tld" prefix="fn" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Test <c:out value="${requestScope.quiz.id}"/></title>
         <style>
+            <%@ include file="/WEB-INF/view/style/main.css"%>
+
+            /* Current file styles */
             .questions {
                 width: 600px;
                 height: 100%;
-            }
-            ul {
-                list-style-type: none;
-                margin: 1em 0 1em 0;
-                width: 100%;
-            }
-            li {
-                margin-bottom: 1em;
             }
             .question-text {
                 width: 100%;
@@ -29,31 +23,11 @@
             .answers {
                 padding-left: 1em;
             }
-            span {
-                font-weight: bold;
-            }
             .right {
                 color: #00ff00;
             }
             .wrong {
                 color: #ff0000;
-            }
-            .main-page-link {
-                margin-top: 1em;
-            }
-            a {
-                color: rgb(119,34,51);
-            }
-            a:link {
-                color: rgb(119,34,51);
-                margin-right: 1em;
-                text-decoration: none;
-            }
-            a:hover {
-                color: rgb(6,69,173);
-            }
-            a:visited {
-                color: rgb(119,34,51);
             }
         </style>
     </head>
@@ -62,15 +36,15 @@
         <hr>
         <div class="questions">
             <ul>
-                <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="outer">
+                <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="questionLoop">
                     <li>
                         <div class="question-text">
-                            <c:out value="${outer.index + 1}. "/><c:out value="${question.text}"/>
+                            <c:out value="${questionLoop.index + 1}. "/><c:out value="${question.text}"/>
                         </div>
                         <div class="answers">
-                            <c:forEach var="answer" items="${question.answers}" varStatus="inner">
-                                    <div class="answer-text"><c:out value="${inner.index + 1}. "/><c:out value="${answer.text}"/>
-                                        <c:if test="${presence:containsAnswer(answers:getAnswers(requestScope.result.questions, outer.index), answer)}">
+                            <c:forEach var="answer" items="${question.answers}" varStatus="answerLoop">
+                                    <div class="answer-text"><c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/>
+                                        <c:if test="${fn:containsAnswer(fn:getAnswers(requestScope.result.questions, questionLoop.index), answer)}">
                                             <c:choose>
                                                 <c:when test="${answer.isCorrect}">
                                                     <span class="right">&#10004;</span>

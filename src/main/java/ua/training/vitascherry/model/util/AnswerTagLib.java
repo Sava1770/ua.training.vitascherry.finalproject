@@ -5,13 +5,13 @@ import ua.training.vitascherry.model.entity.Question;
 
 import java.util.List;
 
-public class TagLib {
+public class AnswerTagLib {
 
     public static boolean containsAnswer(List<Answer> answers, Answer answer) {
         return answers.contains(answer);
     }
 
-    public static List<Answer> getAnswers(List<Question> questions, int index) {
-        return questions.get(index).getAnswers();
+    public static List<Answer> getAnswers(List<Question> questions, int questionIndex) {
+        return questions.get(questionIndex).getAnswers();
     }
 }

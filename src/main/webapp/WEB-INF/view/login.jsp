@@ -6,29 +6,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
         <style>
+            <%@ include file="/WEB-INF/view/style/main.css"%>
+
+            /* Current file styles */
             .login {
-                width: 600px;
-            }
-            form {
-                width: 100%;
-                margin: 1em 0 1em 0;
-            }
-            .main-page-link {
-                margin-top: 1em;
-            }
-            a {
-                color: rgb(119,34,51);
-            }
-            a:link {
-                color: rgb(119,34,51);
-                margin-right: 1em;
-                text-decoration: none;
-            }
-            a:hover {
-                color: rgb(6,69,173);
-            }
-            a:visited {
-                color: rgb(119,34,51);
+                width: 400px;
             }
         </style>
     </head>

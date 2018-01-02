@@ -7,36 +7,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student ${requestScope.student.id}</title>
         <style>
+            <%@ include file="/WEB-INF/view/style/main.css"%>
+
+            /* Current file styles */
             .student {
-                width: 600px;
+                width: 400px;
                 height: 100%;
             }
-            table {
-                width: 100%;
-                margin: 1em 0 1em 0;
-            }
-            table td.l {
+            .label-col {
                 font-weight: bold;
-            }
-            table td {
-                text-align: left;
-            }
-            .main-page-link {
-                margin-top: 1em;
-            }
-            a {
-                color: rgb(119,34,51);
-            }
-            a:link {
-                color: rgb(119,34,51);
-                margin-right: 1em;
-                text-decoration: none;
-            }
-            a:hover {
-                color: rgb(6,69,173);
-            }
-            a:visited {
-                color: rgb(119,34,51);
             }
         </style>
     </head>
@@ -46,10 +25,10 @@
         <div class="student">
             <table>
                 <tr>
-                    <td class="l">Full name:</td><td><c:out value="${requestScope.student.firstName} ${requestScope.student.lastName} ${requestScope.student.patronymic}"/></td>
+                    <td class="label-col">Full name:</td><td><c:out value="${requestScope.student.firstName} ${requestScope.student.lastName} ${requestScope.student.patronymic}"/></td>
                 </tr>
                 <tr>
-                    <td class="l">Email:</td><td><c:out value="${requestScope.student.email}"/></td>
+                    <td class="label-col">Email:</td><td><c:out value="${requestScope.student.email}"/></td>
                 </tr>
             </table>
         </div>

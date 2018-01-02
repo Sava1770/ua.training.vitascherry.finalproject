@@ -6,26 +6,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student Inspector</title>
         <style>
+            <%@ include file="/WEB-INF/view/style/main.css"%>
+
+            /* Current file styles */
             .navigation-menu {
                 width: 600px;
             }
-            nav {
-                width: 100%;
-                margin: 1em 0 1em 0;
-            }
-            a {
-                color: rgb(119,34,51);
-            }
-            a:link {
-                color: rgb(119,34,51);
+            .navigation-menu a {
                 margin-right: 1em;
-                text-decoration: none;
-            }
-            a:hover {
-                color: rgb(6,69,173);
-            }
-            a:visited {
-                color: rgb(119,34,51);
             }
         </style>
     </head>

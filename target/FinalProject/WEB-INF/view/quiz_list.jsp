@@ -7,34 +7,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Topic list</title>
         <style>
+            <%@ include file="/WEB-INF/view/style/main.css"%>
+
+            /* Current file styles */
             .quizzes {
                 width: 600px;
                 height: 100%;
-            }
-            table {
-                width: 100%;
-                border-color: rgba(15, 13, 14, 0.50);
-                margin: 1em 0 1em 0;
-            }
-            table td, table th {
-                text-align: left;
-            }
-            .main-page-link {
-                margin-top: 1em;
-            }
-            a {
-                color: rgb(119,34,51);
-            }
-            a:link {
-                color: rgb(119,34,51);
-                margin-right: 1em;
-                text-decoration: none;
-            }
-            a:hover {
-                color: rgb(6,69,173);
-            }
-            a:visited {
-                color: rgb(119,34,51);
             }
         </style>
     </head>
@@ -46,9 +24,9 @@
                 <tr class="table-header">
                     <th>#</th><th>Name</th>
                 </tr>
-                <c:forEach var="quiz" items="${requestScope.quizzes}">
+                <c:forEach var="quiz" items="${requestScope.quizzes}" varStatus="quizLoop">
                     <tr class="quiz-info">
-                        <td><c:out value="${quiz.id}"/></td><td><a href="${pageContext.request.contextPath}/quiz/${quiz.id}"><c:out value="${quiz.name}"/></a></td>
+                        <td><c:out value="${quizLoop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/quiz/${quiz.id}"><c:out value="${quiz.name}"/></a></td>
                     </tr>
                 </c:forEach>
             </table>
