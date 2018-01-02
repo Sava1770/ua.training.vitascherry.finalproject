@@ -9,7 +9,7 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .login {
+            .sign-in, .navigation-menu {
                 width: 400px;
             }
             table, td, th {
@@ -18,10 +18,10 @@
         </style>
     </head>
     <body>
-        <h1>Login</h1>
+        <h1>Sign In</h1>
         <hr>
-        <div class="login">
-            <form method="POST" action="${pageContext.request.contextPath}/authorized">
+        <div class="sign-in">
+            <form method="POST" action="${pageContext.request.contextPath}/signin">
                 <table>
                     <tr>
                         <td>Email</td>

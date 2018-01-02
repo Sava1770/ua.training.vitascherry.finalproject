@@ -9,7 +9,7 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .register {
+            .register, .navigation-menu {
                 width: 400px;
             }
             table, td, th {
@@ -18,10 +18,10 @@
         </style>
     </head>
     <body>
-        <h1>Login</h1>
+        <h1>Register</h1>
         <hr>
         <div class="register">
-            <form method="POST" action="${pageContext.request.contextPath}/registered">
+            <form method="POST" action="${pageContext.request.contextPath}/register">
                 <table>
                     <tr>
                         <td>First name</td>

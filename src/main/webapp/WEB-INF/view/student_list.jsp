@@ -10,7 +10,7 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .students {
+            .students, .navigation-menu {
                 width: 600px;
                 height: 100%;
             }
@@ -26,7 +26,7 @@
                 </tr>
                 <c:forEach var="student" items="${requestScope.students}" varStatus="studentLoop">
                     <tr class="student-info">
-                        <td><c:out value="${studentLoop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/student/${student.id}"><c:out value="${student.firstName} ${student.lastName} ${student.patronymic}"/></a></td><td><c:out value="${student.email}"/></td>
+                        <td><c:out value="${studentLoop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/student/${student.id}"><c:out value="${student.firstName} ${student.lastName} ${student.patronymic}"/></a></td><td><c:out value="${student.user.email}"/></td>
                     </tr>
                 </c:forEach>
             </table>

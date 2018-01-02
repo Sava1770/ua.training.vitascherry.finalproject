@@ -21,6 +21,11 @@ public class JDBCDaoFactory extends DaoFactory {
     }
 
     @Override
+    public UserDao createUserDao() {
+        return new JDBCUserDao(getConnection());
+    }
+
+    @Override
     public QuizDao createQuizDao() {
         return new JDBCQuizDao(getConnection());
     }

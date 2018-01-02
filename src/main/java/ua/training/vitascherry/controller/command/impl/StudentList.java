@@ -13,7 +13,7 @@ public class StudentList implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-        List<Student> students = studentService.getAllStudents();
+        List<Student> students = studentService.getAllStudentsWithUsers();
         request.setAttribute("students" , students);
         return "/WEB-INF/view/student_list.jsp";
     }

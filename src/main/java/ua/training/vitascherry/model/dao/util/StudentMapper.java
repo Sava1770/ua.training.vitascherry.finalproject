@@ -9,7 +9,6 @@ public class StudentMapper {
     public static Student extractStudent(ResultSet rs) throws SQLException {
         return Student.builder()
                 .setId(rs.getInt("id_student"))
-                .setEmail(rs.getString("email"))
                 .setFirstName(rs.getString("first_name"))
                 .setLastName(rs.getString("last_name"))
                 .setPatronymic(rs.getString("patronymic"))

@@ -1,0 +1,18 @@
+package ua.training.vitascherry.model.dao.util;
+
+import ua.training.vitascherry.model.entity.Role;
+import ua.training.vitascherry.model.entity.User;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class UserMapper {
+    public static User extractUser(ResultSet rs) throws SQLException {
+        return User.builder()
+                .setId(rs.getInt("id_user"))
+                .setEmail(rs.getString("email"))
+                .setRole(Role.valueOf(rs.getString("role")))
+                .setPasswordHash(rs.getString("password_hash"))
+                .build();
+    }
+}

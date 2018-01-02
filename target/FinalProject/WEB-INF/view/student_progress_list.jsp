@@ -10,7 +10,7 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .progresses {
+            .progresses, .navigation-menu {
                 width: 700px;
                 height: 100%;
             }

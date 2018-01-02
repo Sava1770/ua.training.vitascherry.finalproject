@@ -10,7 +10,7 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .topics {
+            .topics, .navigation-menu {
                 width: 600px;
                 height: 100%;
             }

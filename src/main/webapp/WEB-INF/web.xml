@@ -7,21 +7,21 @@
 
   <!-- Main servlet -->
   <servlet>
-    <servlet-name>Servlet</servlet-name>
-    <servlet-class>ua.training.vitascherry.controller.servlet.Servlet</servlet-class>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>ua.training.vitascherry.controller.servlet.MainServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Servlet</servlet-name>
+    <servlet-name>MainServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <!-- Authorization filter -->
   <filter>
-    <filter-name>AuthorizationFilter</filter-name>
-    <filter-class>ua.training.vitascherry.controller.filter.AuthorizationFilter</filter-class>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>ua.training.vitascherry.controller.filter.AuthFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>AuthorizationFilter</filter-name>
+    <filter-name>AuthFilter</filter-name>
     <url-pattern>/</url-pattern>
   </filter-mapping>
 
@@ -35,24 +35,34 @@
     <url-pattern>/</url-pattern>
   </filter-mapping>
 
-  <!-- Authentication filter -->
+  <!-- Sign In filter -->
   <filter>
-    <filter-name>AuthenticationFilter</filter-name>
-    <filter-class>ua.training.vitascherry.controller.filter.AuthenticationFilter</filter-class>
+    <filter-name>SignInFilter</filter-name>
+    <filter-class>ua.training.vitascherry.controller.filter.SignInFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>AuthenticationFilter</filter-name>
-    <url-pattern>/authenticated</url-pattern>
+    <filter-name>SignInFilter</filter-name>
+    <url-pattern>/signin</url-pattern>
+  </filter-mapping>
+
+  <!-- Sign Out filter -->
+  <filter>
+    <filter-name>SignOutFilter</filter-name>
+    <filter-class>ua.training.vitascherry.controller.filter.SignOutFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SignOutFilter</filter-name>
+    <url-pattern>/signout</url-pattern>
   </filter-mapping>
 
   <!-- Registration filter -->
   <filter>
-    <filter-name>RegistrationFilter</filter-name>
-    <filter-class>ua.training.vitascherry.controller.filter.RegistrationFilter</filter-class>
+    <filter-name>RegisterFilter</filter-name>
+    <filter-class>ua.training.vitascherry.controller.filter.RegisterFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>RegistrationFilter</filter-name>
-    <url-pattern>/registered</url-pattern>
+    <filter-name>RegisterFilter</filter-name>
+    <url-pattern>/register</url-pattern>
   </filter-mapping>
 
   <!-- Index page -->

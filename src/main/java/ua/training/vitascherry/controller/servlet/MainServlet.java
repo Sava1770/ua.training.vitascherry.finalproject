@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static ua.training.vitascherry.controller.util.CommandMapper.extractCommand;
 
-public class Servlet extends HttpServlet {
+public class MainServlet extends HttpServlet {
 
     private Map<String, Command> commands = new HashMap<>();
 
@@ -28,11 +28,10 @@ public class Servlet extends HttpServlet {
         commands.put("quizzes", new QuizList());
         commands.put("quiz", new PassQuiz());
         commands.put("result", new QuizResult());
-        commands.put("login", new Login());
-        commands.put("authenticated", new Authenticated());
+        commands.put("signin", new SignIn());
+        commands.put("signout", new SignOut());
         commands.put("register", new Register());
-        commands.put("registered", new Registered());
-        System.out.println("Servlet was initialized!");
+        System.out.println("MainServlet was initialized!");
     }
 
     @Override
@@ -75,6 +74,6 @@ public class Servlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        System.out.println("Servlet was destroyed!");
+        System.out.println("MainServlet was destroyed!");
     }
 }

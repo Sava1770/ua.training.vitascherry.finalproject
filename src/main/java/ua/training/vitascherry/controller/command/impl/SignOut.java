@@ -4,9 +4,9 @@ import ua.training.vitascherry.controller.command.Command;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Authenticated implements Command {
+public class SignOut implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        return "/WEB-INF/view/authenticated.jsp";
+        return "/WEB-INF/view/sign_out.jsp";
     }
 }

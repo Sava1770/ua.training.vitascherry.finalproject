@@ -9,7 +9,7 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .navigation-menu {
+            .navigation-menu, .navigation-menu {
                 width: 400px;
             }
         </style>

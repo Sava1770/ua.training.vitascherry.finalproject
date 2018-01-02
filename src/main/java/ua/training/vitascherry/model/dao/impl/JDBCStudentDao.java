@@ -10,9 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.query.StudentQuery.FIND_BY_ID;
+import static ua.training.vitascherry.model.dao.query.StudentQuery.FIND_BY_ID_WITH_USER;
 import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL;
+import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL_WITH_USER;
 import static ua.training.vitascherry.model.dao.util.StudentMapper.extractStudent;
+import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
 
 public class JDBCStudentDao implements StudentDao {
 
@@ -30,11 +32,12 @@ public class JDBCStudentDao implements StudentDao {
     @Override
     public Student findById(int id) {
         Student student = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_ID)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_ID_WITH_USER)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 student = extractStudent(rs);
+                student.setUser(extractUser(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,6 +52,22 @@ public class JDBCStudentDao implements StudentDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 students.add(extractStudent(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
+
+    @Override
+    public List<Student> findAllWithUser() {
+        List<Student> students = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL_WITH_USER)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Student student = extractStudent(rs);
+                student.setUser(extractUser(rs));
+                students.add(student);
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -3,7 +3,7 @@ package ua.training.vitascherry.model.entity;
 public class Student {
 
     private int id;
-    private String email;
+    private User user;
     private String firstName;
     private String lastName;
     private String patronymic;
@@ -14,8 +14,12 @@ public class Student {
         return id;
     }
 
-    public String getEmail() {
-        return email;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getFirstName() {
@@ -49,7 +53,7 @@ public class Student {
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
+                ", user=" + user +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", patronymic='" + patronymic + '\'' +
@@ -67,8 +71,8 @@ public class Student {
             return this;
         }
 
-        public Builder setEmail(String email) {
-            Student.this.email = email;
+        public Builder setUser(User user) {
+            Student.this.user = user;
             return this;
         }
 

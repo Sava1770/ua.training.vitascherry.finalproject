@@ -1,2 +1,2 @@
-INSERT INTO student (email, first_name, last_name) VALUES
-('vitas.cherry@gmail.com', 'Vitalii', 'Chereshnia');
+INSERT INTO final_project.student VALUES
+(1, 'Vitalii', 'Chereshnia', 'Radyslavovich');

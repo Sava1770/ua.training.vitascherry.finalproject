@@ -9,8 +9,8 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .navigation-menu {
-                width: 600px;
+            .welcome, .navigation-menu {
+                width: 700px;
             }
             .navigation-menu a {
                 margin-right: 1em;
@@ -18,7 +18,9 @@
         </style>
     </head>
     <body>
-        <h1>Welcome to Student Inspector!</h1>
+        <div class="welcome">
+            <h1>Welcome to Student Inspector!</h1>
+        </div>
         <hr>
         <div class="navigation-menu">
             <nav>
@@ -26,7 +28,7 @@
                 <a href="${pageContext.request.contextPath}/quizzes">Quiz list</a>
                 <a href="${pageContext.request.contextPath}/progress">Progress</a>
                 <a href="${pageContext.request.contextPath}/students">Student list</a>
-                <a href="${pageContext.request.contextPath}/login">Login</a>
+                <a href="${pageContext.request.contextPath}/signin">Sign In</a>
                 <a href="${pageContext.request.contextPath}/register">Register</a>
             </nav>
         </div>

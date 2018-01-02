@@ -3,7 +3,7 @@ package ua.training.vitascherry.controller.filter;
 import javax.servlet.*;
 import java.io.IOException;
 
-public class RegistrationFilter implements Filter {
+public class RegisterFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("Registration filter was initialized!");
@@ -19,6 +19,7 @@ public class RegistrationFilter implements Filter {
         System.out.println("email: " + req.getParameter("email"));
         System.out.println("password: " + req.getParameter("password"));
         System.out.println("confirm: " + req.getParameter("confirm"));
+        // TODO
         chain.doFilter(req, resp);
     }
 

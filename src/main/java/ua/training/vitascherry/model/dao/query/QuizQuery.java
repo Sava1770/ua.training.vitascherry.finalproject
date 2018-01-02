@@ -5,9 +5,9 @@ public interface QuizQuery {
 
     String FIND_BY_ID =
             "SELECT * FROM quiz " +
-                    "JOIN question USING(id_quiz) " +
-                    "JOIN answer USING(id_question) " +
-                    "WHERE id_quiz = ?";
+            "JOIN question USING(id_quiz) " +
+            "JOIN answer USING(id_question) " +
+            "WHERE id_quiz = ?";
 
     String FIND_BY_TOPIC_ID =
             "SELECT * FROM quiz " +
@@ -20,5 +20,5 @@ public interface QuizQuery {
             "JOIN answer USING(id_answer) " +
             "JOIN question USING(id_question) " +
             "JOIN quiz USING(id_quiz) " +
-            "WHERE id_quiz = ? AND id_student = ?";
+            "WHERE id_student = ? AND id_quiz = ?";
 }

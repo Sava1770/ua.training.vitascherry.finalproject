@@ -7,6 +7,7 @@ import ua.training.vitascherry.model.service.StudentService;
 
 import javax.servlet.http.HttpServletRequest;
 
+import static ua.training.vitascherry.controller.util.Router.ERROR_PAGE;
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
 public class StudentInfo implements Command {
@@ -18,6 +19,9 @@ public class StudentInfo implements Command {
         String token = extractToken(request.getRequestURI(), TokenPosition.ID);
         int id = Integer.parseInt(token);
         Student student = studentService.getStudentById(id);
+        if (student == null) {
+            return ERROR_PAGE;
+        }
         request.setAttribute("student" , student);
         return "/WEB-INF/view/student.jsp";
     }

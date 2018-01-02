@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome</title>
+        <title>See you later</title>
         <style>
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .navigation-menu {
+            .signed-out, .navigation-menu {
                 width: 400px;
             }
         </style>
     </head>
     <body>
-        <h1>Welcome!</h1>
-        <h3>Now you can pass our tests</h3>
+        <div class="signed-out">
+            <h1>You are now signed out!</h1>
+            <h3>You can return to the home page or sign in again</h3>
+        </div>
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/topics">Quiz catalogue</a>
-                <a href="${pageContext.request.contextPath}/quizzes">All quizzes</a>
+                <a href="${pageContext.request.contextPath}/sign-in">Sign In</a>
                 <a href="${pageContext.request.contextPath}/">Home</a>
             </nav>
         </div>

@@ -11,7 +11,7 @@
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .questions {
+            .questions, .navigation-menu {
                 width: 600px;
                 height: 100%;
             }
