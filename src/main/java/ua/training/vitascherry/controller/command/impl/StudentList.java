@@ -7,14 +7,16 @@ import ua.training.vitascherry.model.service.StudentService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+import static ua.training.vitascherry.controller.util.View.STUDENT_LIST;
+
 public class StudentList implements Command {
 
     private final StudentService studentService = new StudentService();
 
     @Override
     public String execute(HttpServletRequest request) {
-        List<Student> students = studentService.getAllStudentsWithUsers();
+        List<Student> students = studentService.getAllStudents();
         request.setAttribute("students" , students);
-        return "/WEB-INF/view/student_list.jsp";
+        return STUDENT_LIST;
     }
 }

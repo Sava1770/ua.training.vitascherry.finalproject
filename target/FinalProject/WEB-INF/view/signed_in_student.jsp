@@ -3,24 +3,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Successfully registered</title>
+        <title>Welcome</title>
         <style>
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
             /* Current file styles */
-            .navigation-menu, .navigation-menu {
+            .welcome, .navigation-menu {
                 width: 400px;
             }
         </style>
     </head>
     <body>
-        <h1>Successfully registered!</h1>
-        <h3>You can now sign-in using your credentials</h3>
+        <div class="welcome">
+            <h1>Welcome, ${requestScope.student.firstName}!</h1>
+            <h3>You can now pass our tests</h3>
+        </div>
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/signin">Sign-in</a>
-                <a href="${pageContext.request.contextPath}/home">Home</a>
+                <a href="${pageContext.request.contextPath}/topics">Quiz catalogue</a>
+                <a href="${pageContext.request.contextPath}/quizzes">All quizzes</a>
+                <a href="${pageContext.request.contextPath}/">Home</a>
             </nav>
         </div>
     </body>

@@ -8,22 +8,23 @@ import ua.training.vitascherry.model.service.QuizService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-import static ua.training.vitascherry.controller.util.Router.ERROR_PAGE;
+import static ua.training.vitascherry.controller.util.View.ERROR_PAGE;
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
+import static ua.training.vitascherry.controller.util.View.QUIZ_LIST_PAGE;
 
-public class QuizListByTopic implements Command {
+public class QuizCatalogue implements Command {
 
     private final QuizService quizService = new QuizService();
 
     @Override
     public String execute(HttpServletRequest request) {
-        String token = extractToken(request.getRequestURI(), TokenPosition.ID);
+        String token = extractToken(request.getRequestURI(), TokenPosition.PRIMARY_ID);
         int id = Integer.parseInt(token);
         List<Quiz> quizzes = quizService.getQuizzesByTopicId(id);
         if (quizzes.isEmpty()) {
             return ERROR_PAGE;
         }
         request.setAttribute("quizzes" , quizzes);
-        return "/WEB-INF/view/quiz_list.jsp";
+        return QUIZ_LIST_PAGE;
     }
 }

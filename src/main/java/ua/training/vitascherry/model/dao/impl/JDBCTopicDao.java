@@ -24,11 +24,12 @@ public class JDBCTopicDao implements TopicDao {
 
     @Override
     public void create(Topic entity) {
-
+        // TODO
     }
 
     @Override
     public Topic findById(int id) {
+        // TODO
         return null;
     }
 
@@ -63,12 +64,12 @@ public class JDBCTopicDao implements TopicDao {
 
     @Override
     public void update(Topic entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(int id) {
-
+        // TODO
     }
 
     @Override

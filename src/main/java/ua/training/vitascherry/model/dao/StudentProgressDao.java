@@ -4,10 +4,6 @@ import ua.training.vitascherry.model.entity.StudentProgress;
 
 import java.util.List;
 
-public interface StudentProgressDao extends AutoCloseable {
-    void create(StudentProgress entity);
-    List<StudentProgress> findAll();
-    void update(StudentProgress entity);
-    void delete(int id);
-    void close();
+public interface StudentProgressDao extends GenericDao<StudentProgress> {
+    List<StudentProgress> findByStudentId(int id);
 }

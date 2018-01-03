@@ -7,8 +7,9 @@ import ua.training.vitascherry.model.service.QuizService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.Router.ERROR_PAGE;
+import static ua.training.vitascherry.controller.util.View.ERROR_PAGE;
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
+import static ua.training.vitascherry.controller.util.View.QUIZ_RESULT_PAGE;
 
 public class QuizResult implements Command {
 
@@ -17,8 +18,8 @@ public class QuizResult implements Command {
     @Override
     public String execute(HttpServletRequest req) {
         String path = req.getRequestURI();
-        int studentId = Integer.parseInt(extractToken(path, TokenPosition.ID));
-        int quizId = Integer.parseInt(extractToken(path, TokenPosition.QUIZ_RESULT_ID));
+        int studentId = Integer.parseInt(extractToken(path, TokenPosition.PRIMARY_ID));
+        int quizId = Integer.parseInt(extractToken(path, TokenPosition.SECONDARY_ID));
         Quiz quiz = quizService.getQuizById(quizId);
         if (quiz == null) {
             return ERROR_PAGE;
@@ -29,6 +30,6 @@ public class QuizResult implements Command {
         }
         req.setAttribute("quiz", quiz);
         req.setAttribute("result" , result);
-        return "/WEB-INF/view/quiz_result.jsp";
+        return QUIZ_RESULT_PAGE;
     }
 }

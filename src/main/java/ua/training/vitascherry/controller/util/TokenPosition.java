@@ -1,7 +1,7 @@
 package ua.training.vitascherry.controller.util;
 
 public enum TokenPosition {
-    COMMAND(1), ID(2), QUIZ_RESULT_ID(3);
+    COMMAND(1), PRIMARY_ID(2), SECONDARY_ID(3);
 
     private int index;
 

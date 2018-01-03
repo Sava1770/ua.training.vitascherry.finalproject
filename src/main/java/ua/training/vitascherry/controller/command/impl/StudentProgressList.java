@@ -7,6 +7,8 @@ import ua.training.vitascherry.model.service.StudentProgressService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+import static ua.training.vitascherry.controller.util.View.STUDENT_PROGRESS_LIST;
+
 public class StudentProgressList implements Command {
 
     private final StudentProgressService studentProgressService = new StudentProgressService();
@@ -15,6 +17,6 @@ public class StudentProgressList implements Command {
     public String execute(HttpServletRequest request) {
         List<StudentProgress> progresses = studentProgressService.getAllProgress();
         request.setAttribute("progresses" , progresses);
-        return "/WEB-INF/view/student_progress_list.jsp";
+        return STUDENT_PROGRESS_LIST;
     }
 }

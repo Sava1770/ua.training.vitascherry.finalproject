@@ -4,8 +4,8 @@ import ua.training.vitascherry.controller.command.Command;
 
 import java.util.Map;
 
-import static ua.training.vitascherry.controller.util.Router.ERROR_PAGE;
-import static ua.training.vitascherry.controller.util.Router.INDEX_PAGE;
+import static ua.training.vitascherry.controller.util.View.ERROR_PAGE;
+import static ua.training.vitascherry.controller.util.View.INDEX_PAGE;
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
 public class CommandMapper {

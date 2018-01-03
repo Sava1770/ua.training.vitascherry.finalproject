@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Encryptor {
+
     public static String encrypt(String password) {
         String generated = null;
         try {

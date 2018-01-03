@@ -3,6 +3,7 @@ package ua.training.vitascherry.model.service;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.dao.UserDao;
 import ua.training.vitascherry.model.entity.User;
+import ua.training.vitascherry.model.util.Encryptor;
 
 import java.util.List;
 
@@ -13,12 +14,6 @@ public class UserService {
     public List<User> getAllUsers() {
         try (UserDao dao = daoFactory.createUserDao()) {
             return dao.findAll();
-        }
-    }
-
-    public User getUserById(int id) {
-        try (UserDao dao = daoFactory.createUserDao()) {
-            return dao.findById(id);
         }
     }
 
@@ -36,5 +31,9 @@ public class UserService {
 
     public boolean isUniqueEmail(String email) {
         return getUserByEmail(email) == null;
+    }
+
+    public boolean isValidCredentials(User user, String password) {
+        return user != null && Encryptor.matches(password, user.getPasswordHash());
     }
 }

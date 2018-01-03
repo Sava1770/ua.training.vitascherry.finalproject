@@ -7,6 +7,8 @@ import ua.training.vitascherry.model.service.TopicService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+import static ua.training.vitascherry.controller.util.View.TOPIC_LIST;
+
 public class TopicList implements Command {
 
     private final TopicService topicService = new TopicService();
@@ -15,6 +17,6 @@ public class TopicList implements Command {
     public String execute(HttpServletRequest request) {
         List<Topic> topics = topicService.getAllTopics();
         request.setAttribute("topics" , topics);
-        return "/WEB-INF/view/topic_list.jsp";
+        return TOPIC_LIST;
     }
 }

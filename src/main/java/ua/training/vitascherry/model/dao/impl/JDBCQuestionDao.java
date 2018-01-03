@@ -24,11 +24,12 @@ public class JDBCQuestionDao implements QuestionDao {
 
     @Override
     public void create(Question entity) {
-
+        // TODO
     }
 
     @Override
     public Question findById(int id) {
+        // TODO
         return null;
     }
 
@@ -50,12 +51,12 @@ public class JDBCQuestionDao implements QuestionDao {
 
     @Override
     public void update(Question entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(int id) {
-
+        // TODO
     }
 
     @Override

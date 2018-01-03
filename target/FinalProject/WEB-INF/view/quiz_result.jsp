@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/WEB-INF/tag/answer_tag_lib.tld" prefix="fn" %>
 <html>
@@ -32,7 +31,7 @@
         </style>
     </head>
     <body>
-        <h1><c:out value="Result"/></h1>
+        <h1><c:out value="${requestScope.quiz.name}"/> result</h1>
         <hr>
         <div class="questions">
             <ul>

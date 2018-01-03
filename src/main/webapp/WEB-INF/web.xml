@@ -15,6 +15,26 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!-- Register servlet -->
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>ua.training.vitascherry.controller.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+
+  <!-- Sign-in servlet -->
+  <servlet>
+    <servlet-name>SignIn</servlet-name>
+    <servlet-class>ua.training.vitascherry.controller.servlet.SignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignIn</servlet-name>
+    <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+
   <!-- Authorization filter -->
   <filter>
     <filter-name>AuthFilter</filter-name>

@@ -15,4 +15,10 @@ public class StudentProgressService {
             return dao.findAll();
         }
     }
+
+    public List<StudentProgress> getProgressByStudentId(int id) {
+        try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
+            return dao.findByStudentId(id);
+        }
+    }
 }

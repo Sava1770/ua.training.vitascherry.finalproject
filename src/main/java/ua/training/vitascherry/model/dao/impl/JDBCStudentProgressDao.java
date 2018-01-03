@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_BY_STUDENT_ID;
 import static ua.training.vitascherry.model.dao.util.StudentProgressMapper.extractStudentProgress;
 import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_ALL;
 
@@ -23,7 +24,28 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
 
     @Override
     public void create(StudentProgress entity) {
+        // TODO
+    }
 
+    @Override
+    public StudentProgress findById(int id) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public List<StudentProgress> findByStudentId(int id) {
+        List<StudentProgress> progresses = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_STUDENT_ID)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                progresses.add(extractStudentProgress(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return progresses;
     }
 
     @Override
@@ -42,12 +64,12 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
 
     @Override
     public void update(StudentProgress entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(int id) {
-
+        // TODO
     }
 
     @Override

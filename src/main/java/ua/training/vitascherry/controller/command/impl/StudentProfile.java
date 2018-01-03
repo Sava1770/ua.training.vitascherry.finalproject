@@ -7,22 +7,23 @@ import ua.training.vitascherry.model.service.StudentService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.Router.ERROR_PAGE;
+import static ua.training.vitascherry.controller.util.View.ERROR_PAGE;
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
+import static ua.training.vitascherry.controller.util.View.STUDENT_PAGE;
 
-public class StudentInfo implements Command {
+public class StudentProfile implements Command {
 
     private final StudentService studentService = new StudentService();
 
     @Override
     public String execute(HttpServletRequest request) {
-        String token = extractToken(request.getRequestURI(), TokenPosition.ID);
+        String token = extractToken(request.getRequestURI(), TokenPosition.PRIMARY_ID);
         int id = Integer.parseInt(token);
         Student student = studentService.getStudentById(id);
         if (student == null) {
             return ERROR_PAGE;
         }
         request.setAttribute("student" , student);
-        return "/WEB-INF/view/student.jsp";
+        return STUDENT_PAGE;
     }
 }

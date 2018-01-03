@@ -4,20 +4,18 @@ import javax.servlet.*;
 import java.io.IOException;
 
 public class SignOutFilter implements Filter {
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("SignOut filter was initialized!");
-    }
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Processing SignOut doFilter()...");
+    public void init(FilterConfig filterConfig) throws ServletException {}
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
+            throws IOException, ServletException {
+        System.out.println("Processing Sign Out doFilter()...");
         // TODO
         chain.doFilter(req, resp);
     }
 
     @Override
-    public void destroy() {
-        System.out.println("SignOut filter was destroyed!");
-    }
+    public void destroy() {}
 }

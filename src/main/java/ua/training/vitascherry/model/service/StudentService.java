@@ -16,12 +16,6 @@ public class StudentService {
         }
     }
 
-    public List<Student> getAllStudentsWithUsers() {
-        try (StudentDao dao = daoFactory.createStudentDao()) {
-            return dao.findAllWithUser();
-        }
-    }
-
     public Student getStudentById(int id) {
         try (StudentDao dao = daoFactory.createStudentDao()) {
             return dao.findById(id);

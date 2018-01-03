@@ -22,11 +22,12 @@ public class JDBCUserDao implements UserDao {
 
     @Override
     public void create(User entity) {
-
+        // TODO
     }
 
     @Override
     public User findById(int id) {
+        // TODO
         return null;
     }
 
@@ -47,17 +48,18 @@ public class JDBCUserDao implements UserDao {
 
     @Override
     public List<User> findAll() {
+        // TODO
         return null;
     }
 
     @Override
     public void update(User entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(int id) {
-
+        // TODO
     }
 
     @Override

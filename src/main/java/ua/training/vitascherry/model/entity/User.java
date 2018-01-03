@@ -21,6 +21,10 @@ public class User {
         return passwordHash;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,6 +46,7 @@ public class User {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", passwordHash='" + passwordHash + '\'' +
+                ", role=" + role +
                 '}';
     }
 

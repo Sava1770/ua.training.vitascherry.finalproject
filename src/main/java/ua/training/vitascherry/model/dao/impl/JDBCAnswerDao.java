@@ -23,11 +23,12 @@ public class JDBCAnswerDao implements AnswerDao {
 
     @Override
     public void create(Answer entity) {
-
+        // TODO
     }
 
     @Override
     public Answer findById(int id) {
+        // TODO
         return null;
     }
 
@@ -47,12 +48,12 @@ public class JDBCAnswerDao implements AnswerDao {
 
     @Override
     public void update(Answer entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(int id) {
-
+        // TODO
     }
 
     @Override

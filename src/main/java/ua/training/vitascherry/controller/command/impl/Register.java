@@ -4,9 +4,11 @@ import ua.training.vitascherry.controller.command.Command;
 
 import javax.servlet.http.HttpServletRequest;
 
+import static ua.training.vitascherry.controller.util.View.REGISTER_PAGE;
+
 public class Register implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        return "/WEB-INF/view/register.jsp";
+        return REGISTER_PAGE;
     }
 }

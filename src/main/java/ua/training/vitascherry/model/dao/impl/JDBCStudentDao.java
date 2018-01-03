@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.StudentQuery.FIND_BY_ID_WITH_USER;
-import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL;
 import static ua.training.vitascherry.model.dao.query.StudentQuery.LAZY_FIND_ALL_WITH_USER;
 import static ua.training.vitascherry.model.dao.util.StudentMapper.extractStudent;
 import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
@@ -26,7 +25,7 @@ public class JDBCStudentDao implements StudentDao {
 
     @Override
     public void create(Student entity) {
-
+        // TODO
     }
 
     @Override
@@ -48,20 +47,6 @@ public class JDBCStudentDao implements StudentDao {
     @Override
     public List<Student> findAll() {
         List<Student> students = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                students.add(extractStudent(rs));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return students;
-    }
-
-    @Override
-    public List<Student> findAllWithUser() {
-        List<Student> students = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL_WITH_USER)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -77,12 +62,12 @@ public class JDBCStudentDao implements StudentDao {
 
     @Override
     public void update(Student entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(int id) {
-
+        // TODO
     }
 
     @Override

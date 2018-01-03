@@ -21,10 +21,10 @@ public class MainServlet extends HttpServlet {
     public void init() throws ServletException {
         commands.put("home", new Home());
         commands.put("students", new StudentList());
-        commands.put("student", new StudentInfo());
+        commands.put("student", new StudentProfile());
         commands.put("progress", new StudentProgressList());
         commands.put("topics", new TopicList());
-        commands.put("topic", new QuizListByTopic());
+        commands.put("topic", new QuizCatalogue());
         commands.put("quizzes", new QuizList());
         commands.put("quiz", new PassQuiz());
         commands.put("result", new QuizResult());
@@ -54,7 +54,7 @@ public class MainServlet extends HttpServlet {
         System.out.println("GET was executed!\n");
     }
 
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    /*public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String path = req.getRequestURI();
         String pathFull = req.getRequestURL().toString();
         String params = req.getQueryString();
@@ -70,7 +70,7 @@ public class MainServlet extends HttpServlet {
 
         req.getRequestDispatcher(responsePage).forward(req, resp);
         System.out.println("POST was executed!\n");
-    }
+    }*/
 
     @Override
     public void destroy() {

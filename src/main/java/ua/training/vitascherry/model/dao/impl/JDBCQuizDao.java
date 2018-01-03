@@ -29,7 +29,7 @@ public class JDBCQuizDao implements QuizDao {
 
     @Override
     public void create(Quiz entity) {
-
+        // TODO
     }
 
     @Override
@@ -107,12 +107,12 @@ public class JDBCQuizDao implements QuizDao {
 
     @Override
     public void update(Quiz entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(int id) {
-
+        // TODO
     }
 
     @Override
