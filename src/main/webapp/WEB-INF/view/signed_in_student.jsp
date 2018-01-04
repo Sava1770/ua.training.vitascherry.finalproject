@@ -9,7 +9,7 @@
 
             /* Current file styles */
             .welcome, .navigation-menu {
-                width: 400px;
+                width: 600px;
             }
         </style>
     </head>
@@ -23,6 +23,8 @@
             <nav>
                 <a href="${pageContext.request.contextPath}/topics">Quiz catalogue</a>
                 <a href="${pageContext.request.contextPath}/quizzes">All quizzes</a>
+                <a href="${pageContext.request.contextPath}/progress/${sessionScope.user.id}">My progress</a>
+                <a href="${pageContext.request.contextPath}/student/${sessionScope.user.id}">My profile</a>
                 <a href="${pageContext.request.contextPath}/">Home</a>
             </nav>
         </div>

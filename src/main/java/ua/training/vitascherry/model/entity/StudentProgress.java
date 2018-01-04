@@ -27,7 +27,7 @@ public class StudentProgress {
 
     @Override
     public String toString() {
-        return "StudentProgress{" +
+        return "MyProgress{" +
                 "student=" + student +
                 ", quiz=" + quiz +
                 ", correctCount=" + correctCount +

@@ -22,7 +22,7 @@
         <div class="navigation-menu">
             <nav>
                 <a href="${pageContext.request.contextPath}/students">Students list</a>
-                <a href="${pageContext.request.contextPath}/progress">Students progress</a>
+                <a href="${pageContext.request.contextPath}/progresses">Student's progress list</a>
                 <a href="${pageContext.request.contextPath}/">Home</a>
             </nav>
         </div>

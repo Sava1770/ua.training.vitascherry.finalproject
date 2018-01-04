@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 import static ua.training.vitascherry.controller.util.View.ERROR_404_PAGE;
-import static ua.training.vitascherry.controller.util.View.STUDENT_PROGRESS_LIST;
+import static ua.training.vitascherry.controller.util.View.STUDENT_PROGRESS_LIST_PAGE;
 
 public class StudentProgressList implements Command {
 
@@ -21,6 +21,6 @@ public class StudentProgressList implements Command {
             return ERROR_404_PAGE;
         }
         req.setAttribute("progresses", progresses);
-        return STUDENT_PROGRESS_LIST;
+        return STUDENT_PROGRESS_LIST_PAGE;
     }
 }

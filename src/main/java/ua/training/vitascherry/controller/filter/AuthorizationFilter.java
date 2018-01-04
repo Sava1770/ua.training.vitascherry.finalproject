@@ -23,7 +23,8 @@ public class AuthorizationFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         specialPermissions.put("students", new Role[]{Role.ADMIN});
         specialPermissions.put("student", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("progress", new Role[]{Role.ADMIN});
+        specialPermissions.put("progresses", new Role[]{Role.ADMIN});
+        specialPermissions.put("progress", new Role[]{Role.ADMIN, Role.STUDENT});
         specialPermissions.put("topics", new Role[]{Role.ADMIN, Role.STUDENT});
         specialPermissions.put("topic", new Role[]{Role.ADMIN, Role.STUDENT});
         specialPermissions.put("quizzes", new Role[]{Role.ADMIN, Role.STUDENT});

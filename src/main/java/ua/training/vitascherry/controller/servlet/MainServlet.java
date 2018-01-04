@@ -24,7 +24,8 @@ public class MainServlet extends HttpServlet {
         commands.put("/", new Home());
         commands.put("students", new StudentList());
         commands.put("student", new StudentProfile());
-        commands.put("progress", new StudentProgressList());
+        commands.put("progresses", new StudentProgressList());
+        commands.put("progress", new MyProgress());
         commands.put("topics", new TopicList());
         commands.put("topic", new QuizCatalogue());
         commands.put("quizzes", new QuizList());

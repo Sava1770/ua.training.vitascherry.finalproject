@@ -45,8 +45,8 @@
                         <td><input type="text" name="lastName" placeholder="Enter last name" id="lastName" required></td>
                     </tr>
                     <tr>
-                        <td><label for="patronymic">Patronymic</label></td>
-                        <td><input type="text" name="patronymic" placeholder="Enter patronymic" id="patronymic"></td>
+                        <td><label for="patronymic">Patronymic<em>*</em></label></td>
+                        <td><input type="text" name="patronymic" placeholder="Enter patronymic" id="patronymic" required></td>
                     </tr>
                     <tr>
                         <td><label for="email">E-mail<em>*</em></label></td>

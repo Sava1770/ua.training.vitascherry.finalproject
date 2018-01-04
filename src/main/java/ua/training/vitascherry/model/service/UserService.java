@@ -21,7 +21,6 @@ public class UserService {
         return registerNextPage;
     }
 
-
     public String getSignInNextPage() {
         return signInNextPage;
     }
@@ -37,8 +36,13 @@ public class UserService {
     }
 
     public User getUserByEmail(String email) {
+        signInNextPage = SIGN_IN_PAGE;
         try (UserDao dao = daoFactory.createUserDao()) {
-            return dao.findByEmail(email);
+            User user = dao.findByEmail(email);
+            if (user != null) {
+                signInNextPage = user.getRole().getWelcomePage();
+            }
+            return user;
         }
     }
 
