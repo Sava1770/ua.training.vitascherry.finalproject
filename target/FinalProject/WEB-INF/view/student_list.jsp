@@ -25,7 +25,7 @@
                 </tr>
                 <c:forEach var="student" items="${requestScope.students}" varStatus="studentLoop">
                     <tr class="student-info">
-                        <td><c:out value="${studentLoop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/student/${student.id}"><c:out value="${student.firstName} ${student.lastName} ${student.patronymic}"/></a></td><td><c:out value="${student.user.email}"/></td>
+                        <td><c:out value="${studentLoop.index + 1}"/></td><td><a href="${pageContext.request.contextPath}/student/${student.id}"><c:out value="${student.firstName} ${student.lastName} ${student.patronymic}"/></a></td><td><c:out value="${student.email}"/></td>
                     </tr>
                 </c:forEach>
             </table>

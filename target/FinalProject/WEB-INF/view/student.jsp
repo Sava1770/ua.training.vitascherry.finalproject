@@ -30,7 +30,7 @@
                     <td class="label-col">Full name:</td><td><c:out value="${requestScope.student.firstName} ${requestScope.student.lastName} ${requestScope.student.patronymic}"/></td>
                 </tr>
                 <tr>
-                    <td class="label-col">Email:</td><td><c:out value="${requestScope.student.user.email}"/></td>
+                    <td class="label-col">Email:</td><td><c:out value="${requestScope.student.email}"/></td>
                 </tr>
             </table>
         </div>

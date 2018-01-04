@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         if (userService.isUniqueEmail(req.getParameter("email"))) {
-            User student = User.builder()
+            User user = User.builder()
                     .setEmail(req.getParameter("email"))
                     .setRole(Role.STUDENT)
                     .setPasswordHash(Encryptor.encrypt(req.getParameter("password")))
@@ -35,8 +35,8 @@ public class RegisterServlet extends HttpServlet {
                     .setLastName(req.getParameter("lastName"))
                     .setPatronymic(req.getParameter("patronymic"))
                     .build();
-            System.out.println("Student: " + student);
-            userService.createUser(student);
+            System.out.println("Student: " + user);
+            userService.createUser(user);
         } else {
             req.setAttribute("notUniqueEmail", req.getParameter("email") + NOT_UNIQUE_EMAIL);
         }

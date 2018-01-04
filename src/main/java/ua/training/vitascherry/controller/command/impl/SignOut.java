@@ -11,7 +11,6 @@ public class SignOut implements Command {
     @Override
     public String execute(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        session.removeAttribute("student");
         session.removeAttribute("user");
         return SIGN_OUT_PAGE;
     }

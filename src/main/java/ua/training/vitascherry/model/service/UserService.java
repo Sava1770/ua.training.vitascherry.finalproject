@@ -21,6 +21,7 @@ public class UserService {
         return registerNextPage;
     }
 
+
     public String getSignInNextPage() {
         return signInNextPage;
     }
@@ -48,6 +49,7 @@ public class UserService {
     public boolean isValidCredentials(User user, String password) {
         signInNextPage = SIGN_IN_PAGE;
         boolean isValid = Encryptor.matches(password, user.getPasswordHash());
+        System.out.println("Credentials valid: " + isValid);
         if (isValid) {
             signInNextPage = user.getRole().getWelcomePage();
         }
