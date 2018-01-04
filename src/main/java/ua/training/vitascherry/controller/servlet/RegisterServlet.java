@@ -12,13 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static ua.training.vitascherry.controller.util.Message.NOT_UNIQUE_EMAIL;
-import static ua.training.vitascherry.controller.util.View.REGISTERED_PAGE;
-import static ua.training.vitascherry.controller.util.View.REGISTER_PAGE;
 
 public class RegisterServlet extends HttpServlet {
 
     private final UserService userService = new UserService();
-    private final StudentService studentService = new StudentService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -29,31 +26,22 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String responsePage = REGISTER_PAGE;
         if (userService.isUniqueEmail(req.getParameter("email"))) {
-            User user = User.builder()
+            User student = User.builder()
                     .setEmail(req.getParameter("email"))
                     .setRole(Role.STUDENT)
                     .setPasswordHash(Encryptor.encrypt(req.getParameter("password")))
+                    .setFirstName(req.getParameter("firstName"))
+                    .setLastName(req.getParameter("lastName"))
+                    .setPatronymic(req.getParameter("patronymic"))
                     .build();
-            System.out.println("User: " + user);
-
-            int userId = userService.createUser(user);
-            if (userId != 0) {
-                Student student = Student.builder()
-                        .setId(userId)
-                        .setFirstName(req.getParameter("firstName"))
-                        .setLastName(req.getParameter("lastName"))
-                        .setPatronymic(req.getParameter("patronymic"))
-                        .setUser(user)
-                        .build();
-                System.out.println("Student: " + student);
-                studentService.createStudent(student);
-                responsePage = REGISTERED_PAGE;
-            }
+            System.out.println("Student: " + student);
+            userService.createUser(student);
         } else {
             req.setAttribute("notUniqueEmail", req.getParameter("email") + NOT_UNIQUE_EMAIL);
         }
+        String responsePage = userService.getRegisterNextPage();
+        System.out.println("Register response page: " + responsePage);
         req.getRequestDispatcher(responsePage).forward(req, resp);
     }
 }

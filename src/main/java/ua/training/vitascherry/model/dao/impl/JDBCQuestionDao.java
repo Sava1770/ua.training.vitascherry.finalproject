@@ -25,8 +25,8 @@ public class JDBCQuestionDao implements QuestionDao {
     }
 
     @Override
-    public void create(Question question) {
-        int rowsCount;
+    public int create(Question question) {
+        int rowsCount = 0;
         try (PreparedStatement ps = connection.prepareStatement(CREATE_QUESTION)) {
             ps.setString(1, question.getText());
             ps.setInt(2, question.getQuiz().getId());
@@ -45,6 +45,7 @@ public class JDBCQuestionDao implements QuestionDao {
                 e1.printStackTrace();
             }
         }
+        return rowsCount;
     }
 
     @Override
@@ -70,12 +71,12 @@ public class JDBCQuestionDao implements QuestionDao {
     }
 
     @Override
-    public void update(Question entity) {
+    public int update(Question entity) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void delete(int id) {
+    public int delete(int id) {
         throw new UnsupportedOperationException();
     }
 

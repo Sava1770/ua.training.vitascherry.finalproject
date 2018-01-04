@@ -29,8 +29,8 @@ public class JDBCQuizDao implements QuizDao {
     }
 
     @Override
-    public void create(Quiz quiz) {
-        int rowsCount;
+    public int create(Quiz quiz) {
+        int rowsCount = 0;
         try (PreparedStatement ps = connection.prepareStatement(CREATE_QUIZ)) {
             ps.setString(1, quiz.getName());
             rowsCount = ps.executeUpdate();
@@ -48,6 +48,7 @@ public class JDBCQuizDao implements QuizDao {
                 e1.printStackTrace();
             }
         }
+        return rowsCount;
     }
 
     @Override
@@ -110,12 +111,12 @@ public class JDBCQuizDao implements QuizDao {
     }
 
     @Override
-    public void update(Quiz entity) {
+    public int update(Quiz entity) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void delete(int id) {
+    public int delete(int id) {
         throw new UnsupportedOperationException();
     }
 

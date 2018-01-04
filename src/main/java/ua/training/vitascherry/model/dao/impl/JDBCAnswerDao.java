@@ -24,8 +24,8 @@ public class JDBCAnswerDao implements AnswerDao {
     }
 
     @Override
-    public void create(Answer answer) {
-        int rowsCount;
+    public int create(Answer answer) {
+        int rowsCount = 0;
         try (PreparedStatement ps = connection.prepareStatement(CREATE_ANSWER)) {
             ps.setString(1, answer.getText());
             ps.setBoolean(2, answer.getIsCorrect());
@@ -45,6 +45,7 @@ public class JDBCAnswerDao implements AnswerDao {
                 e1.printStackTrace();
             }
         }
+        return rowsCount;
     }
 
     @Override
@@ -68,12 +69,12 @@ public class JDBCAnswerDao implements AnswerDao {
     }
 
     @Override
-    public void update(Answer entity) {
+    public int update(Answer entity) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void delete(int id) {
+    public int delete(int id) {
         throw new UnsupportedOperationException();
     }
 

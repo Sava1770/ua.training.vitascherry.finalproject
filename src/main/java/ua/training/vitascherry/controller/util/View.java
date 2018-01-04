@@ -5,7 +5,7 @@ public interface View {
     String ERROR_403_PAGE = "/WEB-INF/view/error_403.jsp";
     String INDEX_PAGE = "/WEB-INF/view/index.jsp";
     String REGISTER_PAGE = "WEB-INF/view/register.jsp";
-    String REGISTERED_PAGE = "WEB-INF/view/registered.jsp";
+    String REGISTER_SUCCESS_PAGE = "WEB-INF/view/registered.jsp";
     String SIGN_IN_PAGE = "/WEB-INF/view/sign_in.jsp";
     String SIGN_OUT_PAGE = "/WEB-INF/view/signed_out.jsp";
     String STUDENT_SIGNED_PAGE = "WEB-INF/view/signed_in_student.jsp";

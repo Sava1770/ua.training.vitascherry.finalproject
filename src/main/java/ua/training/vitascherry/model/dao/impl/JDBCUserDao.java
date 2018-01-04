@@ -23,8 +23,8 @@ public class JDBCUserDao implements UserDao {
     }
 
     @Override
-    public void create(User user) {
-        int rowsCount;
+    public int create(User user) {
+        int rowsCount = 0;
         try (PreparedStatement ps = connection.prepareStatement(CREATE_STUDENT)) {
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPasswordHash());
@@ -46,6 +46,7 @@ public class JDBCUserDao implements UserDao {
                 e1.printStackTrace();
             }
         }
+        return rowsCount;
     }
 
     @Override
@@ -94,12 +95,12 @@ public class JDBCUserDao implements UserDao {
     }
 
     @Override
-    public void update(User entity) {
+    public int update(User entity) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void delete(int id) {
+    public int delete(int id) {
         throw new UnsupportedOperationException();
     }
 

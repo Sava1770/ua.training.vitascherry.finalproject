@@ -23,7 +23,7 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public void create(StudentProgress entity) {
+    public int create(StudentProgress entity) {
         throw new UnsupportedOperationException();
     }
 
@@ -64,12 +64,12 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public void update(StudentProgress entity) {
+    public int update(StudentProgress entity) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void delete(int id) {
+    public int delete(int id) {
         throw new UnsupportedOperationException();
     }
 

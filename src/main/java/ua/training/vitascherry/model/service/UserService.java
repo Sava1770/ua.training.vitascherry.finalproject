@@ -7,14 +7,31 @@ import ua.training.vitascherry.model.util.Encryptor;
 
 import java.util.List;
 
+import static ua.training.vitascherry.controller.util.View.REGISTER_SUCCESS_PAGE;
+import static ua.training.vitascherry.controller.util.View.REGISTER_PAGE;
+import static ua.training.vitascherry.controller.util.View.SIGN_IN_PAGE;
+
 public class UserService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
+    private String registerNextPage;
+    private String signInNextPage;
+
+    public String getRegisterNextPage() {
+        return registerNextPage;
+    }
+
+    public String getSignInNextPage() {
+        return signInNextPage;
+    }
 
     public void createUser(User user) {
+        registerNextPage = REGISTER_PAGE;
         try (UserDao dao = daoFactory.createUserDao()) {
             dao.setAutoCommit(false);
-            dao.create(user);
+            if (dao.create(user) != 0) {
+                registerNextPage = REGISTER_SUCCESS_PAGE;
+            }
         }
     }
 
@@ -29,7 +46,12 @@ public class UserService {
     }
 
     public boolean isValidCredentials(User user, String password) {
-        return Encryptor.matches(password, user.getPasswordHash());
+        signInNextPage = SIGN_IN_PAGE;
+        boolean isValid = Encryptor.matches(password, user.getPasswordHash());
+        if (isValid) {
+            signInNextPage = user.getRole().getWelcomePage();
+        }
+        return isValid;
     }
 
     public List<User> getAllStudents() {

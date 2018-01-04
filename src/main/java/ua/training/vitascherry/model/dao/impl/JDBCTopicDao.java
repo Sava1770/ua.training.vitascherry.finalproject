@@ -26,8 +26,8 @@ public class JDBCTopicDao implements TopicDao {
     }
 
     @Override
-    public void create(Topic topic) {
-        int rowsCount;
+    public int create(Topic topic) {
+        int rowsCount = 0;
         try (PreparedStatement ps = connection.prepareStatement(CREATE_TOPIC)) {
             ps.setString(1, topic.getName());
             rowsCount = ps.executeUpdate();
@@ -45,6 +45,7 @@ public class JDBCTopicDao implements TopicDao {
                 e1.printStackTrace();
             }
         }
+        return rowsCount;
     }
 
     @Override
@@ -82,12 +83,12 @@ public class JDBCTopicDao implements TopicDao {
     }
 
     @Override
-    public void update(Topic entity) {
+    public int update(Topic entity) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void delete(int id) {
+    public int delete(int id) {
         throw new UnsupportedOperationException();
     }
 
