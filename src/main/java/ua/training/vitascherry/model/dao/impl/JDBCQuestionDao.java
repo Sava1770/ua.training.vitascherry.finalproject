@@ -25,28 +25,31 @@ public class JDBCQuestionDao implements QuestionDao {
     }
 
     @Override
-    public int create(Question question) {
-        int generatedKey = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_QUESTION, PreparedStatement.RETURN_GENERATED_KEYS)) {
+    public void create(Question question) {
+        int rowsCount;
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_QUESTION)) {
             ps.setString(1, question.getText());
             ps.setInt(2, question.getQuiz().getId());
-            ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                generatedKey = rs.getInt(1);
-            } else {
+            rowsCount = ps.executeUpdate();
+            if (rowsCount == 0) {
                 throw new EntityCreateException(question);
             }
+            connection.commit();
+            System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+                System.out.println("JDBC Transaction rolled back successfully");
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         }
-        return generatedKey;
     }
 
     @Override
     public Question findById(int id) {
-        // TODO
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -68,12 +71,12 @@ public class JDBCQuestionDao implements QuestionDao {
 
     @Override
     public void update(Question entity) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void delete(int id) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override

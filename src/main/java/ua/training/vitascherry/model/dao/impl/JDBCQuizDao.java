@@ -29,21 +29,25 @@ public class JDBCQuizDao implements QuizDao {
     }
 
     @Override
-    public int create(Quiz quiz) {
-        int generatedKey = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_QUIZ, PreparedStatement.RETURN_GENERATED_KEYS)) {
+    public void create(Quiz quiz) {
+        int rowsCount;
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_QUIZ)) {
             ps.setString(1, quiz.getName());
-            ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                generatedKey = rs.getInt(1);
-            } else {
+            rowsCount = ps.executeUpdate();
+            if (rowsCount == 0) {
                 throw new EntityCreateException(quiz);
             }
+            connection.commit();
+            System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+                System.out.println("JDBC Transaction rolled back successfully");
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         }
-        return generatedKey;
     }
 
     @Override
@@ -107,12 +111,12 @@ public class JDBCQuizDao implements QuizDao {
 
     @Override
     public void update(Quiz entity) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void delete(int id) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override

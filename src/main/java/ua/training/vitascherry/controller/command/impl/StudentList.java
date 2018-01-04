@@ -1,8 +1,6 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.model.entity.Student;
-import ua.training.vitascherry.model.service.StudentService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

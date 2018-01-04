@@ -6,7 +6,6 @@ public abstract class DaoFactory {
 
     private static volatile DaoFactory daoFactory;
 
-    public abstract StudentDao createStudentDao();
     public abstract QuizDao createQuizDao();
     public abstract TopicDao createTopicDao();
     public abstract QuestionDao createQuestionDao();

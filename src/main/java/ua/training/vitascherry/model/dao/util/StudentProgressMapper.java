@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
-import static ua.training.vitascherry.model.dao.util.StudentMapper.extractStudent;
+import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
 
 public class StudentProgressMapper {
     public static StudentProgress extractStudentProgress(ResultSet rs) throws SQLException {
         return StudentProgress.builder()
-                .setStudent(extractStudent(rs))
+                .setStudent(extractUser(rs))
                 .setQuiz(extractQuiz(rs))
                 .setCorrectCount(rs.getInt("correct_count"))
                 .setQuestionCount(rs.getInt("question_count"))

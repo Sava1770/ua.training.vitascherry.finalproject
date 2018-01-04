@@ -24,29 +24,32 @@ public class JDBCAnswerDao implements AnswerDao {
     }
 
     @Override
-    public int create(Answer answer) {
-        int generatedKey = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_ANSWER, PreparedStatement.RETURN_GENERATED_KEYS)) {
+    public void create(Answer answer) {
+        int rowsCount;
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_ANSWER)) {
             ps.setString(1, answer.getText());
             ps.setBoolean(2, answer.getIsCorrect());
             ps.setInt(3, answer.getQuestion().getId());
-            ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                generatedKey = rs.getInt(1);
-            } else {
+            rowsCount = ps.executeUpdate();
+            if (rowsCount == 0) {
                 throw new EntityCreateException(answer);
             }
+            connection.commit();
+            System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+                System.out.println("JDBC Transaction rolled back successfully");
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         }
-        return generatedKey;
     }
 
     @Override
     public Answer findById(int id) {
-        // TODO
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -66,12 +69,12 @@ public class JDBCAnswerDao implements AnswerDao {
 
     @Override
     public void update(Answer entity) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void delete(int id) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override

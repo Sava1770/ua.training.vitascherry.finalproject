@@ -8,10 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.query.UserQuery.CREATE_USER;
-import static ua.training.vitascherry.model.dao.query.UserQuery.FIND_BY_EMAIL;
+import static ua.training.vitascherry.model.dao.query.UserQuery.*;
 import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
 
 public class JDBCUserDao implements UserDao {
@@ -23,16 +23,16 @@ public class JDBCUserDao implements UserDao {
     }
 
     @Override
-    public int create(User user) {
-        int generatedKey = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_USER, PreparedStatement.RETURN_GENERATED_KEYS)) {
+    public void create(User user) {
+        int rowsCount;
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_STUDENT)) {
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPasswordHash());
-            ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                generatedKey = rs.getInt(1);
-            } else {
+            ps.setString(3, user.getFirstName());
+            ps.setString(4, user.getLastName());
+            ps.setString(5, user.getPatronymic());
+            rowsCount = ps.executeUpdate();
+            if (rowsCount == 0) {
                 throw new EntityCreateException(user);
             }
             connection.commit();
@@ -42,18 +42,25 @@ public class JDBCUserDao implements UserDao {
             try {
                 connection.rollback();
                 System.out.println("JDBC Transaction rolled back successfully");
-                return 0;
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
         }
-        return generatedKey;
     }
 
     @Override
     public User findById(int id) {
-        // TODO
-        return null;
+        User student = null;
+        try (PreparedStatement ps = connection.prepareStatement(FIND_STUDENT_BY_ID)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                student = extractUser(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return student;
     }
 
     @Override
@@ -73,18 +80,27 @@ public class JDBCUserDao implements UserDao {
 
     @Override
     public List<User> findAll() {
-        // TODO
-        return null;
+        List<User> students = null;
+        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_STUDENT)) {
+            ResultSet rs = ps.executeQuery();
+            students = new ArrayList<>();
+            while (rs.next()) {
+                students.add(extractUser(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return students;
     }
 
     @Override
     public void update(User entity) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void delete(int id) {
-        // TODO
+        throw new UnsupportedOperationException();
     }
 
     @Override

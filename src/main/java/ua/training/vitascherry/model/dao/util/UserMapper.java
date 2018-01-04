@@ -13,6 +13,9 @@ public class UserMapper {
                 .setEmail(rs.getString("email"))
                 .setRole(Role.valueOf(rs.getString("role")))
                 .setPasswordHash(rs.getString("password_hash"))
+                .setFirstName(rs.getString("first_name"))
+                .setLastName(rs.getString("last_name"))
+                .setPatronymic(rs.getString("patronymic"))
                 .build();
     }
 }

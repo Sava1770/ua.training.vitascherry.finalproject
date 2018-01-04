@@ -2,14 +2,14 @@ package ua.training.vitascherry.model.entity;
 
 public class StudentProgress {
 
-    private Student student;
+    private User student;
     private Quiz quiz;
     private int correctCount;
     private int questionCount;
 
     private StudentProgress() {}
 
-    public Student getStudent() {
+    public User getStudent() {
         return student;
     }
 
@@ -41,7 +41,7 @@ public class StudentProgress {
 
     public class Builder {
 
-        public Builder setStudent(Student student) {
+        public Builder setStudent(User student) {
             StudentProgress.this.student = student;
             return this;
         }

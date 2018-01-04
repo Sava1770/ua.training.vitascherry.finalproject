@@ -5,14 +5,16 @@ import ua.training.vitascherry.model.dao.UserDao;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.util.Encryptor;
 
+import java.util.List;
+
 public class UserService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
 
-    public int createUser(User user) {
+    public void createUser(User user) {
         try (UserDao dao = daoFactory.createUserDao()) {
             dao.setAutoCommit(false);
-            return dao.create(user);
+            dao.create(user);
         }
     }
 
@@ -28,5 +30,17 @@ public class UserService {
 
     public boolean isValidCredentials(User user, String password) {
         return Encryptor.matches(password, user.getPasswordHash());
+    }
+
+    public List<User> getAllStudents() {
+        try (UserDao dao = daoFactory.createUserDao()) {
+            return dao.findAll();
+        }
+    }
+
+    public User getStudentById(int id) {
+        try (UserDao dao = daoFactory.createUserDao()) {
+            return dao.findById(id);
+        }
     }
 }

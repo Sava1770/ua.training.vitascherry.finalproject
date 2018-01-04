@@ -11,11 +11,6 @@ public class JDBCDaoFactory extends DaoFactory {
     private final DataSource dataSource = ConnectionPoolHolder.getDataSource();
 
     @Override
-    public StudentDao createStudentDao() {
-        return new JDBCStudentDao(getConnection());
-    }
-
-    @Override
     public StudentProgressDao createStudentProgressDao() {
         return new JDBCStudentProgressDao(getConnection());
     }

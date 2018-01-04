@@ -1,9 +1,7 @@
 package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.model.entity.Role;
-import ua.training.vitascherry.model.entity.Student;
 import ua.training.vitascherry.model.entity.User;
-import ua.training.vitascherry.model.service.StudentService;
 import ua.training.vitascherry.model.service.UserService;
 
 import javax.servlet.ServletException;

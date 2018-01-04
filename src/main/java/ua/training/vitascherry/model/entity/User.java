@@ -4,8 +4,11 @@ public class User {
 
     private int id;
     private String email;
-    private String passwordHash;
     private Role role;
+    private String passwordHash;
+    private String firstName;
+    private String lastName;
+    private String patronymic;
 
     private User() {}
 
@@ -17,12 +20,24 @@ public class User {
         return email;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
     public String getPasswordHash() {
         return passwordHash;
     }
 
-    public Role getRole() {
-        return role;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
     }
 
     @Override
@@ -45,8 +60,11 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", passwordHash='" + passwordHash + '\'' +
                 ", role=" + role +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", patronymic='" + patronymic + '\'' +
                 '}';
     }
 
@@ -73,6 +91,21 @@ public class User {
 
         public Builder setRole(Role role) {
             User.this.role = role;
+            return this;
+        }
+
+        public Builder setFirstName(String firstName) {
+            User.this.firstName = firstName;
+            return this;
+        }
+
+        public Builder setLastName(String lastName) {
+            User.this.lastName = lastName;
+            return this;
+        }
+
+        public Builder setPatronymic(String patronymic) {
+            User.this.patronymic = patronymic;
             return this;
         }
 
