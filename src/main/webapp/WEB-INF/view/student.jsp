@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student ${requestScope.user.id}</title>
+        <title>Student ${requestScope.student.id}</title>
         <style>
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
@@ -22,15 +22,15 @@
         </style>
     </head>
     <body>
-        <h1>Student ${requestScope.user.id}</h1>
+        <h1>Student ${requestScope.student.id}</h1>
         <hr>
         <div class="student">
             <table>
                 <tr>
-                    <td class="label-col">Full name:</td><td><c:out value="${requestScope.user.firstName} ${requestScope.user.lastName} ${requestScope.user.patronymic}"/></td>
+                    <td class="label-col">Full name:</td><td><c:out value="${requestScope.student.firstName} ${requestScope.student.lastName} ${requestScope.student.patronymic}"/></td>
                 </tr>
                 <tr>
-                    <td class="label-col">Email:</td><td><c:out value="${requestScope.user.email}"/></td>
+                    <td class="label-col">Email:</td><td><c:out value="${requestScope.student.email}"/></td>
                 </tr>
             </table>
         </div>
