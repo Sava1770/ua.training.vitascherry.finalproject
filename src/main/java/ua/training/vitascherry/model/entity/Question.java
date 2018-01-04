@@ -10,6 +10,8 @@ public class Question {
 
     private List<Answer> answers = new ArrayList<>();
 
+    private Quiz quiz;
+
     private Question() {}
 
     public int getId() {
@@ -22,6 +24,10 @@ public class Question {
 
     public List<Answer> getAnswers() {
         return answers;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
     }
 
     @Override
@@ -61,6 +67,11 @@ public class Question {
 
         public Builder setText(String text) {
             Question.this.text = text;
+            return this;
+        }
+
+        public Builder setQuiz(Quiz quiz) {
+            Question.this.quiz = quiz;
             return this;
         }
 

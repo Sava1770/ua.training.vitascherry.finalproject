@@ -15,7 +15,7 @@
     </head>
     <body>
         <div class="welcome">
-            <h1>Welcome, ${requestScope.student.firstName}!</h1>
+            <h1>Welcome, ${sessionScope.student.firstName}!</h1>
             <h3>You can now pass our tests</h3>
         </div>
         <hr>

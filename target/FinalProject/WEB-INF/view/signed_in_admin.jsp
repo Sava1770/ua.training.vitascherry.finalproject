@@ -15,7 +15,7 @@
     </head>
     <body>
         <div class="welcome">
-            <h1>Welcome ${requestScope.user.role}!</h1>
+            <h1>Welcome ADMIN!</h1>
             <h3>You can now track the progress of students</h3>
         </div>
         <hr>

@@ -7,6 +7,7 @@ import ua.training.vitascherry.model.service.QuizService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+import static ua.training.vitascherry.controller.util.View.ERROR_404_PAGE;
 import static ua.training.vitascherry.controller.util.View.QUIZ_LIST_PAGE;
 
 public class QuizList implements Command {
@@ -14,9 +15,12 @@ public class QuizList implements Command {
     private final QuizService quizService = new QuizService();
 
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest req) {
         List<Quiz> quizzes = quizService.getAllQuizzes();
-        request.setAttribute("quizzes" , quizzes);
+        if (quizzes == null) {
+            return ERROR_404_PAGE;
+        }
+        req.setAttribute("quizzes", quizzes);
         return QUIZ_LIST_PAGE;
     }
 }

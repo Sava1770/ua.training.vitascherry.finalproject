@@ -10,6 +10,13 @@ public class StudentService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
 
+    public int createStudent(Student student) {
+        try (StudentDao dao = daoFactory.createStudentDao()) {
+            dao.setAutoCommit(false);
+            return dao.create(student);
+        }
+    }
+
     public List<Student> getAllStudents() {
         try (StudentDao dao = daoFactory.createStudentDao()) {
             return dao.findAll();

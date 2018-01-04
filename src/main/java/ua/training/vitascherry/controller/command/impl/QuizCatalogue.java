@@ -2,29 +2,28 @@ package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
 import ua.training.vitascherry.controller.util.TokenPosition;
-import ua.training.vitascherry.model.entity.Quiz;
-import ua.training.vitascherry.model.service.QuizService;
+import ua.training.vitascherry.model.entity.Topic;
+import ua.training.vitascherry.model.service.TopicService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
-import static ua.training.vitascherry.controller.util.View.ERROR_PAGE;
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
+import static ua.training.vitascherry.controller.util.View.ERROR_404_PAGE;
 import static ua.training.vitascherry.controller.util.View.QUIZ_LIST_PAGE;
 
 public class QuizCatalogue implements Command {
 
-    private final QuizService quizService = new QuizService();
+    private final TopicService topicService = new TopicService();
 
     @Override
-    public String execute(HttpServletRequest request) {
-        String token = extractToken(request.getRequestURI(), TokenPosition.PRIMARY_ID);
+    public String execute(HttpServletRequest req) {
+        String token = extractToken(req.getRequestURI(), TokenPosition.PRIMARY_ID);
         int id = Integer.parseInt(token);
-        List<Quiz> quizzes = quizService.getQuizzesByTopicId(id);
-        if (quizzes.isEmpty()) {
-            return ERROR_PAGE;
+        Topic topic = topicService.getTopicById(id);
+        if (topic == null) {
+            return ERROR_404_PAGE;
         }
-        request.setAttribute("quizzes" , quizzes);
+        req.setAttribute("quizzes", topic.getQuizzes());
         return QUIZ_LIST_PAGE;
     }
 }

@@ -1,6 +1,7 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.QuizDao;
+import ua.training.vitascherry.model.entity.EntityCreateException;
 import ua.training.vitascherry.model.entity.Question;
 import ua.training.vitascherry.model.entity.Quiz;
 
@@ -28,8 +29,21 @@ public class JDBCQuizDao implements QuizDao {
     }
 
     @Override
-    public void create(Quiz entity) {
-        // TODO
+    public int create(Quiz quiz) {
+        int generatedKey = 0;
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_QUIZ, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, quiz.getName());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            } else {
+                throw new EntityCreateException(quiz);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return generatedKey;
     }
 
     @Override
@@ -52,21 +66,6 @@ public class JDBCQuizDao implements QuizDao {
             e.printStackTrace();
         }
         return quiz;
-    }
-
-    @Override
-    public List<Quiz> findByTopicId(int id) {
-        List<Quiz> quizzes = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_TOPIC_ID)) {
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                quizzes.add(extractQuiz(rs));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return quizzes;
     }
 
     @Override
@@ -93,9 +92,10 @@ public class JDBCQuizDao implements QuizDao {
 
     @Override
     public List<Quiz> findAll() {
-        List<Quiz> quizzes = new ArrayList<>();
+        List<Quiz> quizzes = null;
         try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
             ResultSet rs = ps.executeQuery();
+            quizzes = new ArrayList<>();
             while (rs.next()) {
                 quizzes.add(extractQuiz(rs));
             }
@@ -118,7 +118,17 @@ public class JDBCQuizDao implements QuizDao {
     @Override
     public void close() {
         try {
+            setAutoCommit(true);
             connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void setAutoCommit(boolean value) {
+        try {
+            connection.setAutoCommit(value);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -10,13 +10,13 @@ public class StudentProgressService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
 
-    public List<StudentProgress> getAllProgress() {
+    public List<StudentProgress> getAllProgresses() {
         try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
             return dao.findAll();
         }
     }
 
-    public List<StudentProgress> getProgressByStudentId(int id) {
+    public List<StudentProgress> getProgressesByStudentId(int id) {
         try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
             return dao.findByStudentId(id);
         }

@@ -6,6 +6,8 @@ public class Answer {
     private String text;
     private Boolean isCorrect;
 
+    private Question question;
+
     private Answer() {}
 
     public int getId() {
@@ -18,6 +20,10 @@ public class Answer {
 
     public Boolean getIsCorrect() {
         return isCorrect;
+    }
+
+    public Question getQuestion() {
+        return question;
     }
 
     @Override
@@ -62,6 +68,11 @@ public class Answer {
 
         public Builder setIsCorrect(boolean isCorrect) {
             Answer.this.isCorrect = isCorrect;
+            return this;
+        }
+
+        public Builder setQuestion(Question question) {
+            Answer.this.question = question;
             return this;
         }
 

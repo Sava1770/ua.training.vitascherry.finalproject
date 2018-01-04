@@ -23,8 +23,9 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public void create(StudentProgress entity) {
+    public int create(StudentProgress entity) {
         // TODO
+        return 0;
     }
 
     @Override
@@ -35,10 +36,11 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
 
     @Override
     public List<StudentProgress> findByStudentId(int id) {
-        List<StudentProgress> progresses = new ArrayList<>();
+        List<StudentProgress> progresses = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_BY_STUDENT_ID)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
+            progresses = new ArrayList<>();
             while (rs.next()) {
                 progresses.add(extractStudentProgress(rs));
             }
@@ -50,9 +52,10 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
 
     @Override
     public List<StudentProgress> findAll() {
-        List<StudentProgress> progresses = new ArrayList<>();
+        List<StudentProgress> progresses = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_ALL)) {
             ResultSet rs = ps.executeQuery();
+            progresses = new ArrayList<>();
             while (rs.next()) {
                 progresses.add(extractStudentProgress(rs));
             }
@@ -75,7 +78,17 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
     @Override
     public void close() {
         try {
+            setAutoCommit(true);
             connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void setAutoCommit(boolean value) {
+        try {
+            connection.setAutoCommit(value);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

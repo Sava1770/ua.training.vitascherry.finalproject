@@ -8,7 +8,7 @@ import static ua.training.vitascherry.controller.util.View.REGISTER_PAGE;
 
 public class Register implements Command {
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest req) {
         return REGISTER_PAGE;
     }
 }

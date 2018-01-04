@@ -63,7 +63,7 @@
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/home">Home</a>
+                <a href="${pageContext.request.contextPath}/">Home</a>
             </nav>
         </div>
     </body>

@@ -2,6 +2,7 @@ package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.controller.command.Command;
 import ua.training.vitascherry.controller.command.impl.*;
+import ua.training.vitascherry.controller.util.TokenPosition;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,15 +12,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static ua.training.vitascherry.controller.util.CommandMapper.extractCommand;
+import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
 public class MainServlet extends HttpServlet {
 
-    private Map<String, Command> commands = new HashMap<>();
+    private final Map<String, Command> commands = new HashMap<>();
+    private final Command NOT_FOUND = new NotFound();
 
     @Override
     public void init() throws ServletException {
-        commands.put("home", new Home());
+        commands.put("/", new Home());
         commands.put("students", new StudentList());
         commands.put("student", new StudentProfile());
         commands.put("progress", new StudentProgressList());
@@ -31,49 +33,17 @@ public class MainServlet extends HttpServlet {
         commands.put("signin", new SignIn());
         commands.put("signout", new SignOut());
         commands.put("register", new Register());
-        System.out.println("MainServlet was initialized!");
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String path = req.getRequestURI();
-        String pathFull = req.getRequestURL().toString();
-        String params = req.getQueryString();
-        System.out.println("\nIncoming GET request!");
-        System.out.println("----- Request URI: " + path);
-        System.out.println("----- Request URL: " + pathFull);
-        System.out.println("----- Request Params: " + params);
-        System.out.println("Processing request...");
-
-        Command command = extractCommand(path, commands);
-        String responsePage = command.execute(req);
+        System.out.println("\nProcessing doGET()...");
+        String token = extractToken(request.getRequestURI(), TokenPosition.COMMAND);
+        System.out.println("Token: " + token);
+        Command command = commands.getOrDefault(token, NOT_FOUND);
+        String responsePage = command.execute(request);
         System.out.println("Response page: " + responsePage);
-
-        req.getRequestDispatcher(responsePage).forward(req, resp);
-        System.out.println("GET was executed!\n");
-    }
-
-    /*public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String path = req.getRequestURI();
-        String pathFull = req.getRequestURL().toString();
-        String params = req.getQueryString();
-        System.out.println("\nIncoming GET request!");
-        System.out.println("----- Request URI: " + path);
-        System.out.println("----- Request URL: " + pathFull);
-        System.out.println("----- Request Params: " + params);
-        System.out.println("Processing request...");
-
-        Command command = extractCommand(path, commands);
-        String responsePage = command.execute(req);
-        System.out.println("Response page: " + responsePage);
-
-        req.getRequestDispatcher(responsePage).forward(req, resp);
-        System.out.println("POST was executed!\n");
-    }*/
-
-    @Override
-    public void destroy() {
-        System.out.println("MainServlet was destroyed!");
+        request.getRequestDispatcher(responsePage).forward(request, response);
     }
 }

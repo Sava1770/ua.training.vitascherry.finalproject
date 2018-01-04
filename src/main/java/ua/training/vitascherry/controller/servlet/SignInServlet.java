@@ -24,27 +24,29 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getNamedDispatcher("MainServlet")
-                .forward(req, resp);
+        getServletContext().getNamedDispatcher("MainServlet").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String responsePage = SIGN_IN_PAGE;
+        System.out.println("\nProcessing Sign in doPOST()...");
         User user = userService.getUserByEmail(req.getParameter("email"));
-        if (userService.isValidCredentials(user, req.getParameter("password"))) {
-            if (user.getRole() == Role.STUDENT) {
+        System.out.println("User: " + user);
+        String responsePage = SIGN_IN_PAGE;
+        if (user != null && userService.isValidCredentials(user, req.getParameter("password"))) {
+            req.getSession().setAttribute("user", user);
+            if (user.getRole().equals(Role.STUDENT)) {
                 Student student = studentService.getStudentById(user.getId());
-                student.setUser(user);
-                req.setAttribute("student", student);
+                System.out.println("Student: " + student);
+                req.getSession().setAttribute("student", student);
                 responsePage = STUDENT_SIGNED_PAGE;
-            } else if (user.getRole() == Role.ADMIN) {
-                req.setAttribute("user", user);
+            } else {
                 responsePage = ADMIN_SIGNED_PAGE;
             }
         } else {
             req.setAttribute("invalidCredentials", INVALID_CREDENTIALS);
         }
+        System.out.println("Response page: " + responsePage);
         req.getRequestDispatcher(responsePage).forward(req, resp);
     }
 }

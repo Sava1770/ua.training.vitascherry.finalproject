@@ -9,7 +9,7 @@
 
             /* Current file styles */
             .goodbye, .navigation-menu {
-                width: 400px;
+                width: 600px;
             }
         </style>
     </head>

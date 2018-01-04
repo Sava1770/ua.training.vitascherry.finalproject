@@ -9,7 +9,7 @@
 
             /* Current file styles */
             .welcome, .navigation-menu {
-                width: 700px;
+                width: 800px;
             }
             .navigation-menu a {
                 margin-right: 1em;
@@ -28,6 +28,7 @@
                 <a href="${pageContext.request.contextPath}/progress">Progress</a>
                 <a href="${pageContext.request.contextPath}/students">Student list</a>
                 <a href="${pageContext.request.contextPath}/signin">Sign-in</a>
+                <a href="${pageContext.request.contextPath}/signout">Sign-out</a>
                 <a href="${pageContext.request.contextPath}/register">Register</a>
             </nav>
         </div>

@@ -15,4 +15,10 @@ public class TopicService {
             return dao.findAll();
         }
     }
+
+    public Topic getTopicById(int id) {
+        try (TopicDao dao = daoFactory.createTopicDao()) {
+            return dao.findById(id);
+        }
+    }
 }

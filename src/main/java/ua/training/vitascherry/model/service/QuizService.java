@@ -22,15 +22,9 @@ public class QuizService {
         }
     }
 
-    public List<Quiz> getQuizzesByTopicId(int id) {
+    public Quiz getQuizResult(int studentId, int quizId) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findByTopicId(id);
-        }
-    }
-
-    public Quiz getResultByStudentIdQuizId(int idStudent, int idQuiz) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findByStudentIdQuizId(idStudent, idQuiz);
+            return dao.findByStudentIdQuizId(studentId, quizId);
         }
     }
 }

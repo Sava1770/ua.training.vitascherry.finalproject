@@ -9,7 +9,6 @@ public class Quiz {
     private String name;
 
     private List<Question> questions = new ArrayList<>();
-    private List<Topic> topics = new ArrayList<>();
 
     private Quiz() {}
 
@@ -23,10 +22,6 @@ public class Quiz {
 
     public List<Question> getQuestions() {
         return questions;
-    }
-
-    public List<Topic> getTopics() {
-        return topics;
     }
 
     @Override

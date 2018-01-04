@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Error Page</title>
+        <title>Error 404</title>
         <style>
             <%@ include file="/WEB-INF/view/style/main.css"%>
 
@@ -21,7 +21,7 @@
         </div>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/home">Home</a>
+                <a href="${pageContext.request.contextPath}/">Home</a>
             </nav>
         </div>
     </body>

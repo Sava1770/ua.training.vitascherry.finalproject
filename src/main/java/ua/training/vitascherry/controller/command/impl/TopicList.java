@@ -7,6 +7,7 @@ import ua.training.vitascherry.model.service.TopicService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+import static ua.training.vitascherry.controller.util.View.ERROR_404_PAGE;
 import static ua.training.vitascherry.controller.util.View.TOPIC_LIST;
 
 public class TopicList implements Command {
@@ -14,9 +15,12 @@ public class TopicList implements Command {
     private final TopicService topicService = new TopicService();
 
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest req) {
         List<Topic> topics = topicService.getAllTopics();
-        request.setAttribute("topics" , topics);
+        if (topics == null) {
+            return ERROR_404_PAGE;
+        }
+        req.setAttribute("topics", topics);
         return TOPIC_LIST;
     }
 }
