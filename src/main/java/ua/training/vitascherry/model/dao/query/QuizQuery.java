@@ -4,7 +4,22 @@ public interface QuizQuery {
 
     String CREATE_QUIZ = "INSERT INTO quiz (name) VALUES (?)";
 
+    String CREATE_STUDENT_ANSWERS = "INSERT INTO user_answer (id_user, id_answer) VALUES (?, ?)";
+
     String LAZY_FIND_ALL = "SELECT * FROM quiz";
+
+    String FIND_ALL_PASSED = "SELECT DISTINCT id_quiz, quiz.name FROM quiz " +
+                             "JOIN question USING(id_quiz) " +
+                             "JOIN answer USING(id_question) " +
+                             "JOIN user_answer USING(id_answer) " +
+                             "WHERE id_user = ?";
+
+    String FIND_ALL_AVAILABLE = "SELECT id_quiz, quiz.name FROM quiz " +
+                                "WHERE id_quiz NOT IN " +
+                                "(SELECT DISTINCT id_quiz FROM question " +
+                                "JOIN answer USING(id_question) " +
+                                "JOIN user_answer USING(id_answer) " +
+                                "WHERE id_user = ?)";
 
     String FIND_BY_ID = "SELECT * FROM quiz " +
                         "JOIN question USING(id_quiz) " +

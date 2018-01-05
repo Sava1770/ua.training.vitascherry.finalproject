@@ -2,7 +2,6 @@ package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.controller.command.Command;
 import ua.training.vitascherry.controller.command.impl.*;
-import ua.training.vitascherry.controller.util.TokenPosition;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +11,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractCommand;
 
 public class MainServlet extends HttpServlet {
 
     private final Map<String, Command> commands = new HashMap<>();
-    private final Command NOT_FOUND = new NotFound();
 
     @Override
     public void init() throws ServletException {
@@ -29,6 +27,7 @@ public class MainServlet extends HttpServlet {
         commands.put("topics", new TopicList());
         commands.put("topic", new QuizCatalogue());
         commands.put("quizzes", new QuizList());
+        commands.put("available", new AvailableQuizzes());
         commands.put("quiz", new PassQuiz());
         commands.put("result", new QuizResult());
         commands.put("signin", new SignIn());
@@ -37,14 +36,9 @@ public class MainServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        System.out.println("\nProcessing doGET()...");
-        String token = extractToken(request.getRequestURI(), TokenPosition.COMMAND);
-        System.out.println("Token: " + token);
-        Command command = commands.getOrDefault(token, NOT_FOUND);
-        String responsePage = command.execute(request);
-        System.out.println("Response page: " + responsePage);
-        request.getRequestDispatcher(responsePage).forward(request, response);
+        Command command = extractCommand(req, commands);
+        req.getRequestDispatcher(command.execute(req)).forward(req, resp);
     }
 }

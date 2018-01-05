@@ -9,9 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static ua.training.vitascherry.model.dao.query.QuizQuery.*;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
@@ -39,6 +37,35 @@ public class JDBCQuizDao implements QuizDao {
             }
             connection.commit();
             System.out.println("JDBC Transaction committed successfully");
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                connection.rollback();
+                System.out.println("JDBC Transaction rolled back successfully");
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }
+        return rowsCount;
+    }
+
+    @Override
+    public int createStudentAnswers(int studentId, List<Integer> answerIds) {
+        int rowsCount = 0;
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_STUDENT_ANSWERS)) {
+            for (Integer answerId : answerIds) {
+                ps.setInt(1, studentId);
+                ps.setInt(2, answerId);
+                ps.addBatch();
+            }
+            rowsCount = ps.executeBatch().length;
+            if (rowsCount == 0) {
+                Map<Integer, List<Integer>> entity = new HashMap<>();
+                entity.put(studentId, answerIds);
+                throw new EntityCreateException(entity);
+            }
+            connection.commit();
+            System.out.println("JDBC: SUCCESSFULLY UPDATED " + rowsCount + " ROWS");
         } catch (Exception e) {
             e.printStackTrace();
             try {
@@ -94,6 +121,39 @@ public class JDBCQuizDao implements QuizDao {
         }
         return result;
     }
+
+    @Override
+    public List<Quiz> findAllPassedByStudent(int id) {
+        List<Quiz> quizzes = null;
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_PASSED)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            quizzes = new ArrayList<>();
+            while (rs.next()) {
+                quizzes.add(extractQuiz(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return quizzes;
+    }
+
+    @Override
+    public List<Quiz> findAllAvailableForStudent(int id) {
+        List<Quiz> quizzes = null;
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_AVAILABLE)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            quizzes = new ArrayList<>();
+            while (rs.next()) {
+                quizzes.add(extractQuiz(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return quizzes;
+    }
+
 
     @Override
     public List<Quiz> findAll() {

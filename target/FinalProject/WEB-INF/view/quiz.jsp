@@ -34,22 +34,25 @@
         <h1><c:out value="${requestScope.quiz.name}"/></h1>
         <hr>
         <div class="questions">
-            <ul>
-                <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="questionLoop">
-                    <li>
-                        <div class="question-text">
-                            <c:out value="${questionLoop.index + 1}. "/><c:out value="${question.text}"/>
-                        </div>
-                        <div class="answers">
-                            <c:forEach var="answer" items="${question.answers}" varStatus="answerLoop">
-                                <div class="answer-text">
-                                    <c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox">
-                                </div>
-                            </c:forEach>
-                        </div>
-                    </li>
-                </c:forEach>
-            </ul>
+            <form method="POST" action="${pageContext.request.contextPath}/result/${sessionScope.user.id}/${requestScope.quiz.id}" autocomplete="off" >
+                <ul>
+                    <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="questionLoop">
+                        <li>
+                            <div class="question-text">
+                                <c:out value="${questionLoop.index + 1}. "/><c:out value="${question.text}"/>
+                            </div>
+                            <div class="answers">
+                                <c:forEach var="answer" items="${question.answers}" varStatus="answerLoop">
+                                    <div class="answer-text">
+                                        <c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox" name="${answer.id}">
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </li>
+                    </c:forEach>
+                </ul>
+                <input type="submit" value="Submit"/>
+            </form>
         </div>
         <hr>
         <div class="navigation-menu">

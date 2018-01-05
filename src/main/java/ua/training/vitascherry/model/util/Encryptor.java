@@ -22,7 +22,6 @@ public class Encryptor {
             }
             //Get complete hashed password in hex format
             generated = sb.toString();
-            System.out.println("Generated hash: " + generated);
         }
         catch (NoSuchAlgorithmException e)
         {

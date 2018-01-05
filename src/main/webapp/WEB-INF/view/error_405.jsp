@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Error 403</title>
+    <title>Error 405</title>
     <style>
         <%@ include file="/WEB-INF/view/style/main.css"%>
 
@@ -16,12 +16,13 @@
 </head>
 <body>
 <div class="error">
-    <h1>403 Forbidden</h1>
-    <h3>You do not have access to the ${requestScope["javax.servlet.forward.request_uri"]}</h3>
+    <h1>405 Method Not Allowed</h1>
+    <h3>Sorry, you have already passed this quiz. Try another one!</h3>
 </div>
 <div class="navigation-menu">
     <nav>
         <a href="${pageContext.request.contextPath}/">Home</a>
+        <a href="${pageContext.request.contextPath}/available">Available quizzes</a>
     </nav>
 </div>
 </body>

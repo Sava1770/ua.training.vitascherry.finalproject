@@ -3,6 +3,7 @@ package ua.training.vitascherry.model.util;
 import ua.training.vitascherry.model.entity.Answer;
 import ua.training.vitascherry.model.entity.Question;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnswerTagLib {
@@ -12,6 +13,8 @@ public class AnswerTagLib {
     }
 
     public static List<Answer> getAnswers(List<Question> questions, int questionIndex) {
-        return questions.get(questionIndex).getAnswers();
+        return questions.size() > questionIndex ?
+                questions.get(questionIndex).getAnswers() :
+                    new ArrayList<>();
     }
 }

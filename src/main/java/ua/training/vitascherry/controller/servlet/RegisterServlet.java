@@ -35,13 +35,10 @@ public class RegisterServlet extends HttpServlet {
                     .setLastName(req.getParameter("lastName"))
                     .setPatronymic(req.getParameter("patronymic"))
                     .build();
-            System.out.println("Student: " + user);
             userService.createUser(user);
         } else {
             req.setAttribute("notUniqueEmail", req.getParameter("email") + NOT_UNIQUE_EMAIL);
         }
-        String responsePage = userService.getRegisterNextPage();
-        System.out.println("Register response page: " + responsePage);
-        req.getRequestDispatcher(responsePage).forward(req, resp);
+        req.getRequestDispatcher(userService.getRegisterNextPage()).forward(req, resp);
     }
 }

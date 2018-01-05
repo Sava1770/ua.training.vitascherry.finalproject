@@ -35,18 +35,13 @@ public class AuthorizationFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        System.out.println("\nProcessing Authorization doFilter()...");
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
-        System.out.println("Extracting token...");
         String token = extractToken(request.getRequestURI(), TokenPosition.COMMAND);
-        System.out.println("Token: " + token);
         Role[] permissions = specialPermissions.get(token);
-        System.out.println("Permissions: " + Arrays.toString(permissions));
         if (permissions != null) {
             Role role = null;
             User user = (User) request.getSession().getAttribute("user");
-            System.out.println("User: " + user);
             if (user != null) {
                 role = user.getRole();
             }

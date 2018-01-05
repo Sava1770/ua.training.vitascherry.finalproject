@@ -69,6 +69,16 @@
     <url-pattern>/signin</url-pattern>
   </servlet-mapping>
 
+  <!-- Quiz servlet -->
+  <servlet>
+    <servlet-name>QuizResultServlet</servlet-name>
+    <servlet-class>ua.training.vitascherry.controller.servlet.QuizResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuizResultServlet</servlet-name>
+    <url-pattern>/result/*</url-pattern>
+  </servlet-mapping>
+
   <!-- Index page -->
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

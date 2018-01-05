@@ -22,16 +22,12 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("\nProcessing Sign in doPOST()...");
         User user = userService.getUserByEmail(req.getParameter("email"));
-        System.out.println("User: " + user);
         if (user != null && userService.isValidCredentials(user, req.getParameter("password"))) {
             req.getSession().setAttribute("user", user);
         } else {
             req.setAttribute("invalidCredentials", INVALID_CREDENTIALS);
         }
-        String responsePage = userService.getSignInNextPage();
-        System.out.println("Response page: " + responsePage);
-        req.getRequestDispatcher(responsePage).forward(req, resp);
+        req.getRequestDispatcher(userService.getSignInNextPage()).forward(req, resp);
     }
 }

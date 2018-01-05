@@ -1,17 +1,14 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.controller.util.TokenPosition;
 import ua.training.vitascherry.model.entity.Role;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
-import static ua.training.vitascherry.controller.util.View.ERROR_403_PAGE;
-import static ua.training.vitascherry.controller.util.View.ERROR_404_PAGE;
-import static ua.training.vitascherry.controller.util.View.STUDENT_PAGE;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractPrimaryId;
+import static ua.training.vitascherry.controller.util.View.*;
 
 public class StudentProfile implements Command {
 
@@ -19,9 +16,11 @@ public class StudentProfile implements Command {
 
     @Override
     public String execute(HttpServletRequest req) {
-        String token = extractToken(req.getRequestURI(), TokenPosition.PRIMARY_ID);
-        int id = Integer.parseInt(token);
+        int id = extractPrimaryId(req);
         User sessionUser = (User)req.getSession().getAttribute("user");
+        if(sessionUser.getRole().equals(Role.ADMIN) && sessionUser.getId() == id) {
+            return ADMIN_SIGNED_PAGE;
+        }
         if (!sessionUser.getRole().equals(Role.ADMIN) && sessionUser.getId() != id) {
             return ERROR_403_PAGE;
         }

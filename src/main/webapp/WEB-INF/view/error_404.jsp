@@ -10,7 +10,7 @@
 
             /* Current file styles */
             .navigation-menu, .error {
-                width: 400px;
+                width: 600px;
             }
         </style>
     </head>

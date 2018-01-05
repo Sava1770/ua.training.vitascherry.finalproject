@@ -8,8 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static ua.training.vitascherry.model.dao.query.AnswerQuery.CREATE_ANSWER;
 import static ua.training.vitascherry.model.dao.query.AnswerQuery.LAZY_FIND_ALL;
@@ -96,4 +95,5 @@ public class JDBCAnswerDao implements AnswerDao {
             throw new RuntimeException(e);
         }
     }
+
 }

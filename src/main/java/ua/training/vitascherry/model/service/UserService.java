@@ -14,8 +14,8 @@ import static ua.training.vitascherry.controller.util.View.SIGN_IN_PAGE;
 public class UserService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
-    private String registerNextPage;
-    private String signInNextPage;
+    private String registerNextPage = REGISTER_PAGE;
+    private String signInNextPage = SIGN_IN_PAGE;
 
     public String getRegisterNextPage() {
         return registerNextPage;
@@ -53,7 +53,6 @@ public class UserService {
     public boolean isValidCredentials(User user, String password) {
         signInNextPage = SIGN_IN_PAGE;
         boolean isValid = Encryptor.matches(password, user.getPasswordHash());
-        System.out.println("Credentials valid: " + isValid);
         if (isValid) {
             signInNextPage = user.getRole().getWelcomePage();
         }

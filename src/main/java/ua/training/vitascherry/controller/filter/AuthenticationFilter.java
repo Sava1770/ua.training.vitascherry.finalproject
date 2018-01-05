@@ -13,11 +13,9 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("\nProcessing Authentication doFilter()...");
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         if (request.getSession().getAttribute("user") != null) {
-            System.out.println("Redirecting to home page...");
             response.sendRedirect("/");
             return;
         }
