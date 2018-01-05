@@ -14,7 +14,9 @@ import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.QuestionQuery.CREATE_QUESTION;
 import static ua.training.vitascherry.model.dao.query.QuestionQuery.FIND_ALL;
-import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestionAnswers;
+import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
+import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
+import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
 
 public class JDBCQuestionDao implements QuestionDao {
 
@@ -61,7 +63,9 @@ public class JDBCQuestionDao implements QuestionDao {
             questions = new ArrayList<>();
             HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
             while (rs.next()) {
-                extractQuestionAnswers(rs, uniqueQuestions);
+                Question question = extractQuestion(rs);
+                question = extractUniqueValue(uniqueQuestions, question.getId(), question);
+                question.getAnswers().add(extractAnswer(rs));
             }
             questions.addAll(uniqueQuestions.values());
         } catch (SQLException e) {

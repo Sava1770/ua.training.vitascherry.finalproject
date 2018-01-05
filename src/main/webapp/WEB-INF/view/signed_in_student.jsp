@@ -4,10 +4,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome</title>
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            <%@ include file="/WEB-INF/view/style/main.css"%>
-
-            /* Current file styles */
             .welcome, .navigation-menu {
                 width: 600px;
             }

@@ -34,18 +34,18 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
 
     @Override
     public List<StudentProgress> findByStudentId(int id) {
-        List<StudentProgress> progresses = null;
+        List<StudentProgress> studentProgresses = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_BY_STUDENT_ID)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            progresses = new ArrayList<>();
+            studentProgresses = new ArrayList<>();
             while (rs.next()) {
-                progresses.add(extractStudentProgress(rs));
+                studentProgresses.add(extractStudentProgress(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return progresses;
+        return studentProgresses;
     }
 
     @Override

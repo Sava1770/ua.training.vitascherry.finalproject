@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page isErrorPage="true" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Error 404</title>
+        <title>Successfully registered</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .navigation-menu, .error {
-                width: 600px;
+            .navigation-menu, .navigation-menu {
+                width: 400px;
             }
         </style>
     </head>
     <body>
-        <div class="error">
-            <h1>404 Not Found</h1>
-            <h3>The requested URI ${requestScope["javax.servlet.forward.request_uri"]} was not found on this server.</h3>
-        </div>
+        <h1>Successfully registered!</h1>
+        <h3>You can now sign-in using your credentials</h3>
+        <hr>
         <div class="navigation-menu">
             <nav>
+                <a href="${pageContext.request.contextPath}/signin">Sign-in</a>
                 <a href="${pageContext.request.contextPath}/">Home</a>
             </nav>
         </div>

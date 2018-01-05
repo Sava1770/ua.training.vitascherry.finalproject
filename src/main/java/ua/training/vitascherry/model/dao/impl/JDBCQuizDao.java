@@ -14,9 +14,8 @@ import java.util.*;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.*;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
-import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestionAnswers;
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
-import static ua.training.vitascherry.model.dao.util.EntityMapper.extractUniqueValue;
+import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
 
 public class JDBCQuizDao implements QuizDao {
 
@@ -60,12 +59,10 @@ public class JDBCQuizDao implements QuizDao {
             }
             rowsCount = ps.executeBatch().length;
             if (rowsCount == 0) {
-                Map<Integer, List<Integer>> entity = new HashMap<>();
-                entity.put(studentId, answerIds);
-                throw new EntityCreateException(entity);
+                throw new EntityCreateException("id_student" + studentId + ", id_answer:" + answerIds);
             }
             connection.commit();
-            System.out.println("JDBC: SUCCESSFULLY UPDATED " + rowsCount + " ROWS");
+            System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
             e.printStackTrace();
             try {
@@ -102,56 +99,60 @@ public class JDBCQuizDao implements QuizDao {
 
     @Override
     public Quiz findByStudentIdQuizId(int studentId, int quizId) {
-        Quiz result = null;
+        Quiz quiz = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_BY_STUDENT_ID_QUIZ_ID)) {
             ps.setInt(1, studentId);
             ps.setInt(2, quizId);
             ResultSet rs = ps.executeQuery();
             HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
             if (rs.next()) {
-                result = extractQuiz(rs);
-                extractQuestionAnswers(rs, uniqueQuestions);
+                quiz = extractQuiz(rs);
+                Question question = extractQuestion(rs);
+                question = extractUniqueValue(uniqueQuestions, question.getId(), question);
+                question.getAnswers().add(extractAnswer(rs));
                 while (rs.next()) {
-                    extractQuestionAnswers(rs, uniqueQuestions);
+                    question = extractQuestion(rs);
+                    question = extractUniqueValue(uniqueQuestions, question.getId(), question);
+                    question.getAnswers().add(extractAnswer(rs));
                 }
-                result.getQuestions().addAll(uniqueQuestions.values());
+                quiz.getQuestions().addAll(uniqueQuestions.values());
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return quiz;
     }
 
     @Override
     public List<Quiz> findAllPassedByStudent(int id) {
-        List<Quiz> quizzes = null;
+        List<Quiz> passedQuizzes = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_PASSED)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            quizzes = new ArrayList<>();
+            passedQuizzes = new ArrayList<>();
             while (rs.next()) {
-                quizzes.add(extractQuiz(rs));
+                passedQuizzes.add(extractQuiz(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return quizzes;
+        return passedQuizzes;
     }
 
     @Override
     public List<Quiz> findAllAvailableForStudent(int id) {
-        List<Quiz> quizzes = null;
+        List<Quiz> availableQuizzes = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_AVAILABLE)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            quizzes = new ArrayList<>();
+            availableQuizzes = new ArrayList<>();
             while (rs.next()) {
-                quizzes.add(extractQuiz(rs));
+                availableQuizzes.add(extractQuiz(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return quizzes;
+        return availableQuizzes;
     }
 
 

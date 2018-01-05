@@ -6,10 +6,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Test <c:out value="${requestScope.quiz.id}"/></title>
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            <%@ include file="/WEB-INF/view/style/main.css"%>
-
-            /* Current file styles */
             .questions, .navigation-menu {
                 width: 600px;
                 height: 100%;

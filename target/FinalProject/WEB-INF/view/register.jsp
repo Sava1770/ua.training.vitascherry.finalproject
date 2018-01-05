@@ -5,10 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            <%@ include file="/WEB-INF/view/style/main.css"%>
-
-            /* Current file styles */
             .register, .navigation-menu {
                 width: 400px;
             }

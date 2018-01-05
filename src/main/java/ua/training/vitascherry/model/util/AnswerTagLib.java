@@ -12,9 +12,9 @@ public class AnswerTagLib {
         return answers.contains(answer);
     }
 
-    public static List<Answer> getAnswers(List<Question> questions, int questionIndex) {
-        return questions.size() > questionIndex ?
-                questions.get(questionIndex).getAnswers() :
+    public static List<Answer> getAnswers(List<Question> questions, int index) {
+        return questions.size() > index ?
+                questions.get(index).getAnswers() :
                     new ArrayList<>();
     }
 }

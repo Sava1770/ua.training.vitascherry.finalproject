@@ -5,10 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sign-in</title>
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            <%@ include file="/WEB-INF/view/style/main.css"%>
-
-            /* Current file styles */
             .sign-in, .navigation-menu {
                 width: 400px;
             }
