@@ -9,7 +9,7 @@
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/quiz.js"></script>
         <style>
-            .questions, .navigation-menu {
+            .questions {
                 width: 600px;
                 height: 100%;
             }
@@ -34,7 +34,7 @@
         <h1><c:out value="${requestScope.quiz.name}"/></h1>
         <hr>
         <div class="questions">
-            <form method="POST" action="${pageContext.request.contextPath}/result/${sessionScope.user.id}/${requestScope.quiz.id}" autocomplete="off" onsubmit="return (validate());">
+            <form method="POST" action="${pageContext.request.contextPath}/result/${sessionScope.user.id}/${requestScope.quiz.id}" autocomplete="off" onsubmit="return validate();">
                 <ul>
                     <c:forEach var="question" items="${requestScope.quiz.questions}" varStatus="questionLoop">
                         <li>

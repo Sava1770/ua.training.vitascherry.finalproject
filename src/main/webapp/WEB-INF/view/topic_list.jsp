@@ -7,7 +7,7 @@
         <title>Topic list</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .topics, .navigation-menu {
+            .topics {
                 width: 600px;
                 height: 100%;
             }

@@ -7,8 +7,9 @@
         <title>Sign-in</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .sign-in, .navigation-menu {
+            .sign-in {
                 width: 400px;
+                height: 100%;
             }
             table, td, th {
                 border: none;

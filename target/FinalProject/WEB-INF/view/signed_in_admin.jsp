@@ -5,17 +5,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
-        <style>
-            .welcome, .navigation-menu {
-                width: 400px;
-            }
-        </style>
     </head>
     <body>
-        <div class="welcome">
-            <h1>Welcome ADMIN!</h1>
-            <h3>You can now track the progress of students</h3>
-        </div>
+        <h1>Welcome ADMIN!</h1>
+        <h3>You can now track the progress of students</h3>
         <hr>
         <div class="navigation-menu">
             <nav>

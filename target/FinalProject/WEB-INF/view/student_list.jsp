@@ -7,7 +7,7 @@
         <title>Student list</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .students, .navigation-menu {
+            .students {
                 width: 600px;
                 height: 100%;
             }

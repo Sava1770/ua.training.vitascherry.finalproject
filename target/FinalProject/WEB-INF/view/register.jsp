@@ -6,9 +6,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src="/js/register.js"></script>
         <style>
-            .register, .navigation-menu {
+            .register {
                 width: 400px;
+                height: 100%;
             }
             table, td, th {
                 border: none;
@@ -17,16 +20,6 @@
                 color: #ff0000;
             }
         </style>
-        <script>
-            function check(input) {
-                if (input.value !== document.getElementById("password").value) {
-                    input.setCustomValidity("Passwords must match!");
-                } else {
-                    // input is valid -- reset the error message
-                    input.setCustomValidity("");
-                }
-            }
-        </script>
     </head>
     <body>
         <h1>Register</h1>

@@ -5,19 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student Inspector</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
-        <style>
-            .welcome, .navigation-menu {
-                width: 700px;
-            }
-            .navigation-menu a {
-                margin-right: 1em;
-            }
-        </style>
     </head>
     <body>
-        <div class="welcome">
-            <h1>Welcome to Student Inspector!</h1>
-        </div>
+        <h1>Welcome to Student Inspector!</h1>
         <hr>
         <div class="navigation-menu">
             <nav>

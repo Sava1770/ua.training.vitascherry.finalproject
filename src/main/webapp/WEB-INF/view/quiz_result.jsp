@@ -8,7 +8,7 @@
         <title>Test <c:out value="${requestScope.quiz.id}"/></title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .questions, .navigation-menu {
+            .questions {
                 width: 600px;
                 height: 100%;
             }

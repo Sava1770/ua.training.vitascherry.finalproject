@@ -7,8 +7,8 @@
         <title>Student's progress list</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .progresses, .navigation-menu {
-                width: 700px;
+            .progresses {
+                width: 800px;
                 height: 100%;
             }
         </style>

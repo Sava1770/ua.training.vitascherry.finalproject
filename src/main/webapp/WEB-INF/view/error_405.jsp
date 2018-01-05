@@ -6,11 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Error 405</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <style>
-        .navigation-menu, .error {
-            width: 600px;
-        }
-    </style>
 </head>
 <body>
 <div class="error">

@@ -7,7 +7,7 @@
     <title>Student ${requestScope.studentId} progress</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <style>
-        .progresses, .navigation-menu {
+        .progresses {
             width: 600px;
             height: 100%;
         }

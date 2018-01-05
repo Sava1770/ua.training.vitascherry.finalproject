@@ -82,6 +82,9 @@ ul li {
 }
 
 /* Custom blocks */
+.navigation-menu {
+    width: 100%;
+}
 .invalid {
     color: #ff0000;
 }

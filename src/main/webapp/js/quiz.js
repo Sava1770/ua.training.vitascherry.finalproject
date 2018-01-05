@@ -1,20 +1,15 @@
 function validate() {
-    var result = true;
+    var isValid = true;
     $(".answers").each(function () {
-        var n = validateEach($(this));
-        if (n == 0) {
-            result = false;
+        if (getCheckedCount($(this)) === 0) {
+            isValid = false;
+            alert("At least one answer in question must be checked!");
+            return (isValid);
         }
     });
-    /*if (result) {
-        // input is valid -- reset the error message
-        form.setCustomValidity("");
-    } else {
-        form.setCustomValidity("At least one answer must be checked!");
-    }*/
-    return result;
+    return isValid;
 }
 
-function validateEach(elem) {
+function getCheckedCount(elem) {
     return $(elem).find("input[type=checkbox]:checked").length;
 }

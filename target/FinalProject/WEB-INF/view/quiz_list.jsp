@@ -7,7 +7,7 @@
         <title>Topic list</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .quizzes, .navigation-menu {
+            .quizzes {
                 width: 600px;
                 height: 100%;
             }

@@ -5,11 +5,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Successfully registered</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
-        <style>
-            .navigation-menu, .navigation-menu {
-                width: 400px;
-            }
-        </style>
     </head>
     <body>
         <h1>Successfully registered!</h1>

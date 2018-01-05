@@ -7,7 +7,7 @@
         <title>Student ${requestScope.student.id}</title>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
-            .student, .navigation-menu {
+            .student {
                 width: 400px;
                 height: 100%;
             }
