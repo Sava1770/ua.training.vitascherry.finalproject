@@ -6,7 +6,7 @@ import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.service.QuizService;
 import ua.training.vitascherry.model.service.StudentProgressService;
 import ua.training.vitascherry.model.service.TopicService;
-import ua.training.vitascherry.model.service.UserService;
+import ua.training.vitascherry.model.service.StudentService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,11 +26,11 @@ public class MainServlet extends HttpServlet {
     public void init() throws ServletException {
         TopicService topicService = new TopicService(DaoFactory.getInstance());
         StudentProgressService studProService = new StudentProgressService(DaoFactory.getInstance());
-        UserService userService = new UserService(DaoFactory.getInstance());
+        StudentService studentService = new StudentService(DaoFactory.getInstance());
         QuizService quizService = new QuizService(DaoFactory.getInstance());
         commands.put("/", new Home());
-        commands.put("students", new StudentList(userService));
-        commands.put("student", new StudentProfile(userService));
+        commands.put("students", new StudentList(studentService));
+        commands.put("student", new StudentProfile(studentService));
         commands.put("progresses", new StudentProgressList(studProService));
         commands.put("progress", new MyProgress(studProService));
         commands.put("topics", new TopicList(topicService));
@@ -48,6 +48,6 @@ public class MainServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Command command = extractCommand(req, commands);
-        req.getRequestDispatcher(command.execute(req)).forward(req, resp);
+        req.getRequestDispatcher(command.execute(req).getPage()).forward(req, resp);
     }
 }

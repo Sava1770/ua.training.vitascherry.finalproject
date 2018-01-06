@@ -1,7 +1,7 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.QuestionDao;
-import ua.training.vitascherry.model.entity.EntityCreateException;
+import ua.training.vitascherry.model.util.EntityCreateException;
 import ua.training.vitascherry.model.entity.Question;
 
 import java.sql.Connection;

@@ -1,14 +1,13 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
+import ua.training.vitascherry.model.util.Response;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.View.ERROR_404_PAGE;
-
 public class NotFound implements Command {
     @Override
-    public String execute(HttpServletRequest request) {
-        return ERROR_404_PAGE;
+    public Response execute(HttpServletRequest request) {
+        return Response.ERROR_404;
     }
 }

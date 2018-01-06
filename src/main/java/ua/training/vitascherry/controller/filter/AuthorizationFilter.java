@@ -1,8 +1,8 @@
 package ua.training.vitascherry.controller.filter;
 
 import ua.training.vitascherry.controller.util.TokenPosition;
-import ua.training.vitascherry.model.entity.Role;
 import ua.training.vitascherry.model.entity.User;
+import ua.training.vitascherry.model.util.Response;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -13,24 +13,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
-import static ua.training.vitascherry.controller.util.View.ERROR_403_PAGE;
 
 public class AuthorizationFilter implements Filter {
 
-    private final Map<String, Role[]> specialPermissions = new HashMap<>();
+    private final Map<String, User.Role[]> specialPermissions = new HashMap<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        specialPermissions.put("students", new Role[]{Role.ADMIN});
-        specialPermissions.put("student", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("progresses", new Role[]{Role.ADMIN});
-        specialPermissions.put("progress", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("topics", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("topic", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("quizzes", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("quiz", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("result", new Role[]{Role.ADMIN, Role.STUDENT});
-        specialPermissions.put("signout", new Role[]{Role.ADMIN, Role.STUDENT});
+        specialPermissions.put("students", new User.Role[]{User.Role.ADMIN});
+        specialPermissions.put("student", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        specialPermissions.put("progresses", new User.Role[]{User.Role.ADMIN});
+        specialPermissions.put("progress", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        specialPermissions.put("topics", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        specialPermissions.put("topic", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        specialPermissions.put("quizzes", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        specialPermissions.put("quiz", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        specialPermissions.put("result", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        specialPermissions.put("signout", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
     }
 
     @Override
@@ -38,9 +37,9 @@ public class AuthorizationFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         String token = extractToken(request.getRequestURI(), TokenPosition.COMMAND);
-        Role[] permissions = specialPermissions.get(token);
+        User.Role[] permissions = specialPermissions.get(token);
         if (permissions != null) {
-            Role role = null;
+            User.Role role = null;
             User user = (User) request.getSession().getAttribute("user");
             if (user != null) {
                 role = user.getRole();
@@ -49,7 +48,7 @@ public class AuthorizationFilter implements Filter {
                 response.sendRedirect("/signin");
                 return;
             } else if (!Arrays.asList(permissions).contains(role)) {
-                request.getRequestDispatcher(ERROR_403_PAGE).forward(request, response);
+                request.getRequestDispatcher(Response.ERROR_403.getPage()).forward(request, response);
                 return;
             }
         }

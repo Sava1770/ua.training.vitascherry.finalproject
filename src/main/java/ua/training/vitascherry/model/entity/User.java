@@ -1,5 +1,7 @@
 package ua.training.vitascherry.model.entity;
 
+import ua.training.vitascherry.model.util.Response;
+
 public class User {
 
     private int id;
@@ -111,6 +113,21 @@ public class User {
 
         public User build() {
             return User.this;
+        }
+    }
+
+    public enum Role {
+        STUDENT(Response.STUDENT_SIGNED_IN),
+        ADMIN(Response.ADMIN_SIGNED_IN);
+
+        private Response response;
+
+        Role(Response response) {
+            this.response = response;
+        }
+
+        public Response getSignInResponse() {
+            return response;
         }
     }
 }

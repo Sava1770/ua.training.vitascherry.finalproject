@@ -1,37 +1,35 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.model.entity.Role;
 import ua.training.vitascherry.model.entity.User;
-import ua.training.vitascherry.model.service.QuizService;
+import ua.training.vitascherry.model.service.StudentAnswerService;
+import ua.training.vitascherry.model.util.Response;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import static ua.training.vitascherry.controller.util.View.ADMIN_SIGNED_PAGE;
-
 public class SubmitAnswers implements Command {
 
-    private final QuizService quizService;
+    private StudentAnswerService studentAnswerService;
 
-    public SubmitAnswers(QuizService quizService) {
-        this.quizService = quizService;
+    public SubmitAnswers(StudentAnswerService studentAnswerService) {
+        this.studentAnswerService = studentAnswerService;
     }
 
     @Override
-    public String execute(HttpServletRequest req) {
+    public Response execute(HttpServletRequest req) {
         User user = (User) req.getSession().getAttribute("user");
-        if (user.getRole().equals(Role.ADMIN)) {
-            return ADMIN_SIGNED_PAGE;
+        if (user.getRole().equals(User.Role.ADMIN)) {
+            return Response.ADMIN_SIGNED_IN;
         }
         List<Integer> answerIds = new ArrayList<>();
         Enumeration<String> en = req.getParameterNames();
         while (en.hasMoreElements()) {
             answerIds.add(Integer.parseInt(en.nextElement()));
         }
-        quizService.createStudentAnswers(user.getId(), answerIds);
-        return quizService.getQuizNextPage();
+        studentAnswerService.createStudentAnswers(user.getId(), answerIds);
+        return studentAnswerService.getResponse();
     }
 }

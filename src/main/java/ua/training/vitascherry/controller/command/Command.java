@@ -1,7 +1,9 @@
 package ua.training.vitascherry.controller.command;
 
+import ua.training.vitascherry.model.util.Response;
+
 import javax.servlet.http.HttpServletRequest;
 
 public interface Command {
-    String execute(HttpServletRequest request);
+    Response execute(HttpServletRequest request);
 }

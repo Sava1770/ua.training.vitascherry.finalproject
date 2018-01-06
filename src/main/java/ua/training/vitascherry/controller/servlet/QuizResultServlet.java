@@ -5,15 +5,14 @@ import ua.training.vitascherry.controller.command.impl.QuizResult;
 import ua.training.vitascherry.controller.command.impl.SubmitAnswers;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.service.QuizService;
+import ua.training.vitascherry.model.service.StudentAnswerService;
+import ua.training.vitascherry.model.util.Response;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import static ua.training.vitascherry.controller.util.View.ADMIN_SIGNED_PAGE;
-import static ua.training.vitascherry.controller.util.View.ERROR_500_PAGE;
 
 public class QuizResultServlet extends HttpServlet {
 
@@ -22,9 +21,8 @@ public class QuizResultServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        QuizService quizService = new QuizService(DaoFactory.getInstance());
-        submitAnswers = new SubmitAnswers(quizService);
-        quizResult = new QuizResult(quizService);
+        submitAnswers = new SubmitAnswers(new StudentAnswerService(DaoFactory.getInstance()));
+        quizResult = new QuizResult(new QuizService(DaoFactory.getInstance()));
     }
 
     @Override
@@ -36,10 +34,10 @@ public class QuizResultServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String responsePage = submitAnswers.execute(req);
-        if (!responsePage.equals(ADMIN_SIGNED_PAGE) && !responsePage.equals(ERROR_500_PAGE)) {
-            responsePage = quizResult.execute(req);
+        Response response = submitAnswers.execute(req);
+        if (!response.equals(Response.ADMIN_SIGNED_IN) && !response.equals(Response.ERROR_500)) {
+            response = quizResult.execute(req);
         }
-        req.getRequestDispatcher(responsePage).forward(req, resp);
+        req.getRequestDispatcher(response.getPage()).forward(req, resp);
     }
 }

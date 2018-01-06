@@ -1,6 +1,5 @@
 package ua.training.vitascherry.model.dao.util;
 
-import ua.training.vitascherry.model.entity.Role;
 import ua.training.vitascherry.model.entity.User;
 
 import java.sql.ResultSet;
@@ -11,7 +10,7 @@ public class UserMapper {
         return User.builder()
                 .setId(rs.getInt("id_user"))
                 .setEmail(rs.getString("email"))
-                .setRole(Role.valueOf(rs.getString("role")))
+                .setRole(User.Role.valueOf(rs.getString("role")))
                 .setPasswordHash(rs.getString("password_hash"))
                 .setFirstName(rs.getString("first_name"))
                 .setLastName(rs.getString("last_name"))

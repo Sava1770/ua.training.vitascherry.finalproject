@@ -1,4 +1,4 @@
-package ua.training.vitascherry.model.entity;
+package ua.training.vitascherry.model.util;
 
 import static ua.training.vitascherry.controller.util.Message.ENTITY_NOT_CREATED;
 

@@ -1,14 +1,13 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
+import ua.training.vitascherry.model.util.Response;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.View.REGISTER_PAGE;
-
 public class Register implements Command {
     @Override
-    public String execute(HttpServletRequest req) {
-        return REGISTER_PAGE;
+    public Response execute(HttpServletRequest req) {
+        return Response.REGISTER;
     }
 }

@@ -6,11 +6,11 @@ import ua.training.vitascherry.model.entity.User;
 
 import java.util.List;
 
-public class UserService {
+public class StudentService {
 
     private DaoFactory daoFactory;
 
-    public UserService(DaoFactory daoFactory) {
+    public StudentService(DaoFactory daoFactory) {
         this.daoFactory = daoFactory;
     }
 
