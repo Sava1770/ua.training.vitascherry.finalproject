@@ -14,7 +14,11 @@ import static ua.training.vitascherry.controller.util.View.*;
 
 public class MyProgress implements Command {
 
-    private final StudentProgressService progressService = new StudentProgressService();
+    private final StudentProgressService progressService;
+
+    public MyProgress(StudentProgressService service) {
+        this.progressService = service;
+    }
 
     @Override
     public String execute(HttpServletRequest req) {
@@ -32,6 +36,6 @@ public class MyProgress implements Command {
         }
         req.setAttribute("studentId", id);
         req.setAttribute("progresses", progresses);
-        return STUDENT_PROGRESS_PAGE;
+        return STUD_PRO_PAGE;
     }
 }

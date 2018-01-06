@@ -17,7 +17,11 @@ import static ua.training.vitascherry.controller.util.View.QUIZ_PAGE;
 
 public class PassQuiz implements Command {
 
-    private final QuizService quizService = new QuizService();
+    private final QuizService quizService;
+
+    public PassQuiz(QuizService quizService) {
+        this.quizService = quizService;
+    }
 
     @Override
     public String execute(HttpServletRequest req) {

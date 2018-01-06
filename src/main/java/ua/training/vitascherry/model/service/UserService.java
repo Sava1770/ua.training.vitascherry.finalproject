@@ -13,9 +13,13 @@ import static ua.training.vitascherry.controller.util.View.SIGN_IN_PAGE;
 
 public class UserService {
 
-    private final DaoFactory daoFactory = DaoFactory.getInstance();
+    private DaoFactory daoFactory;
     private String registerNextPage = REGISTER_PAGE;
     private String signInNextPage = SIGN_IN_PAGE;
+
+    public UserService(DaoFactory daoFactory) {
+        this.daoFactory = daoFactory;
+    }
 
     public String getRegisterNextPage() {
         return registerNextPage;

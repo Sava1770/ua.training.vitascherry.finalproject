@@ -14,7 +14,11 @@ import static ua.training.vitascherry.controller.util.View.ADMIN_SIGNED_PAGE;
 
 public class SubmitAnswers implements Command {
 
-    private final QuizService quizService = new QuizService();
+    private final QuizService quizService;
+
+    public SubmitAnswers(QuizService quizService) {
+        this.quizService = quizService;
+    }
 
     @Override
     public String execute(HttpServletRequest req) {

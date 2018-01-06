@@ -8,7 +8,11 @@ import java.util.List;
 
 public class StudentProgressService {
 
-    private final DaoFactory daoFactory = DaoFactory.getInstance();
+    private DaoFactory daoFactory;
+
+    public StudentProgressService(DaoFactory factory) {
+        this.daoFactory = factory;
+    }
 
     public List<StudentProgress> getAllProgresses() {
         try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {

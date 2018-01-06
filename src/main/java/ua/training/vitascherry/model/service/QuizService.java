@@ -11,8 +11,12 @@ import static ua.training.vitascherry.controller.util.View.QUIZ_RESULT_PAGE;
 
 public class QuizService {
 
-    private final DaoFactory daoFactory = DaoFactory.getInstance();
+    private DaoFactory daoFactory;
     private String quizNextPage = ERROR_500_PAGE;
+
+    public QuizService(DaoFactory daoFactory) {
+        this.daoFactory = daoFactory;
+    }
 
     public String getQuizNextPage() {
         return quizNextPage;

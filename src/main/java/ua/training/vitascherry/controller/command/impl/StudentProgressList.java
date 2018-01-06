@@ -8,11 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 import static ua.training.vitascherry.controller.util.View.ERROR_404_PAGE;
-import static ua.training.vitascherry.controller.util.View.STUDENT_PROGRESS_LIST_PAGE;
+import static ua.training.vitascherry.controller.util.View.STUD_PRO_LIST_PAGE;
 
 public class StudentProgressList implements Command {
 
-    private final StudentProgressService studentProgressService = new StudentProgressService();
+    private final StudentProgressService studentProgressService;
+
+    public StudentProgressList(StudentProgressService service) {
+        this.studentProgressService = service;
+    }
 
     @Override
     public String execute(HttpServletRequest req) {
@@ -21,6 +25,6 @@ public class StudentProgressList implements Command {
             return ERROR_404_PAGE;
         }
         req.setAttribute("progresses", progresses);
-        return STUDENT_PROGRESS_LIST_PAGE;
+        return STUD_PRO_LIST_PAGE;
     }
 }

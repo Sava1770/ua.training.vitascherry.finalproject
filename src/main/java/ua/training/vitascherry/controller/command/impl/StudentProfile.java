@@ -12,7 +12,11 @@ import static ua.training.vitascherry.controller.util.View.*;
 
 public class StudentProfile implements Command {
 
-    private final UserService userService = new UserService();
+    private final UserService userService;
+
+    public StudentProfile(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public String execute(HttpServletRequest req) {

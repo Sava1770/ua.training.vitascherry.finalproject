@@ -41,7 +41,7 @@
                         <div class="answers">
                             <c:forEach var="answer" items="${question.answers}" varStatus="answerLoop">
                                     <div class="answer-text"><c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/>
-                                        <c:if test="${fn:containsAnswer(fn:getAnswers(requestScope.result.questions, questionLoop.index), answer)}">
+                                        <c:if test="${fn:containsAnswer(fn:getAnswersOrEmpty(requestScope.result.questions, questionLoop.index), answer)}">
                                             <c:choose>
                                                 <c:when test="${answer.isCorrect}">
                                                     <span class="right">&#10004;</span>

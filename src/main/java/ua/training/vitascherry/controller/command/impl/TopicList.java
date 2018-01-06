@@ -12,7 +12,11 @@ import static ua.training.vitascherry.controller.util.View.TOPIC_LIST;
 
 public class TopicList implements Command {
 
-    private final TopicService topicService = new TopicService();
+    private final TopicService topicService;
+
+    public TopicList(TopicService service) {
+        this.topicService = service;
+    }
 
     @Override
     public String execute(HttpServletRequest req) {

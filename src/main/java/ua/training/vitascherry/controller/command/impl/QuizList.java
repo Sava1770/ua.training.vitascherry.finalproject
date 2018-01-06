@@ -12,7 +12,11 @@ import static ua.training.vitascherry.controller.util.View.QUIZ_LIST_PAGE;
 
 public class QuizList implements Command {
 
-    private final QuizService quizService = new QuizService();
+    private final QuizService quizService;
+
+    public QuizList(QuizService quizService) {
+        this.quizService = quizService;
+    }
 
     @Override
     public String execute(HttpServletRequest req) {

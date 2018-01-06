@@ -3,6 +3,8 @@ package ua.training.vitascherry.controller.servlet;
 import ua.training.vitascherry.controller.command.Command;
 import ua.training.vitascherry.controller.command.impl.QuizResult;
 import ua.training.vitascherry.controller.command.impl.SubmitAnswers;
+import ua.training.vitascherry.model.dao.DaoFactory;
+import ua.training.vitascherry.model.service.QuizService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +17,15 @@ import static ua.training.vitascherry.controller.util.View.ERROR_500_PAGE;
 
 public class QuizResultServlet extends HttpServlet {
 
-    private final Command submitAnswers = new SubmitAnswers();
-    private final Command quizResult = new QuizResult();
+    private Command submitAnswers;
+    private Command quizResult;
+
+    @Override
+    public void init() throws ServletException {
+        QuizService quizService = new QuizService(DaoFactory.getInstance());
+        submitAnswers = new SubmitAnswers(quizService);
+        quizResult = new QuizResult(quizService);
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

@@ -1,5 +1,6 @@
 package ua.training.vitascherry.controller.servlet;
 
+import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.entity.Role;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.service.UserService;
@@ -15,7 +16,12 @@ import static ua.training.vitascherry.controller.util.Message.NOT_UNIQUE_EMAIL;
 
 public class RegisterServlet extends HttpServlet {
 
-    private final UserService userService = new UserService();
+    private UserService userService;
+
+    @Override
+    public void init() throws ServletException {
+        userService = new UserService(DaoFactory.getInstance());
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

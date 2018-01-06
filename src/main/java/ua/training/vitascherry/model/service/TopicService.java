@@ -8,7 +8,11 @@ import java.util.List;
 
 public class TopicService {
 
-    private final DaoFactory daoFactory = DaoFactory.getInstance();
+    private DaoFactory daoFactory;
+
+    public TopicService(DaoFactory factory) {
+        this.daoFactory = factory;
+    }
 
     public List<Topic> getAllTopics() {
         try (TopicDao dao = daoFactory.createTopicDao()) {

@@ -2,6 +2,11 @@ package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.controller.command.Command;
 import ua.training.vitascherry.controller.command.impl.*;
+import ua.training.vitascherry.model.dao.DaoFactory;
+import ua.training.vitascherry.model.service.QuizService;
+import ua.training.vitascherry.model.service.StudentProgressService;
+import ua.training.vitascherry.model.service.TopicService;
+import ua.training.vitascherry.model.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,21 +20,25 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractComma
 
 public class MainServlet extends HttpServlet {
 
-    private final Map<String, Command> commands = new HashMap<>();
+    private Map<String, Command> commands = new HashMap<>();
 
     @Override
     public void init() throws ServletException {
+        TopicService topicService = new TopicService(DaoFactory.getInstance());
+        StudentProgressService studProService = new StudentProgressService(DaoFactory.getInstance());
+        UserService userService = new UserService(DaoFactory.getInstance());
+        QuizService quizService = new QuizService(DaoFactory.getInstance());
         commands.put("/", new Home());
-        commands.put("students", new StudentList());
-        commands.put("student", new StudentProfile());
-        commands.put("progresses", new StudentProgressList());
-        commands.put("progress", new MyProgress());
-        commands.put("topics", new TopicList());
-        commands.put("topic", new QuizCatalogue());
-        commands.put("quizzes", new QuizList());
-        commands.put("available", new AvailableQuizzes());
-        commands.put("quiz", new PassQuiz());
-        commands.put("result", new QuizResult());
+        commands.put("students", new StudentList(userService));
+        commands.put("student", new StudentProfile(userService));
+        commands.put("progresses", new StudentProgressList(studProService));
+        commands.put("progress", new MyProgress(studProService));
+        commands.put("topics", new TopicList(topicService));
+        commands.put("topic", new QuizCatalogue(topicService));
+        commands.put("quizzes", new QuizList(quizService));
+        commands.put("available", new AvailableQuizzes(quizService));
+        commands.put("quiz", new PassQuiz(quizService));
+        commands.put("result", new QuizResult(quizService));
         commands.put("signin", new SignIn());
         commands.put("signout", new SignOut());
         commands.put("register", new Register());

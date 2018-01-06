@@ -75,6 +75,11 @@ public class Question {
             return this;
         }
 
+        public Builder setAnswers(List<Answer> answers) {
+            Question.this.answers = answers;
+            return this;
+        }
+
         public Question build() {
             return Question.this;
         }

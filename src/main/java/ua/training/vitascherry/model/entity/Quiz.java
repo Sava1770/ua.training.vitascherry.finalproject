@@ -64,6 +64,11 @@ public class Quiz {
             return this;
         }
 
+        public Builder setQuestions(List<Question> questions) {
+            Quiz.this.questions = questions;
+            return this;
+        }
+
         public Quiz build() {
             return Quiz.this;
         }
