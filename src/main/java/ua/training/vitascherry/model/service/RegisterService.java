@@ -3,7 +3,7 @@ package ua.training.vitascherry.model.service;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.dao.UserDao;
 import ua.training.vitascherry.model.entity.User;
-import ua.training.vitascherry.model.util.Response;
+import ua.training.vitascherry.controller.util.Response;
 
 public class RegisterService {
 

@@ -6,7 +6,7 @@ import ua.training.vitascherry.controller.command.impl.SubmitAnswers;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.service.QuizService;
 import ua.training.vitascherry.model.service.StudentAnswerService;
-import ua.training.vitascherry.model.util.Response;
+import ua.training.vitascherry.controller.util.Response;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

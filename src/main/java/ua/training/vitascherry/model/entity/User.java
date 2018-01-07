@@ -1,6 +1,6 @@
 package ua.training.vitascherry.model.entity;
 
-import ua.training.vitascherry.model.util.Response;
+import ua.training.vitascherry.controller.util.Response;
 
 public class User {
 

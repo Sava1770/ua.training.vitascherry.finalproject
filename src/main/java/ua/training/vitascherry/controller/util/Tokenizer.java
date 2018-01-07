@@ -13,6 +13,6 @@ public class Tokenizer {
             String[] tokens = tokenize(path);
             return tokens.length > pos.getIndex() ? tokens[pos.getIndex()] : path;
         }
-        return "error";
+        return "never+gonna+give+you+up";
     }
 }

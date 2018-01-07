@@ -13,7 +13,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.junit.Assert.assertThat;
 
 public class StudentProgressServiceTest {
@@ -53,9 +52,6 @@ public class StudentProgressServiceTest {
         Mockito.verify(daoMock).findAll();
         Mockito.verify(daoMock).close();
 
-        // Test size
-        assertThat(result, hasSize(3));
-
         //Test equals
         assertThat(result, is(sampleProgresses));
     }
@@ -87,9 +83,6 @@ public class StudentProgressServiceTest {
         Mockito.verify(factoryMock).createStudentProgressDao();
         Mockito.verify(daoMock).findByStudentId(1);
         Mockito.verify(daoMock).close();
-
-        // Test size
-        assertThat(result, hasSize(1));
 
         //Test equals
         assertThat(result, is(sampleProgresses));

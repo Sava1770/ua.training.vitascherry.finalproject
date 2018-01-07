@@ -1,6 +1,6 @@
 package ua.training.vitascherry.controller.command;
 
-import ua.training.vitascherry.model.util.Response;
+import ua.training.vitascherry.controller.util.Response;
 
 import javax.servlet.http.HttpServletRequest;
 
