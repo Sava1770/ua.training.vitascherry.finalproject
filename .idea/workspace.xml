@@ -7,20 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b256c773-3e56-4d65-ad25-e6ca53d7adc4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Message.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/util/Message.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlAnswerDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlAnswerDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlQuestionDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlQuestionDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlQuizDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlQuizDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlStudentProgressDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlStudentProgressDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlTopicDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlTopicDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlUserDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/impl/MySqlUserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/AnswerQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/AnswerQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuestionQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuestionQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/QuizQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/StudentProgressQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/StudentProgressQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/TopicQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/TopicQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/UserQuery.java" afterPath="$PROJECT_DIR$/src/main/java/ua/training/vitascherry/model/dao/query/UserQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/css/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -280,15 +267,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FinalProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FinalProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FinalProject" type="b2602c69:ProjectViewProjectNode" />
@@ -664,7 +642,7 @@
       <workItem from="1515237844437" duration="7968000" />
       <workItem from="1515282391058" duration="10494000" />
       <workItem from="1515509479114" duration="3356000" />
-      <workItem from="1515695526139" duration="14816000" />
+      <workItem from="1515695526139" duration="14935000" />
     </task>
     <servers />
   </component>
@@ -701,7 +679,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305455000" />
+    <option name="totallyTimeSpent" value="305574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -724,7 +702,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3963816" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3963816" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26626325" sideWeight="0.49342105" order="0" side_tool="false" content_ui="combo" />
@@ -785,22 +763,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ua/training/vitascherry/model/service/StudentAnswerServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/training/vitascherry/controller/filter/EncodingFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1234,6 +1196,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-820">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
