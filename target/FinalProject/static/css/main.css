@@ -84,6 +84,9 @@ ul li {
 .navigation-menu {
     width: 100%;
 }
+.invalid {
+    color: #ff0000;
+}
 
 /* everywhere else */
 * {

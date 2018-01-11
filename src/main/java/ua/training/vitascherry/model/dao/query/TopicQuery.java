@@ -1,13 +1,10 @@
 package ua.training.vitascherry.model.dao.query;
 
-public interface TopicQuery {
+public interface TopicQuery extends Query {
 
-    String CREATE_TOPIC = "INSERT INTO topic (name) VALUES (?)";
+    String CREATE_TOPIC = queries.getString("topic.create");
 
-    String LAZY_FIND_ALL = "SELECT * FROM topic";
+    String FIND_ALL_TOPICS = queries.getString("topic.find.all");
 
-    String FIND_BY_ID = "SELECT * FROM topic " +
-                        "JOIN quiz_topic USING(id_topic) " +
-                        "JOIN quiz USING(id_quiz) " +
-                        "WHERE id_topic = ?";
+    String FIND_TOPIC_BY_ID = queries.getString("topic.find.by.id");
 }

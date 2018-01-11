@@ -1,9 +1,8 @@
 package ua.training.vitascherry.model.dao.query;
 
-public interface QuestionQuery {
+public interface QuestionQuery extends Query {
 
-    String CREATE_QUESTION = "INSERT INTO question (text, id_quiz) VALUES (?, ?)";
+    String CREATE_QUESTION = queries.getString("question.create");
 
-    String FIND_ALL = "SELECT * FROM answer " +
-                      "JOIN question USING(id_question)";
+    String FIND_ALL_QUESTIONS = queries.getString("question.find.all");
 }

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import static ua.training.vitascherry.model.dao.query.AnswerQuery.CREATE_ANSWER;
-import static ua.training.vitascherry.model.dao.query.AnswerQuery.LAZY_FIND_ALL;
+import static ua.training.vitascherry.model.dao.query.AnswerQuery.FIND_ALL_ANSWERS;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 
 public class MySqlAnswerDao implements AnswerDao {
@@ -55,7 +55,7 @@ public class MySqlAnswerDao implements AnswerDao {
     @Override
     public List<Answer> findAll() {
         List<Answer> answers = null;
-        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_ANSWERS)) {
             ResultSet rs = ps.executeQuery();
             answers = new ArrayList<>();
             while (rs.next()) {

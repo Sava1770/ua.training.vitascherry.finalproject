@@ -67,7 +67,7 @@ public class MySqlUserDao implements UserDao {
     @Override
     public User findByEmail(String email) {
         User user = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_EMAIL)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_USER_BY_EMAIL)) {
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -82,7 +82,7 @@ public class MySqlUserDao implements UserDao {
     @Override
     public List<User> findAll() {
         List<User> students = null;
-        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_STUDENT)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_STUDENTS)) {
             ResultSet rs = ps.executeQuery();
             students = new ArrayList<>();
             while (rs.next()) {

@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.TopicQuery.CREATE_TOPIC;
-import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_BY_ID;
-import static ua.training.vitascherry.model.dao.query.TopicQuery.LAZY_FIND_ALL;
+import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_TOPIC_BY_ID;
+import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_ALL_TOPICS;
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
 import static ua.training.vitascherry.model.dao.util.TopicMapper.extractTopic;
 
@@ -51,7 +51,7 @@ public class MySqlTopicDao implements TopicDao {
     @Override
     public Topic findById(int id) {
         Topic topic = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_ID)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_TOPIC_BY_ID)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -70,7 +70,7 @@ public class MySqlTopicDao implements TopicDao {
     @Override
     public List<Topic> findAll() {
         List<Topic> topics = null;
-        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_TOPICS)) {
             ResultSet rs = ps.executeQuery();
             topics = new ArrayList<>();
             while (rs.next()) {

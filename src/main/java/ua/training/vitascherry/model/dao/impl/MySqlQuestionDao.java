@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.QuestionQuery.CREATE_QUESTION;
-import static ua.training.vitascherry.model.dao.query.QuestionQuery.FIND_ALL;
+import static ua.training.vitascherry.model.dao.query.QuestionQuery.FIND_ALL_QUESTIONS;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
 import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
@@ -58,7 +58,7 @@ public class MySqlQuestionDao implements QuestionDao {
     @Override
     public List<Question> findAll() {
         List<Question> questions = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_QUESTIONS)) {
             ResultSet rs = ps.executeQuery();
             questions = new ArrayList<>();
             HashMap<Integer, Question> uniqueQuestions = new HashMap<>();

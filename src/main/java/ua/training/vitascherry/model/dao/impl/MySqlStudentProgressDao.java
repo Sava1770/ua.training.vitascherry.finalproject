@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_BY_STUDENT_ID;
+import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_PROGRESS_BY_STUDENT;
 import static ua.training.vitascherry.model.dao.util.StudentProgressMapper.extractStudentProgress;
-import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_ALL;
+import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_ALL_PROGRESS;
 
 public class MySqlStudentProgressDao implements StudentProgressDao {
 
@@ -35,7 +35,7 @@ public class MySqlStudentProgressDao implements StudentProgressDao {
     @Override
     public List<StudentProgress> findByStudentId(int id) {
         List<StudentProgress> studentProgresses = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_STUDENT_ID)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_PROGRESS_BY_STUDENT)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             studentProgresses = new ArrayList<>();
@@ -51,7 +51,7 @@ public class MySqlStudentProgressDao implements StudentProgressDao {
     @Override
     public List<StudentProgress> findAll() {
         List<StudentProgress> progresses = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_PROGRESS)) {
             ResultSet rs = ps.executeQuery();
             progresses = new ArrayList<>();
             while (rs.next()) {

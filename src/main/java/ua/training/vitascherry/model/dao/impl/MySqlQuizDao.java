@@ -51,7 +51,7 @@ public class MySqlQuizDao implements QuizDao {
     @Override
     public int createStudentAnswers(int studentId, List<Integer> answerIds) {
         int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_STUDENT_ANSWERS)) {
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_RESULT)) {
             for (Integer answerId : answerIds) {
                 ps.setInt(1, studentId);
                 ps.setInt(2, answerId);
@@ -78,7 +78,7 @@ public class MySqlQuizDao implements QuizDao {
     @Override
     public Quiz findById(int id) {
         Quiz quiz = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_ID)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_QUIZ_BY_ID)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
@@ -100,7 +100,7 @@ public class MySqlQuizDao implements QuizDao {
     @Override
     public Quiz findByStudentIdQuizId(int studentId, int quizId) {
         Quiz quiz = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_BY_STUDENT_ID_QUIZ_ID)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_RESULT_BY_STUDENT_QUIZ)) {
             ps.setInt(1, studentId);
             ps.setInt(2, quizId);
             ResultSet rs = ps.executeQuery();
@@ -159,7 +159,7 @@ public class MySqlQuizDao implements QuizDao {
     @Override
     public List<Quiz> findAll() {
         List<Quiz> quizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(LAZY_FIND_ALL)) {
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_QUIZZES)) {
             ResultSet rs = ps.executeQuery();
             quizzes = new ArrayList<>();
             while (rs.next()) {

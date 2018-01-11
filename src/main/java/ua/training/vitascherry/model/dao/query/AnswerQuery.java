@@ -1,8 +1,8 @@
 package ua.training.vitascherry.model.dao.query;
 
-public interface AnswerQuery {
+public interface AnswerQuery extends Query {
 
-    String CREATE_ANSWER = "INSERT INTO answer (text, is_correct, id_question) VALUES (?, ?, ?)";
+    String CREATE_ANSWER = queries.getString("answer.create");
 
-    String LAZY_FIND_ALL = "SELECT * FROM answer";
+    String FIND_ALL_ANSWERS = queries.getString("answer.find.all");
 }
