@@ -14,11 +14,11 @@ import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_
 import static ua.training.vitascherry.model.dao.util.StudentProgressMapper.extractStudentProgress;
 import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_ALL;
 
-public class JDBCStudentProgressDao implements StudentProgressDao {
+public class MySqlStudentProgressDao implements StudentProgressDao {
 
     private Connection connection;
 
-    public JDBCStudentProgressDao(Connection connection) {
+    public MySqlStudentProgressDao(Connection connection) {
         this.connection = connection;
     }
 
@@ -76,7 +76,7 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
     @Override
     public void close() {
         try {
-            setAutoCommit(true);
+            connection.setAutoCommit(true);
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -84,9 +84,9 @@ public class JDBCStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public void setAutoCommit(boolean value) {
+    public void setAutoCommit(boolean enabled) {
         try {
-            connection.setAutoCommit(value);
+            connection.setAutoCommit(enabled);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

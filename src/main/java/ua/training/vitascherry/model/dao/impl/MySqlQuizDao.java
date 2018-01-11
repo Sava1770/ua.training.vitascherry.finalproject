@@ -17,11 +17,11 @@ import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuest
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
 import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
 
-public class JDBCQuizDao implements QuizDao {
+public class MySqlQuizDao implements QuizDao {
 
     private final Connection connection;
 
-    public JDBCQuizDao(Connection connection) {
+    public MySqlQuizDao(Connection connection) {
         this.connection = connection;
     }
 
@@ -184,7 +184,7 @@ public class JDBCQuizDao implements QuizDao {
     @Override
     public void close() {
         try {
-            setAutoCommit(true);
+            connection.setAutoCommit(true);
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -192,9 +192,9 @@ public class JDBCQuizDao implements QuizDao {
     }
 
     @Override
-    public void setAutoCommit(boolean value) {
+    public void setAutoCommit(boolean enabled) {
         try {
-            connection.setAutoCommit(value);
+            connection.setAutoCommit(enabled);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

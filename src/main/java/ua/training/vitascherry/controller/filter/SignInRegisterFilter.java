@@ -13,10 +13,10 @@ public class SignInRegisterFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
             throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) resp;
-        if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/");
+        HttpServletRequest httpReq = (HttpServletRequest) req;
+        HttpServletResponse httpResp = (HttpServletResponse) resp;
+        if (httpReq.getSession().getAttribute("user") != null) {
+            httpResp.sendRedirect("/");
             return;
         }
         chain.doFilter(req, resp);

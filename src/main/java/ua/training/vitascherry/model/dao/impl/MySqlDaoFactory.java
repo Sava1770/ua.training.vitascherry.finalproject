@@ -6,38 +6,38 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class JDBCDaoFactory extends DaoFactory {
+public class MySqlDaoFactory extends DaoFactory {
 
-    private final DataSource dataSource = ConnectionPoolHolder.getDataSource();
+    private DataSource dataSource = ConnectionPool.getDataSource();
 
     @Override
     public StudentProgressDao createStudentProgressDao() {
-        return new JDBCStudentProgressDao(getConnection());
+        return new MySqlStudentProgressDao(getConnection());
     }
 
     @Override
     public UserDao createUserDao() {
-        return new JDBCUserDao(getConnection());
+        return new MySqlUserDao(getConnection());
     }
 
     @Override
     public QuizDao createQuizDao() {
-        return new JDBCQuizDao(getConnection());
+        return new MySqlQuizDao(getConnection());
     }
 
     @Override
     public TopicDao createTopicDao() {
-        return new JDBCTopicDao(getConnection());
+        return new MySqlTopicDao(getConnection());
     }
 
     @Override
     public QuestionDao createQuestionDao() {
-        return new JDBCQuestionDao(getConnection());
+        return new MySqlQuestionDao(getConnection());
     }
 
     @Override
     public AnswerDao createAnswerDao() {
-        return new JDBCAnswerDao(getConnection());
+        return new MySqlAnswerDao(getConnection());
     }
 
     private Connection getConnection(){

@@ -4,15 +4,15 @@ import org.apache.commons.dbcp.BasicDataSource;
 
 import javax.sql.DataSource;
 
-class ConnectionPoolHolder {
+class ConnectionPool {
 
     private static volatile DataSource dataSource;
 
-    private ConnectionPoolHolder() {}
+    private ConnectionPool() {}
 
     static DataSource getDataSource() {
         if (dataSource == null){
-            synchronized (ConnectionPoolHolder.class) {
+            synchronized (ConnectionPool.class) {
                 if (dataSource == null) {
                     BasicDataSource ds = new BasicDataSource();
                     ds.setUrl("jdbc:mysql://localhost:3306/final_project");

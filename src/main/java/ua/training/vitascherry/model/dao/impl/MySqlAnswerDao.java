@@ -14,11 +14,11 @@ import static ua.training.vitascherry.model.dao.query.AnswerQuery.CREATE_ANSWER;
 import static ua.training.vitascherry.model.dao.query.AnswerQuery.LAZY_FIND_ALL;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 
-public class JDBCAnswerDao implements AnswerDao {
+public class MySqlAnswerDao implements AnswerDao {
 
     private final Connection connection;
 
-    public JDBCAnswerDao(Connection connection) {
+    public MySqlAnswerDao(Connection connection) {
         this.connection = connection;
     }
 
@@ -80,7 +80,7 @@ public class JDBCAnswerDao implements AnswerDao {
     @Override
     public void close() {
         try {
-            setAutoCommit(true);
+            connection.setAutoCommit(true);
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -88,12 +88,11 @@ public class JDBCAnswerDao implements AnswerDao {
     }
 
     @Override
-    public void setAutoCommit(boolean value) {
+    public void setAutoCommit(boolean enabled) {
         try {
-            connection.setAutoCommit(value);
+            connection.setAutoCommit(enabled);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
 }

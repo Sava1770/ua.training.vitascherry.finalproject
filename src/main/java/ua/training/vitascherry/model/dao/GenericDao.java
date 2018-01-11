@@ -8,6 +8,6 @@ public interface GenericDao<T> extends AutoCloseable {
     List<T> findAll();
     int update(T entity);
     int delete(int id);
+    void setAutoCommit(boolean enabled);
     void close();
-    void setAutoCommit(boolean value);
 }

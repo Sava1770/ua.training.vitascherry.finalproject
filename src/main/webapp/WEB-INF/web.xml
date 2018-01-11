@@ -46,36 +46,6 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-  <!-- Register servlet -->
-  <servlet>
-    <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>ua.training.vitascherry.controller.servlet.RegisterServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/register</url-pattern>
-  </servlet-mapping>
-
-  <!-- Sign-in servlet -->
-  <servlet>
-    <servlet-name>SignIn</servlet-name>
-    <servlet-class>ua.training.vitascherry.controller.servlet.SignInServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignIn</servlet-name>
-    <url-pattern>/signin</url-pattern>
-  </servlet-mapping>
-
-  <!-- Quiz result servlet -->
-  <servlet>
-    <servlet-name>QuizResultServlet</servlet-name>
-    <servlet-class>ua.training.vitascherry.controller.servlet.QuizResultServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>QuizResultServlet</servlet-name>
-    <url-pattern>/result/*</url-pattern>
-  </servlet-mapping>
-
   <!-- Index page -->
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

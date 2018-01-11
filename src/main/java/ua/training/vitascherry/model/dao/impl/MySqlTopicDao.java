@@ -17,11 +17,11 @@ import static ua.training.vitascherry.model.dao.query.TopicQuery.LAZY_FIND_ALL;
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
 import static ua.training.vitascherry.model.dao.util.TopicMapper.extractTopic;
 
-public class JDBCTopicDao implements TopicDao {
+public class MySqlTopicDao implements TopicDao {
 
     private final Connection connection;
 
-    public JDBCTopicDao(Connection connection) {
+    public MySqlTopicDao(Connection connection) {
         this.connection = connection;
     }
 
@@ -95,7 +95,7 @@ public class JDBCTopicDao implements TopicDao {
     @Override
     public void close() {
         try {
-            setAutoCommit(true);
+            connection.setAutoCommit(true);
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -103,9 +103,9 @@ public class JDBCTopicDao implements TopicDao {
     }
 
     @Override
-    public void setAutoCommit(boolean value) {
+    public void setAutoCommit(boolean enabled) {
         try {
-            connection.setAutoCommit(value);
+            connection.setAutoCommit(enabled);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

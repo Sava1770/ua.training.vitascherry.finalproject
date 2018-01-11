@@ -33,22 +33,23 @@ public class AuthorizationFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) resp;
-        String token = extractToken(request.getRequestURI(), TokenPosition.COMMAND);
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
+            throws IOException, ServletException {
+        HttpServletRequest httpReq = (HttpServletRequest) req;
+        HttpServletResponse httpResp = (HttpServletResponse) resp;
+        String token = extractToken(httpReq.getRequestURI(), TokenPosition.COMMAND);
         User.Role[] permissions = specialPermissions.get(token);
         if (permissions != null) {
             User.Role role = null;
-            User user = (User) request.getSession().getAttribute("user");
+            User user = (User) httpReq.getSession().getAttribute("user");
             if (user != null) {
                 role = user.getRole();
             }
             if (role == null) {
-                response.sendRedirect("/signin");
+                httpResp.sendRedirect("/signin");
                 return;
             } else if (!Arrays.asList(permissions).contains(role)) {
-                request.getRequestDispatcher(Response.ERROR_403.getPage()).forward(request, response);
+                httpReq.getRequestDispatcher(Response.ERROR_403.getPage()).forward(httpReq, httpResp);
                 return;
             }
         }
