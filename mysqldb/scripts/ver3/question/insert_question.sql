@@ -1,0 +1,15 @@
+INSERT INTO question (text) VALUES
+('I haven\'t got ……'),
+('We haven\'t got ..... Champagne'),
+(''),
+('George..... fly to Stockholm tomorrow.'),
+('I have Flamenco classes ……'),
+('We have to go to the supermarket ..... some bread and milk.'),
+('The party was a disaster. There ..... there!'),
+(''),
+(''),
+('Michael.........Paris in the morning'),
+('That file belongs to Patricia, give it to'),
+(''),
+(''),
+('Mark ..... fly to London tomorrow.');
