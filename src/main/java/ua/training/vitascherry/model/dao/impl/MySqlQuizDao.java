@@ -46,12 +46,10 @@ public class MySqlQuizDao implements QuizDao {
             }
             rowsCount = ps.executeBatch().length;
             connection.commit();
-            System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
             e.printStackTrace();
             try {
                 connection.rollback();
-                System.out.println("JDBC Transaction rolled back successfully");
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }

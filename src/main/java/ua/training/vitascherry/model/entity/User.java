@@ -63,7 +63,6 @@ public class User {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", role=" + role +
-                ", passwordHash='" + passwordHash + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", patronymic='" + patronymic + '\'' +

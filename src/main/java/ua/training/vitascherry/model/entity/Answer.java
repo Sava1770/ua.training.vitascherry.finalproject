@@ -50,7 +50,6 @@ public class Answer {
         return "Answer{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
-                ", isCorrect=" + isCorrect +
                 '}';
     }
 

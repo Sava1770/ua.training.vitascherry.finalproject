@@ -32,12 +32,10 @@ public class MySqlUserDao implements UserDao {
             ps.setString(5, user.getPatronymic());
             rowsCount = ps.executeUpdate();
             connection.commit();
-            System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
             e.printStackTrace();
             try {
                 connection.rollback();
-                System.out.println("JDBC Transaction rolled back successfully");
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
