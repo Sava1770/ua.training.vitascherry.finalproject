@@ -8,30 +8,30 @@ import ua.training.vitascherry.controller.util.Response;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.RequestMapper.extractPrimaryId;
-import static ua.training.vitascherry.controller.util.RequestMapper.extractSecondaryId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractQuizSolutionId;
 
-public class Solution implements Command {
+public class QuizSolution implements Command {
 
     private QuizService quizService;
 
-    public Solution(QuizService quizService) {
+    public QuizSolution(QuizService quizService) {
         this.quizService = quizService;
     }
 
     @Override
     public Response execute(HttpServletRequest req) {
-        int studentId = extractPrimaryId(req);
+        int studentId = extractId(req);
         User sessionUser = (User)req.getSession().getAttribute("user");
         if (!sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() != studentId) {
             return Response.ERROR_403;
         }
-        int quizId = extractSecondaryId(req);
+        int quizId = extractQuizSolutionId(req);
         Quiz quiz = quizService.getQuizById(quizId);
         if (quiz == null) {
             return Response.ERROR_404;
         }
-        Quiz result = quizService.getQuizResult(studentId, quizId);
+        Quiz result = quizService.getQuizSolution(studentId, quizId);
         if (result == null) {
             return Response.ERROR_404;
         }

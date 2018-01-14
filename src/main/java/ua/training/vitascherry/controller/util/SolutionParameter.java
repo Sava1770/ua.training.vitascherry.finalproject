@@ -1,11 +1,12 @@
 package ua.training.vitascherry.controller.util;
 
-public enum TokenPosition {
-    COMMAND(1), ID(2), QUIZ_SOLUTION_ID(3);
+public enum SolutionParameter {
+    ID_QUESTION(0),
+    ID_ANSWER(1);
 
     private int index;
 
-    TokenPosition(int index) {
+    SolutionParameter(int index) {
         this.index = index;
     }
 

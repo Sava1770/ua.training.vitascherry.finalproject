@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static ua.training.vitascherry.controller.util.RequestMapper.extractPrimaryId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
 
 public class PassQuiz implements Command {
 
@@ -23,9 +23,10 @@ public class PassQuiz implements Command {
 
     @Override
     public Response execute(HttpServletRequest req) {
-        int id = extractPrimaryId(req);
+        int id = extractId(req);
         User user = (User) req.getSession().getAttribute("user");
-        List<Integer> passedQuizIds = quizService.getAllPassedByStudentId(user.getId()).stream()
+        List<Integer> passedQuizIds = quizService.getAllPassedByStudentId(user.getId())
+                .stream()
                 .map(Quiz::getId)
                 .collect(Collectors.toList());
         if (passedQuizIds.contains(id)) {

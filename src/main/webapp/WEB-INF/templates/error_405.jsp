@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="error">
-    <h1>405 Method Not Allowed</h1>
+    <h1>Quiz was passed</h1>
     <h3>Sorry, you have already passed this quiz. Try another one!</h3>
 </div>
 <div class="navigation-menu">

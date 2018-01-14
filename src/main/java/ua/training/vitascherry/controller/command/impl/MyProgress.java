@@ -9,7 +9,7 @@ import ua.training.vitascherry.controller.util.Response;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-import static ua.training.vitascherry.controller.util.RequestMapper.extractPrimaryId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
 
 public class MyProgress implements Command {
 
@@ -21,7 +21,7 @@ public class MyProgress implements Command {
 
     @Override
     public Response execute(HttpServletRequest req) {
-        int id = extractPrimaryId(req);
+        int id = extractId(req);
         User sessionUser = (User)req.getSession().getAttribute("user");
         if (sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() == id) {
             return Response.ADMIN_SIGNED_IN;

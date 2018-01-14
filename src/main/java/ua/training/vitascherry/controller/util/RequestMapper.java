@@ -14,9 +14,9 @@ public class RequestMapper {
         return commands.getOrDefault(token, (request) -> Response.ERROR_404);
     }
 
-    public static int extractPrimaryId(HttpServletRequest req) {
+    public static int extractId(HttpServletRequest req) {
         int id = 0;
-        String token = extractToken(req.getRequestURI(), TokenPosition.PRIMARY_ID);
+        String token = extractToken(req.getRequestURI(), TokenPosition.ID);
         try {
             id = Integer.parseInt(token);
         } catch (NumberFormatException e) {
@@ -25,9 +25,9 @@ public class RequestMapper {
         return id;
     }
 
-    public static int extractSecondaryId(HttpServletRequest req) {
+    public static int extractQuizSolutionId(HttpServletRequest req) {
         int id = 0;
-        String token = extractToken(req.getRequestURI(), TokenPosition.SECONDARY_ID);
+        String token = extractToken(req.getRequestURI(), TokenPosition.QUIZ_SOLUTION_ID);
         try {
             id = Integer.parseInt(token);
         } catch (NumberFormatException e) {

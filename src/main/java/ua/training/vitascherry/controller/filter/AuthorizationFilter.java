@@ -8,28 +8,28 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static ua.training.vitascherry.controller.util.Tokenizer.extractToken;
 
 public class AuthorizationFilter implements Filter {
 
-    private final Map<String, User.Role[]> specialPermissions = new HashMap<>();
+    private final Map<String, List<User.Role>> specialPermissions = new HashMap<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        specialPermissions.put("students", new User.Role[]{User.Role.ADMIN});
-        specialPermissions.put("student", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
-        specialPermissions.put("progresses", new User.Role[]{User.Role.ADMIN});
-        specialPermissions.put("progress", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
-        specialPermissions.put("topics", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
-        specialPermissions.put("topic", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
-        specialPermissions.put("quizzes", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
-        specialPermissions.put("quiz", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
-        specialPermissions.put("result", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
-        specialPermissions.put("signout", new User.Role[]{User.Role.ADMIN, User.Role.STUDENT});
+        List<User.Role> users = Arrays.asList(User.Role.ADMIN, User.Role.STUDENT);
+        List<User.Role> adminOnly = Collections.singletonList(User.Role.ADMIN);
+        specialPermissions.put("students", adminOnly);
+        specialPermissions.put("student", users);
+        specialPermissions.put("progresses", adminOnly);
+        specialPermissions.put("progress", users);
+        specialPermissions.put("topics", users);
+        specialPermissions.put("topic", users);
+        specialPermissions.put("quizzes", users);
+        specialPermissions.put("quiz", users);
+        specialPermissions.put("result", users);
+        specialPermissions.put("signout", users);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class AuthorizationFilter implements Filter {
         HttpServletRequest httpReq = (HttpServletRequest) req;
         HttpServletResponse httpResp = (HttpServletResponse) resp;
         String token = extractToken(httpReq.getRequestURI(), TokenPosition.COMMAND);
-        User.Role[] permissions = specialPermissions.get(token);
+        List<User.Role> permissions = specialPermissions.get(token);
         if (permissions != null) {
             User.Role role = null;
             User user = (User) httpReq.getSession().getAttribute("user");
@@ -48,7 +48,7 @@ public class AuthorizationFilter implements Filter {
             if (role == null) {
                 httpResp.sendRedirect("/signin");
                 return;
-            } else if (!Arrays.asList(permissions).contains(role)) {
+            } else if (!permissions.contains(role)) {
                 httpReq.getRequestDispatcher(Response.ERROR_403.getPage()).forward(httpReq, httpResp);
                 return;
             }

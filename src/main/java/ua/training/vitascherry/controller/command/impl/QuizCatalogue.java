@@ -7,7 +7,7 @@ import ua.training.vitascherry.controller.util.Response;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.RequestMapper.extractPrimaryId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
 
 public class QuizCatalogue implements Command {
 
@@ -19,7 +19,7 @@ public class QuizCatalogue implements Command {
 
     @Override
     public Response execute(HttpServletRequest req) {
-        int id = extractPrimaryId(req);
+        int id = extractId(req);
         Topic topic = topicService.getTopicById(id);
         if (topic == null) {
             return Response.ERROR_404;

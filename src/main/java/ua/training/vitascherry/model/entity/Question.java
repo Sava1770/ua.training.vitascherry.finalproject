@@ -10,8 +10,6 @@ public class Question {
 
     private List<Answer> answers = new ArrayList<>();
 
-    private Quiz quiz;
-
     private Question() {}
 
     public int getId() {
@@ -24,18 +22,6 @@ public class Question {
 
     public List<Answer> getAnswers() {
         return answers;
-    }
-
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
-    }
-
-    public Quiz getQuiz() {
-        return quiz;
-    }
-
-    public void setQuiz(Quiz quiz) {
-        this.quiz = quiz;
     }
 
     @Override

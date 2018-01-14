@@ -9,8 +9,8 @@
 </head>
 <body>
 <div class="error">
-    <h1>403 Forbidden</h1>
-    <h3>You do not have access to the ${requestScope["javax.servlet.forward.request_uri"]}</h3>
+    <h1>Forbidden</h1>
+    <h3>You do not have access to view ${requestScope["javax.servlet.forward.request_uri"]}</h3>
 </div>
 <div class="navigation-menu">
     <nav>

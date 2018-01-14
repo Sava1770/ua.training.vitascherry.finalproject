@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.model.dao.query.TopicQuery.CREATE_TOPIC;
 import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_TOPIC_BY_ID;
 import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_ALL_TOPICS;
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
@@ -26,22 +25,7 @@ public class MySqlTopicDao implements TopicDao {
 
     @Override
     public int create(Topic topic) {
-        int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_TOPIC)) {
-            ps.setString(1, topic.getName());
-            rowsCount = ps.executeUpdate();
-            connection.commit();
-            System.out.println("JDBC Transaction committed successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-            try {
-                connection.rollback();
-                System.out.println("JDBC Transaction rolled back successfully");
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return rowsCount;
+        throw new UnsupportedOperationException();
     }
 
     @Override

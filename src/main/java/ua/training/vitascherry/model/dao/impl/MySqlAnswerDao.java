@@ -4,14 +4,8 @@ import ua.training.vitascherry.model.dao.AnswerDao;
 import ua.training.vitascherry.model.entity.Answer;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
-
-import static ua.training.vitascherry.model.dao.query.AnswerQuery.CREATE_ANSWER;
-import static ua.training.vitascherry.model.dao.query.AnswerQuery.FIND_ALL_ANSWERS;
-import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 
 public class MySqlAnswerDao implements AnswerDao {
 
@@ -23,24 +17,7 @@ public class MySqlAnswerDao implements AnswerDao {
 
     @Override
     public int create(Answer answer) {
-        int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_ANSWER)) {
-            ps.setString(1, answer.getText());
-            ps.setBoolean(2, answer.getIsCorrect());
-            ps.setInt(3, answer.getQuestion().getId());
-            rowsCount = ps.executeUpdate();
-            connection.commit();
-            System.out.println("JDBC Transaction committed successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-            try {
-                connection.rollback();
-                System.out.println("JDBC Transaction rolled back successfully");
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return rowsCount;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -50,17 +27,7 @@ public class MySqlAnswerDao implements AnswerDao {
 
     @Override
     public List<Answer> findAll() {
-        List<Answer> answers = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_ANSWERS)) {
-            ResultSet rs = ps.executeQuery();
-            answers = new ArrayList<>();
-            while (rs.next()) {
-                answers.add(extractAnswer(rs));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return answers;
+        throw new UnsupportedOperationException();
     }
 
     @Override

@@ -4,11 +4,8 @@ import ua.training.vitascherry.model.dao.QuestionDao;
 import ua.training.vitascherry.model.entity.Question;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-
-import static ua.training.vitascherry.model.dao.query.QuestionQuery.CREATE_QUESTION;
 
 public class MySqlQuestionDao implements QuestionDao {
 
@@ -20,22 +17,7 @@ public class MySqlQuestionDao implements QuestionDao {
 
     @Override
     public int create(Question question) {
-        int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_QUESTION)) {
-            ps.setString(1, question.getText());
-            rowsCount = ps.executeUpdate();
-            connection.commit();
-            System.out.println("JDBC Transaction committed successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-            try {
-                connection.rollback();
-                System.out.println("JDBC Transaction rolled back successfully");
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return rowsCount;
+        throw new UnsupportedOperationException();
     }
 
     @Override

@@ -4,7 +4,7 @@ import ua.training.vitascherry.model.dao.impl.MySqlDaoFactory;
 
 public abstract class DaoFactory {
 
-    private static DaoFactory daoFactory;
+    private static volatile DaoFactory daoFactory;
 
     public abstract QuizDao createQuizDao();
 

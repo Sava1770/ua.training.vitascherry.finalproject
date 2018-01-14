@@ -2,18 +2,14 @@ package ua.training.vitascherry.model.service;
 
 import org.junit.Test;
 import org.mockito.Mockito;
-import ua.training.vitascherry.controller.util.Response;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.dao.QuizDao;
-import ua.training.vitascherry.model.entity.Question;
 import ua.training.vitascherry.model.entity.Quiz;
-import ua.training.vitascherry.model.entity.User;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 public class QuizServiceTest {
@@ -93,7 +89,7 @@ public class QuizServiceTest {
             .thenReturn(daoMock);
 
         Mockito
-            .when(daoMock.findAvailableForStudentId(studentId))
+            .when(daoMock.findAvailableByStudentId(studentId))
             .thenReturn(availableQuizzes);
 
         QuizService service = new QuizService(factoryMock);
@@ -101,7 +97,7 @@ public class QuizServiceTest {
         List<Quiz> result = service.getAllAvailableForStudent(studentId);
 
         Mockito.verify(factoryMock).createQuizDao();
-        Mockito.verify(daoMock).findAvailableForStudentId(studentId);
+        Mockito.verify(daoMock).findAvailableByStudentId(studentId);
         Mockito.verify(daoMock).close();
 
         assertThat(result, is(availableQuizzes));
@@ -153,7 +149,7 @@ public class QuizServiceTest {
 
         QuizService service = new QuizService(factoryMock);
 
-        Quiz result = service.getQuizResult(studentId, quizId);
+        Quiz result = service.getQuizSolution(studentId, quizId);
 
         Mockito.verify(factoryMock).createQuizDao();
         Mockito.verify(daoMock).findByStudentIdQuizId(studentId, quizId);

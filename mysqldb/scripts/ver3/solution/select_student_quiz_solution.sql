@@ -1,0 +1,1 @@
+SELECT id_quiz, quiz.name, id_question, question.text, id_answer, answer.text, is_correct FROM solution JOIN problem USING(id_quiz, id_question) JOIN quiz USING(id_quiz) JOIN question USING(id_question) JOIN question_answer USING(id_question, id_answer) JOIN answer USING(id_answer) WHERE id_user = ? AND id_quiz = ?;

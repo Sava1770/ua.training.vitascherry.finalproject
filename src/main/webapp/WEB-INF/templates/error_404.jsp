@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="error">
-            <h1>404 Not Found</h1>
+            <h1>Page Not Found</h1>
             <h3>The requested URI ${requestScope["javax.servlet.forward.request_uri"]} was not found on this server.</h3>
         </div>
         <div class="navigation-menu">

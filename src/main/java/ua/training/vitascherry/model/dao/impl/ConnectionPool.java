@@ -15,7 +15,7 @@ class ConnectionPool {
             synchronized (ConnectionPool.class) {
                 if (dataSource == null) {
                     BasicDataSource ds = new BasicDataSource();
-                    ds.setUrl("jdbc:mysql://localhost:3306/final_project");
+                    ds.setUrl("jdbc:mysql://localhost:3306/final_project_3");
                     ds.setDriverClassName("com.mysql.jdbc.Driver");
                     ds.setUsername("root");
                     ds.setPassword("root");

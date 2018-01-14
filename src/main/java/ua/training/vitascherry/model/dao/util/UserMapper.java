@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserMapper {
+
     public static User extractUser(ResultSet rs) throws SQLException {
         return User.builder()
                 .setId(rs.getInt("id_user"))

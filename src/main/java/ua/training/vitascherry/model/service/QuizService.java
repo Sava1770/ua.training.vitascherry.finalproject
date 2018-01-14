@@ -28,7 +28,7 @@ public class QuizService {
 
     public List<Quiz> getAllAvailableForStudent(int id) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAvailableForStudentId(id);
+            return dao.findAvailableByStudentId(id);
         }
     }
 
@@ -38,7 +38,7 @@ public class QuizService {
         }
     }
 
-    public Quiz getQuizResult(int studentId, int quizId) {
+    public Quiz getQuizSolution(int studentId, int quizId) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
             return dao.findByStudentIdQuizId(studentId, quizId);
         }

@@ -124,7 +124,7 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findAvailableForStudentId(int id) {
+    public List<Quiz> findAvailableByStudentId(int id) {
         List<Quiz> availableQuizzes = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_AVAILABLE)) {
             ps.setInt(1, id);
