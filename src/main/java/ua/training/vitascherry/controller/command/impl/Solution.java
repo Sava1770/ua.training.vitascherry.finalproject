@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import static ua.training.vitascherry.controller.util.RequestMapper.extractPrimaryId;
 import static ua.training.vitascherry.controller.util.RequestMapper.extractSecondaryId;
 
-public class QuizResult implements Command {
+public class Solution implements Command {
 
     private QuizService quizService;
 
-    public QuizResult(QuizService quizService) {
+    public Solution(QuizService quizService) {
         this.quizService = quizService;
     }
 

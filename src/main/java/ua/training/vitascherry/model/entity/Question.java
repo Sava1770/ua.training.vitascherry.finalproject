@@ -26,8 +26,16 @@ public class Question {
         return answers;
     }
 
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
     public Quiz getQuiz() {
         return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 
     @Override
@@ -50,7 +58,6 @@ public class Question {
         return "Question{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
-                ", answers=" + answers +
                 '}';
     }
 
@@ -67,11 +74,6 @@ public class Question {
 
         public Builder setText(String text) {
             Question.this.text = text;
-            return this;
-        }
-
-        public Builder setQuiz(Quiz quiz) {
-            Question.this.quiz = quiz;
             return this;
         }
 

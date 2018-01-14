@@ -1,7 +1,8 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.QuizDao;
-import ua.training.vitascherry.model.util.EntityCreateException;
+import ua.training.vitascherry.model.entity.Answer;
+import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.entity.Question;
 import ua.training.vitascherry.model.entity.Quiz;
 
@@ -27,40 +28,23 @@ public class MySqlQuizDao implements QuizDao {
 
     @Override
     public int create(Quiz quiz) {
-        int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_QUIZ)) {
-            ps.setString(1, quiz.getName());
-            rowsCount = ps.executeUpdate();
-            if (rowsCount == 0) {
-                throw new EntityCreateException(quiz);
-            }
-            connection.commit();
-            System.out.println("JDBC Transaction committed successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-            try {
-                connection.rollback();
-                System.out.println("JDBC Transaction rolled back successfully");
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return rowsCount;
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public int createStudentAnswers(int studentId, List<Integer> answerIds) {
+    public int createStudentSolution(User student, Quiz quiz) {
         int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_RESULT)) {
-            for (Integer answerId : answerIds) {
-                ps.setInt(1, studentId);
-                ps.setInt(2, answerId);
-                ps.addBatch();
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_SOLUTION)) {
+            for (Question question : quiz.getQuestions()) {
+                for (Answer answer : question.getAnswers()) {
+                    ps.setInt(1, student.getId());
+                    ps.setInt(2, quiz.getId());
+                    ps.setInt(3, question.getId());
+                    ps.setInt(4, answer.getId());
+                    ps.addBatch();
+                }
             }
             rowsCount = ps.executeBatch().length;
-            if (rowsCount == 0) {
-                throw new EntityCreateException("id_student" + studentId + ", id_answer:" + answerIds);
-            }
             connection.commit();
             System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
@@ -124,7 +108,7 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findAllPassedByStudent(int id) {
+    public List<Quiz> findPassedByStudentId(int id) {
         List<Quiz> passedQuizzes = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_PASSED)) {
             ps.setInt(1, id);
@@ -140,7 +124,7 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findAllAvailableForStudent(int id) {
+    public List<Quiz> findAvailableForStudentId(int id) {
         List<Quiz> availableQuizzes = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_AVAILABLE)) {
             ps.setInt(1, id);

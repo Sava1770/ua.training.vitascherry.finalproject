@@ -4,7 +4,6 @@ import java.util.Map;
 
 public class UniqueValueMapper {
     public static <K, T> T extractUniqueValue(Map<K, T> values, K key, T value) {
-        values.putIfAbsent(key, value);
-        return values.get(key);
+        return values.putIfAbsent(key, value);
     }
 }

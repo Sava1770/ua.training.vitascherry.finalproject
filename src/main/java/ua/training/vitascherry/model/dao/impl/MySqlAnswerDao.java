@@ -2,7 +2,6 @@ package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.AnswerDao;
 import ua.training.vitascherry.model.entity.Answer;
-import ua.training.vitascherry.model.util.EntityCreateException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,9 +29,6 @@ public class MySqlAnswerDao implements AnswerDao {
             ps.setBoolean(2, answer.getIsCorrect());
             ps.setInt(3, answer.getQuestion().getId());
             rowsCount = ps.executeUpdate();
-            if (rowsCount == 0) {
-                throw new EntityCreateException(answer);
-            }
             connection.commit();
             System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {

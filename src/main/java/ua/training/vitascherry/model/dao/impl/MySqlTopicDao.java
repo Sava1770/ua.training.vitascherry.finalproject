@@ -1,7 +1,6 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.TopicDao;
-import ua.training.vitascherry.model.util.EntityCreateException;
 import ua.training.vitascherry.model.entity.Topic;
 
 import java.sql.Connection;
@@ -31,9 +30,6 @@ public class MySqlTopicDao implements TopicDao {
         try (PreparedStatement ps = connection.prepareStatement(CREATE_TOPIC)) {
             ps.setString(1, topic.getName());
             rowsCount = ps.executeUpdate();
-            if (rowsCount == 0) {
-                throw new EntityCreateException(topic);
-            }
             connection.commit();
             System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {

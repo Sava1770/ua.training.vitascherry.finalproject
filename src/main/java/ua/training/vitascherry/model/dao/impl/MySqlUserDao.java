@@ -1,7 +1,6 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.UserDao;
-import ua.training.vitascherry.model.util.EntityCreateException;
 import ua.training.vitascherry.model.entity.User;
 
 import java.sql.Connection;
@@ -32,9 +31,6 @@ public class MySqlUserDao implements UserDao {
             ps.setString(4, user.getLastName());
             ps.setString(5, user.getPatronymic());
             rowsCount = ps.executeUpdate();
-            if (rowsCount == 0) {
-                throw new EntityCreateException(user);
-            }
             connection.commit();
             System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {

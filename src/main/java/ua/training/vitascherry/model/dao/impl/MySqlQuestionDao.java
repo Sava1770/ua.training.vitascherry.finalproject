@@ -1,22 +1,14 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.QuestionDao;
-import ua.training.vitascherry.model.util.EntityCreateException;
 import ua.training.vitascherry.model.entity.Question;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static ua.training.vitascherry.model.dao.query.QuestionQuery.CREATE_QUESTION;
-import static ua.training.vitascherry.model.dao.query.QuestionQuery.FIND_ALL_QUESTIONS;
-import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
-import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
-import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
 
 public class MySqlQuestionDao implements QuestionDao {
 
@@ -31,11 +23,7 @@ public class MySqlQuestionDao implements QuestionDao {
         int rowsCount = 0;
         try (PreparedStatement ps = connection.prepareStatement(CREATE_QUESTION)) {
             ps.setString(1, question.getText());
-            ps.setInt(2, question.getQuiz().getId());
             rowsCount = ps.executeUpdate();
-            if (rowsCount == 0) {
-                throw new EntityCreateException(question);
-            }
             connection.commit();
             System.out.println("JDBC Transaction committed successfully");
         } catch (Exception e) {
@@ -57,21 +45,7 @@ public class MySqlQuestionDao implements QuestionDao {
 
     @Override
     public List<Question> findAll() {
-        List<Question> questions = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_QUESTIONS)) {
-            ResultSet rs = ps.executeQuery();
-            questions = new ArrayList<>();
-            HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
-            while (rs.next()) {
-                Question question = extractQuestion(rs);
-                question = extractUniqueValue(uniqueQuestions, question.getId(), question);
-                question.getAnswers().add(extractAnswer(rs));
-            }
-            questions.addAll(uniqueQuestions.values());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return questions;
+        throw new UnsupportedOperationException();
     }
 
     @Override

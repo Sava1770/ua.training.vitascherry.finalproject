@@ -4,7 +4,7 @@ public interface QuizQuery extends Query {
 
     String CREATE_QUIZ = queries.getString("quiz.create");
 
-    String CREATE_RESULT = queries.getString("quiz.result.create");
+    String CREATE_SOLUTION = queries.getString("solution.create");
 
     String FIND_ALL_QUIZZES = queries.getString("quiz.find.all");
 
@@ -14,5 +14,5 @@ public interface QuizQuery extends Query {
 
     String FIND_QUIZ_BY_ID = queries.getString("quiz.find.by.id");
 
-    String FIND_RESULT_BY_STUDENT_QUIZ = queries.getString("quiz.find.student.result");
+    String FIND_RESULT_BY_STUDENT_QUIZ = queries.getString("quiz.find.student.solution");
 }

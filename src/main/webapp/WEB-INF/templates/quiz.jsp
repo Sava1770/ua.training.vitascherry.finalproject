@@ -44,7 +44,7 @@
                             <div class="answers">
                                 <c:forEach var="answer" items="${question.answers}" varStatus="answerLoop">
                                     <div class="answer-text">
-                                        <c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox" name="${answer.id}">
+                                        <c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox" name="${requestScope.quiz.id},${question.id},${answer.id}">
                                     </div>
                                 </c:forEach>
                             </div>

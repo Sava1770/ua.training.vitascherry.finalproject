@@ -43,7 +43,7 @@ public class MainServlet extends HttpServlet {
         doGetCommands.put("progress", new MyProgress(studProService));
         doGetCommands.put("topic", new QuizCatalogue(topicService));
         doGetCommands.put("topics", new TopicList(topicService));
-        doGetCommands.put("result", new QuizResult(quizService));
+        doGetCommands.put("result", new Solution(quizService));
         doGetCommands.put("quizzes", new QuizList(quizService));
         doGetCommands.put("quiz", new PassQuiz(quizService));
         doGetCommands.put("signout", new SignOut());
@@ -53,15 +53,15 @@ public class MainServlet extends HttpServlet {
     }
 
     private void initDoPostCommands() {
-        QuizService quizService =
-                new QuizService(DaoFactory.getInstance());
+        SolutionService solutionService =
+                new SolutionService(DaoFactory.getInstance());
         SignInService signInService =
                 new SignInService(DaoFactory.getInstance());
         RegisterService registerService =
                 new RegisterService(DaoFactory.getInstance());
         doPostCommands.put("signin", new SignIn(signInService));
         doPostCommands.put("register", new Register(registerService));
-        doPostCommands.put("quiz", new SubmitAnswers(quizService));
+        doPostCommands.put("quiz", new SubmitSolution(solutionService));
     }
 
     @Override

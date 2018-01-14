@@ -10,6 +10,8 @@ public class Quiz {
 
     private List<Question> questions = new ArrayList<>();
 
+    private Topic topic;
+
     private Quiz() {}
 
     public int getId() {
@@ -22,6 +24,18 @@ public class Quiz {
 
     public List<Question> getQuestions() {
         return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 
     @Override
@@ -44,7 +58,6 @@ public class Quiz {
         return "Quiz{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", questions=" + questions +
                 '}';
     }
 

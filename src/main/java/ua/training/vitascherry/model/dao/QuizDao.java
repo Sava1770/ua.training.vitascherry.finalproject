@@ -1,12 +1,13 @@
 package ua.training.vitascherry.model.dao;
 
 import ua.training.vitascherry.model.entity.Quiz;
+import ua.training.vitascherry.model.entity.User;
 
 import java.util.List;
 
 public interface QuizDao extends GenericDao<Quiz> {
-    int createStudentAnswers(int studentId, List<Integer> answerIds);
+    int createStudentSolution(User student, Quiz quiz);
     Quiz findByStudentIdQuizId(int studentId, int quizId);
-    List<Quiz> findAllPassedByStudent(int id);
-    List<Quiz> findAllAvailableForStudent(int id);
+    List<Quiz> findPassedByStudentId(int id);
+    List<Quiz> findAvailableForStudentId(int id);
 }
