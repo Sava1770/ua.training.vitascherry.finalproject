@@ -43,9 +43,9 @@
                         <td><label for="email">E-mail<em>*</em></label></td>
                         <td><input type="email" name="email" placeholder="Enter E-mail" id="email" required></td>
                     </tr>
-                    <c:if test="${requestScope.notUniqueEmail != null}">
+                    <c:if test="${requestScope.isNotUniqueEmail}">
                         <tr>
-                            <td colspan="2" class="invalid"><c:out value="${requestScope.notUniqueEmail}"/></td>
+                            <td colspan="2" class="invalid"><c:out value="${requestScope.email}"/> is being used. Please choose another email</td>
                         </tr>
                     </c:if>
                     <tr>

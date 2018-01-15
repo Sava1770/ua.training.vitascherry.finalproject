@@ -8,8 +8,6 @@ import ua.training.vitascherry.model.util.Encryptor;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.Message.NOT_UNIQUE_EMAIL;
-
 public class Register implements Command {
 
     private RegisterService registerService;
@@ -31,7 +29,8 @@ public class Register implements Command {
                     .build();
             registerService.createUser(user);
         } else {
-            req.setAttribute("notUniqueEmail", req.getParameter("email") + NOT_UNIQUE_EMAIL);
+            req.setAttribute("email", req.getParameter("email"));
+            req.setAttribute("isNotUniqueEmail", true);
         }
         return registerService.getResponse();
     }

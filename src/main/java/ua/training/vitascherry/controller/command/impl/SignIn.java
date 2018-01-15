@@ -7,8 +7,6 @@ import ua.training.vitascherry.model.service.SignInService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static ua.training.vitascherry.controller.util.Message.INVALID_CREDENTIALS;
-
 public class SignIn implements Command {
 
     private SignInService signInService;
@@ -23,7 +21,7 @@ public class SignIn implements Command {
         if (user != null && signInService.isValidCredentials(user, req.getParameter("password"))) {
             req.getSession().setAttribute("user", user);
         } else {
-            req.setAttribute("invalidCredentials", INVALID_CREDENTIALS);
+            req.setAttribute("isInvalidCredentials", true);
         }
        return signInService.getResponse();
     }

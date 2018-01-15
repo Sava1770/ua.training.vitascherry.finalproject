@@ -22,9 +22,9 @@
         <div class="sign-in">
             <form method="POST" action="${pageContext.request.contextPath}/signin" autocomplete="on">
                 <table>
-                    <c:if test="${requestScope.invalidCredentials != null}">
+                    <c:if test="${requestScope.isInvalidCredentials}">
                         <tr>
-                            <td colspan="2" class="invalid"><c:out value="${requestScope.invalidCredentials}"/></td>
+                            <td colspan="2" class="invalid">Invalid email or password. Please try again</td>
                         </tr>
                     </c:if>
                     <tr>
