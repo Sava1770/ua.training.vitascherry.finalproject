@@ -15,24 +15,12 @@ public class RequestMapper {
     }
 
     public static int extractId(HttpServletRequest req) {
-        int id = 0;
         String token = extractToken(req.getRequestURI(), TokenPosition.ID);
-        try {
-            id = Integer.parseInt(token);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-        return id;
+        return Integer.parseInt(token);
     }
 
-    public static int extractQuizSolutionId(HttpServletRequest req) {
-        int id = 0;
-        String token = extractToken(req.getRequestURI(), TokenPosition.QUIZ_SOLUTION_ID);
-        try {
-            id = Integer.parseInt(token);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-        return id;
+    public static int extractSolutionQuizId(HttpServletRequest req) {
+        String token = extractToken(req.getRequestURI(), TokenPosition.SOLUTION_QUIZ_ID);
+        return Integer.parseInt(token);
     }
 }

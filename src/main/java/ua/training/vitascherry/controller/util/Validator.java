@@ -1,15 +1,15 @@
 package ua.training.vitascherry.controller.util;
 
 class Validator {
+
     private static final String[] regexps = new String[]{
-            "",
             "^/$",
-            "^/\\w+$",
-            "^/\\w+/$",
-            "^/\\w+/\\d+$",
-            "^/\\w+/\\d+/$",
-            "^/\\w+/\\d+/\\d+$",
-            "^/\\w+/\\d+/\\d+/$"
+            "^/[a-z]+$",
+            "^/[a-z]+/$",
+            "^/[a-z]+/[0-9]+$",
+            "^/[a-z]+/[0-9]+/$",
+            "^/[a-z]+/[0-9]+/[0-9]+$",
+            "^/[a-z]+/[0-9]+/[0-9]+/$"
     };
 
     static boolean validate(String path) {

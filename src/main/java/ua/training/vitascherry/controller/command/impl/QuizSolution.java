@@ -9,7 +9,7 @@ import ua.training.vitascherry.controller.util.Response;
 import javax.servlet.http.HttpServletRequest;
 
 import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
-import static ua.training.vitascherry.controller.util.RequestMapper.extractQuizSolutionId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractSolutionQuizId;
 
 public class QuizSolution implements Command {
 
@@ -26,7 +26,7 @@ public class QuizSolution implements Command {
         if (!sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() != studentId) {
             return Response.ERROR_403;
         }
-        int quizId = extractQuizSolutionId(req);
+        int quizId = extractSolutionQuizId(req);
         Quiz quiz = quizService.getQuizById(quizId);
         if (quiz == null) {
             return Response.ERROR_404;

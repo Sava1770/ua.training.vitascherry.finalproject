@@ -12,7 +12,7 @@ import ua.training.vitascherry.model.service.SolutionService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
-import static ua.training.vitascherry.controller.util.RequestMapper.extractQuizSolutionId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractSolutionQuizId;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
 import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
@@ -31,7 +31,7 @@ public class SubmitSolution implements Command {
         if (user.getRole().equals(User.Role.ADMIN)) {
             return Response.ADMIN_SIGNED_IN;
         }
-        Quiz quiz = Quiz.builder().setId(extractQuizSolutionId(req)).build();
+        Quiz quiz = Quiz.builder().setId(extractSolutionQuizId(req)).build();
         Map<Integer, Question> uniqueQuestions = new HashMap<>();
         Enumeration<String> en = req.getParameterNames();
         while (en.hasMoreElements()) {

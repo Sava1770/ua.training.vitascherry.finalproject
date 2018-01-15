@@ -9,10 +9,10 @@ public class Tokenizer {
     }
 
     public static String extractToken(String path, TokenPosition pos) {
-        if (validate(path)) {
-            String[] tokens = tokenize(path);
-            return tokens.length > pos.getIndex() ? tokens[pos.getIndex()] : path;
+        String[] tokens;
+        if (validate(path) && (tokens = tokenize(path)).length > pos.getIndex()) {
+            return tokens[pos.getIndex()];
         }
-        return "never/gonna/give/you/up";
+        return path;
     }
 }

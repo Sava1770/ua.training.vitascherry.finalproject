@@ -1,6 +1,6 @@
 package ua.training.vitascherry.model.dao.util;
 
-import ua.training.vitascherry.controller.util.SolutionParameter;
+import ua.training.vitascherry.controller.util.QuizParameterPosition;
 import ua.training.vitascherry.model.entity.Question;
 
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ public class QuestionMapper {
 
     public static Question extractQuestion(String[] solutionParameters) {
         return Question.builder()
-                .setId(Integer.parseInt(solutionParameters[SolutionParameter.ID_QUESTION.getIndex()]))
+                .setId(Integer.parseInt(solutionParameters[QuizParameterPosition.ID_QUESTION.getIndex()]))
                 .build();
     }
 }
