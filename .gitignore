@@ -3,6 +3,7 @@
 /mysqldb
 /.idea
 /target
+FinalProject.iml
 
 # Compiled class file
 *.class
