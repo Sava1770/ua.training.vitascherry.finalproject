@@ -64,7 +64,7 @@ public class QuizServiceTest {
 
         QuizService service = new QuizService(factoryMock);
 
-        List<Quiz> result = service.getAllPassedByStudentId(studentId);
+        List<Quiz> result = service.getAllPassedByStudent(studentId);
 
         Mockito.verify(factoryMock).createQuizDao();
         Mockito.verify(daoMock).findPassedByStudentId(studentId);

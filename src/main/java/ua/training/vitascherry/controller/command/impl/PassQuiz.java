@@ -25,7 +25,7 @@ public class PassQuiz implements Command {
     public Response execute(HttpServletRequest req) {
         int id = extractId(req);
         User user = (User) req.getSession().getAttribute("user");
-        List<Integer> passedQuizIds = quizService.getAllPassedByStudentId(user.getId())
+        List<Integer> passedQuizIds = quizService.getAllPassedByStudent(user.getId())
                 .stream()
                 .map(Quiz::getId)
                 .collect(Collectors.toList());

@@ -27,9 +27,9 @@ public class AuthorizationFilter implements Filter {
         specialPermissions.put("topics", users);
         specialPermissions.put("topic", users);
         specialPermissions.put("quizzes", users);
+        specialPermissions.put("available", users);
         specialPermissions.put("quiz", users);
         specialPermissions.put("result", users);
-        specialPermissions.put("signout", users);
     }
 
     @Override

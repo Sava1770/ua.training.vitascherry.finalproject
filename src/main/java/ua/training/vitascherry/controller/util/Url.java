@@ -1,10 +1,10 @@
 package ua.training.vitascherry.controller.util;
 
 public interface Url {
-    String ERROR_403_PAGE =        "/WEB-INF/templates/error_403.jsp";
-    String ERROR_404_PAGE =        "/WEB-INF/templates/error_404.jsp";
-    String ERROR_405_PAGE =        "/WEB-INF/templates/error_405.jsp";
-    String ERROR_500_PAGE =        "/WEB-INF/templates/error_500.jsp";
+    String FORBIDDEN_PAGE =        "/WEB-INF/templates/forbidden.jsp";
+    String NOT_FOUND_PAGE =        "/WEB-INF/templates/not_found.jsp";
+    String WAS_PASSED_PAGE =       "/WEB-INF/templates/was_passed.jsp";
+    String SERVER_ERROR_PAGE =     "/WEB-INF/templates/server_error.jsp";
     String HOME_PAGE =             "/WEB-INF/templates/index.jsp";
     String REGISTER_PAGE =         "/WEB-INF/templates/register.jsp";
     String REGISTER_SUCCESS_PAGE = "/WEB-INF/templates/register_success.jsp";

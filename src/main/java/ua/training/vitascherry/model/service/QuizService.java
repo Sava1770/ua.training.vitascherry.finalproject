@@ -20,7 +20,7 @@ public class QuizService {
         }
     }
 
-    public List<Quiz> getAllPassedByStudentId(int id) {
+    public List<Quiz> getAllPassedByStudent(int id) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
             return dao.findPassedByStudentId(id);
         }

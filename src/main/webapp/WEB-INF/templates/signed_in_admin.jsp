@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="/WEB-INF/templates/i18n.jsp" %>
+<fmt:setBundle basename="/i18n/signed_admin" var="bundle" scope="session" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome</title>
+        <title><fmt:message bundle="${bundle}" key="title" /></title>
         <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     </head>
     <body>
-        <h1>Welcome ADMIN!</h1>
-        <h3>You can now track the progress of students</h3>
+        <h1><fmt:message bundle="${bundle}" key="title" />, <fmt:message bundle="${bundle}" key="admin" /></h1>
+        <h3><fmt:message bundle="${bundle}" key="h3" /></h3>
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/students">Students list</a>
-                <a href="${pageContext.request.contextPath}/progresses">Student's progress list</a>
-                <a href="${pageContext.request.contextPath}/">Home</a>
+                <a href="${pageContext.request.contextPath}/students"><fmt:message bundle="${bundle}" key="student.list" /></a>
+                <a href="${pageContext.request.contextPath}/progresses"><fmt:message bundle="${bundle}" key="student.progress.list" /></a>
+                <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${bundle}" key="home" /></a>
             </nav>
         </div>
     </body>

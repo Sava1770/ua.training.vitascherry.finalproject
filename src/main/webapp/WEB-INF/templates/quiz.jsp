@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/templates/i18n.jsp" %>
+<fmt:setBundle basename="/i18n/quiz" var="bundle" scope="session" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Test <c:out value="${requestScope.quiz.id}"/></title>
+        <title><fmt:message bundle="${bundle}" key="title" /> <c:out value="${requestScope.quiz.id}"/></title>
         <link rel="stylesheet" type="text/css" href="/static/css/main.css">
         <script src="/static/js/jquery-3.2.1.min.js"></script>
         <script src="/static/js/quiz.js"></script>
@@ -57,7 +58,7 @@
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/">Home</a>
+                <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${bundle}" key="home" /></a>
             </nav>
         </div>
     </body>

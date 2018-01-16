@@ -48,6 +48,7 @@ public class HttpCommandFactory extends CommandFactory {
         RegisterService registerService =
                 new RegisterService(DaoFactory.getInstance());
         Map<String, Command> commands = new HashMap<>();
+        commands.put("/", new ChangeLocale());
         commands.put("signin", new SignIn(signInService));
         commands.put("register", new Register(registerService));
         commands.put("result", new SubmitSolution(solutionService));
