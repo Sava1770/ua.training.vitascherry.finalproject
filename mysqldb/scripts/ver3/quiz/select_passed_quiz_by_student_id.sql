@@ -1,1 +1,0 @@
-SELECT DISTINCT id_quiz, NULL AS `quiz.name` FROM solution WHERE id_user = ?;

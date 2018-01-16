@@ -1,1 +1,0 @@
-SELECT * FROM quiz JOIN topic USING(id_topic) WHERE id_topic = ?;
