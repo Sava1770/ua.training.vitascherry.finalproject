@@ -46,7 +46,7 @@ public class AuthorizationFilter implements Filter {
                 role = user.getRole();
             }
             if (role == null) {
-                httpResp.sendRedirect(httpReq.getContextPath() + "/signin");
+                httpResp.sendRedirect(httpReq.getContextPath() + "/" + "signin");
                 return;
             } else if (!permissions.contains(role)) {
                 httpReq.getRequestDispatcher(Response.FORBIDDEN.getPage()).forward(httpReq, httpResp);
