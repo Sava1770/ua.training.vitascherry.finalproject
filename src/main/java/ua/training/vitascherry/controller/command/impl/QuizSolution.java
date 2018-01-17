@@ -31,7 +31,7 @@ public class QuizSolution implements Command {
         if (quiz == null) {
             return Response.NOT_FOUND;
         }
-        Quiz result = quizService.getQuizSolution(studentId, quizId);
+        Quiz result = quizService.getStudentQuizSolution(studentId, quizId);
         if (result == null) {
             return Response.NOT_FOUND;
         }

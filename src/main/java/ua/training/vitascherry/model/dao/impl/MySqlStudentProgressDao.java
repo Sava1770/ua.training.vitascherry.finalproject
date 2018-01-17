@@ -1,6 +1,8 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.StudentProgressDao;
+import ua.training.vitascherry.model.dao.query.QueryBuilder;
+import ua.training.vitascherry.model.dao.query.QueryOption;
 import ua.training.vitascherry.model.entity.StudentProgress;
 
 import java.sql.Connection;
@@ -9,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.FIND_PROGRESS_BY_STUDENT;
 import static ua.training.vitascherry.model.dao.util.StudentProgressMapper.extractStudentProgress;
@@ -33,9 +36,35 @@ public class MySqlStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public List<StudentProgress> findByStudentId(int id) {
+    public List<StudentProgress> findAll(Map<QueryOption, String> options) {
+        List<StudentProgress> progresses = null;
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_ALL_PROGRESS :
+                new QueryBuilder(FIND_ALL_PROGRESS, options).build()
+        )) {
+            ResultSet rs = ps.executeQuery();
+            progresses = new ArrayList<>();
+            while (rs.next()) {
+                progresses.add(extractStudentProgress(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return progresses;
+    }
+
+    @Override
+    public List<StudentProgress> findAll() {
+        return findAll(null);
+    }
+
+    @Override
+    public List<StudentProgress> findByStudentId(int id, Map<QueryOption, String> options) {
         List<StudentProgress> studentProgresses = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_PROGRESS_BY_STUDENT)) {
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_PROGRESS_BY_STUDENT :
+                new QueryBuilder(FIND_PROGRESS_BY_STUDENT, options).build()
+        )) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             studentProgresses = new ArrayList<>();
@@ -49,18 +78,8 @@ public class MySqlStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public List<StudentProgress> findAll() {
-        List<StudentProgress> progresses = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_PROGRESS)) {
-            ResultSet rs = ps.executeQuery();
-            progresses = new ArrayList<>();
-            while (rs.next()) {
-                progresses.add(extractStudentProgress(rs));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return progresses;
+    public List<StudentProgress> findByStudentId(int id) {
+        return findByStudentId(id, null);
     }
 
     @Override

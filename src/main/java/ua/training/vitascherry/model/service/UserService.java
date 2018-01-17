@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface UserService {
 
+    int getStudentsCount();
+
     boolean createUser(User user);
 
     boolean isUniqueEmail(String email);
@@ -15,6 +17,8 @@ public interface UserService {
     boolean isValidCredentials(User user, String password);
 
     List<User> getAllStudents();
+
+    List<User> getAllStudents(int offset);
 
     User getStudentById(int id);
 }

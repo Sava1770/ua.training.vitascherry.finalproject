@@ -16,7 +16,7 @@ public class HttpCommandFactory extends CommandFactory {
     public Map<String, Command> createGetCommands() {
         StudentProgressService studProService =
                 new StudentProgressServiceImpl(DaoFactory.getInstance());
-        UserServiceImpl userService =
+        UserService userService =
                 new UserServiceImpl(DaoFactory.getInstance());
         TopicService topicService =
                 new TopicServiceImpl(DaoFactory.getInstance());

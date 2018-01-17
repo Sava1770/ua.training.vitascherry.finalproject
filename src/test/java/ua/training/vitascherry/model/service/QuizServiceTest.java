@@ -150,7 +150,7 @@ public class QuizServiceTest {
 
         QuizService service = new QuizServiceImpl(factoryMock);
 
-        Quiz result = service.getQuizSolution(studentId, quizId);
+        Quiz result = service.getStudentQuizSolution(studentId, quizId);
 
         Mockito.verify(factoryMock).createQuizDao();
         Mockito.verify(daoMock).findByStudentIdQuizId(studentId, quizId);

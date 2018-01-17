@@ -1,6 +1,8 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.UserDao;
+import ua.training.vitascherry.model.dao.query.QueryBuilder;
+import ua.training.vitascherry.model.dao.query.QueryOption;
 import ua.training.vitascherry.model.entity.User;
 
 import java.sql.Connection;
@@ -9,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static ua.training.vitascherry.model.dao.query.UserQuery.*;
 import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
@@ -19,6 +22,20 @@ public class MySqlUserDao implements UserDao {
 
     public MySqlUserDao(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public int getStudentsCount() {
+        int count = 0;
+        try (PreparedStatement ps = connection.prepareStatement(STUDENT_COUNT)) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 
     @Override
@@ -59,6 +76,29 @@ public class MySqlUserDao implements UserDao {
     }
 
     @Override
+    public List<User> findAll(Map<QueryOption, String> options) {
+        List<User> students = null;
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_ALL_STUDENTS :
+                new QueryBuilder(FIND_ALL_STUDENTS, options).build()
+        )) {
+            ResultSet rs = ps.executeQuery();
+            students = new ArrayList<>();
+            while (rs.next()) {
+                students.add(extractUser(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
+
+    @Override
+    public List<User> findAll() {
+        return findAll(null);
+    }
+
+    @Override
     public User findByEmail(String email) {
         User user = null;
         try (PreparedStatement ps = connection.prepareStatement(FIND_USER_BY_EMAIL)) {
@@ -71,21 +111,6 @@ public class MySqlUserDao implements UserDao {
             e.printStackTrace();
         }
         return user;
-    }
-
-    @Override
-    public List<User> findAll() {
-        List<User> students = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_STUDENTS)) {
-            ResultSet rs = ps.executeQuery();
-            students = new ArrayList<>();
-            while (rs.next()) {
-                students.add(extractUser(rs));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return students;
     }
 
     @Override

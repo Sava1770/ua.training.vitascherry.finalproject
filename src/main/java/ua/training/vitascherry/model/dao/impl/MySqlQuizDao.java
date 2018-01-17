@@ -1,6 +1,8 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.QuizDao;
+import ua.training.vitascherry.model.dao.query.QueryBuilder;
+import ua.training.vitascherry.model.dao.query.QueryOption;
 import ua.training.vitascherry.model.entity.Answer;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.entity.Question;
@@ -106,9 +108,12 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findPassedByStudentId(int id) {
+    public List<Quiz> findPassedByStudentId(int id, Map<QueryOption, String> options) {
         List<Quiz> passedQuizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_PASSED)) {
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_ALL_PASSED :
+                new QueryBuilder(FIND_ALL_PASSED, options).build()
+        )) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             passedQuizzes = new ArrayList<>();
@@ -122,9 +127,17 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findAvailableByStudentId(int id) {
+    public List<Quiz> findPassedByStudentId(int id) {
+        return findPassedByStudentId(id, null);
+    }
+
+    @Override
+    public List<Quiz> findAvailableByStudentId(int id, Map<QueryOption, String> options) {
         List<Quiz> availableQuizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_AVAILABLE)) {
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_ALL_AVAILABLE :
+                new QueryBuilder(FIND_ALL_AVAILABLE, options).build()
+        )) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             availableQuizzes = new ArrayList<>();
@@ -137,11 +150,18 @@ public class MySqlQuizDao implements QuizDao {
         return availableQuizzes;
     }
 
+    @Override
+    public List<Quiz> findAvailableByStudentId(int id) {
+        return findAvailableByStudentId(id, null);
+    }
 
     @Override
-    public List<Quiz> findAll() {
+    public List<Quiz> findAll(Map<QueryOption, String> options) {
         List<Quiz> quizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_QUIZZES)) {
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_ALL_QUIZZES :
+                new QueryBuilder(FIND_ALL_QUIZZES, options).build()
+        )) {
             ResultSet rs = ps.executeQuery();
             quizzes = new ArrayList<>();
             while (rs.next()) {
@@ -151,6 +171,11 @@ public class MySqlQuizDao implements QuizDao {
             e.printStackTrace();
         }
         return quizzes;
+    }
+
+    @Override
+    public List<Quiz> findAll() {
+        return findAll(null);
     }
 
     @Override

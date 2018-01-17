@@ -1,6 +1,8 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.TopicDao;
+import ua.training.vitascherry.model.dao.query.QueryBuilder;
+import ua.training.vitascherry.model.dao.query.QueryOption;
 import ua.training.vitascherry.model.entity.Topic;
 
 import java.sql.Connection;
@@ -9,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_TOPIC_BY_ID;
 import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_ALL_TOPICS;
@@ -29,9 +32,12 @@ public class MySqlTopicDao implements TopicDao {
     }
 
     @Override
-    public Topic findById(int id) {
+    public Topic findById(int id, Map<QueryOption, String> options) {
         Topic topic = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_TOPIC_BY_ID)) {
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_TOPIC_BY_ID :
+                new QueryBuilder(FIND_TOPIC_BY_ID, options).build()
+        )) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -48,9 +54,17 @@ public class MySqlTopicDao implements TopicDao {
     }
 
     @Override
-    public List<Topic> findAll() {
+    public Topic findById(int id) {
+        return findById(id, null);
+    }
+
+    @Override
+    public List<Topic> findAll(Map<QueryOption, String> options) {
         List<Topic> topics = null;
-        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_TOPICS)) {
+        try (PreparedStatement ps = connection.prepareStatement(options == null ?
+                FIND_ALL_TOPICS :
+                new QueryBuilder(FIND_ALL_TOPICS, options).build()
+        )) {
             ResultSet rs = ps.executeQuery();
             topics = new ArrayList<>();
             while (rs.next()) {
@@ -60,6 +74,11 @@ public class MySqlTopicDao implements TopicDao {
             e.printStackTrace();
         }
         return topics;
+    }
+
+    @Override
+    public List<Topic> findAll() {
+        return findAll(null);
     }
 
     @Override

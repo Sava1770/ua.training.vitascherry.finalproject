@@ -2,6 +2,8 @@ package ua.training.vitascherry.model.dao.query;
 
 public interface UserQuery extends Query {
 
+    String STUDENT_COUNT = queries.getString("user.students.count");
+
     String CREATE_STUDENT = queries.getString("user.create");
 
     String FIND_USER_BY_EMAIL = queries.getString("user.find.by.email");

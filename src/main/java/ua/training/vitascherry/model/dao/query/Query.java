@@ -5,7 +5,5 @@ import java.util.ResourceBundle;
 
 interface Query {
     ResourceBundle queries = ResourceBundle.getBundle("queries",
-            //new Locale("uk_UA"));
-            //new Locale("ru_RU"));
             Locale.ENGLISH);
 }

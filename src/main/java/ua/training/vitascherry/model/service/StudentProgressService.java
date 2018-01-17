@@ -8,5 +8,9 @@ public interface StudentProgressService {
 
     List<StudentProgress> getAllProgresses();
 
+    List<StudentProgress> getAllProgresses(int offset);
+
     List<StudentProgress> getProgressesByStudentId(int id);
+
+    List<StudentProgress> getProgressesByStudentId(int id, int offset);
 }

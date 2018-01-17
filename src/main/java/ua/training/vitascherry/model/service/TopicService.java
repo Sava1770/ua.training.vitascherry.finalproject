@@ -8,5 +8,9 @@ public interface TopicService {
 
     List<Topic> getAllTopics();
 
+    List<Topic> getAllTopics(int offset);
+
     Topic getTopicById(int id);
+
+    Topic getTopicById(int id, int offset);
 }
