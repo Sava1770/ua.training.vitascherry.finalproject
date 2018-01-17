@@ -16,7 +16,7 @@ public class SignInRegisterFilter implements Filter {
         HttpServletRequest httpReq = (HttpServletRequest) req;
         HttpServletResponse httpResp = (HttpServletResponse) resp;
         if (httpReq.getSession().getAttribute("user") != null) {
-            httpResp.sendRedirect("/");
+            httpResp.sendRedirect(httpReq.getContextPath() + "/");
             return;
         }
         chain.doFilter(req, resp);

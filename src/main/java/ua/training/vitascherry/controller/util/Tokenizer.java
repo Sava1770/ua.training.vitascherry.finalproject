@@ -1,17 +1,15 @@
 package ua.training.vitascherry.controller.util;
 
-import static ua.training.vitascherry.controller.util.Validator.validate;
-
 public class Tokenizer {
 
     private static String[] tokenize(String path) {
         return path.split("/");
     }
 
-    public static String extractToken(String path, TokenPosition pos) {
+    public static String extractToken(String path, Token token) {
         String[] tokens;
-        if (validate(path) && (tokens = tokenize(path)).length > pos.getIndex()) {
-            return tokens[pos.getIndex()];
+        if ((tokens = tokenize(path)).length > token.getPosition()) {
+            return tokens[token.getPosition()];
         }
         return path;
     }

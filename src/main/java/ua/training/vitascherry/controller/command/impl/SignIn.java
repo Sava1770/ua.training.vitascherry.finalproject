@@ -1,28 +1,35 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
+import ua.training.vitascherry.controller.util.RequestParameter;
 import ua.training.vitascherry.controller.util.Response;
 import ua.training.vitascherry.model.entity.User;
-import ua.training.vitascherry.model.service.SignInService;
+import ua.training.vitascherry.model.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 
 public class SignIn implements Command {
 
-    private SignInService signInService;
+    private UserService userService;
 
-    public SignIn(SignInService signInService) {
-        this.signInService = signInService;
+    public SignIn(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
     public Response execute(HttpServletRequest req) {
-        User user = signInService.getUserByEmail(req.getParameter("email"));
-        if (user != null && signInService.isValidCredentials(user, req.getParameter("password"))) {
-            req.getSession().setAttribute("user", user);
-        } else {
-            req.setAttribute("isInvalidCredentials", true);
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        if (password == null || !RequestParameter.PASSWORD.validate(password) ||
+                email == null || !RequestParameter.EMAIL.validate(email)) {
+            return Response.SIGN_IN;
         }
-       return signInService.getResponse();
+        User user = userService.getUserByEmail(email);
+        if (user == null || !userService.isValidCredentials(user, password)) {
+            req.setAttribute("isInvalidCredentials", true);
+            return Response.SIGN_IN;
+        }
+        req.getSession().setAttribute("user", user);
+        return user.getRole().getSignInResponse();
     }
 }

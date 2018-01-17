@@ -5,7 +5,7 @@
          version="3.0">
   <display-name>FinalProjectApp</display-name>
 
-  <!-- Log4j2 config file location context param -->
+  <!-- Log4j2 config location context param -->
   <context-param>
     <param-name>log4jConfiguration</param-name>
     <param-value>/WEB-INF/log4j2.xml</param-value>
@@ -21,6 +21,16 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+  <!-- Request filter -->
+  <filter>
+    <filter-name>RequestFilter</filter-name>
+    <filter-class>ua.training.vitascherry.controller.filter.RequestFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>RequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <!-- Authorization filter -->
   <filter>
     <filter-name>AuthorizationFilter</filter-name>
@@ -33,13 +43,23 @@
 
   <!-- Sign-in / Register filter -->
   <filter>
-    <filter-name>SignInRegisterFilter</filter-name>
+    <filter-name>SignInSignOutFilter</filter-name>
     <filter-class>ua.training.vitascherry.controller.filter.SignInRegisterFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>SignInRegisterFilter</filter-name>
+    <filter-name>SignInSignOutFilter</filter-name>
     <url-pattern>/signin</url-pattern>
     <url-pattern>/register</url-pattern>
+  </filter-mapping>
+
+  <!-- Sign-out filter -->
+  <filter>
+    <filter-name>SignOutFilter</filter-name>
+    <filter-class>ua.training.vitascherry.controller.filter.SignOutFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SignOutFilter</filter-name>
+    <url-pattern>/signout</url-pattern>
   </filter-mapping>
 
   <!-- Main servlet -->
@@ -54,7 +74,7 @@
 
   <!-- Index page -->
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>position.jsp</welcome-file>
   </welcome-file-list>
 
   <!-- Additional file type mappings -->

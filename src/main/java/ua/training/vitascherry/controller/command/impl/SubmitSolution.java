@@ -42,9 +42,8 @@ public class SubmitSolution implements Command {
             question.getAnswers().add(answer);
         }
         quiz.getQuestions().addAll(uniqueQuestions.values());
-        service.createStudentSolution(user, quiz);
-        if (!service.getResponse().equals(Response.QUIZ_RESULT)) {
-            return Response.ERROR_500;
+        if (!service.createStudentSolution(user, quiz)) {
+            return Response.SERVER_ERROR;
         }
         return GetCommandMap.getInstance().get("result").execute(req);
     }

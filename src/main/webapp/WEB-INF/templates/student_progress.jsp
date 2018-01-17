@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/templates/i18n.jsp" %>
-<fmt:setBundle basename="/i18n/student_progress" var="bundle" scope="session" />
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><fmt:message bundle="${bundle}" key="title" /> ${requestScope.studentId}</title>
+    <title><fmt:message bundle="${particular}" key="student.progress.title" /> ${requestScope.studentId}</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <style>
         .progresses {
@@ -15,12 +14,12 @@
     </style>
 </head>
 <body>
-<h1><fmt:message bundle="${bundle}" key="title" /> ${requestScope.studentId}</h1>
+<h1><fmt:message bundle="${particular}" key="student.progress.title" /> ${requestScope.studentId}</h1>
 <hr>
 <div class="progresses">
     <table>
         <tr class="table-header">
-            <th><fmt:message bundle="${bundle}" key="number" /></th><th><fmt:message bundle="${bundle}" key="quiz" /></th><th><fmt:message bundle="${bundle}" key="questions" /></th><th><fmt:message bundle="${bundle}" key="correct" /></th>
+            <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${particular}" key="student.progress.quiz" /></th><th><fmt:message bundle="${particular}" key="student.progress.questions" /></th><th><fmt:message bundle="${particular}" key="student.progress.correct" /></th>
         </tr>
         <c:forEach var="progress" items="${requestScope.progresses}" varStatus="progressLoop">
             <tr class="progress-info">
@@ -32,7 +31,7 @@
 <hr>
 <div class="navigation-menu">
     <nav>
-        <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${bundle}" key="home" /></a>
+        <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${common}" key="home" /></a>
     </nav>
 </div>
 </body>

@@ -5,6 +5,7 @@ import ua.training.vitascherry.controller.command.CommandFactory;
 import ua.training.vitascherry.controller.util.Response;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.service.*;
+import ua.training.vitascherry.model.service.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,18 +15,18 @@ public class HttpCommandFactory extends CommandFactory {
     @Override
     public Map<String, Command> createGetCommands() {
         StudentProgressService studProService =
-                new StudentProgressService(DaoFactory.getInstance());
-        StudentService studentService =
-                new StudentService(DaoFactory.getInstance());
+                new StudentProgressServiceImpl(DaoFactory.getInstance());
+        UserServiceImpl userService =
+                new UserServiceImpl(DaoFactory.getInstance());
         TopicService topicService =
-                new TopicService(DaoFactory.getInstance());
+                new TopicServiceImpl(DaoFactory.getInstance());
         QuizService quizService =
-                new QuizService(DaoFactory.getInstance());
+                new QuizServiceImpl(DaoFactory.getInstance());
         Map<String, Command> commands = new HashMap<>();
         commands.put("progresses", new StudentProgressList(studProService));
         commands.put("available", new AvailableQuizzes(quizService));
-        commands.put("student", new StudentProfile(studentService));
-        commands.put("students", new StudentList(studentService));
+        commands.put("student", new StudentProfile(userService));
+        commands.put("students", new StudentList(userService));
         commands.put("progress", new MyProgress(studProService));
         commands.put("topic", new QuizCatalogue(topicService));
         commands.put("topics", new TopicList(topicService));
@@ -42,16 +43,14 @@ public class HttpCommandFactory extends CommandFactory {
     @Override
     public Map<String, Command> createPostCommands() {
         SolutionService solutionService =
-                new SolutionService(DaoFactory.getInstance());
-        SignInService signInService =
-                new SignInService(DaoFactory.getInstance());
-        RegisterService registerService =
-                new RegisterService(DaoFactory.getInstance());
+                new SolutionServiceImpl(DaoFactory.getInstance());
+        UserService userService =
+                new UserServiceImpl(DaoFactory.getInstance());
         Map<String, Command> commands = new HashMap<>();
-        commands.put("/", new ChangeLocale());
-        commands.put("signin", new SignIn(signInService));
-        commands.put("register", new Register(registerService));
         commands.put("result", new SubmitSolution(solutionService));
+        commands.put("register", new Register(userService));
+        commands.put("signin", new SignIn(userService));
+        commands.put("/", new ChangeLocale());
         return commands;
     }
 }

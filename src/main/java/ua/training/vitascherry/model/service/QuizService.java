@@ -1,46 +1,18 @@
 package ua.training.vitascherry.model.service;
 
-import ua.training.vitascherry.model.dao.DaoFactory;
-import ua.training.vitascherry.model.dao.QuizDao;
 import ua.training.vitascherry.model.entity.Quiz;
 
 import java.util.List;
 
-public class QuizService {
+public interface QuizService {
 
-    private DaoFactory daoFactory;
+        List<Quiz> getAllQuizzes();
 
-    public QuizService(DaoFactory daoFactory) {
-        this.daoFactory = daoFactory;
-    }
+        List<Quiz> getAllPassedByStudent(int id);
 
-    public List<Quiz> getAllQuizzes() {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAll();
-        }
-    }
+        List<Quiz> getAllAvailableForStudent(int id);
 
-    public List<Quiz> getAllPassedByStudent(int id) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findPassedByStudentId(id);
-        }
-    }
+        Quiz getQuizById(int id);
 
-    public List<Quiz> getAllAvailableForStudent(int id) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAvailableByStudentId(id);
-        }
-    }
-
-    public Quiz getQuizById(int id) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findById(id);
-        }
-    }
-
-    public Quiz getQuizSolution(int studentId, int quizId) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findByStudentIdQuizId(studentId, quizId);
-        }
-    }
+        Quiz getQuizSolution(int studentId, int quizId);
 }

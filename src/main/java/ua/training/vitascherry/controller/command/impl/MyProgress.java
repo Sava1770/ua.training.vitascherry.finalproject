@@ -27,11 +27,11 @@ public class MyProgress implements Command {
             return Response.ADMIN_SIGNED_IN;
         }
         if (!sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() != id) {
-            return Response.ERROR_403;
+            return Response.FORBIDDEN;
         }
         List<StudentProgress> progresses = progressService.getProgressesByStudentId(id);
         if (progresses == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("studentId", id);
         req.setAttribute("progresses", progresses);

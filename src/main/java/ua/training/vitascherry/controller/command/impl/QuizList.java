@@ -20,7 +20,7 @@ public class QuizList implements Command {
     public Response execute(HttpServletRequest req) {
         List<Quiz> quizzes = quizService.getAllQuizzes();
         if (quizzes == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("quizzes", quizzes);
         return Response.QUIZ_LIST;

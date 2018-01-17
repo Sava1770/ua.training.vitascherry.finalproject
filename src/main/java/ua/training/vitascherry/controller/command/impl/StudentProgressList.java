@@ -20,7 +20,7 @@ public class StudentProgressList implements Command {
     public Response execute(HttpServletRequest req) {
         List<StudentProgress> progresses = studentProgressService.getAllProgresses();
         if (progresses == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("progresses", progresses);
         return Response.STUD_PROS_LIST;

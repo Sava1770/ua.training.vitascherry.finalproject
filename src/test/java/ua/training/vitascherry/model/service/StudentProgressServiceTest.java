@@ -7,6 +7,7 @@ import ua.training.vitascherry.model.dao.StudentProgressDao;
 import ua.training.vitascherry.model.entity.Quiz;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.entity.StudentProgress;
+import ua.training.vitascherry.model.service.impl.StudentProgressServiceImpl;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,6 +17,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class StudentProgressServiceTest {
+
     @Test
     public void getAllProgresses() throws Exception {
         DaoFactory factoryMock = Mockito.mock(DaoFactory.class);
@@ -44,7 +46,7 @@ public class StudentProgressServiceTest {
             .when(daoMock.findAll())
             .thenReturn(sampleProgresses);
 
-        StudentProgressService service = new StudentProgressService(factoryMock);
+        StudentProgressService service = new StudentProgressServiceImpl(factoryMock);
 
         List<StudentProgress> result = service.getAllProgresses();
 
@@ -76,7 +78,7 @@ public class StudentProgressServiceTest {
                 .when(daoMock.findByStudentId(1))
                 .thenReturn(sampleProgresses);
 
-        StudentProgressService service = new StudentProgressService(factoryMock);
+        StudentProgressService service = new StudentProgressServiceImpl(factoryMock);
 
         List<StudentProgress> result = service.getProgressesByStudentId(1);
 
@@ -87,5 +89,4 @@ public class StudentProgressServiceTest {
         //Test equals
         assertThat(result, is(sampleProgresses));
     }
-
 }

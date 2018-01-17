@@ -24,16 +24,16 @@ public class QuizSolution implements Command {
         int studentId = extractId(req);
         User sessionUser = (User)req.getSession().getAttribute("user");
         if (!sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() != studentId) {
-            return Response.ERROR_403;
+            return Response.FORBIDDEN;
         }
         int quizId = extractSolutionQuizId(req);
         Quiz quiz = quizService.getQuizById(quizId);
         if (quiz == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         Quiz result = quizService.getQuizSolution(studentId, quizId);
         if (result == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("quiz", quiz);
         req.setAttribute("result", result);

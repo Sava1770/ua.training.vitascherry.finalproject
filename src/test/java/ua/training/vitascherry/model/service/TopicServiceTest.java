@@ -7,6 +7,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.dao.TopicDao;
 import ua.training.vitascherry.model.entity.Topic;
+import ua.training.vitascherry.model.service.impl.TopicServiceImpl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,7 +35,7 @@ public class TopicServiceTest {
             .when(daoMock.findAll())
             .thenReturn(sampleTopics);
 
-        TopicService service = new TopicService(factoryMock);
+        TopicService service = new TopicServiceImpl(factoryMock);
 
         List<Topic> result = service.getAllTopics();
 
@@ -62,7 +63,7 @@ public class TopicServiceTest {
             .when(daoMock.findById(id))
             .thenReturn(sampleTopic);
 
-        TopicService service = new TopicService(factoryMock);
+        TopicService service = new TopicServiceImpl(factoryMock);
 
         Topic result = service.getTopicById(id);
 
@@ -72,5 +73,4 @@ public class TopicServiceTest {
 
         assertThat(result, is(sampleTopic));
     }
-
 }

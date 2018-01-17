@@ -20,7 +20,7 @@ public class TopicList implements Command {
     public Response execute(HttpServletRequest req) {
         List<Topic> topics = topicService.getAllTopics();
         if (topics == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("topics", topics);
         return Response.TOPIC_LIST;

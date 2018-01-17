@@ -1,6 +1,6 @@
 package ua.training.vitascherry.controller.filter;
 
-import ua.training.vitascherry.controller.util.TokenPosition;
+import ua.training.vitascherry.controller.util.Token;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.controller.util.Response;
 
@@ -37,7 +37,7 @@ public class AuthorizationFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpReq = (HttpServletRequest) req;
         HttpServletResponse httpResp = (HttpServletResponse) resp;
-        String token = extractToken(httpReq.getRequestURI(), TokenPosition.COMMAND);
+        String token = extractToken(httpReq.getRequestURI(), Token.COMMAND);
         List<User.Role> permissions = specialPermissions.get(token);
         if (permissions != null) {
             User.Role role = null;
@@ -46,10 +46,10 @@ public class AuthorizationFilter implements Filter {
                 role = user.getRole();
             }
             if (role == null) {
-                httpResp.sendRedirect("/signin");
+                httpResp.sendRedirect(httpReq.getContextPath() + "/signin");
                 return;
             } else if (!permissions.contains(role)) {
-                httpReq.getRequestDispatcher(Response.ERROR_403.getPage()).forward(httpReq, httpResp);
+                httpReq.getRequestDispatcher(Response.FORBIDDEN.getPage()).forward(httpReq, httpResp);
                 return;
             }
         }

@@ -5,6 +5,7 @@ import org.mockito.Mockito;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.dao.QuizDao;
 import ua.training.vitascherry.model.entity.Quiz;
+import ua.training.vitascherry.model.service.impl.QuizServiceImpl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,14 +26,14 @@ public class QuizServiceTest {
         );
 
         Mockito
-            .when(factoryMock.createQuizDao())
-            .thenReturn(daoMock);
+                .when(factoryMock.createQuizDao())
+                .thenReturn(daoMock);
 
         Mockito
-            .when(daoMock.findAll())
-            .thenReturn(sampleQuizzes);
+                .when(daoMock.findAll())
+                .thenReturn(sampleQuizzes);
 
-        QuizService service = new QuizService(factoryMock);
+        QuizService service = new QuizServiceImpl(factoryMock);
 
         List<Quiz> result = service.getAllQuizzes();
 
@@ -55,14 +56,14 @@ public class QuizServiceTest {
         );
 
         Mockito
-            .when(factoryMock.createQuizDao())
-            .thenReturn(daoMock);
+                .when(factoryMock.createQuizDao())
+                .thenReturn(daoMock);
 
         Mockito
-            .when(daoMock.findPassedByStudentId(studentId))
-            .thenReturn(passedQuizzes);
+                .when(daoMock.findPassedByStudentId(studentId))
+                .thenReturn(passedQuizzes);
 
-        QuizService service = new QuizService(factoryMock);
+        QuizService service = new QuizServiceImpl(factoryMock);
 
         List<Quiz> result = service.getAllPassedByStudent(studentId);
 
@@ -85,14 +86,14 @@ public class QuizServiceTest {
         );
 
         Mockito
-            .when(factoryMock.createQuizDao())
-            .thenReturn(daoMock);
+                .when(factoryMock.createQuizDao())
+                .thenReturn(daoMock);
 
         Mockito
-            .when(daoMock.findAvailableByStudentId(studentId))
-            .thenReturn(availableQuizzes);
+                .when(daoMock.findAvailableByStudentId(studentId))
+                .thenReturn(availableQuizzes);
 
-        QuizService service = new QuizService(factoryMock);
+        QuizService service = new QuizServiceImpl(factoryMock);
 
         List<Quiz> result = service.getAllAvailableForStudent(studentId);
 
@@ -112,14 +113,14 @@ public class QuizServiceTest {
         Quiz sampleQuiz = Quiz.builder().setId(id).build();
 
         Mockito
-            .when(factoryMock.createQuizDao())
-            .thenReturn(daoMock);
+                .when(factoryMock.createQuizDao())
+                .thenReturn(daoMock);
 
         Mockito
-            .when(daoMock.findById(id))
-            .thenReturn(sampleQuiz);
+                .when(daoMock.findById(id))
+                .thenReturn(sampleQuiz);
 
-        QuizService service = new QuizService(factoryMock);
+        QuizService service = new QuizServiceImpl(factoryMock);
 
         Quiz result = service.getQuizById(id);
 
@@ -140,14 +141,14 @@ public class QuizServiceTest {
         Quiz sampleQuiz = Quiz.builder().setId(quizId).build();
 
         Mockito
-            .when(factoryMock.createQuizDao())
-            .thenReturn(daoMock);
+                .when(factoryMock.createQuizDao())
+                .thenReturn(daoMock);
 
         Mockito
-            .when(daoMock.findByStudentIdQuizId(studentId, quizId))
-            .thenReturn(sampleQuiz);
+                .when(daoMock.findByStudentIdQuizId(studentId, quizId))
+                .thenReturn(sampleQuiz);
 
-        QuizService service = new QuizService(factoryMock);
+        QuizService service = new QuizServiceImpl(factoryMock);
 
         Quiz result = service.getQuizSolution(studentId, quizId);
 

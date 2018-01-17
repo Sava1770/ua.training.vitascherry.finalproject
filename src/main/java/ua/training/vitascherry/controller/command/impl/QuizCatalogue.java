@@ -22,7 +22,7 @@ public class QuizCatalogue implements Command {
         int id = extractId(req);
         Topic topic = topicService.getTopicById(id);
         if (topic == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("quizzes", topic.getQuizzes());
         return Response.QUIZ_LIST;

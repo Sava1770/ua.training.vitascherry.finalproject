@@ -30,11 +30,11 @@ public class PassQuiz implements Command {
                 .map(Quiz::getId)
                 .collect(Collectors.toList());
         if (passedQuizIds.contains(id)) {
-            return Response.ERROR_405;
+            return Response.WAS_PASSED;
         }
         Quiz quiz = quizService.getQuizById(id);
         if (quiz == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("quiz", quiz);
         return Response.QUIZ_BODY;

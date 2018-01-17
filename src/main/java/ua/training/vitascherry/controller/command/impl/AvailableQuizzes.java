@@ -22,7 +22,7 @@ public class AvailableQuizzes implements Command {
         User user = (User) req.getSession().getAttribute("user");
         List<Quiz> quizzes = quizService.getAllAvailableForStudent(user.getId());
         if (quizzes == null) {
-            return Response.ERROR_404;
+            return Response.NOT_FOUND;
         }
         req.setAttribute("quizzes", quizzes);
         return Response.QUIZ_LIST;

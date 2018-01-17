@@ -2,11 +2,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/config/answer_tag_lib.tld" prefix="fn" %>
 <%@ include file="/WEB-INF/templates/i18n.jsp" %>
-<fmt:setBundle basename="/i18n/quiz_result" var="bundle" scope="session" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><fmt:message bundle="${bundle}" key="title" /> <c:out value="${requestScope.quiz.id}"/></title>
+        <title><fmt:message bundle="${particular}" key="quiz.result.title" /> <c:out value="${requestScope.quiz.id}"/></title>
         <link rel="stylesheet" type="text/css" href="/static/css/main.css">
         <style>
             .questions {
@@ -30,7 +29,7 @@
         </style>
     </head>
     <body>
-        <h1><c:out value="${requestScope.quiz.name}"/> <fmt:message bundle="${bundle}" key="result" /></h1>
+        <h1><c:out value="${requestScope.quiz.name}"/> <fmt:message bundle="${particular}" key="quiz.result.result" /></h1>
         <hr>
         <div class="questions">
             <ul>
@@ -62,7 +61,7 @@
         <hr>
         <div class="navigation-menu">
             <nav>
-                <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${bundle}" key="home" /></a>
+                <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${common}" key="home" /></a>
             </nav>
         </div>
     </body>
