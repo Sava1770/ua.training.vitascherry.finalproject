@@ -31,6 +31,7 @@
 
 А также присутствуют записи в файлах:
 1. [%TOMCAT_HOME%/conf] tomcat-users.xml
+```
   <role rolename="tomcat"/>
   <role rolename="admin-script"/>
   <role rolename="manager-script"/>
@@ -42,15 +43,19 @@
   <user password="tomcat" roles="tomcat" username="tomcat"/>
   <user password="admin" roles="manager-gui" username="admin"/>
   <user username="mavenuser" password="password" roles="admin,admin-script,manager-gui,manager-script,manager-jmx,manager-status"/>
-
+```
+  
 2. [%MAVEN_HOME%\conf] settings.xml
+```
   <server>
 	<id>tomcatserver</id>
 	<username>mavenuser</username>
 	<password>password</password>
   </server>
-  
+```
+
 3. [%PROJECT%] pom.xml
+```
   <groupId>org.apache.tomcat.maven</groupId>
   <artifactId>tomcat7-maven-plugin</artifactId>
   <version>2.2</version>
@@ -62,10 +67,11 @@
 	<password>password</password>
 	<update>true</update>
   </configuration>
+```
 
 # Инструкции по запуску
 1. Скачать архив с проектом или загрузить при помощи git clone
 2. Создать схему базы данных и необходимые таблицы (e.g. %PROJECT%/src/main/resources/create_db.sql)
 2. Запустить Apache Tomcat локально (e.g. %TOMCAT_HOME%\bin\startup.sh)
-3. Запустить с командной строки при помощи: mvn tomcat7:deploy или mvn tomcat7: run-war
+3. Запустить приложение с командной строки при помощи: mvn tomcat7:deploy или mvn tomcat7: run-war
 4. Посмотреть сайт можно на http://localhost:8080/
