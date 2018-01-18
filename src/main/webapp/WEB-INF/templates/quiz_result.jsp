@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="/WEB-INF/config/answer_tag_lib.tld" prefix="fn" %>
+<%@ taglib uri="/WEB-INF/answer_tag_lib.tld" prefix="fn" %>
 <%@ include file="/WEB-INF/templates/i18n.jsp" %>
 <html>
     <head>

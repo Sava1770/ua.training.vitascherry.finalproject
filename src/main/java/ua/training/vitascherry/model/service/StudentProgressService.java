@@ -6,6 +6,10 @@ import java.util.List;
 
 public interface StudentProgressService {
 
+    int getProgressesCount();
+
+    int getProgressesCountByStudentId(int id);
+
     List<StudentProgress> getAllProgresses();
 
     List<StudentProgress> getAllProgresses(int offset);

@@ -14,21 +14,21 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractPageN
 
 public class StudentList implements Command {
 
-    private UserService userService;
+    private UserService service;
 
-    public StudentList(UserService userService) {
-        this.userService = userService;
+    public StudentList(UserService service) {
+        this.service = service;
     }
 
     @Override
     public Response execute(HttpServletRequest req) {
         int pageNumber = extractPageNumber(req);
-        List<User> students = userService.getAllStudents(pageNumber * RECORDS_PER_PAGE);
+        List<User> students = service.getAllStudents(pageNumber * RECORDS_PER_PAGE);
         if (students == null) {
             return Response.NOT_FOUND;
         }
         req.setAttribute("students", students);
-        req.setAttribute("pagesCount", calculatePagesCount(userService.getStudentsCount()));
+        req.setAttribute("pagesCount", calculatePagesCount(service.getStudentsCount()));
         return Response.STUDENT_LIST;
     }
 }

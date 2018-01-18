@@ -18,7 +18,7 @@ public class RequestFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpReq = (HttpServletRequest) req;
         HttpServletResponse httpResp = (HttpServletResponse) resp;
-        if (!RequestParameter.URI.validate(httpReq.getRequestURI())) {
+        if (RequestParameter.URI.isInvalid(httpReq.getRequestURI())) {
             httpReq.getRequestDispatcher(Response.NOT_FOUND.getPage()).forward(httpReq, httpResp);
         }
         chain.doFilter(req, resp);

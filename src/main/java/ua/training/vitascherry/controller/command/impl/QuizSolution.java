@@ -13,10 +13,10 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractSolut
 
 public class QuizSolution implements Command {
 
-    private QuizService quizService;
+    private QuizService service;
 
-    public QuizSolution(QuizService quizService) {
-        this.quizService = quizService;
+    public QuizSolution(QuizService service) {
+        this.service = service;
     }
 
     @Override
@@ -27,11 +27,11 @@ public class QuizSolution implements Command {
             return Response.FORBIDDEN;
         }
         int quizId = extractSolutionQuizId(req);
-        Quiz quiz = quizService.getQuizById(quizId);
+        Quiz quiz = service.getQuizById(quizId);
         if (quiz == null) {
             return Response.NOT_FOUND;
         }
-        Quiz result = quizService.getStudentQuizSolution(studentId, quizId);
+        Quiz result = service.getStudentQuizSolution(studentId, quizId);
         if (result == null) {
             return Response.NOT_FOUND;
         }

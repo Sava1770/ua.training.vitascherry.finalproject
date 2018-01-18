@@ -1,8 +1,7 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.UserDao;
-import ua.training.vitascherry.model.dao.query.QueryBuilder;
-import ua.training.vitascherry.model.dao.query.QueryOption;
+import ua.training.vitascherry.model.dao.query.Delimiter;
 import ua.training.vitascherry.model.entity.User;
 
 import java.sql.Connection;
@@ -11,8 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
+import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 import static ua.training.vitascherry.model.dao.query.UserQuery.*;
 import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
 
@@ -76,12 +76,12 @@ public class MySqlUserDao implements UserDao {
     }
 
     @Override
-    public List<User> findAll(Map<QueryOption, String> options) {
+    public List<User> findAll(int offset) {
         List<User> students = null;
-        try (PreparedStatement ps = connection.prepareStatement(options == null ?
-                FIND_ALL_STUDENTS :
-                new QueryBuilder(FIND_ALL_STUDENTS, options).build()
-        )) {
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_STUDENTS)
+                .limit(RECORDS_PER_PAGE)
+                .offset(offset)
+                .toString())) {
             ResultSet rs = ps.executeQuery();
             students = new ArrayList<>();
             while (rs.next()) {
@@ -95,7 +95,7 @@ public class MySqlUserDao implements UserDao {
 
     @Override
     public List<User> findAll() {
-        return findAll(null);
+        return findAll(DEFAULT_OFFSET);
     }
 
     @Override

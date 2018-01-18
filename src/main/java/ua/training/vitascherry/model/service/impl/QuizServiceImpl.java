@@ -2,13 +2,10 @@ package ua.training.vitascherry.model.service.impl;
 
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.dao.QuizDao;
-import ua.training.vitascherry.model.dao.query.QueryOption;
 import ua.training.vitascherry.model.entity.Quiz;
 import ua.training.vitascherry.model.service.QuizService;
 
 import java.util.List;
-
-import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 
 public class QuizServiceImpl implements QuizService {
 
@@ -19,9 +16,16 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
+    public int getQuizzesCount() {
+        try (QuizDao dao = daoFactory.createQuizDao()) {
+            return dao.getQuizzesCount();
+        }
+    }
+
+    @Override
     public List<Quiz> getAllQuizzes(int offset) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAll(QueryOption.create(RECORDS_PER_PAGE, offset));
+            return dao.findAll(offset);
         }
     }
 
@@ -35,7 +39,7 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public List<Quiz> getAllPassedByStudent(int id, int offset) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findPassedByStudentId(id, QueryOption.create(RECORDS_PER_PAGE, offset));
+            return dao.findPassedByStudentId(id, offset);
         }
     }
 
@@ -47,16 +51,16 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public List<Quiz> getAllAvailableForStudent(int id) {
+    public List<Quiz> getAllAvailableForStudent(int id, int offset) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAvailableByStudentId(id);
+            return dao.findAvailableByStudentId(id, offset);
         }
     }
 
     @Override
-    public List<Quiz> getAllAvailableForStudent(int id, int offset) {
+    public List<Quiz> getAllAvailableForStudent(int id) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAvailableByStudentId(id, QueryOption.create(RECORDS_PER_PAGE, offset));
+            return dao.findAvailableByStudentId(id);
         }
     }
 

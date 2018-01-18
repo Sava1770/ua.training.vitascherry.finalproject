@@ -11,10 +11,10 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
 
 public class StudentProfile implements Command {
 
-    private UserService userService;
+    private UserService service;
 
-    public StudentProfile(UserService userService) {
-        this.userService = userService;
+    public StudentProfile(UserService service) {
+        this.service = service;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class StudentProfile implements Command {
         if (!sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() != id) {
             return Response.FORBIDDEN;
         }
-        User student = userService.getStudentById(id);
+        User student = service.getStudentById(id);
         if (student == null) {
             return Response.NOT_FOUND;
         }

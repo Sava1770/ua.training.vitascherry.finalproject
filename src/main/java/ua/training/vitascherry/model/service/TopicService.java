@@ -6,6 +6,10 @@ import java.util.List;
 
 public interface TopicService {
 
+    int getTopicsCount();
+
+    int getQuizzesCountByTopicId(int id);
+
     List<Topic> getAllTopics();
 
     List<Topic> getAllTopics(int offset);

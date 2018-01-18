@@ -28,6 +28,12 @@
                 </c:forEach>
             </table>
         </div>
+        <div class="pagination">
+            <fmt:message bundle="${common}" key="pages" />:
+            <c:forEach begin="0" end="${requestScope.pagesCount - 1}" var="i">
+                <a href="${pageContext.request.contextPath}/progresses?page=${i}"> ${i+1}</a>
+            </c:forEach>
+        </div>
         <hr>
         <div class="navigation-menu">
             <nav>

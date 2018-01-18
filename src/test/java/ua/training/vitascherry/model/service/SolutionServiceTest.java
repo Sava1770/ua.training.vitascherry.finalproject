@@ -1,7 +1,5 @@
 package ua.training.vitascherry.model.service;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.mockito.Mockito;
 import ua.training.vitascherry.model.dao.DaoFactory;

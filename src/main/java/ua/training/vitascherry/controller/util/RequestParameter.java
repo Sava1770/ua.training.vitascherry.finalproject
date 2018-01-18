@@ -16,7 +16,7 @@ public enum RequestParameter {
         this.pattern = pattern;
     }
 
-    public boolean validate(String parameter) {
-        return pattern.matcher(parameter).matches();
+    public boolean isInvalid(String parameter) {
+        return !pattern.matcher(parameter).matches();
     }
 }

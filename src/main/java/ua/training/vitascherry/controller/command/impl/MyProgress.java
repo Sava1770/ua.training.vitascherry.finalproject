@@ -9,14 +9,17 @@ import ua.training.vitascherry.controller.util.Response;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
+import static ua.training.vitascherry.controller.util.RequestMapper.calculatePagesCount;
 import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractPageNumber;
 
 public class MyProgress implements Command {
 
-    private StudentProgressService progressService;
+    private StudentProgressService service;
 
     public MyProgress(StudentProgressService service) {
-        this.progressService = service;
+        this.service = service;
     }
 
     @Override
@@ -29,12 +32,14 @@ public class MyProgress implements Command {
         if (!sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() != id) {
             return Response.FORBIDDEN;
         }
-        List<StudentProgress> progresses = progressService.getProgressesByStudentId(id);
+        int pageNumber = extractPageNumber(req);
+        List<StudentProgress> progresses = service.getProgressesByStudentId(id, pageNumber * RECORDS_PER_PAGE);
         if (progresses == null) {
             return Response.NOT_FOUND;
         }
         req.setAttribute("studentId", id);
         req.setAttribute("progresses", progresses);
+        req.setAttribute("pagesCount", calculatePagesCount(service.getProgressesCountByStudentId(id)));
         return Response.STUD_PROS;
     }
 }

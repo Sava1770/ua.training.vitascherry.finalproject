@@ -2,6 +2,8 @@ package ua.training.vitascherry.model.dao.query;
 
 public interface QuizQuery extends Query {
 
+    String QUIZ_COUNT = queries.getString("quiz.count");
+
     String CREATE_QUIZ = queries.getString("quiz.create");
 
     String CREATE_SOLUTION = queries.getString("solution.create");

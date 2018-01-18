@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 
 public class SignIn implements Command {
 
-    private UserService userService;
+    private UserService service;
 
-    public SignIn(UserService userService) {
-        this.userService = userService;
+    public SignIn(UserService service) {
+        this.service = service;
     }
 
     @Override
     public Response execute(HttpServletRequest req) {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        if (password == null || !RequestParameter.PASSWORD.validate(password) ||
-                email == null || !RequestParameter.EMAIL.validate(email)) {
+        if (password == null || RequestParameter.PASSWORD.isInvalid(password) ||
+                email == null || RequestParameter.EMAIL.isInvalid(email)) {
             return Response.SIGN_IN;
         }
-        User user = userService.getUserByEmail(email);
-        if (user == null || !userService.isValidCredentials(user, password)) {
+        User user = service.getUserByEmail(email);
+        if (user == null || !service.isValidCredentials(user, password)) {
             req.setAttribute("isInvalidCredentials", true);
             return Response.SIGN_IN;
         }

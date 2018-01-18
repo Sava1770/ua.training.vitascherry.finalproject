@@ -1,8 +1,7 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.QuizDao;
-import ua.training.vitascherry.model.dao.query.QueryBuilder;
-import ua.training.vitascherry.model.dao.query.QueryOption;
+import ua.training.vitascherry.model.dao.query.Delimiter;
 import ua.training.vitascherry.model.entity.Answer;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.entity.Question;
@@ -14,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
+import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.*;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
@@ -31,6 +32,20 @@ public class MySqlQuizDao implements QuizDao {
     @Override
     public int create(Quiz quiz) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getQuizzesCount() {
+        int rowsCount = 0;
+        try (PreparedStatement ps = connection.prepareStatement(QUIZ_COUNT)) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                rowsCount = rs.getInt("quiz_count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsCount;
     }
 
     @Override
@@ -108,12 +123,12 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findPassedByStudentId(int id, Map<QueryOption, String> options) {
+    public List<Quiz> findPassedByStudentId(int id, int offset) {
         List<Quiz> passedQuizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(options == null ?
-                FIND_ALL_PASSED :
-                new QueryBuilder(FIND_ALL_PASSED, options).build()
-        )) {
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_PASSED)
+                .limit(RECORDS_PER_PAGE)
+                .offset(offset)
+                .toString())) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             passedQuizzes = new ArrayList<>();
@@ -128,16 +143,16 @@ public class MySqlQuizDao implements QuizDao {
 
     @Override
     public List<Quiz> findPassedByStudentId(int id) {
-        return findPassedByStudentId(id, null);
+        return findPassedByStudentId(id, DEFAULT_OFFSET);
     }
 
     @Override
-    public List<Quiz> findAvailableByStudentId(int id, Map<QueryOption, String> options) {
+    public List<Quiz> findAvailableByStudentId(int id, int offset) {
         List<Quiz> availableQuizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(options == null ?
-                FIND_ALL_AVAILABLE :
-                new QueryBuilder(FIND_ALL_AVAILABLE, options).build()
-        )) {
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_AVAILABLE)
+                .limit(RECORDS_PER_PAGE)
+                .offset(offset)
+                .toString())) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             availableQuizzes = new ArrayList<>();
@@ -152,16 +167,16 @@ public class MySqlQuizDao implements QuizDao {
 
     @Override
     public List<Quiz> findAvailableByStudentId(int id) {
-        return findAvailableByStudentId(id, null);
+        return findAvailableByStudentId(id, DEFAULT_OFFSET);
     }
 
     @Override
-    public List<Quiz> findAll(Map<QueryOption, String> options) {
+    public List<Quiz> findAll(int offset) {
         List<Quiz> quizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(options == null ?
-                FIND_ALL_QUIZZES :
-                new QueryBuilder(FIND_ALL_QUIZZES, options).build()
-        )) {
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_QUIZZES)
+                .limit(RECORDS_PER_PAGE)
+                .offset(offset)
+                .toString())) {
             ResultSet rs = ps.executeQuery();
             quizzes = new ArrayList<>();
             while (rs.next()) {
@@ -175,7 +190,7 @@ public class MySqlQuizDao implements QuizDao {
 
     @Override
     public List<Quiz> findAll() {
-        return findAll(null);
+        return findAll(DEFAULT_OFFSET);
     }
 
     @Override

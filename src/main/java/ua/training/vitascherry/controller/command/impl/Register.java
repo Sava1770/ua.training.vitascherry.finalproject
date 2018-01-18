@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Register implements Command {
 
-    private UserService userService;
+    private UserService service;
 
-    public Register(UserService userService) {
-        this.userService = userService;
+    public Register(UserService service) {
+        this.service = service;
     }
 
     @Override
@@ -25,14 +25,14 @@ public class Register implements Command {
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
         String patronymic = req.getParameter("patronymic");
-        if (password == null || !password.equals(confirm) || !RequestParameter.PASSWORD.validate(password) ||
-                email == null || !RequestParameter.EMAIL.validate(email) ||
-                lastName == null || !RequestParameter.NAME.validate(lastName) ||
-                firstName == null || !RequestParameter.NAME.validate(firstName) ||
-                patronymic == null || !RequestParameter.NAME.validate(patronymic)) {
+        if (password == null || !password.equals(confirm) || RequestParameter.PASSWORD.isInvalid(password) ||
+                email == null || RequestParameter.EMAIL.isInvalid(email) ||
+                lastName == null || RequestParameter.NAME.isInvalid(lastName) ||
+                firstName == null || RequestParameter.NAME.isInvalid(firstName) ||
+                patronymic == null || RequestParameter.NAME.isInvalid(patronymic)) {
             return Response.REGISTER;
         }
-        if (!userService.isUniqueEmail(email)) {
+        if (!service.isUniqueEmail(email)) {
             req.setAttribute("email", email);
             req.setAttribute("isNotUniqueEmail", true);
             return Response.REGISTER;
@@ -45,6 +45,6 @@ public class Register implements Command {
                 .setLastName(lastName)
                 .setPatronymic(patronymic)
                 .build();
-        return userService.createUser(user) ? Response.REGISTER_SUCCESS : Response.REGISTER;
+        return service.createUser(user) ? Response.REGISTER_SUCCESS : Response.REGISTER;
     }
 }

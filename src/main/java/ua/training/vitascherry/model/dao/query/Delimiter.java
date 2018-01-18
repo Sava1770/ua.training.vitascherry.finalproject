@@ -1,19 +1,25 @@
 package ua.training.vitascherry.model.dao.query;
 
-import java.util.Map;
-
-public class QueryBuilder {
+public class Delimiter {
 
     private StringBuilder builder;
-    private Map<QueryOption, String> options;
 
-    public QueryBuilder(String query, Map<QueryOption, String> options) {
-        builder = new StringBuilder(query);
-        this.options = options;
+    public Delimiter(String query) {
+        this.builder = new StringBuilder(query);
     }
 
-    public String build() {
-        options.forEach((option, value) -> builder.append(' ').append(option.name()).append(' ').append(value));
+    public Delimiter limit(int limit) {
+        builder.append(' ').append("LIMIT").append(' ').append(limit);
+        return this;
+    }
+
+    public Delimiter offset(int offset) {
+        builder.append(' ').append("OFFSET").append(' ').append(offset);
+        return this;
+    }
+
+    @Override
+    public String toString() {
         return builder.toString();
     }
 }

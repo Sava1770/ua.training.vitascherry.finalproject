@@ -11,11 +11,9 @@ import ua.training.vitascherry.model.service.SolutionService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static ua.training.vitascherry.controller.util.RequestMapper.extractSolutionQuizId;
-import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
-import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
-import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
 
 public class SubmitSolution implements Command {
 
@@ -32,16 +30,16 @@ public class SubmitSolution implements Command {
             return Response.ADMIN_SIGNED_IN;
         }
         Quiz quiz = Quiz.builder().setId(extractSolutionQuizId(req)).build();
-        Map<Integer, Question> uniqueQuestions = new HashMap<>();
-        Enumeration<String> en = req.getParameterNames();
-        while (en.hasMoreElements()) {
-            String[] solutionParameters = en.nextElement().split(" ");
-            Question question = extractQuestion(solutionParameters);
-            question = extractUniqueValue(uniqueQuestions, question.getId(), question);
-            Answer answer = extractAnswer(solutionParameters);
-            question.getAnswers().add(answer);
-        }
-        quiz.getQuestions().addAll(uniqueQuestions.values());
+        req.getParameterMap().forEach((questionId, answerIds) ->
+                quiz.getQuestions().add(
+                        Question.builder()
+                                .setId(Integer.parseInt(questionId))
+                                .setAnswers(Arrays.stream(answerIds)
+                                        .map(answerId -> Answer.builder()
+                                                .setId(Integer.parseInt(answerId))
+                                                .build())
+                                        .collect(Collectors.toList()))
+                                .build()));
         if (!service.createStudentSolution(user, quiz)) {
             return Response.SERVER_ERROR;
         }

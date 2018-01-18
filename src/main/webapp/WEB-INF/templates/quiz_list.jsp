@@ -19,7 +19,7 @@
         <div class="quizzes">
             <table>
                 <tr class="table-header">
-                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${common}" key="name" /></th>
+                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${particular}" key="topic.list.name" /></th>
                 </tr>
                 <c:forEach var="quiz" items="${requestScope.quizzes}" varStatus="quizLoop">
                     <tr class="quiz-info">
@@ -27,6 +27,19 @@
                     </tr>
                 </c:forEach>
             </table>
+        </div>
+        <div class="pagination">
+            <fmt:message bundle="${common}" key="pages" />:
+            <c:forEach begin="0" end="${requestScope.pagesCount - 1}" var="i">
+                <c:choose>
+                    <c:when test="${requestScope.topicId == null}">
+                        <a href="${pageContext.request.contextPath}/quizzes?page=${i}"> ${i+1}</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${pageContext.request.contextPath}/topic/${requestScope.topicId}?page=${i}"> ${i+1}</a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
         </div>
         <hr>
         <div class="navigation-menu">

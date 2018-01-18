@@ -4,14 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.training.vitascherry.model.dao.DaoFactory;
 import ua.training.vitascherry.model.dao.UserDao;
-import ua.training.vitascherry.model.dao.query.QueryOption;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.service.UserService;
 import ua.training.vitascherry.model.util.Encryptor;
 
 import java.util.List;
-
-import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 
 public class UserServiceImpl implements UserService {
 
@@ -78,7 +75,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllStudents(int offset) {
         try (UserDao dao = daoFactory.createUserDao()) {
-            return dao.findAll(QueryOption.create(RECORDS_PER_PAGE, offset));
+            return dao.findAll(offset);
         }
     }
 

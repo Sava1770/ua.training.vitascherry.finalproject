@@ -1,6 +1,5 @@
 package ua.training.vitascherry.model.dao.util;
 
-import ua.training.vitascherry.controller.util.QuizParameter;
 import ua.training.vitascherry.model.entity.Answer;
 
 import java.sql.ResultSet;
@@ -13,12 +12,6 @@ public class AnswerMapper {
                 .setId(rs.getInt("id_answer"))
                 .setText(rs.getString("answer.text"))
                 .setIsCorrect(rs.getBoolean("is_correct"))
-                .build();
-    }
-
-    public static Answer extractAnswer(String[] solutionParameters) {
-        return Answer.builder()
-                .setId(Integer.parseInt(solutionParameters[QuizParameter.ID_ANSWER.getPosition()]))
                 .build();
     }
 }

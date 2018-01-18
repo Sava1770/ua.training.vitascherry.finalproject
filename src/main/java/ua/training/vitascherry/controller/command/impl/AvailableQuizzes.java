@@ -11,16 +11,16 @@ import java.util.List;
 
 public class AvailableQuizzes implements Command {
 
-    private QuizService quizService;
+    private QuizService service;
 
-    public AvailableQuizzes(QuizService quizService) {
-        this.quizService = quizService;
+    public AvailableQuizzes(QuizService service) {
+        this.service = service;
     }
 
     @Override
     public Response execute(HttpServletRequest req) {
         User user = (User) req.getSession().getAttribute("user");
-        List<Quiz> quizzes = quizService.getAllAvailableForStudent(user.getId());
+        List<Quiz> quizzes = service.getAllAvailableForStudent(user.getId());
         if (quizzes == null) {
             return Response.NOT_FOUND;
         }

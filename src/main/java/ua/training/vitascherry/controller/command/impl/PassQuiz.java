@@ -15,24 +15,24 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
 
 public class PassQuiz implements Command {
 
-    private QuizService quizService;
+    private QuizService service;
 
-    public PassQuiz(QuizService quizService) {
-        this.quizService = quizService;
+    public PassQuiz(QuizService service) {
+        this.service = service;
     }
 
     @Override
     public Response execute(HttpServletRequest req) {
         int id = extractId(req);
         User user = (User) req.getSession().getAttribute("user");
-        List<Integer> passedQuizIds = quizService.getAllPassedByStudent(user.getId())
+        List<Integer> passedQuizIds = service.getAllPassedByStudent(user.getId())
                 .stream()
                 .map(Quiz::getId)
                 .collect(Collectors.toList());
         if (passedQuizIds.contains(id)) {
             return Response.WAS_PASSED;
         }
-        Quiz quiz = quizService.getQuizById(id);
+        Quiz quiz = service.getQuizById(id);
         if (quiz == null) {
             return Response.NOT_FOUND;
         }

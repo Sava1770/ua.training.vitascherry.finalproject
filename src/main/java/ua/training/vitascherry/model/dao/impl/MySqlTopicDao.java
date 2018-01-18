@@ -1,8 +1,7 @@
 package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.TopicDao;
-import ua.training.vitascherry.model.dao.query.QueryBuilder;
-import ua.training.vitascherry.model.dao.query.QueryOption;
+import ua.training.vitascherry.model.dao.query.Delimiter;
 import ua.training.vitascherry.model.entity.Topic;
 
 import java.sql.Connection;
@@ -11,10 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_TOPIC_BY_ID;
-import static ua.training.vitascherry.model.dao.query.TopicQuery.FIND_ALL_TOPICS;
+import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
+import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
+import static ua.training.vitascherry.model.dao.query.TopicQuery.*;
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
 import static ua.training.vitascherry.model.dao.util.TopicMapper.extractTopic;
 
@@ -27,17 +26,46 @@ public class MySqlTopicDao implements TopicDao {
     }
 
     @Override
+    public int getTopicsCount() {
+        int rowsCount = 0;
+        try (PreparedStatement ps = connection.prepareStatement(TOPIC_COUNT)) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                rowsCount = rs.getInt("topic_count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsCount;
+    }
+
+    @Override
+    public int getQuizzesCountByTopic(int id) {
+        int rowsCount = 0;
+        try (PreparedStatement ps = connection.prepareStatement(QUIZ_COUNT_BY_TOPIC)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                rowsCount = rs.getInt("quiz_count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsCount;
+    }
+
+    @Override
     public int create(Topic topic) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Topic findById(int id, Map<QueryOption, String> options) {
+    public Topic findById(int id, int offset) {
         Topic topic = null;
-        try (PreparedStatement ps = connection.prepareStatement(options == null ?
-                FIND_TOPIC_BY_ID :
-                new QueryBuilder(FIND_TOPIC_BY_ID, options).build()
-        )) {
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_TOPIC_BY_ID)
+                .limit(RECORDS_PER_PAGE)
+                .offset(offset)
+                .toString())) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -55,16 +83,16 @@ public class MySqlTopicDao implements TopicDao {
 
     @Override
     public Topic findById(int id) {
-        return findById(id, null);
+        return findById(id, DEFAULT_OFFSET);
     }
 
     @Override
-    public List<Topic> findAll(Map<QueryOption, String> options) {
+    public List<Topic> findAll(int offset) {
         List<Topic> topics = null;
-        try (PreparedStatement ps = connection.prepareStatement(options == null ?
-                FIND_ALL_TOPICS :
-                new QueryBuilder(FIND_ALL_TOPICS, options).build()
-        )) {
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_TOPICS)
+                .limit(RECORDS_PER_PAGE)
+                .offset(offset)
+                .toString())) {
             ResultSet rs = ps.executeQuery();
             topics = new ArrayList<>();
             while (rs.next()) {
@@ -78,7 +106,7 @@ public class MySqlTopicDao implements TopicDao {
 
     @Override
     public List<Topic> findAll() {
-        return findAll(null);
+        return findAll(DEFAULT_OFFSET);
     }
 
     @Override

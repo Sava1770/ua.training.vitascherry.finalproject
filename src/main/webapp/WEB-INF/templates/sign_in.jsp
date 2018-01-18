@@ -44,6 +44,7 @@
         <hr>
         <div class="navigation-menu">
             <nav>
+                <a href="${pageContext.request.contextPath}/register"><fmt:message bundle="${common}" key="register" /></a>
                 <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${common}" key="home" /></a>
             </nav>
         </div>

@@ -29,6 +29,20 @@
                 float: right;
             }
         </style>
+        <script type="text/javascript">
+            function validate() {
+                var isValid = true;
+                $(".answers").each(function () {
+                    if (getCheckedCount($(this)) === 0) {
+                        isValid = false;
+                        var id = $(this).find("input[type=radio]")[0].name;
+                        alert("<fmt:message bundle="${particular}" key="quiz.alert" />" + id);
+                        return isValid;
+                    }
+                });
+                return isValid;
+            }
+        </script>
     </head>
     <body>
         <h1><c:out value="${requestScope.quiz.name}"/></h1>
@@ -44,7 +58,7 @@
                             <div class="answers">
                                 <c:forEach var="answer" items="${question.answers}" varStatus="answerLoop">
                                     <div class="answer-text">
-                                        <c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="checkbox" name="${question.id} ${answer.id}">
+                                        <c:out value="${answerLoop.index + 1}. "/><c:out value="${answer.text}"/><input class="picker" type="radio" name="${question.id}" value="${answer.id}">
                                     </div>
                                 </c:forEach>
                             </div>

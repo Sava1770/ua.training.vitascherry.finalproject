@@ -7,24 +7,30 @@ import ua.training.vitascherry.controller.util.Response;
 
 import javax.servlet.http.HttpServletRequest;
 
+import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
+import static ua.training.vitascherry.controller.util.RequestMapper.calculatePagesCount;
 import static ua.training.vitascherry.controller.util.RequestMapper.extractId;
+import static ua.training.vitascherry.controller.util.RequestMapper.extractPageNumber;
 
 public class QuizCatalogue implements Command {
 
-    private TopicService topicService;
+    private TopicService service;
 
     public QuizCatalogue(TopicService service) {
-        this.topicService = service;
+        this.service = service;
     }
 
     @Override
     public Response execute(HttpServletRequest req) {
         int id = extractId(req);
-        Topic topic = topicService.getTopicById(id);
+        int pageNumber = extractPageNumber(req);
+        Topic topic = service.getTopicById(id, pageNumber * RECORDS_PER_PAGE);
         if (topic == null) {
             return Response.NOT_FOUND;
         }
+        req.setAttribute("topicId", id);
         req.setAttribute("quizzes", topic.getQuizzes());
+        req.setAttribute("pagesCount", calculatePagesCount(service.getQuizzesCountByTopicId(id)));
         return Response.QUIZ_LIST;
     }
 }
