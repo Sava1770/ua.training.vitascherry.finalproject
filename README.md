@@ -7,12 +7,12 @@
 Все данные об успеваемости и пройденных курсах
 отображаются на странице Администратора как сводная таблица по всем Студентам.
 
-# Архитектура приложения
+## Архитектура приложения
 - MVC. Webapp
 - Сборка приложения происходит при помощи Maven
 - Использованы шаблоны: GoF (e.g. Builder, Singleton, Command, AbstractFactory)
 
-# Технологии
+## Технологии
 - JSP + JSTL
 - Servlets + Filters
 - Session
@@ -23,14 +23,14 @@
 - Pagination
 - Transaction
 
-# Перед запуском убедиться что
+## Перед запуском убедиться что
 1. Установлена последняя Java JDK и были созданы переменные среды (e.g. JAVA_HOME, CLASS_PATH)
 2. Установлена база данных MySQL (e.g. MySQL Installer)
 3. Установлен Apache Maven и были созданы переменные среды (e.g. M2_HOME)
 4. Установлен Apache Tomcat и были созданы переменные среды (e.g. TOMCAT_HOME или CATALINA_HOME)
 
-А также присутствуют записи в файлах:
-1. [%TOMCAT_HOME%/conf] tomcat-users.xml
+## А также присутствуют записи в файлах:
+1. **[%TOMCAT_HOME%/conf] tomcat-users.xml**
 ```
   <role rolename="tomcat"/>
   <role rolename="admin-script"/>
@@ -45,7 +45,7 @@
   <user username="mavenuser" password="password" roles="admin,admin-script,manager-gui,manager-script,manager-jmx,manager-status"/>
 ```
   
-2. [%MAVEN_HOME%\conf] settings.xml
+2. **[%MAVEN_HOME%\conf] settings.xml**
 ```
   <server>
 	<id>tomcatserver</id>
@@ -54,7 +54,7 @@
   </server>
 ```
 
-3. [%PROJECT%] pom.xml
+3. **[%PROJECT%] pom.xml**
 ```
   <groupId>org.apache.tomcat.maven</groupId>
   <artifactId>tomcat7-maven-plugin</artifactId>
@@ -69,9 +69,13 @@
   </configuration>
 ```
 
-# Инструкции по запуску
-1. Скачать архив с проектом или загрузить при помощи `git clone`
-2. Создать схему базы данных и необходимые таблицы (e.g. %PROJECT%/src/main/resources/create_db.sql)
-2. Запустить Apache Tomcat локально (e.g. %TOMCAT_HOME%\bin\startup.sh)
-3. Запустить приложение с командной строки при помощи: `mvn tomcat7:deploy` или `mvn tomcat7: run-war`
+## Инструкции по запуску
+1. Скачать архив с проектом или загрузить с коммандной строки при помощи `git clone https://github.com/vitascherry/ua.training.vitascherry.finalproject.git`
+2. Создать схему базы данных и необходимые таблицы (e.g. `%PROJECT%/src/main/resources/create_db.sql`)
+2. Запустить Apache Tomcat локально (e.g. `%TOMCAT_HOME%\bin\startup.sh`)
+3. Запустить приложение из директории с `pom.xml` с командной строки при помощи: `mvn tomcat7:deploy` или `mvn tomcat7: run-war`
 4. Посмотреть сайт можно на http://localhost:8080/
+
+## Для входа
+- как АДМИН используйте e-mail `root.root@gmail.com` и пароль `password`
+- как STUDENT зарегистрируйтесь или используйте готовые в базе данных. Пароль для всех `password` 
