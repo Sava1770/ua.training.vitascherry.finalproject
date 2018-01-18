@@ -70,8 +70,8 @@
 ```
 
 # Инструкции по запуску
-1. Скачать архив с проектом или загрузить при помощи git clone
+1. Скачать архив с проектом или загрузить при помощи `git clone`
 2. Создать схему базы данных и необходимые таблицы (e.g. %PROJECT%/src/main/resources/create_db.sql)
 2. Запустить Apache Tomcat локально (e.g. %TOMCAT_HOME%\bin\startup.sh)
-3. Запустить приложение с командной строки при помощи: mvn tomcat7:deploy или mvn tomcat7: run-war
+3. Запустить приложение с командной строки при помощи: `mvn tomcat7:deploy` или `mvn tomcat7: run-war`
 4. Посмотреть сайт можно на http://localhost:8080/
