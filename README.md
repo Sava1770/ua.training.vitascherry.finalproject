@@ -24,8 +24,8 @@
 - Transaction
 
 ## Перед запуском убедиться что
-1. Установлена последняя Java JDK и были созданы переменные среды (e.g. JAVA_HOME, CLASS_PATH)
-2. Установлена база данных MySQL (e.g. MySQL Installer)
+1. Установлена последняя версия Java JDK и были созданы переменные среды (e.g. JAVA_HOME, CLASS_PATH)
+2. Установлена база данных MySQL
 3. Установлен Apache Maven и были созданы переменные среды (e.g. M2_HOME)
 4. Установлен Apache Tomcat и были созданы переменные среды (e.g. TOMCAT_HOME или CATALINA_HOME)
 
@@ -71,11 +71,11 @@
 
 ## Инструкции по запуску
 1. Скачать архив с проектом или загрузить с коммандной строки при помощи `git clone https://github.com/vitascherry/ua.training.vitascherry.finalproject.git`
-2. Создать схему базы данных и необходимые таблицы (e.g. `%PROJECT%/src/main/resources/create_db.sql`)
-2. Запустить Apache Tomcat локально (e.g. `%TOMCAT_HOME%\bin\startup.sh`)
+2. Создать схему базы данных и необходимые таблицы при помощи скрипта `%PROJECT%/src/main/resources/create_db.sql`
+2. Запустить Apache Tomcat локально (e.g. `%TOMCAT_HOME%\bin\startup.bat`)
 3. Запустить приложение из директории с `pom.xml` с командной строки при помощи: `mvn tomcat7:deploy` или `mvn tomcat7: run-war`
 4. Посмотреть сайт можно на http://localhost:8080/
 
 ## Для входа
-- как АДМИН используйте e-mail `root.root@gmail.com` и пароль `password`
-- как STUDENT зарегистрируйтесь или используйте готовые в базе данных. Пароль для всех `password` 
+- как **Администратор** используйте e-mail `root.root@gmail.com` и пароль `password`
+- как **Студент** зарегистрируйтесь или используйте готовые в базе данных. Пароль для всех `password` 
