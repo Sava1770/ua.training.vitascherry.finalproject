@@ -25,8 +25,8 @@
 - Transaction
 
 ## Перед запуском убедиться что
-1. Установлены Java JDK и JRE и были созданы переменные среды (e.g. JAVA_HOME, CLASS_PATH) [Скачать](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) / [Инструкции](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
-2. Установлена база данных MySQL [Скачать](https://dev.mysql.com/downloads/installer/) / [Инструкции](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+1. Установлены JDK и JRE и были созданы переменные среды (e.g. JAVA_HOME, CLASS_PATH) [Скачать](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) / [Инструкции](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+2. Установлен MySQL Server [Скачать](https://dev.mysql.com/downloads/installer/) / [Инструкции](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
 3. Установлен Apache Maven и были созданы переменные среды (e.g. M2_HOME) [Скачать](https://maven.apache.org/download.cgi) / [Инструкции](https://maven.apache.org/install.html)
 4. Установлен Apache Tomcat и были созданы переменные среды (e.g. TOMCAT_HOME или CATALINA_HOME) [Скачать](https://tomcat.apache.org/download-80.cgi) / [Инструкции](https://www.ntu.edu.sg/home/ehchua/programming/howto/Tomcat_HowTo.html)
 
