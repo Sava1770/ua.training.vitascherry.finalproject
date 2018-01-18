@@ -71,7 +71,8 @@
 ```
 
 ## Инструкции по запуску
-1. Скачать и распаковать архив с проектом или загрузить при помощи клиента Git `git clone https://github.com/vitascherry/ua.training.vitascherry.finalproject.git`
+1. Скачать и распаковать архив с проектом или загрузить при помощи клиента Git
+(e.g. `git clone https://github.com/vitascherry/ua.training.vitascherry.finalproject.git`)
 2. Подключиться к MySQL Server при помощи MySQL Workbench или командной строки.
 3. Создать схему базы данных и необходимые таблицы при помощи скрипта `%PROJECT%/src/main/resources/create_db.sql`
 4. Запустить Apache Tomcat локально (e.g. `%TOMCAT_HOME%/bin/startup.bat`)
