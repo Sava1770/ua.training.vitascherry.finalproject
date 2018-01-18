@@ -77,6 +77,12 @@
     <welcome-file>position.jsp</welcome-file>
   </welcome-file-list>
 
+  <!-- Error page -->
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/WEB-INF/templates/server_error.jsp</location>
+  </error-page>
+
   <!-- Additional file type mappings -->
   <servlet-mapping>
     <servlet-name>default</servlet-name>

@@ -35,6 +35,6 @@ public class RequestMapper {
     }
 
     public static int calculatePagesCount(int recordsCount) {
-        return (int)Math.ceil(((double)recordsCount) / RECORDS_PER_PAGE);
+        return recordsCount == 0 ? 1 : (int)Math.ceil(((double)recordsCount) / RECORDS_PER_PAGE);
     }
 }

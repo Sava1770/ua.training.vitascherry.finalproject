@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS student_inspector.solution (
   id_quiz INT NOT NULL,
   id_question INT NOT NULL,
   id_answer INT NOT NULL,
-  PRIMARY KEY (id_user, id_quiz, id_question, id_answer),
+  PRIMARY KEY (id_user, id_quiz, id_question),
   INDEX fk_solution_problem1_idx (id_quiz ASC, id_question ASC),
   INDEX fk_solution_question_answer_idx (id_question ASC, id_answer ASC),
   CONSTRAINT fk_solution_user

@@ -4,13 +4,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><fmt:message bundle="${particular}" key="register.success.title" /></title>
+    <title><fmt:message bundle="${particular}" key="server.error.title" /></title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
 <body>
 <div class="error">
-    <h1><fmt:message bundle="${particular}" key="register.success.title" />!</h1>
-    <h3><fmt:message bundle="${particular}" key="register.success.h3" /></h3>
+    <h1><fmt:message bundle="${particular}" key="server.error.title" />!</h1>
+    <h3><fmt:message bundle="${particular}" key="server.error.h3" /></h3>
 </div>
 <div class="navigation-menu">
     <nav>
