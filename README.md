@@ -1,16 +1,17 @@
 # 12. Система Быстрого Тестирования Студентов
-Студент регистрируется э-мейлом, к нему привязуеться его Успешность
-и на него будут приходить сообщения о результате тестов.
-В системе существует каталог Тестов по темам,
+Студент регистрируется э-мейлом, к нему привязывается его Успеваемость
+и на нее будут приходить сообщения о результате тестов.
+В системе существует каталог Тестов по Темам,
 авторизованный Студент может проходить тесты.
-В конце теста должна на странице отобразится форма где показано ошибки студента.
+В конце теста на странице должна отобразиться форма где показано ошибки Студента.
 Все данные об успеваемости и пройденных курсах
 отображаются на странице Администратора как сводная таблица по всем Студентам.
 
 ## Архитектура приложения
 - MVC. Webapp
-- Сборка приложения происходит при помощи Maven
-- Использованы шаблоны: GoF (e.g. Builder, Singleton, Command, AbstractFactory)
+- При разработке спользованы шаблоны: GoF (e.g. Builder, Singleton, Command, AbstractFactory)
+- Сборка приложения происходит при помощи Apache Maven
+- Сервер для запуска - Apache Tomcat
 
 ## Технологии
 - JSP + JSTL
@@ -24,10 +25,10 @@
 - Transaction
 
 ## Перед запуском убедиться что
-1. Установлена последняя версия Java JDK и были созданы переменные среды (e.g. JAVA_HOME, CLASS_PATH)
-2. Установлена база данных MySQL
-3. Установлен Apache Maven и были созданы переменные среды (e.g. M2_HOME)
-4. Установлен Apache Tomcat и были созданы переменные среды (e.g. TOMCAT_HOME или CATALINA_HOME)
+1. Установлены Java JDK и JRE и были созданы переменные среды (e.g. JAVA_HOME, CLASS_PATH) [Скачать](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) / [Инструкции](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+2. Установлена база данных MySQL [Скачать](https://dev.mysql.com/downloads/installer/) / [Инструкции](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+3. Установлен Apache Maven и были созданы переменные среды (e.g. M2_HOME) [Скачать](https://maven.apache.org/download.cgi) / [Инструкции](https://maven.apache.org/install.html)
+4. Установлен Apache Tomcat и были созданы переменные среды (e.g. TOMCAT_HOME или CATALINA_HOME) [Скачать](https://tomcat.apache.org/download-80.cgi) / [Инструкции](https://www.ntu.edu.sg/home/ehchua/programming/howto/Tomcat_HowTo.html)
 
 ## А также присутствуют записи в файлах:
 1. **[%TOMCAT_HOME%/conf] tomcat-users.xml**
@@ -70,12 +71,13 @@
 ```
 
 ## Инструкции по запуску
-1. Скачать архив с проектом или загрузить с коммандной строки при помощи `git clone https://github.com/vitascherry/ua.training.vitascherry.finalproject.git`
-2. Создать схему базы данных и необходимые таблицы при помощи скрипта `%PROJECT%/src/main/resources/create_db.sql`
-2. Запустить Apache Tomcat локально (e.g. `%TOMCAT_HOME%\bin\startup.bat`)
-3. Запустить приложение из директории с `pom.xml` с командной строки при помощи: `mvn tomcat7:deploy` или `mvn tomcat7: run-war`
-4. Посмотреть сайт можно на http://localhost:8080/
+1. Скачать и распаковать архив с проектом или загрузить при помощи клиента Git `git clone https://github.com/vitascherry/ua.training.vitascherry.finalproject.git`
+2. Подключиться к MySQL Server при помощи MySQL Workbench или командной строки.
+3. Создать схему базы данных и необходимые таблицы при помощи скрипта `%PROJECT%/src/main/resources/create_db.sql`
+4. Запустить Apache Tomcat локально (e.g. `%TOMCAT_HOME%\bin\startup.bat`)
+5. Запустить приложение из корневой директории (с `pom.xml`) с командной строки при помощи: `mvn tomcat7:deploy` или `mvn tomcat7: run-war`
+6. Посмотреть сайт можно на http://localhost:8080/
 
 ## Для входа
 - как **Администратор** используйте e-mail `root.root@gmail.com` и пароль `password`
-- как **Студент** зарегистрируйтесь или используйте готовые в базе данных. Пароль для всех `password` 
+- как **Студент** зарегистрируйтесь или используйте готовые логины в базе данных. Пароль для всех `password`
