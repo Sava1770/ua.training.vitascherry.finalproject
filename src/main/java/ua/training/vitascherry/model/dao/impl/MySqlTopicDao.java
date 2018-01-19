@@ -122,7 +122,6 @@ public class MySqlTopicDao implements TopicDao {
     @Override
     public void close() {
         try {
-            connection.setAutoCommit(true);
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);

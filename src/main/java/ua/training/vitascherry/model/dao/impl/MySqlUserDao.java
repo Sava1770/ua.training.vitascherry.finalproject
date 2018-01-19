@@ -41,18 +41,20 @@ public class MySqlUserDao implements UserDao {
     @Override
     public int create(User user) {
         int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(CREATE_STUDENT)) {
+        try (PreparedStatement ps = connection.prepareStatement(CREATE_USER)) {
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPasswordHash());
-            ps.setString(3, user.getFirstName());
-            ps.setString(4, user.getLastName());
-            ps.setString(5, user.getPatronymic());
+            ps.setString(3, user.getRole().name());
+            ps.setString(4, user.getFirstName());
+            ps.setString(5, user.getLastName());
+            ps.setString(6, user.getPatronymic());
             rowsCount = ps.executeUpdate();
             connection.commit();
         } catch (Exception e) {
             e.printStackTrace();
             try {
                 connection.rollback();
+                rowsCount = 0;
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
@@ -126,7 +128,6 @@ public class MySqlUserDao implements UserDao {
     @Override
     public void close() {
         try {
-            connection.setAutoCommit(true);
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);

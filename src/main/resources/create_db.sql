@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS student_inspector.user (
   patronymic VARCHAR(65) NOT NULL,
   email VARCHAR(65) NOT NULL,
   password_hash VARCHAR(100) NOT NULL,
-  role VARCHAR(45) NOT NULL DEFAULT 'STUDENT',
+  role ENUM('STUDENT', 'ADMIN') NOT NULL,
   PRIMARY KEY (id_user),
   UNIQUE INDEX id_student_UNIQUE (id_user ASC))
 ENGINE = InnoDB;

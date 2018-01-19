@@ -39,8 +39,8 @@ public class Register implements Command {
         }
         User user = User.builder()
                 .setEmail(email)
-                .setRole(User.Role.STUDENT)
                 .setPasswordHash(Encryptor.encrypt(password))
+                .setRole(User.Role.STUDENT)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setPatronymic(patronymic)
