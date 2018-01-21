@@ -23,7 +23,7 @@ public class StudentProgressList implements Command {
     @Override
     public Response execute(HttpServletRequest req) {
         int pageNumber = extractPageNumber(req);
-        List<StudentProgress> progresses = service.getAllProgresses(pageNumber * RECORDS_PER_PAGE);
+        List<StudentProgress> progresses = service.getAllProgresses(RECORDS_PER_PAGE, pageNumber * RECORDS_PER_PAGE);
         if (progresses == null) {
             return Response.NOT_FOUND;
         }

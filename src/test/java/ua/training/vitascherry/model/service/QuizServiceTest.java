@@ -12,8 +12,95 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
+import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 
 public class QuizServiceTest {
+
+    @Test
+    public void getQuizzesCount() throws Exception {
+        DaoFactory factoryMock = Mockito.mock(DaoFactory.class);
+        QuizDao daoMock = Mockito.mock(QuizDao.class);
+
+        final int sampleCount = 5;
+
+        Mockito
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
+
+        Mockito
+            .when(daoMock.getQuizzesCount())
+            .thenReturn(sampleCount);
+
+        QuizService service = new QuizServiceImpl(factoryMock);
+
+        int result = service.getQuizzesCount();
+
+        Mockito.verify(factoryMock).createQuizDao();
+        Mockito.verify(daoMock).getQuizzesCount();
+        Mockito.verify(daoMock).close();
+
+        //Test equals
+        assertThat(result, is(sampleCount));
+    }
+
+    @Test
+    public void getQuizzesCountRelatedToTopic() throws Exception {
+        DaoFactory factoryMock = Mockito.mock(DaoFactory.class);
+        QuizDao daoMock = Mockito.mock(QuizDao.class);
+
+        final int sampleId = 2;
+        final int sampleCount = 5;
+
+        Mockito
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
+
+        Mockito
+            .when(daoMock.getQuizzesCountByTopic(sampleId))
+            .thenReturn(sampleCount);
+
+        QuizService service = new QuizServiceImpl(factoryMock);
+
+        int result = service.getRelatedQuizzesCount(sampleId);
+
+        Mockito.verify(factoryMock).createQuizDao();
+        Mockito.verify(daoMock).getQuizzesCountByTopic(sampleId);
+        Mockito.verify(daoMock).close();
+
+        //Test equals
+        assertThat(result, is(sampleCount));
+    }
+
+    @Test
+    public void getAllRelatedToTopic() throws Exception {
+        DaoFactory factoryMock = Mockito.mock(DaoFactory.class);
+        QuizDao daoMock = Mockito.mock(QuizDao.class);
+
+        final int topicId = 1;
+        List<Quiz> sampleQuizzes = Arrays.asList(
+            Quiz.builder().setId(1).build(),
+            Quiz.builder().setId(2).build()
+        );
+
+        Mockito
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
+
+        Mockito
+            .when(daoMock.findByTopicId(topicId, RECORDS_PER_PAGE, DEFAULT_OFFSET))
+            .thenReturn(sampleQuizzes);
+
+        QuizService service = new QuizServiceImpl(factoryMock);
+
+        List<Quiz> result = service.getAllRelatedToTopic(topicId, RECORDS_PER_PAGE, DEFAULT_OFFSET);
+
+        Mockito.verify(factoryMock).createQuizDao();
+        Mockito.verify(daoMock).findByTopicId(topicId, RECORDS_PER_PAGE, DEFAULT_OFFSET);
+        Mockito.verify(daoMock).close();
+
+        assertThat(result, is(sampleQuizzes));
+    }
 
     @Test
     public void getAllQuizzes() throws Exception {
@@ -21,24 +108,24 @@ public class QuizServiceTest {
         QuizDao daoMock = Mockito.mock(QuizDao.class);
 
         List<Quiz> sampleQuizzes = Arrays.asList(
-                Quiz.builder().setId(1).build(),
-                Quiz.builder().setId(2).build()
+            Quiz.builder().setId(1).build(),
+            Quiz.builder().setId(2).build()
         );
 
         Mockito
-                .when(factoryMock.createQuizDao())
-                .thenReturn(daoMock);
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
 
         Mockito
-                .when(daoMock.findAll())
-                .thenReturn(sampleQuizzes);
+            .when(daoMock.findAll(RECORDS_PER_PAGE, DEFAULT_OFFSET))
+            .thenReturn(sampleQuizzes);
 
         QuizService service = new QuizServiceImpl(factoryMock);
 
-        List<Quiz> result = service.getAllQuizzes();
+        List<Quiz> result = service.getAllQuizzes(RECORDS_PER_PAGE, DEFAULT_OFFSET);
 
         Mockito.verify(factoryMock).createQuizDao();
-        Mockito.verify(daoMock).findAll();
+        Mockito.verify(daoMock).findAll(RECORDS_PER_PAGE, DEFAULT_OFFSET);
         Mockito.verify(daoMock).close();
 
         assertThat(result, is(sampleQuizzes));
@@ -51,17 +138,17 @@ public class QuizServiceTest {
 
         int studentId = 3;
         List<Quiz> passedQuizzes = Arrays.asList(
-                Quiz.builder().setId(1).build(),
-                Quiz.builder().setId(2).build()
+            Quiz.builder().setId(1).build(),
+            Quiz.builder().setId(2).build()
         );
 
         Mockito
-                .when(factoryMock.createQuizDao())
-                .thenReturn(daoMock);
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
 
         Mockito
-                .when(daoMock.findPassedByStudentId(studentId))
-                .thenReturn(passedQuizzes);
+            .when(daoMock.findPassedByStudentId(studentId))
+            .thenReturn(passedQuizzes);
 
         QuizService service = new QuizServiceImpl(factoryMock);
 
@@ -80,28 +167,29 @@ public class QuizServiceTest {
         QuizDao daoMock = Mockito.mock(QuizDao.class);
 
         int studentId = 3;
-        List<Quiz> availableQuizzes = Arrays.asList(
-                Quiz.builder().setId(1).build(),
-                Quiz.builder().setId(2).build()
+        int topicId = 1;
+        List<Quiz> sampleQuizzes = Arrays.asList(
+            Quiz.builder().setId(1).build(),
+            Quiz.builder().setId(2).build()
         );
 
         Mockito
-                .when(factoryMock.createQuizDao())
-                .thenReturn(daoMock);
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
 
         Mockito
-                .when(daoMock.findAvailableByStudentId(studentId))
-                .thenReturn(availableQuizzes);
+            .when(daoMock.findAvailableByStudentIdTopicId(studentId, topicId, RECORDS_PER_PAGE, DEFAULT_OFFSET))
+            .thenReturn(sampleQuizzes);
 
         QuizService service = new QuizServiceImpl(factoryMock);
 
-        List<Quiz> result = service.getAllAvailableForStudent(studentId);
+        List<Quiz> result = service.getAllAvailableForStudent(studentId, topicId, RECORDS_PER_PAGE, DEFAULT_OFFSET);
 
         Mockito.verify(factoryMock).createQuizDao();
-        Mockito.verify(daoMock).findAvailableByStudentId(studentId);
+        Mockito.verify(daoMock).findAvailableByStudentIdTopicId(studentId, topicId, RECORDS_PER_PAGE, DEFAULT_OFFSET);
         Mockito.verify(daoMock).close();
 
-        assertThat(result, is(availableQuizzes));
+        assertThat(result, is(sampleQuizzes));
     }
 
     @Test
@@ -113,12 +201,12 @@ public class QuizServiceTest {
         Quiz sampleQuiz = Quiz.builder().setId(id).build();
 
         Mockito
-                .when(factoryMock.createQuizDao())
-                .thenReturn(daoMock);
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
 
         Mockito
-                .when(daoMock.findById(id))
-                .thenReturn(sampleQuiz);
+            .when(daoMock.findById(id))
+            .thenReturn(sampleQuiz);
 
         QuizService service = new QuizServiceImpl(factoryMock);
 
@@ -141,12 +229,12 @@ public class QuizServiceTest {
         Quiz sampleQuiz = Quiz.builder().setId(quizId).build();
 
         Mockito
-                .when(factoryMock.createQuizDao())
-                .thenReturn(daoMock);
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
 
         Mockito
-                .when(daoMock.findByStudentIdQuizId(studentId, quizId))
-                .thenReturn(sampleQuiz);
+            .when(daoMock.findByStudentIdQuizId(studentId, quizId))
+            .thenReturn(sampleQuiz);
 
         QuizService service = new QuizServiceImpl(factoryMock);
 
@@ -158,5 +246,4 @@ public class QuizServiceTest {
 
         assertThat(result, is(sampleQuiz));
     }
-
 }

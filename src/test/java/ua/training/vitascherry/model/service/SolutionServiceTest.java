@@ -23,21 +23,21 @@ public class SolutionServiceTest {
 
         User student = User.builder().setId(3).build();
         List<Question> questions = Arrays.asList(
-                Question.builder().setId(1).build(),
-                Question.builder().setId(2).build(),
-                Question.builder().setId(3).build(),
-                Question.builder().setId(4).build(),
-                Question.builder().setId(5).build()
+            Question.builder().setId(1).build(),
+            Question.builder().setId(2).build(),
+            Question.builder().setId(3).build(),
+            Question.builder().setId(4).build(),
+            Question.builder().setId(5).build()
         );
         Quiz quiz = Quiz.builder().setId(1).setQuestions(questions).build();
 
         Mockito
-                .when(factoryMock.createQuizDao())
-                .thenReturn(daoMock);
+            .when(factoryMock.createQuizDao())
+            .thenReturn(daoMock);
 
         Mockito
-                .when(daoMock.createStudentSolution(student, quiz))
-                .thenReturn(questions.size());
+            .when(daoMock.createStudentSolution(student, quiz))
+            .thenReturn(questions.size());
 
         SolutionService service = new SolutionServiceImpl(factoryMock);
 

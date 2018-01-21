@@ -15,7 +15,7 @@
 <div class="navigation-menu">
     <nav>
         <a href="${pageContext.request.contextPath}/"><fmt:message bundle="${common}" key="home" /></a>
-        <a href="${pageContext.request.contextPath}/available"><fmt:message bundle="${particular}" key="was.passed.available" /></a>
+        <a href="${pageContext.request.contextPath}/available/${requestScope.topicId}"><fmt:message bundle="${particular}" key="was.passed.available" /></a>
     </nav>
 </div>
 </body>

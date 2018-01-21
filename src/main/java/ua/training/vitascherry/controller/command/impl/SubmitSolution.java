@@ -1,7 +1,7 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.controller.command.GetCommandMap;
+import ua.training.vitascherry.controller.command.GetCommandsHolder;
 import ua.training.vitascherry.model.entity.Answer;
 import ua.training.vitascherry.model.entity.Question;
 import ua.training.vitascherry.model.entity.Quiz;
@@ -31,18 +31,19 @@ public class SubmitSolution implements Command {
         }
         Quiz quiz = Quiz.builder().setId(extractSolutionQuizId(req)).build();
         req.getParameterMap().forEach((questionId, answerIds) ->
-                quiz.getQuestions().add(
-                        Question.builder()
-                                .setId(Integer.parseInt(questionId))
-                                .setAnswers(Arrays.stream(answerIds)
-                                        .map(answerId -> Answer.builder()
-                                                .setId(Integer.parseInt(answerId))
-                                                .build())
-                                        .collect(Collectors.toList()))
-                                .build()));
+            quiz.getQuestions().add(
+                Question.builder()
+                    .setId(Integer.parseInt(questionId))
+                    .setAnswers(Arrays.stream(answerIds)
+                        .map(answerId -> Answer.builder()
+                            .setId(Integer.parseInt(answerId))
+                            .build())
+                        .collect(Collectors.toList()))
+                    .build())
+        );
         if (!service.createStudentSolution(user, quiz)) {
             return Response.SERVER_ERROR;
         }
-        return GetCommandMap.getInstance().get("result").execute(req);
+        return GetCommandsHolder.getInstance().get("result").execute(req);
     }
 }

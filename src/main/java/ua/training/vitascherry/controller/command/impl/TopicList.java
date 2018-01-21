@@ -23,7 +23,7 @@ public class TopicList implements Command {
     @Override
     public Response execute(HttpServletRequest req) {
         int pageNumber = extractPageNumber(req);
-        List<Topic> topics = service.getAllTopics(pageNumber * RECORDS_PER_PAGE);
+        List<Topic> topics = service.getAllTopics(RECORDS_PER_PAGE, pageNumber * RECORDS_PER_PAGE);
         if (topics == null) {
             return Response.NOT_FOUND;
         }

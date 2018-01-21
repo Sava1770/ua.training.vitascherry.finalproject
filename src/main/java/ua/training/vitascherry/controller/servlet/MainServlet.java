@@ -1,8 +1,8 @@
 package ua.training.vitascherry.controller.servlet;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.controller.command.GetCommandMap;
-import ua.training.vitascherry.controller.command.PostCommandMap;
+import ua.training.vitascherry.controller.command.GetCommandsHolder;
+import ua.training.vitascherry.controller.command.PostCommandsHolder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,14 +17,14 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Command command = extractCommand(req, GetCommandMap.getInstance());
+        Command command = extractCommand(req, GetCommandsHolder.getInstance());
         req.getRequestDispatcher(command.execute(req).getPage()).forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Command command = extractCommand(req, PostCommandMap.getInstance());
+        Command command = extractCommand(req, PostCommandsHolder.getInstance());
         req.getRequestDispatcher(command.execute(req).getPage()).forward(req, resp);
     }
 }

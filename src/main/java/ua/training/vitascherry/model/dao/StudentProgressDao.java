@@ -10,9 +10,5 @@ public interface StudentProgressDao extends GenericDao<StudentProgress> {
 
     int getProgressesCountByStudent(int id);
 
-    List<StudentProgress> findAll(int offset);
-
-    List<StudentProgress> findByStudentId(int id);
-
-    List<StudentProgress> findByStudentId(int id, int offset);
+    List<StudentProgress> findByStudentId(int id, int limit, int offset);
 }

@@ -11,10 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
-import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 import static ua.training.vitascherry.model.dao.query.TopicQuery.*;
-import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
 import static ua.training.vitascherry.model.dao.util.TopicMapper.extractTopic;
 
 public class MySqlTopicDao implements TopicDao {
@@ -40,57 +37,20 @@ public class MySqlTopicDao implements TopicDao {
     }
 
     @Override
-    public int getQuizzesCountByTopic(int id) {
-        int rowsCount = 0;
-        try (PreparedStatement ps = connection.prepareStatement(QUIZ_COUNT_BY_TOPIC)) {
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                rowsCount = rs.getInt("quiz_count");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return rowsCount;
-    }
-
-    @Override
     public int create(Topic topic) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Topic findById(int id, int offset) {
-        Topic topic = null;
-        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_TOPIC_BY_ID)
-                .limit(RECORDS_PER_PAGE)
-                .offset(offset)
-                .toString())) {
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                topic = extractTopic(rs);
-                topic.getQuizzes().add(extractQuiz(rs));
-                while (rs.next()) {
-                    topic.getQuizzes().add(extractQuiz(rs));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return topic;
-    }
-
-    @Override
     public Topic findById(int id) {
-        return findById(id, DEFAULT_OFFSET);
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public List<Topic> findAll(int offset) {
+    public List<Topic> findAll(int limit, int offset) {
         List<Topic> topics = null;
         try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_TOPICS)
-                .limit(RECORDS_PER_PAGE)
+                .limit(limit)
                 .offset(offset)
                 .toString())) {
             ResultSet rs = ps.executeQuery();
@@ -102,11 +62,6 @@ public class MySqlTopicDao implements TopicDao {
             e.printStackTrace();
         }
         return topics;
-    }
-
-    @Override
-    public List<Topic> findAll() {
-        return findAll(DEFAULT_OFFSET);
     }
 
     @Override

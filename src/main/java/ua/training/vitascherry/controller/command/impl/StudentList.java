@@ -23,7 +23,7 @@ public class StudentList implements Command {
     @Override
     public Response execute(HttpServletRequest req) {
         int pageNumber = extractPageNumber(req);
-        List<User> students = service.getAllStudents(pageNumber * RECORDS_PER_PAGE);
+        List<User> students = service.getAllStudents(RECORDS_PER_PAGE, pageNumber * RECORDS_PER_PAGE);
         if (students == null) {
             return Response.NOT_FOUND;
         }

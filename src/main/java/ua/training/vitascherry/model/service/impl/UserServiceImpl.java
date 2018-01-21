@@ -73,16 +73,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllStudents(int offset) {
+    public List<User> getAllStudents(int limit, int offset) {
         try (UserDao dao = daoFactory.createUserDao()) {
-            return dao.findAll(offset);
-        }
-    }
-
-    @Override
-    public List<User> getAllStudents() {
-        try (UserDao dao = daoFactory.createUserDao()) {
-            return dao.findAll();
+            return dao.findAll(limit, offset);
         }
     }
 

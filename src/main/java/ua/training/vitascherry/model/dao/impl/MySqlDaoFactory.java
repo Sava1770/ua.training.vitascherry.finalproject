@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class MySqlDaoFactory extends DaoFactory {
 
-    private DataSource dataSource = ConnectionPool.getDataSource();
+    private DataSource dataSource = DataSourceHolder.getDataSource();
 
     @Override
     public StudentProgressDao createStudentProgressDao() {
@@ -28,16 +28,6 @@ public class MySqlDaoFactory extends DaoFactory {
     @Override
     public TopicDao createTopicDao() {
         return new MySqlTopicDao(getConnection());
-    }
-
-    @Override
-    public QuestionDao createQuestionDao() {
-        return new MySqlQuestionDao(getConnection());
-    }
-
-    @Override
-    public AnswerDao createAnswerDao() {
-        return new MySqlAnswerDao(getConnection());
     }
 
     private Connection getConnection(){

@@ -23,37 +23,9 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public int getQuizzesCountByTopicId(int id) {
+    public List<Topic> getAllTopics(int limit, int offset) {
         try (TopicDao dao = daoFactory.createTopicDao()) {
-            return dao.getQuizzesCountByTopic(id);
-        }
-    }
-
-    @Override
-    public List<Topic> getAllTopics(int offset) {
-        try (TopicDao dao = daoFactory.createTopicDao()) {
-            return dao.findAll(offset);
-        }
-    }
-
-    @Override
-    public List<Topic> getAllTopics() {
-        try (TopicDao dao = daoFactory.createTopicDao()) {
-            return dao.findAll();
-        }
-    }
-
-    @Override
-    public Topic getTopicById(int id) {
-        try (TopicDao dao = daoFactory.createTopicDao()) {
-            return dao.findById(id);
-        }
-    }
-
-    @Override
-    public Topic getTopicById(int id, int offset) {
-        try (TopicDao dao = daoFactory.createTopicDao()) {
-            return dao.findById(id, offset);
+            return dao.findAll(limit, offset);
         }
     }
 }

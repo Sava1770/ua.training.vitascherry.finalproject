@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
-import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 import static ua.training.vitascherry.model.dao.query.StudentProgressQuery.*;
 import static ua.training.vitascherry.model.dao.util.StudentProgressMapper.extractStudentProgress;
 
@@ -67,10 +65,10 @@ public class MySqlStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public List<StudentProgress> findAll(int offset) {
+    public List<StudentProgress> findAll(int limit, int offset) {
         List<StudentProgress> progresses = null;
         try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_PROGRESS)
-                .limit(RECORDS_PER_PAGE)
+                .limit(limit)
                 .offset(offset)
                 .toString())) {
             ResultSet rs = ps.executeQuery();
@@ -85,15 +83,10 @@ public class MySqlStudentProgressDao implements StudentProgressDao {
     }
 
     @Override
-    public List<StudentProgress> findAll() {
-        return findAll(DEFAULT_OFFSET);
-    }
-
-    @Override
-    public List<StudentProgress> findByStudentId(int id, int offset) {
+    public List<StudentProgress> findByStudentId(int id, int limit, int offset) {
         List<StudentProgress> studentProgresses = null;
         try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_PROGRESS_BY_STUDENT)
-                .limit(RECORDS_PER_PAGE)
+                .limit(limit)
                 .offset(offset)
                 .toString())) {
             ps.setInt(1, id);
@@ -106,11 +99,6 @@ public class MySqlStudentProgressDao implements StudentProgressDao {
             e.printStackTrace();
         }
         return studentProgresses;
-    }
-
-    @Override
-    public List<StudentProgress> findByStudentId(int id) {
-        return findByStudentId(id, DEFAULT_OFFSET);
     }
 
     @Override

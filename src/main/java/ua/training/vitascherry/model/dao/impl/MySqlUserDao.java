@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
-import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 import static ua.training.vitascherry.model.dao.query.UserQuery.*;
 import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
 
@@ -78,10 +76,10 @@ public class MySqlUserDao implements UserDao {
     }
 
     @Override
-    public List<User> findAll(int offset) {
+    public List<User> findAll(int limit, int offset) {
         List<User> students = null;
         try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_STUDENTS)
-                .limit(RECORDS_PER_PAGE)
+                .limit(limit)
                 .offset(offset)
                 .toString())) {
             ResultSet rs = ps.executeQuery();
@@ -93,11 +91,6 @@ public class MySqlUserDao implements UserDao {
             e.printStackTrace();
         }
         return students;
-    }
-
-    @Override
-    public List<User> findAll() {
-        return findAll(DEFAULT_OFFSET);
     }
 
     @Override

@@ -10,10 +10,6 @@ public abstract class DaoFactory {
 
     public abstract TopicDao createTopicDao();
 
-    public abstract QuestionDao createQuestionDao();
-
-    public abstract AnswerDao createAnswerDao();
-
     public abstract StudentProgressDao createStudentProgressDao();
 
     public abstract UserDao createUserDao();

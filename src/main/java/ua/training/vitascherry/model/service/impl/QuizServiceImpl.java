@@ -23,44 +23,9 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public List<Quiz> getAllQuizzes(int offset) {
+    public int getRelatedQuizzesCount(int id) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAll(offset);
-        }
-    }
-
-    @Override
-    public List<Quiz> getAllQuizzes() {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAll();
-        }
-    }
-
-    @Override
-    public List<Quiz> getAllPassedByStudent(int id, int offset) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findPassedByStudentId(id, offset);
-        }
-    }
-
-    @Override
-    public List<Quiz> getAllPassedByStudent(int id) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findPassedByStudentId(id);
-        }
-    }
-
-    @Override
-    public List<Quiz> getAllAvailableForStudent(int id, int offset) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAvailableByStudentId(id, offset);
-        }
-    }
-
-    @Override
-    public List<Quiz> getAllAvailableForStudent(int id) {
-        try (QuizDao dao = daoFactory.createQuizDao()) {
-            return dao.findAvailableByStudentId(id);
+            return dao.getQuizzesCountByTopic(id);
         }
     }
 
@@ -75,6 +40,34 @@ public class QuizServiceImpl implements QuizService {
     public Quiz getStudentQuizSolution(int studentId, int quizId) {
         try (QuizDao dao = daoFactory.createQuizDao()) {
             return dao.findByStudentIdQuizId(studentId, quizId);
+        }
+    }
+
+    @Override
+    public List<Quiz> getAllQuizzes(int limit, int offset) {
+        try (QuizDao dao = daoFactory.createQuizDao()) {
+            return dao.findAll(limit, offset);
+        }
+    }
+
+    @Override
+    public List<Quiz> getAllPassedByStudent(int id) {
+        try (QuizDao dao = daoFactory.createQuizDao()) {
+            return dao.findPassedByStudentId(id);
+        }
+    }
+
+    @Override
+    public List<Quiz> getAllAvailableForStudent(int studentId, int topicId, int limit, int offset) {
+        try (QuizDao dao = daoFactory.createQuizDao()) {
+            return dao.findAvailableByStudentIdTopicId(studentId, topicId, limit, offset);
+        }
+    }
+
+    @Override
+    public List<Quiz> getAllRelatedToTopic(int id, int limit, int offset) {
+        try (QuizDao dao = daoFactory.createQuizDao()) {
+            return dao.findByTopicId(id, limit, offset);
         }
     }
 }

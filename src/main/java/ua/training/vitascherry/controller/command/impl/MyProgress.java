@@ -33,7 +33,7 @@ public class MyProgress implements Command {
             return Response.FORBIDDEN;
         }
         int pageNumber = extractPageNumber(req);
-        List<StudentProgress> progresses = service.getProgressesByStudentId(id, pageNumber * RECORDS_PER_PAGE);
+        List<StudentProgress> progresses = service.getProgressesByStudentId(id, RECORDS_PER_PAGE, pageNumber * RECORDS_PER_PAGE);
         if (progresses == null) {
             return Response.NOT_FOUND;
         }

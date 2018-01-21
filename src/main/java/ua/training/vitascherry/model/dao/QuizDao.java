@@ -9,17 +9,15 @@ public interface QuizDao extends GenericDao<Quiz> {
 
     int getQuizzesCount();
 
+    int getQuizzesCountByTopic(int id);
+
     int createStudentSolution(User student, Quiz quiz);
 
     Quiz findByStudentIdQuizId(int studentId, int quizId);
 
-    List<Quiz> findAll(int offset);
+    List<Quiz> findByTopicId(int id, int limit, int offset);
 
     List<Quiz> findPassedByStudentId(int id);
 
-    List<Quiz> findPassedByStudentId(int id, int offset);
-
-    List<Quiz> findAvailableByStudentId(int id);
-
-    List<Quiz> findAvailableByStudentId(int id, int offset);
+    List<Quiz> findAvailableByStudentIdTopicId(int studentId, int topicId, int limit, int offset);
 }

@@ -23,7 +23,7 @@ public class QuizList implements Command {
     @Override
     public Response execute(HttpServletRequest req) {
         int pageNumber = extractPageNumber(req);
-        List<Quiz> quizzes = service.getAllQuizzes(pageNumber * RECORDS_PER_PAGE);
+        List<Quiz> quizzes = service.getAllQuizzes(RECORDS_PER_PAGE,pageNumber * RECORDS_PER_PAGE);
         if (quizzes == null) {
             return Response.NOT_FOUND;
         }

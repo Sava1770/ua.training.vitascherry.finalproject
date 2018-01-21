@@ -32,11 +32,14 @@
             <fmt:message bundle="${common}" key="pages" />:
             <c:forEach begin="0" end="${requestScope.pagesCount - 1}" var="i">
                 <c:choose>
-                    <c:when test="${requestScope.topicId == null}">
-                        <a href="${pageContext.request.contextPath}/quizzes?page=${i}"> ${i+1}</a>
+                    <c:when test="${requestScope.isCatalogue}">
+                        <a href="${pageContext.request.contextPath}/topic/${requestScope.topicId}?page=${i}"> ${i+1}</a>
+                    </c:when>
+                    <c:when test="${requestScope.isAvailable}">
+                        <a href="${pageContext.request.contextPath}/available/${requestScope.topicId}?page=${i}"> ${i+1}</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="${pageContext.request.contextPath}/topic/${requestScope.topicId}?page=${i}"> ${i+1}</a>
+                        <a href="${pageContext.request.contextPath}/quizzes?page=${i}"> ${i+1}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>

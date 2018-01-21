@@ -2,10 +2,7 @@ package ua.training.vitascherry.model.dao.impl;
 
 import ua.training.vitascherry.model.dao.QuizDao;
 import ua.training.vitascherry.model.dao.query.Delimiter;
-import ua.training.vitascherry.model.entity.Answer;
-import ua.training.vitascherry.model.entity.User;
-import ua.training.vitascherry.model.entity.Question;
-import ua.training.vitascherry.model.entity.Quiz;
+import ua.training.vitascherry.model.entity.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,12 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-import static ua.training.vitascherry.controller.util.Constants.DEFAULT_OFFSET;
-import static ua.training.vitascherry.controller.util.Constants.RECORDS_PER_PAGE;
 import static ua.training.vitascherry.model.dao.query.QuizQuery.*;
 import static ua.training.vitascherry.model.dao.util.AnswerMapper.extractAnswer;
 import static ua.training.vitascherry.model.dao.util.QuestionMapper.extractQuestion;
 import static ua.training.vitascherry.model.dao.util.QuizMapper.extractQuiz;
+import static ua.training.vitascherry.model.dao.util.TopicMapper.extractTopic;
 import static ua.training.vitascherry.model.dao.util.UniqueValueMapper.extractUniqueValue;
 
 public class MySqlQuizDao implements QuizDao {
@@ -38,6 +34,21 @@ public class MySqlQuizDao implements QuizDao {
     public int getQuizzesCount() {
         int rowsCount = 0;
         try (PreparedStatement ps = connection.prepareStatement(QUIZ_COUNT)) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                rowsCount = rs.getInt("quiz_count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsCount;
+    }
+
+    @Override
+    public int getQuizzesCountByTopic(int id) {
+        int rowsCount = 0;
+        try (PreparedStatement ps = connection.prepareStatement(QUIZ_COUNT_BY_TOPIC)) {
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 rowsCount = rs.getInt("quiz_count");
@@ -123,58 +134,10 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findPassedByStudentId(int id, int offset) {
-        List<Quiz> passedQuizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_PASSED)
-                .limit(RECORDS_PER_PAGE)
-                .offset(offset)
-                .toString())) {
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            passedQuizzes = new ArrayList<>();
-            while (rs.next()) {
-                passedQuizzes.add(extractQuiz(rs));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return passedQuizzes;
-    }
-
-    @Override
-    public List<Quiz> findPassedByStudentId(int id) {
-        return findPassedByStudentId(id, DEFAULT_OFFSET);
-    }
-
-    @Override
-    public List<Quiz> findAvailableByStudentId(int id, int offset) {
-        List<Quiz> availableQuizzes = null;
-        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_AVAILABLE)
-                .limit(RECORDS_PER_PAGE)
-                .offset(offset)
-                .toString())) {
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            availableQuizzes = new ArrayList<>();
-            while (rs.next()) {
-                availableQuizzes.add(extractQuiz(rs));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return availableQuizzes;
-    }
-
-    @Override
-    public List<Quiz> findAvailableByStudentId(int id) {
-        return findAvailableByStudentId(id, DEFAULT_OFFSET);
-    }
-
-    @Override
-    public List<Quiz> findAll(int offset) {
+    public List<Quiz> findAll(int limit, int offset) {
         List<Quiz> quizzes = null;
         try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_ALL_QUIZZES)
-                .limit(RECORDS_PER_PAGE)
+                .limit(limit)
                 .offset(offset)
                 .toString())) {
             ResultSet rs = ps.executeQuery();
@@ -189,8 +152,63 @@ public class MySqlQuizDao implements QuizDao {
     }
 
     @Override
-    public List<Quiz> findAll() {
-        return findAll(DEFAULT_OFFSET);
+    public List<Quiz> findByTopicId(int id, int limit, int offset) {
+        List<Quiz> quizzes = null;
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_BY_TOPIC_ID)
+                .limit(limit)
+                .offset(offset)
+                .toString())) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            quizzes = new ArrayList<>();
+            while (rs.next()) {
+                quizzes.add(extractQuiz(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return quizzes;
+    }
+
+    @Override
+    public List<Quiz> findPassedByStudentId(int id) {
+        List<Quiz> passedQuizzes = null;
+        try (PreparedStatement ps = connection.prepareStatement(FIND_ALL_PASSED)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            passedQuizzes = new ArrayList<>();
+            Map<Integer, Topic> uniqueTopics = new HashMap<>();
+            while (rs.next()) {
+                Topic topic = extractTopic(rs);
+                topic = extractUniqueValue(uniqueTopics, topic.getId(), topic);
+                Quiz quiz = extractQuiz(rs);
+                quiz.setTopic(topic);
+                passedQuizzes.add(quiz);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return passedQuizzes;
+    }
+
+    @Override
+    public List<Quiz> findAvailableByStudentIdTopicId(int studentId, int topicId, int limit, int offset) {
+        List<Quiz> availableQuizzes = null;
+        try (PreparedStatement ps = connection.prepareStatement(new Delimiter(FIND_AVAILABLE_QUIZZES)
+                .limit(limit)
+                .offset(offset)
+                .toString())) {
+            ps.setInt(1, topicId);
+            ps.setInt(2, studentId);
+            ResultSet rs = ps.executeQuery();
+            availableQuizzes = new ArrayList<>();
+            while (rs.next()) {
+                availableQuizzes.add(extractQuiz(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return availableQuizzes;
     }
 
     @Override

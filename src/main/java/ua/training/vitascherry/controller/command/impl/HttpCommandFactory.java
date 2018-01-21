@@ -28,7 +28,7 @@ public class HttpCommandFactory extends CommandFactory {
         commands.put("student", new StudentProfile(userService));
         commands.put("students", new StudentList(userService));
         commands.put("progress", new MyProgress(studProService));
-        commands.put("topic", new QuizCatalogue(topicService));
+        commands.put("topic", new QuizCatalogue(quizService));
         commands.put("topics", new TopicList(topicService));
         commands.put("result", new QuizSolution(quizService));
         commands.put("quizzes", new QuizList(quizService));

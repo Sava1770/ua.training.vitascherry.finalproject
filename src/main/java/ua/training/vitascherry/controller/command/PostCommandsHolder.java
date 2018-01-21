@@ -2,15 +2,15 @@ package ua.training.vitascherry.controller.command;
 
 import java.util.Map;
 
-public abstract class GetCommandMap {
+public abstract class PostCommandsHolder {
 
     private static volatile Map<String, Command> commandMap;
 
     public static Map<String, Command> getInstance(){
         if (commandMap == null) {
-            synchronized (GetCommandMap.class){
+            synchronized (PostCommandsHolder.class){
                 if (commandMap == null){
-                    commandMap = CommandFactory.getInstance().createGetCommands();
+                    commandMap = CommandFactory.getInstance().createPostCommands();
                 }
             }
         }

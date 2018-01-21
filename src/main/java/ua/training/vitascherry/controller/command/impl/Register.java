@@ -25,7 +25,8 @@ public class Register implements Command {
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
         String patronymic = req.getParameter("patronymic");
-        if (password == null || !password.equals(confirm) || RequestParameter.PASSWORD.isInvalid(password) ||
+        if (password == null || !password.equals(confirm) ||
+                RequestParameter.PASSWORD.isInvalid(password) ||
                 email == null || RequestParameter.EMAIL.isInvalid(email) ||
                 lastName == null || RequestParameter.NAME.isInvalid(lastName) ||
                 firstName == null || RequestParameter.NAME.isInvalid(firstName) ||
@@ -38,13 +39,13 @@ public class Register implements Command {
             return Response.REGISTER;
         }
         User user = User.builder()
-                .setEmail(email)
-                .setPasswordHash(Encryptor.encrypt(password))
-                .setRole(User.Role.STUDENT)
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setPatronymic(patronymic)
-                .build();
+            .setEmail(email)
+            .setPasswordHash(Encryptor.encrypt(password))
+            .setRole(User.Role.STUDENT)
+            .setFirstName(firstName)
+            .setLastName(lastName)
+            .setPatronymic(patronymic)
+            .build();
         return service.createUser(user) ? Response.REGISTER_SUCCESS : Response.REGISTER;
     }
 }

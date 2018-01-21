@@ -30,30 +30,16 @@ public class StudentProgressServiceImpl implements StudentProgressService {
     }
 
     @Override
-    public List<StudentProgress> getAllProgresses(int offset) {
+    public List<StudentProgress> getAllProgresses(int limit, int offset) {
         try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
-            return dao.findAll(offset);
+            return dao.findAll(limit, offset);
         }
     }
 
     @Override
-    public List<StudentProgress> getAllProgresses() {
+    public List<StudentProgress> getProgressesByStudentId(int id, int limit, int offset) {
         try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
-            return dao.findAll();
-        }
-    }
-
-    @Override
-    public List<StudentProgress> getProgressesByStudentId(int id, int offset) {
-        try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
-            return dao.findByStudentId(id, offset);
-        }
-    }
-
-    @Override
-    public List<StudentProgress> getProgressesByStudentId(int id) {
-        try (StudentProgressDao dao = daoFactory.createStudentProgressDao()) {
-            return dao.findByStudentId(id);
+            return dao.findByStudentId(id, limit, offset);
         }
     }
 }

@@ -6,6 +6,7 @@ import ua.training.vitascherry.controller.util.Response;
 import javax.servlet.http.HttpServletRequest;
 
 public class ChangeLocale implements Command {
+
     @Override
     public Response execute(HttpServletRequest req) {
         String locale = req.getParameter("locale");
