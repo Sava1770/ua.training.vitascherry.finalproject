@@ -46,13 +46,13 @@ public class MySqlUserDao implements UserDao {
             ps.setString(4, user.getFirstName());
             ps.setString(5, user.getLastName());
             ps.setString(6, user.getPatronymic());
-            rowsCount = ps.executeUpdate();
+            int insertedRows = ps.executeUpdate();
             connection.commit();
+            rowsCount = insertedRows;
         } catch (Exception e) {
             e.printStackTrace();
             try {
                 connection.rollback();
-                rowsCount = 0;
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }

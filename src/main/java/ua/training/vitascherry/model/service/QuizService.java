@@ -69,8 +69,8 @@ public interface QuizService {
      * that student of specified id have not passed yet.
      * Result list's size will always be less than or equals to specified limit.
      *
-     * @param topicId an id of topic
      * @param studentId an id of student
+     * @param topicId an id of topic
      * @param limit a maximum number of quizzes to return
      * @param offset a number of previous records of quizzes to skip
      * @return the List object parameterized by Quiz, or null if there is no available quizzes

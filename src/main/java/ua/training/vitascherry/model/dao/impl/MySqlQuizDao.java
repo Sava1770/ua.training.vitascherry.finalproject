@@ -72,8 +72,9 @@ public class MySqlQuizDao implements QuizDao {
                     ps.addBatch();
                 }
             }
-            rowsCount = ps.executeBatch().length;
+            int batchLength = ps.executeBatch().length;
             connection.commit();
+            rowsCount = batchLength;
         } catch (Exception e) {
             e.printStackTrace();
             try {
