@@ -75,7 +75,7 @@ public interface QuizService {
      * @param offset a number of previous records of quizzes to skip
      * @return the List object parameterized by Quiz, or null if there is no available quizzes
      */
-    List<Quiz> getAllAvailableForStudent(int topicId, int studentId, int limit, int offset);
+    List<Quiz> getAllAvailableForStudent(int studentId, int topicId, int limit, int offset);
 
     /**
      * Returns the list of existing quizzes that are related to topic of specified id.
