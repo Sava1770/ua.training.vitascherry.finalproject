@@ -19,6 +19,7 @@
             .question-text {
                 width: 100%;
                 font-weight: bold;
+                padding-bottom: 0.28em;
             }
             .answer-text:after {
                 display: block;

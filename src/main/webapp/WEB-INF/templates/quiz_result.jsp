@@ -15,7 +15,7 @@
             .question-text {
                 width: 100%;
                 font-weight: bold;
-                margin-bottom: 5px;
+                padding-bottom: 0.28em;
             }
             .answers {
                 padding-left: 1em;

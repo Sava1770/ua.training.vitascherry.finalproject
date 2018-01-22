@@ -95,8 +95,11 @@ public class MySqlQuizDao implements QuizDao {
             HashMap<Integer, Question> uniqueQuestions = new HashMap<>();
             if (rs.next()) {
                 quiz = extractQuiz(rs);
+                Question question = extractQuestion(rs);
+                question = extractUniqueValue(uniqueQuestions, question.getId(), question);
+                question.getAnswers().add(extractAnswer(rs));
                 while (rs.next()) {
-                    Question question = extractQuestion(rs);
+                    question = extractQuestion(rs);
                     question = extractUniqueValue(uniqueQuestions, question.getId(), question);
                     question.getAnswers().add(extractAnswer(rs));
                 }
