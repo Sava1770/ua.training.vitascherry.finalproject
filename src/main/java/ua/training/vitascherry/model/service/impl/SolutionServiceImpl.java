@@ -12,7 +12,7 @@ public class SolutionServiceImpl implements SolutionService {
 
     private static final Logger logger = LogManager.getLogger(SolutionServiceImpl.class.getName());
 
-    private DaoFactory daoFactory;
+    private final DaoFactory daoFactory;
 
     public SolutionServiceImpl(DaoFactory daoFactory) {
         this.daoFactory = daoFactory;

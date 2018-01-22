@@ -19,7 +19,7 @@
         <div class="topics">
             <table>
                 <tr class="table-header">
-                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${particular}" key="topic.list.name" /></th>
+                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${common}" key="name" /></th>
                 </tr>
                 <c:forEach var="topic" items="${requestScope.topics}" varStatus="topicLoop">
                     <tr class="topic-info">

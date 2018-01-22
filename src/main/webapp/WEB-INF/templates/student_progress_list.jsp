@@ -19,7 +19,7 @@
         <div class="progresses">
             <table>
                 <tr class="table-header">
-                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${particular}" key="student.progress.list.student" /></th><th><fmt:message bundle="${particular}" key="student.progress.list.quiz" /></th><th><fmt:message bundle="${particular}" key="student.progress.list.questions" /></th><th><fmt:message bundle="${particular}" key="student.progress.list.correct" /></th>
+                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${particular}" key="student.progress.student" /></th><th><fmt:message bundle="${particular}" key="student.progress.quiz" /></th><th><fmt:message bundle="${particular}" key="student.progress.questions" /></th><th><fmt:message bundle="${particular}" key="student.progress.correct" /></th>
                 </tr>
                 <c:forEach var="studentProgress" items="${requestScope.progresses}" varStatus="progressLoop">
                     <tr class="progress-info">

@@ -14,7 +14,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractPageN
 
 public class StudentProgressList implements Command {
 
-    private StudentProgressService service;
+    private final StudentProgressService service;
 
     public StudentProgressList(StudentProgressService service) {
         this.service = service;

@@ -1,6 +1,7 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
+import ua.training.vitascherry.controller.util.MissingTokenException;
 import ua.training.vitascherry.model.entity.StudentProgress;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.service.StudentProgressService;
@@ -16,7 +17,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractPageN
 
 public class MyProgress implements Command {
 
-    private StudentProgressService service;
+    private final StudentProgressService service;
 
     public MyProgress(StudentProgressService service) {
         this.service = service;
@@ -24,7 +25,12 @@ public class MyProgress implements Command {
 
     @Override
     public Response execute(HttpServletRequest req) {
-        int id = extractId(req);
+        int id;
+        try {
+            id = extractId(req);
+        } catch (MissingTokenException e) {
+            return Response.NOT_FOUND;
+        }
         User sessionUser = (User)req.getSession().getAttribute("user");
         if (sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() == id) {
             return Response.ADMIN_SIGNED_IN;

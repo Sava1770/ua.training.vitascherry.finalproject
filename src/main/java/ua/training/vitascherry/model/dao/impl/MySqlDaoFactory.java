@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class MySqlDaoFactory extends DaoFactory {
 
-    private DataSource dataSource = DataSourceHolder.getDataSource();
+    private final DataSource dataSource = DataSourceHolder.getDataSource();
 
     @Override
     public StudentProgressDao createStudentProgressDao() {

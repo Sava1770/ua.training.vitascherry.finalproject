@@ -6,20 +6,15 @@ import java.util.Map;
 
 public abstract class CommandFactory {
 
-    private static volatile CommandFactory commandFactory;
-
     public abstract Map<String, Command> createGetCommands();
 
     public abstract Map<String, Command> createPostCommands();
 
+    private static class CommandFactoryHolder {
+        private static final CommandFactory HOLDER_INSTANCE = new HttpCommandFactory();
+    }
+
     public static CommandFactory getInstance(){
-        if (commandFactory == null) {
-            synchronized (CommandFactory.class){
-                if (commandFactory == null){
-                    commandFactory = new HttpCommandFactory();
-                }
-            }
-        }
-        return commandFactory;
+        return CommandFactoryHolder.HOLDER_INSTANCE;
     }
 }

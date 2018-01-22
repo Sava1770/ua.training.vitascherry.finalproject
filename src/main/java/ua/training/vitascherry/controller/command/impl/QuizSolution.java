@@ -1,6 +1,7 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
+import ua.training.vitascherry.controller.util.MissingTokenException;
 import ua.training.vitascherry.model.entity.Quiz;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.model.service.QuizService;
@@ -13,7 +14,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractSolut
 
 public class QuizSolution implements Command {
 
-    private QuizService service;
+    private final QuizService service;
 
     public QuizSolution(QuizService service) {
         this.service = service;
@@ -21,12 +22,22 @@ public class QuizSolution implements Command {
 
     @Override
     public Response execute(HttpServletRequest req) {
-        int studentId = extractId(req);
+        int studentId;
+        try {
+            studentId = extractId(req);
+        } catch (MissingTokenException e) {
+            return Response.NOT_FOUND;
+        }
         User sessionUser = (User)req.getSession().getAttribute("user");
         if (!sessionUser.getRole().equals(User.Role.ADMIN) && sessionUser.getId() != studentId) {
             return Response.FORBIDDEN;
         }
-        int quizId = extractSolutionQuizId(req);
+        int quizId;
+        try {
+            quizId = extractSolutionQuizId(req);
+        } catch (MissingTokenException e) {
+            return Response.NOT_FOUND;
+        }
         Quiz quiz = service.getQuizById(quizId);
         if (quiz == null) {
             return Response.NOT_FOUND;

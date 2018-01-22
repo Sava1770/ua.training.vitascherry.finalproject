@@ -9,7 +9,7 @@ import java.util.List;
 
 public class QuizServiceImpl implements QuizService {
 
-    private DaoFactory daoFactory;
+    private final DaoFactory daoFactory;
 
     public QuizServiceImpl(DaoFactory daoFactory) {
         this.daoFactory = daoFactory;

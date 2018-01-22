@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class SignIn implements Command {
 
-    private UserService service;
+    private final UserService service;
 
     public SignIn(UserService service) {
         this.service = service;

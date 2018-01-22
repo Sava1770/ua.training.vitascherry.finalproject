@@ -19,7 +19,7 @@
         <div class="quizzes">
             <table>
                 <tr class="table-header">
-                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${particular}" key="topic.list.name" /></th>
+                    <th><fmt:message bundle="${common}" key="number" /></th><th><fmt:message bundle="${common}" key="name" /></th>
                 </tr>
                 <c:forEach var="quiz" items="${requestScope.quizzes}" varStatus="quizLoop">
                     <tr class="quiz-info">

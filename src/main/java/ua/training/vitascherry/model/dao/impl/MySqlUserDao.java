@@ -16,7 +16,7 @@ import static ua.training.vitascherry.model.dao.util.UserMapper.extractUser;
 
 public class MySqlUserDao implements UserDao {
 
-    private Connection connection;
+    private final Connection connection;
 
     public MySqlUserDao(Connection connection) {
         this.connection = connection;

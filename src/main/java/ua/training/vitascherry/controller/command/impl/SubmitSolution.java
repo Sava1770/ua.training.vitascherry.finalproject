@@ -1,7 +1,8 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
-import ua.training.vitascherry.controller.command.GetCommandsHolder;
+import ua.training.vitascherry.controller.command.GetCommandMap;
+import ua.training.vitascherry.controller.util.MissingTokenException;
 import ua.training.vitascherry.model.entity.Answer;
 import ua.training.vitascherry.model.entity.Question;
 import ua.training.vitascherry.model.entity.Quiz;
@@ -17,7 +18,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractSolut
 
 public class SubmitSolution implements Command {
 
-    private SolutionService service;
+    private final SolutionService service;
 
     public SubmitSolution(SolutionService service) {
         this.service = service;
@@ -29,7 +30,13 @@ public class SubmitSolution implements Command {
         if (user.getRole().equals(User.Role.ADMIN)) {
             return Response.ADMIN_SIGNED_IN;
         }
-        Quiz quiz = Quiz.builder().setId(extractSolutionQuizId(req)).build();
+        int quizId;
+        try {
+            quizId = extractSolutionQuizId(req);
+        } catch (MissingTokenException e) {
+            return Response.NOT_FOUND;
+        }
+        Quiz quiz = Quiz.builder().setId(quizId).build();
         req.getParameterMap().forEach((questionId, answerIds) ->
             quiz.getQuestions().add(
                 Question.builder()
@@ -44,6 +51,6 @@ public class SubmitSolution implements Command {
         if (!service.createStudentSolution(user, quiz)) {
             return Response.CONCURRENCY;
         }
-        return GetCommandsHolder.getInstance().get("result").execute(req);
+        return GetCommandMap.getInstance().get("result").execute(req);
     }
 }

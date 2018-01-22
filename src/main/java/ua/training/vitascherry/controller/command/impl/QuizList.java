@@ -14,7 +14,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractPageN
 
 public class QuizList implements Command {
 
-    private QuizService service;
+    private final QuizService service;
 
     public QuizList(QuizService service) {
         this.service = service;

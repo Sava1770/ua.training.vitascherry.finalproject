@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TopicServiceImpl implements TopicService {
 
-    private DaoFactory daoFactory;
+    private final DaoFactory daoFactory;
 
     public TopicServiceImpl(DaoFactory factory) {
         this.daoFactory = factory;

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class StudentProgressServiceImpl implements StudentProgressService {
 
-    private DaoFactory daoFactory;
+    private final DaoFactory daoFactory;
 
     public StudentProgressServiceImpl(DaoFactory factory) {
         this.daoFactory = factory;

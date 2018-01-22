@@ -2,7 +2,7 @@ package ua.training.vitascherry.model.dao.query;
 
 public class Delimiter {
 
-    private StringBuilder builder;
+    private final StringBuilder builder;
 
     public Delimiter(String query) {
         this.builder = new StringBuilder(query);

@@ -1,5 +1,7 @@
 package ua.training.vitascherry.controller.util;
 
+import java.util.Arrays;
+
 public class Tokenizer {
 
     private static String[] tokenize(String path) {
@@ -7,8 +9,8 @@ public class Tokenizer {
     }
 
     public static String extractToken(String path, Token token) {
-        String[] tokens;
-        if ((tokens = tokenize(path)).length > token.getPosition()) {
+        String[] tokens = tokenize(path);
+        if (tokens.length > token.getPosition()) {
             return tokens[token.getPosition()];
         }
         return path;

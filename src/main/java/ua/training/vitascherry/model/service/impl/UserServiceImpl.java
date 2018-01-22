@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class.getName());
 
-    private DaoFactory daoFactory;
+    private final DaoFactory daoFactory;
 
     public UserServiceImpl(DaoFactory daoFactory) {
         this.daoFactory = daoFactory;

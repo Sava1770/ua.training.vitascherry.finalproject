@@ -40,15 +40,12 @@ public class AuthorizationFilter implements Filter {
         String token = extractToken(httpReq.getRequestURI(), Token.COMMAND);
         List<User.Role> permissions = specialPermissions.get(token);
         if (permissions != null) {
-            User.Role role = null;
             User user = (User) httpReq.getSession().getAttribute("user");
-            if (user != null) {
-                role = user.getRole();
-            }
-            if (role == null) {
+            if (user == null) {
                 httpResp.sendRedirect(httpReq.getContextPath() + "/" + "signin");
                 return;
-            } else if (!permissions.contains(role)) {
+            }
+            if (!permissions.contains(user.getRole())) {
                 httpReq.getRequestDispatcher(Response.FORBIDDEN.getPage()).forward(httpReq, httpResp);
                 return;
             }

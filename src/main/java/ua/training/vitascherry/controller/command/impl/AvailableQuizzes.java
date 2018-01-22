@@ -1,6 +1,7 @@
 package ua.training.vitascherry.controller.command.impl;
 
 import ua.training.vitascherry.controller.command.Command;
+import ua.training.vitascherry.controller.util.MissingTokenException;
 import ua.training.vitascherry.model.entity.Quiz;
 import ua.training.vitascherry.model.entity.User;
 import ua.training.vitascherry.controller.util.Response;
@@ -17,7 +18,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractPageN
 
 public class AvailableQuizzes implements Command {
 
-    private QuizService service;
+    private final QuizService service;
 
     public AvailableQuizzes(QuizService service) {
         this.service = service;
@@ -25,9 +26,14 @@ public class AvailableQuizzes implements Command {
 
     @Override
     public Response execute(HttpServletRequest req) {
-        User user = (User) req.getSession().getAttribute("user");
-        int topicId = extractId(req);
+        int topicId;
+        try {
+            topicId = extractId(req);
+        } catch (MissingTokenException e) {
+            return Response.NOT_FOUND;
+        }
         int pageNumber = extractPageNumber(req);
+        User user = (User) req.getSession().getAttribute("user");
         List<Quiz> quizzes = service.getAllAvailableForStudent(user.getId(), topicId, RECORDS_PER_PAGE, pageNumber * RECORDS_PER_PAGE);
         if (quizzes == null) {
             return Response.NOT_FOUND;

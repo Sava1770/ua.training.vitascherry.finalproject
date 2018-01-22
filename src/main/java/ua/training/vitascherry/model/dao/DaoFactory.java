@@ -4,8 +4,6 @@ import ua.training.vitascherry.model.dao.impl.MySqlDaoFactory;
 
 public abstract class DaoFactory {
 
-    private static volatile DaoFactory daoFactory;
-
     public abstract QuizDao createQuizDao();
 
     public abstract TopicDao createTopicDao();
@@ -14,14 +12,11 @@ public abstract class DaoFactory {
 
     public abstract UserDao createUserDao();
 
+    private static class DaoFactoryHolder {
+        private static final DaoFactory HOLDER_INSTANCE = new MySqlDaoFactory();
+    }
+
     public static DaoFactory getInstance(){
-        if (daoFactory == null) {
-            synchronized (DaoFactory.class){
-                if (daoFactory == null){
-                    daoFactory = new MySqlDaoFactory();
-                }
-            }
-        }
-        return daoFactory;
+        return DaoFactoryHolder.HOLDER_INSTANCE;
     }
 }

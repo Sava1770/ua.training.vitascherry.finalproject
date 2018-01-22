@@ -16,7 +16,7 @@ import static ua.training.vitascherry.model.dao.util.StudentProgressMapper.extra
 
 public class MySqlStudentProgressDao implements StudentProgressDao {
 
-    private Connection connection;
+    private final Connection connection;
 
     public MySqlStudentProgressDao(Connection connection) {
         this.connection = connection;

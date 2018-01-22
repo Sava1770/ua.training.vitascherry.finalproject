@@ -14,7 +14,6 @@ public enum Response {
     NOT_FOUND(NOT_FOUND_PAGE),
     CONCURRENCY(CONCURRENCY_PAGE),
     WAS_PASSED(WAS_PASSED_PAGE),
-    SERVER_ERROR(SERVER_ERROR_PAGE),
     QUIZ_BODY(QUIZ_PAGE),
     QUIZ_RESULT(QUIZ_RESULT_PAGE),
     QUIZ_LIST(QUIZ_LIST_PAGE),
@@ -24,7 +23,7 @@ public enum Response {
     STUD_PROS(STUD_PROS_PAGE),
     STUD_PROS_LIST(STUD_PROS_LIST_PAGE);
 
-    private String page;
+    private final String page;
 
     Response(String page) {
         this.page = page;

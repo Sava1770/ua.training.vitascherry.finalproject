@@ -14,7 +14,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractPageN
 
 public class TopicList implements Command {
 
-    private TopicService service;
+    private final TopicService service;
 
     public TopicList(TopicService service) {
         this.service = service;

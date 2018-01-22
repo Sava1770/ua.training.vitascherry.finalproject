@@ -119,7 +119,7 @@ public class User {
         STUDENT(Response.STUDENT_SIGNED_IN),
         ADMIN(Response.ADMIN_SIGNED_IN);
 
-        private Response response;
+        private final Response response;
 
         Role(Response response) {
             this.response = response;

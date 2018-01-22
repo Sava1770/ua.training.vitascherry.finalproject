@@ -5,7 +5,7 @@ public enum Token {
     ID(2),
     SOLUTION_QUIZ_ID(3);
 
-    private int position;
+    private final int position;
 
     Token(int position) {
         this.position = position;

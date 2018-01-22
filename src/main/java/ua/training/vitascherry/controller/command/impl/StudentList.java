@@ -14,7 +14,7 @@ import static ua.training.vitascherry.controller.util.RequestMapper.extractPageN
 
 public class StudentList implements Command {
 
-    private UserService service;
+    private final UserService service;
 
     public StudentList(UserService service) {
         this.service = service;
