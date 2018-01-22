@@ -4,6 +4,7 @@ public interface Url {
     String FORBIDDEN_PAGE =        "/WEB-INF/templates/forbidden.jsp";
     String NOT_FOUND_PAGE =        "/WEB-INF/templates/not_found.jsp";
     String WAS_PASSED_PAGE =       "/WEB-INF/templates/was_passed.jsp";
+    String CONCURRENCY_PAGE =      "/WEB-INF/templates/concurrency.jsp";
     String SERVER_ERROR_PAGE =     "/WEB-INF/templates/server_error.jsp";
     String HOME_PAGE =             "/WEB-INF/templates/index.jsp";
     String REGISTER_PAGE =         "/WEB-INF/templates/register.jsp";

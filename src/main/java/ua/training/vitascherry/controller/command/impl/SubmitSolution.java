@@ -42,7 +42,7 @@ public class SubmitSolution implements Command {
                     .build())
         );
         if (!service.createStudentSolution(user, quiz)) {
-            return Response.SERVER_ERROR;
+            return Response.CONCURRENCY;
         }
         return GetCommandsHolder.getInstance().get("result").execute(req);
     }

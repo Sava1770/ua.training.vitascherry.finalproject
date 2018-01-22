@@ -24,7 +24,7 @@ public class SolutionServiceImpl implements SolutionService {
             dao.setAutoCommit(false);
             boolean isCreated = (dao.createStudentSolution(student, quiz) != 0);
             if (isCreated) {
-                logger.info("User {} passed the quiz id: {}", student.getEmail(), quiz.getId());
+                logger.info("STUDENT {} passed the Quiz {}", student.getEmail(), quiz.getId());
             }
             return isCreated;
         }
