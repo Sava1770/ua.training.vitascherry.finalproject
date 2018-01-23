@@ -64,7 +64,7 @@ public interface UserService {
      *
      * @param limit a maximum number of users to return
      * @param offset a number of previous records of users to skip
-     * @return the List object parameterized by User, or null if there is no quiz
+     * @return the List object parameterized by User, or null if there was en error reading from repository
      */
     List<User> getAllStudents(int limit, int offset);
 
@@ -72,7 +72,7 @@ public interface UserService {
      * Returns student by it's id.
      *
      * @param id an id of desired User
-     * @return the User object of the specified id, or null if such does not exist
+     * @return the User object of the specified id, or null if such does not exist or there was en error reading from repository
      */
     User getStudentById(int id);
 }

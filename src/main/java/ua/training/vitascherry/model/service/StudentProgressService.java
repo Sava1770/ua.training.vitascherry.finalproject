@@ -35,7 +35,7 @@ public interface StudentProgressService {
      *
      * @param limit a maximum number of student's progresses to return
      * @param offset a number of previous records of student's progresses to skip
-     * @return the List object parameterized by StudentProgress, or null if there is no student's progress
+     * @return the List object parameterized by StudentProgress, or null if there was en error reading from repository
      */
     List<StudentProgress> getAllProgresses(int limit, int offset);
 
@@ -47,7 +47,7 @@ public interface StudentProgressService {
      * @param id an id of student
      * @param limit a maximum number of student's progresses to return
      * @param offset a number of previous records of student's progresses to skip
-     * @return the List object parameterized by StudentProgress, or null if there is no student's progress
+     * @return the List object parameterized by StudentProgress, or null if there was en error reading from repository
      */
     List<StudentProgress> getProgressesByStudentId(int id, int limit, int offset);
 }

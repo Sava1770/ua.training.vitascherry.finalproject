@@ -52,7 +52,7 @@ public interface QuizService {
      *
      * @param limit a maximum number of quizzes to return
      * @param offset a number of previous records of quizzes to skip
-     * @return the List object parameterized by Quiz, or null if there is no quiz
+     * @return the List object parameterized by Quiz, or null if there was en error reading from repository
      */
     List<Quiz> getAllQuizzes(int limit, int offset);
 
@@ -60,7 +60,7 @@ public interface QuizService {
      * Returns a list of existing Quizzes that student of specified id have already passed.
      *
      * @param id an id of student
-     * @return the List object parameterized by Quiz, or null if there is no quiz
+     * @return the List object parameterized by Quiz, or null if there was en error reading from repository
      */
     List<Quiz> getAllPassedByStudent(int id);
 
@@ -73,7 +73,7 @@ public interface QuizService {
      * @param topicId an id of topic
      * @param limit a maximum number of quizzes to return
      * @param offset a number of previous records of quizzes to skip
-     * @return the List object parameterized by Quiz, or null if there is no available quizzes
+     * @return the List object parameterized by Quiz, or null if there was en error reading from repository
      */
     List<Quiz> getAllAvailableForStudent(int studentId, int topicId, int limit, int offset);
 
@@ -84,7 +84,7 @@ public interface QuizService {
      * @param id an id of topic
      * @param limit a maximum number of quizzes to return
      * @param offset a number of previous records of quizzes to skip
-     * @return the List object parameterized by Quiz, or null if there is no related quiz
+     * @return the List object parameterized by Quiz, or null if there was en error reading from repository
      */
     List<Quiz> getAllRelatedToTopic(int id, int limit, int offset);
 }

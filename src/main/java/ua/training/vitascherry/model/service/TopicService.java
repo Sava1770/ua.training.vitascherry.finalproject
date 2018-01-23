@@ -27,7 +27,7 @@ public interface TopicService {
      *
      * @param limit a maximum number of topics to return
      * @param offset a number of previous records of topics to skip
-     * @return the List object parameterized by Topic, or null if there is no quiz
+     * @return the List object parameterized by Topic, or null if there was en error reading from repository
      */
     List<Topic> getAllTopics(int limit, int offset);
 }
