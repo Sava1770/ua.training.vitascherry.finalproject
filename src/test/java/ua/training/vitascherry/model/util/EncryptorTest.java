@@ -1,6 +1,7 @@
 package ua.training.vitascherry.model.util;
 
 import org.junit.Test;
+import org.junit.Ignore;
 
 import java.io.File;
 import java.net.URL;
