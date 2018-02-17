@@ -12,6 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 public class EncryptorTest {
 
+	@Ignore
     @Test
     public void encrypt() throws Exception {
         //Get files from resources folder
@@ -27,6 +28,7 @@ public class EncryptorTest {
         }
     }
 
+	@Ignore
     @Test
     public void matches() throws Exception {
         //Get files from resources folder
